@@ -1,246 +1,605 @@
-@extends('layouts/default')
+@extends('layouts/default2')
 
 {{-- Page title --}}
 @section('title')
-Home
-@parent
+    Home |
+    @parent
 @stop
-
 {{-- page level styles --}}
 @section('header_styles')
-<!--page level css starts-->
-<link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/index.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/timeline1.css') }}">
-<link href="{{ asset('vendors/animate/animate.min.css') }}" rel="stylesheet" type="text/css" />
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Playfair+Display+SC:wght@700&family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
-<!--end of page level css-->
+    <!--page level css starts-->
+
+    <!--end of page level css-->
 @stop
 
-{{-- content --}}
-<style>
-    .box-center{
-        width: 100%;
-        height: 400px;
-        background-color: #418bca;
-        border-left: 3px solid #0E2231 ;
-
-    }
-    .text-right1{
-        font-family: 'Quicksand', sans-serif;
-        text-align: center;
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .text-left1{
-        font-family: 'Quicksand', sans-serif;
-        text-align: center;
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .text-left2{
-        font-family: 'Quicksand', sans-serif;
-        text-align: center;
-        position: relative;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-</style>
-
+<!--  Main banner section -->
 @section('content')
-    <!--Got questions section -->
-    <div class="row">
-        <div class="col-sm-6">
-            <img src="{{asset('images/background3.jpg')}}" style="width:100%;" >
-        </div>
-        <div class="col-sm-6" >
-            <div class="text-right1">
-                <h2 style="color: #101010; padding: 20px;">Searching <br/>for<br/> Answers?</h2><br/>
-                <p style="font-size:28px; text-align: center; padding: 20px;">Join the StudPort Community and get answers to all your questions - yeah,<span class="text-info"><b> ALL!</b></span></p>
-                <div style="color:#e4d400; font-size:28px; line-height: 1.5em; ">
-                    <button class="btn btn-success" style="border-radius:50px; width:250px;"><span style="font-size:24px;font-weight: bold;">Get Started</span></button>
-
+<section class="w3l-main-banner">
+    <div class="companies20-content">
+        <div class="companies-wrapper">
+            <div class="container">
+                <div class="banner-item">
+                    <div class="banner-view">
+                        <div class="banner-info">
+                            <h3 class="banner-text">
+                                Learn Anytime, Anywhere<br> Accelerate Your success
+                            </h3>
+                            <p class="my-4 mb-sm-5">We believe every question has an Answer. StudPort is a place where students can
+                                get answers to all their questions anytime anywhere.
+                            </p><br>
+                            <a href="#signup.html" class="btn btn-primary theme-button mr-3">Become a Teacher</a>
+                            <a href="#courses.html" class="btn btn-outline-primary theme-button">Courses</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div style="height: 50px;"></div>
-    <!--End of Got questions section -->
-    <!--Beginning of Communities -->
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="text-left1">
-                <h2 style="color: #101010; padding: 20px;">We build <br/> supportive communities</h2>
-                <p style="font-size:28px; text-align: center; padding: 20px;">The StudPort community helps you achieve your goals
-                    through collective efforts of participants.</p>
+</section>
+<!--  //Main banner section -->
+<section class="w3l-index5" id="about">
+    <div class="new-block py-5">
+        <div class="container py-lg-3">
+            <div class="header-section text-center">
+                <h3>Got a Question?</h3>
+                <p class="mt-3 mb-5" style="text-align: justify;">You can ask questions in every course/subject and our StudPort Teachers will provide answers to your questions.
+                    You can give back by providing answers to questions. Join the StudPort Community now and get answers to all your questions - yeah, ALL!</p>
+                <a href="#signup.html" class="btn btn-primary theme-button">Join our Community</a>
             </div>
-        </div>
-        <div class="col-sm-6" >
-            <img src="{{asset('images/background6.jpg')}}" style="width:100%;" >
-        </div>
-    </div>
-
-    <!-- End of Community -->
-    <!--features section start -->
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="text-left1">
-                <h2 style="color: #101010; padding: 20px;">Responsive <br/> design</h2><br/>
-                <p style="font-size:28px; text-align: center; padding: 20px;">The Responsiveness of StudPort allows users to have the same
-                User Experience (UX) across multiple device dimensions </p>
-            </div>
-        </div>
-        <div class="col-sm-6" >
-            <img src="{{asset('images/background7.jpg')}}" style="width:100%;" >
-        </div>
-    </div>
-    <!--
-        <div style="color:#e4d400; font-size:28px; line-height: 1.5em; ">
-            <button class="btn btn-outline-primary" style="border-radius:50px; width:200px;">StudPort Secondary</button><br>
-        <button class="btn btn-outline-primary" style="border-radius:50px;width:200px;">StudPort PostSecondary </button><br>
-        <button class="btn btn-outline-primary" style="border-radius:50px;width:200px;">StudPort Professional </button>
-        </div>  -->
-        <div> </div>
-
-    <!-- Container Section Start -->
-<div class="container">
-    <!--Content Section Start -->
-    <div class="row">
-            <div class="col-sm-4">
-                <div class="text-left1">
-                    <h2 style="text-align:center; color:#e69138; font-family: 'Quicksand', sans-serif;" >StudPort Services</h2><br/>
-                    <img src="{{asset('images/background8.jpg')}}" style="width:100%;" >
-                    <h3>StudPort is run by qualified secondary, high school and university lecturers</h3>
+            <div class="list-single-view mt-5">
+                <div class="row">
+                    <div class="col-md-12 mt-3">
+                        <div class="grids5-info">
+                            <a href="#url" class="d-block zoom"><img src="{{asset('images/p1.jpg')}}" alt="" class="img-fluid news-image" /></a>
+                            <div class="blog-info">
+                                <p class="date">Step 01</p>
+                                <h4>Join Community</h4>
+                                <p class="blog-text">You can join the StudPort Community by creating a StudPort account - It is FREE!
+                                    Click the link below to Create your StudPort Account. <br>
+                                    <a  class="btn btn-info theme-button mr-3" href="#" >Create Account</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-12" >
-                <div class="col-12 mx-auto">
-                    <ul class="timeline">
-                        <!-- Item 1 -->
-                        <li>
-                            <div class="direction-r wow slideInRight" data-wow-duration="1s">
-                                <div class="flag-wrapper">
-                                    <span class="hexa"></span>
-                                    <span class="flag "><a  style="font-family: chalkduster; font-size:32px; color:#e69138" >StudPort Ask <img src="{{asset('images/background9.jpg')}}" style="width:100%;" ></a> <br> Anybody can ask a question</span>
-                                    <span class="time-wrapper"><span class="time"><a href="#" style="text-decoration:none; color:#fff;">... questions asked so far</a></span></span>
-                                </div>
-                                <div class="desc" style="border-left:5px solid #418bca;">Get answers to all your
-                                    questions and give back by sharing your knowledge with others.
-                                    <a href="#" style="color:#e69138; text-decoration:none;">Sign up</a> for an account.
-                                    <br>
-                                    <button type="button" class="btn btn-xs btn-warning"><a href="#"style="color:#fff; text-decoration:none;">
-                                            Browse questions</a> </button>
-
-                                </div>
+            <div class="list-single-view mt-3">
+                <div class="row">
+                    <div class="col-md-12 mt-3">
+                        <div class="grids5-info">
+                            <a href="#url" class="d-block zoom"><img src="{{asset('images/p2.jpg')}}" alt="" class="img-fluid news-image" /></a>
+                            <div class="blog-info">
+                                <p class="date">Step 02</p>
+                                <h4>Learning</h4>
+                                <p class="blog-text">Once your StudPort Account is activated, you shall be granted access to your Portal.
+                                Here, you will be able to:
+                                    <ul class="color-with-marker">
+                                    <li><span class="fas fa-check"></span>Ask questions either by typing it or by just uploading an image file</li>
+                                    <li>View answers to answered questions</li>
+                                    <li>Meet a teacher for one-on-one tutoring</li>
+                                </ul>
+                                </p>
                             </div>
-                        </li>
-
-                        <!-- Item 2 -->
-                        <li>
-                            <div class="direction-l wow slideInLeft" data-wow-duration="1s">
-                                <div class="flag-wrapper">
-                                    <span class="hexa"></span>
-                                    <span class="flag"><a  style="font-family: chalkduster; font-size:32px; color:#e69138" >StudPort Answer <img src="{{asset('images/background10.jpg')}}" style="width:100%;" ></a> <br>  Anybody can answer a question</span>
-                                    <span class="time-wrapper"><span class="time">... questions answered so far</span></span>
-                                </div>
-                                <div class="desc" style="border-left:5px solid #418bca;>StudPort helps students get instant answers from <a href="#" style="color:#e69138; text-decoration:none;" >qualified teachers</a> online.
-                                    Find recommended <a href="#" style="color:#e69138; text-decoration:none;">resources</a> from experts in your subject area.
-                                    <br>
-                                    <button type="button" class="btn btn-xs btn-warning"><a href="#"style="color:#fff; text-decoration:none;">
-                                            Try for free</a></button>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Item 3 -->
-                        <li>
-                            <div class="direction-r wow slideInRight" data-wow-duration="1s">
-                                <div class="flag-wrapper">
-                                    <span class="hexa"></span>
-                                    <span class="flag"><a  style="font-family: chalkduster; font-size:32px; color:#e69138" >StudPort Jobs <img src="{{asset('images/background10.jpg')}}" style="width:100%;" ></a> <br>Find a Tutoring job</span>
-                                    <span class="time-wrapper"><span class="time">... jobs available</span></span>
-                                </div>
-                                <div class="desc" style="border-left:5px solid #418bca;>StudPort helps students who need tutoring on a one-on-one basis by
-                                    at different levels and areas of study. <a href="#" style="color:#e69138; text-decoration:none;" >Sign up </a>
-                                    to StudPort jobs and find available tutoring jobs.
-                                    <br>
-                                    <button type="button" class="btn btn-xs btn-warning"><a href="#"style="color:#fff; text-decoration:none;">
-                                            Available jobs</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- item4  -->
-
-                        <li>
-                            <div class="direction-l wow slideInLeft" data-wow-duration="1s">
-                                <div class="flag-wrapper">
-                                    <span class="hexa"></span>
-                                    <span class="flag"><a  style="font-family: chalkduster; font-size:32px; color:#e69138" >StudPort Resources <img src="{{asset('images/background13.jpg')}}" style="width:100%;" ></a> <br> Find recommended study resources</span>
-                                    <span class="time-wrapper"><span class="time">... downloads</span></span>
-                                </div>
-                                <div class="desc" style="border-left:5px solid #418bca;">StudPort Library contains books, articles, video lessons, etc,
-                                    recommended by teachers, to help students
-                                    acquire knowledge in the shortest possible time
-                                    <br>
-                                    <button type="button" class="btn btn-xs btn-warning"><a href="#"style="color:#fff; text-decoration:none;">
-                                            Find resources</a></button>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Item 5 -->
-                        <li>
-                            <div class="direction-r wow slideInRight" data-wow-duration="1s">
-                                <div class="flag-wrapper">
-                                    <span class="hexa"></span>
-                                    <span class="flag"><a  style="font-family: chalkduster; font-size:32px; color:#e69138" >StudPort Orientation <img src="{{asset('images/background12.jpg')}}" style="width:100%;" ></a> <br>Career Orientation</span>
-                                    <span class="time-wrapper"><span class="time">In progress ...</span></span>
-                                </div>
-                                <div class="desc" style="font-family: 'Quicksand'; border-left:5px solid #418bca;">StudPort Connects students to guidance counsellors and career coaches.
-                                    Here, students get guidance and available career paths of whatever course they are undertaking
-                                    <br>
-                                    <button type="button" class="btn btn-xs btn-warning"><a href="#"style="color:#fff; text-decoration:none;">
-                                            Sign up</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="list-single-view mt-3">
+                <div class="row">
+                    <div class="col-md-12 mt-3">
+                        <div class="grids5-info">
+                            <a href="#url" class="d-block zoom"><img src="{{asset('images/p3.jpg')}}" alt="" class="img-fluid news-image" /></a>
+                            <div class="blog-info">
+                                <p class="date">Step 03</p>
+                                <h4>Get the Best Job</h4>
+                                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
+                                    reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-single-view mt-3">
+                <div class="row">
+                    <div class="col-md-12 mt-3">
+                        <div class="grids5-info">
+                            <a href="#url" class="d-block zoom"><img src="{{asset('images/p4.jpg')}}" alt="" class="img-fluid news-image" /></a>
+                            <div class="blog-info">
+                                <p class="date">Step 04</p>
+                                <h4>Community</h4>
+                                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
+                                    reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+</section>
+<!-- stats -->
+<section class="w3l-stats py-lg-5 py-4" id="stats">
+    <div class="gallery-inner container py-md-5 py-4">
+        <div class="row stats-con text-white">
+            <div class="col-md-3 col-6 stats_info counter_grid">
+                <span class="fa fa-smile-o"></span>
+                <p class="counter">196</p>
+                <h4>Complete Courses</h4>
+            </div>
+            <div class="col-md-3 col-6 stats_info counter_grid1">
+                <span class="fa fa-graduation-cap"></span>
+                <p class="counter">96</p>
+                <h4>Certified Teachers</h4>
+            </div>
+            <div class="col-md-3 col-6 stats_info counter_grid mt-md-0 mt-5">
+                <span class="fa fa-history"></span>
+                <p class="counter">25</p>
+                <h4>Years of Experience</h4>
+            </div>
+            <div class="col-md-3 col-6 stats_info counter_grid2 mt-md-0 mt-5">
+                <span class="fa fa-users"></span>
+                <p class="counter">890</p>
+                <h4>Students Enrolled</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //stats -->
+<section class="w3l-index-block4">
+    <div class="feature-16-main py-5">
+        <div class="container py-lg-3">
+            <div class="header-section text-center">
+                <h3>Our Programs</h3>
+                <p class="mt-3 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum cumque distinctio eveniet tempore delectus
+                    totam ratione repudiandae ipsum vel molestias?</p>
+            </div>
+            <div class="features-grids">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="feature-16-gd">
+                            <div class="icon">
+                                <img src="{{asset('images/seminors.png')}}" class="img-fluid" alt="" />
+                            </div>
+                            <div class="feature-16-gd-info">
+                                <h4 class="mt-4 mb-2">Group Seminars</h4>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                                <ul>
+                                    <li>Our job is to make your life easier.</li>
+                                    <li>Experience students as it should be.</li>
+                                    <li>Doing the right thing,
+                                        at the right time.</li>
+                                    <li>Explore The World Of Our Graduates</li>
+                                </ul>
+                                <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-4">
+                        <div class="feature-16-gd">
+                            <div class="icon">
+                                <img src="{{asset('images/course.png')}}" class="img-fluid" alt="" />
+                            </div>
+                            <div class="feature-16-gd-info">
+                                <h4 class="mt-4 mb-2">Trending Courses</h4>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                                <ul>
+                                    <li>Our job is to make your life easier.</li>
+                                    <li>Experience students as it should be.</li>
+                                    <li>Doing the right thing,
+                                        at the right time.</li>
+                                    <li>Explore The World Of Our Graduates</li>
+                                </ul>
+                                <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <div class="feature-16-gd">
+                            <div class="icon">
+                                <img src="{{asset('images/library.png')}}" class="img-fluid" alt="" />
+                            </div>
+                            <div class="feature-16-gd-info">
+                                <h4 class="mt-4 mb-2">Large Library</h4>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                                <ul>
+                                    <li>Our job is to make your life easier.</li>
+                                    <li>Experience students as it should be.</li>
+                                    <li>Doing the right thing,
+                                        at the right time.</li>
+                                    <li>Explore The World Of Our Graduates</li>
+                                </ul>
+                                <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <div class="feature-16-gd">
+                            <div class="icon">
+                                <img src="{{asset('images/teacher.png')}}" class="img-fluid" alt="" />
+                            </div>
+                            <div class="feature-16-gd-info">
+                                <h4 class="mt-4 mb-2">Expert Teachers</h4>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                                <ul>
+                                    <li>Our job is to make your life easier.</li>
+                                    <li>Experience students as it should be.</li>
+                                    <li>Doing the right thing,
+                                        at the right time.</li>
+                                    <li>Explore The World Of Our Graduates</li>
+                                </ul>
+                                <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //subscribe -->
+<section class="w3l-get-started">
+    <div class="new-block top-bottom">
+        <div class="container">
+            <div class="middle-section">
+                <div class="section-width">
+                    <h2>Start your Business today with this professional template.</h2>
+                </div>
+                <div class="link-list-menu">
+                    <p class="mb-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae sapiente facere amet quas quae, inventore, dolore modi, delectus illum velit magni quod blanditiis nam quasi perspiciatis. Quod cupiditate eum sit!</p>
+                    <a href="about.html" class="btn btn-outline-light btn-more">About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="w3l-testimonials" id="testimonials">
+    <div class="testimonials py-5">
+        <div class="container py-lg-5">
+            <div class="header-section text-center">
+                <h3>What our Student Saying</h3>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-10 mx-auto">
+                    <div class="owl-one owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="slider-info mt-lg-4 mt-3">
+                                <div class="img-circle">
+                                    <img src="{{asset('images/student1.jpg')}}" class="img-fluid testimonial-img" alt="client image">
+                                </div>
+                                <div class="message">
+                                    <span class="fa fa-quote-left" aria-hidden="true"></span>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
+                                        officia quod quasi necessitatibus perspiciatis Harum error provident
+                                        quibusdam tenetur.</p>
+                                    <div class="name mt-4">
+                                        <h4>Adam Ster</h4>
+                                        <p>Designation goes here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="slider-info mt-lg-4 mt-3">
+                                <div class="img-circle">
+                                    <img src="{{asset('images/student2.jpg')}}" class="img-fluid testimonial-img" alt="client image">
+                                </div>
+                                <div class="message">
+                                    <span class="fa fa-quote-left" aria-hidden="true"></span>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
+                                        officia quod quasi necessitatibus perspiciatis Harum error provident
+                                        quibusdam tenetur.</p>
+                                    <div class="name mt-4">
+                                        <h4>Dennis Jack</h4>
+                                        <p>Designation goes here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="slider-info mt-lg-4 mt-3">
+                                <div class="img-circle">
+                                    <img src="{{asset('images/student3.jpg')}}" class="img-fluid testimonial-img" alt="client image">
+                                </div>
+                                <div class="message">
+                                    <span class="fa fa-quote-left" aria-hidden="true"></span>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
+                                        officia quod quasi necessitatibus perspiciatis Harum error provident
+                                        quibusdam tenetur.</p>
+                                    <div class="name mt-4">
+                                        <h4>Camillae</h4>
+                                        <p>Designation goes here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="slider-info mt-lg-4 mt-3">
+                                <div class="img-circle">
+                                    <img src="{{asset('images/student4.jpg')}}" class="img-fluid testimonial-img" alt="client image">
+                                </div>
+                                <div class="message">
+                                    <span class="fa fa-quote-left" aria-hidden="true"></span>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
+                                        officia quod quasi necessitatibus perspiciatis Harum error provident
+                                        quibusdam tenetur.</p>
+                                    <div class="name mt-4">
+                                        <h4>Charlotte</h4>
+                                        <p>Designation goes here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="w3l-faq-block py-5">
+    <div class="container py-lg-5">
+        <div class="header-section mb-4">
+            <h3>FAQ</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab"
+                       aria-controls="home">Teaching</a>
+                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab"
+                       aria-controls="profile">Courses</a>
+                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab"
+                       aria-controls="messages">Programs</a>
+                </div>
+            </div>
+            <div class="col-md-8 mt-md-0 mt-5">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                        <section class="w3l-faq" id="faq">
+                            <div class="faq-page">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>We denounce with righteous?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda excepturi aperiam iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>At vero eos iusto odio ducimus qui?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>But I must explain to you how all this idea?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>Sed ut perspiciatis unde omnis?</h2>
+                                        <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>The standard chunk of Lorem Ipsum used since the 1500s?</h2>
+                                        <p>Consectetur quae quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>There are many variations of passages but the majority?</h2>
+                                        <p>Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>But I must explain to you how all this idea?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>Sed ut perspiciatis unde omnis?</h2>
+                                        <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                        <section class="w3l-faq" id="faq">
+                            <div class="faq-page">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>But I must explain to you how all this idea?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>At vero eos iusto odio ducimus qui?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>Sed ut perspiciatis unde omnis?</h2>
+                                        <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>The standard chunk of Lorem Ipsum used since the 1500s?</h2>
+                                        <p>Consectetur quae quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>We denounce with righteous?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda excepturi aperiam iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>But I must explain to you how all this idea?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>At vero eos iusto odio ducimus qui?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>There are many variations of passages but the majority?</h2>
+                                        <p>Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                        <section class="w3l-faq" id="faq">
+                            <div class="faq-page">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>We denounce with righteous?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda excepturi aperiam iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>At vero eos iusto odio ducimus qui?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>But I must explain to you how all this idea?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>Sed ut perspiciatis unde omnis?</h2>
+                                        <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>The standard chunk of Lorem Ipsum used since the 1500s?</h2>
+                                        <p>Consectetur quae quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>There are many variations of passages but the majority?</h2>
+                                        <p>Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
+                                            non assumenda, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>But I must explain to you how all this idea?</h2>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis autem.</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>perspiciatis unde omnis?</h2>
+                                        <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
+                                            laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
+                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
-        <!-- //Content Section End -->
+<section class="w3l-subscribe">
+    <div class="subscription-infhny">
+        <div class="container-fluid">
+            <div class="subscription-grids row">
+                <div class="subscription-right form-right-inf col-lg-6 p-md-5 p-4">
+                    <div class="px-lg-5 py-md-0 py-3">
+                        <div class="header-section">
+                            <h3>Join us for FREE to get instant <span>email updates!</span></h3>
+                            <p class="mt-3">Subscribe and get notified at first on the latest update and offers!</p>
+                        </div>
+                        <form action="#" method="post" class="signin-form mt-lg-5 mt-4">
+                            <div class="forms-gds">
+                                <div class="form-input">
+                                    <input type="email" name="" placeholder="Your email here" required="">
+                                </div>
+                                <div class="form-input"><button class="btn btn-primary theme-button">Subscribe</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="subscription-left forms-25-info col-lg-6 ">
 
-        <hr style="border: 1px solid #e69138;border-radius: 5px;width: 100px;">
-
-    <h2 style="text-align:center; color:#e69138; font-family:chalkduster;" >Find out how StudPort helps you as a student!</h2>
-    <hr style="border: 1px solid #e69138;border-radius: 5px;width: 100px;">
-    <iframe style="width:100%; " height="420" src="https://www.youtube.com/embed/viHILXVY_eU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-
-<!-- //Container End -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @stop
-{{-- page level scripts --}}
-@section('footer_scripts')
-<script src="{{ asset('vendors/wow/js/wow.min.js') }}" type="text/javascript"></script>
-<script>
-    jQuery(document).ready(function() {
-            new WOW().init();
-        });
-</script>
-
-@stop
-
 
 

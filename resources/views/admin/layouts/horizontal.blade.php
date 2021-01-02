@@ -36,7 +36,7 @@
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
         <a href="{{ route('admin.dashboard') }}" class="logo">
-            <img src="{{ asset('img/logo.png') }}" alt="logo">
+            <img src="{{ asset('images/logo.png') }}" alt="logo">
         </a>
         <div class="navbar-right toggle">
             <ul class="nav navbar-nav  list-inline">

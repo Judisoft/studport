@@ -11,6 +11,9 @@ Blog
 <!--page level css starts-->
 <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/tabbular.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/blog.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Playfair+Display+SC:wght@700&family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
 <!--end of page level css-->
 @stop
 
@@ -19,8 +22,9 @@ Blog
 @section('content')
 <!-- Container Section Strat -->
 <div class="container blogpage">
-    <h3 class="my-3">Academic Blog</h3>
+    <h4 class="my-3">Academic Blog</h4>
     <hr>
+
     <div class="row">
         <div class="col-md-8 col-lg-8 col-12 my-2">
             @forelse ($blogs as $blog)
@@ -38,29 +42,30 @@ Blog
                     <p>
                         <strong>Tags: </strong>
                         @forelse($blog->tags as $tag)
-                        <button type="button" class="btn btn-xs btn-warning" href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}">{{ $tag }}</button>&nbsp;
+                        <a  class="btn btn-xs btn-outline-secondary" style="border-radius: 25px; padding: 3px 10px 3px 10px;" href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}">{{ $tag }}</a>&nbsp;
                         @empty
                         No Tags
                         @endforelse
                     </p>
                     <p class="additional-post-wrap">
                         <span class="additional-post">
-                            <i class="livicon" data-name="user" data-size="13" data-loop="true" data-c="#5bc0de"
-                                data-hc="#5bc0de"></i> by&nbsp;<a
-                                href="#">{{$blog->author->first_name . ' ' . $blog->author->last_name}}</a>
+                         <b>Author: </b> &nbsp;<a href="#"> <span class="far fa-user"></span> {{$blog->author->first_name . ' ' . $blog->author->last_name}}</a>
                         </span>
                         <span class="additional-post">
-                            <i class="livicon" data-name="clock" data-size="18" data-loop="true" data-c="#5bc0de"
-                                data-hc="#5bc0de"></i><a href="#"> {{$blog->created_at->diffForHumans()}}</a>
+                            <a href="#"><a href="#"> <span class="far fa-calendar-alt"></span> {{$blog->created_at->diffForHumans()}}</a>
                         </span>
                         <span class="additional-post">
-                            <i class="livicon" data-name="comment" data-size="13" data-loop="true" data-c="#5bc0de"
-                                data-hc="#5bc0de"></i><a href="#"> {{$blog->comments->count()}} answer(s)</a>
+                            <a href="#"> <span class="far fa-comment-alt"></span>  {{$blog->comments->count()}} answer(s)</a>
                         </span>
                     </p>
                     <hr>
                     <p class="text-right">
-                        <a href="{{ URL::to('blogitem/'.$blog->slug) }}" class="btn btn-primary text-white">View Answers</a>
+                        @if($blog->comments->count() > 0)
+                            <a href="{{ URL::to('blogitem/'.$blog->slug) }}" class="btn btn-outline-success">View Answers</a>
+                        @else
+                            <a href="{{ URL::to('blogitem/'.$blog->slug) }}" class="btn btn-outline-info" >Answer this question</a>
+                        @endif
+
                     </p>
                 </div>
                 <!-- /.featured-text -->
@@ -89,30 +94,42 @@ Blog
                     <!-- Tab-content Start -->
                     <div class="thumbnail">
                             <h4 class="text-danger">Question</h4>
-                            <p>
-                               <strong>Answer</strong>
-                            </p>
                         </div>
                     <!-- //Tab-content End -->
                 </div>
                 <!-- //Tabbablw-line End -->
             </div>
             <!-- Tabbable_panel End -->
+            <!-- Category -->
+            <div class="recent p-3 border radius mb-3">
+                <h4 class="text-primary">Categories</h4>
+                <hr>
+                <div class="media">
+                    <div class="media-body ml-3">
+                        @foreach($blogscategories as $blogscategory)
+                            @if(@count($blogscategory) > 0)
+                                <a  href="#"><span class="far fa-folder"></span> &nbsp;{{$blogscategory->title }}</a><br />
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+
             <div class="recent p-3 border radius mb-3">
                 <h4 class="text-primary">Tags</h4>
                 <hr>
                 <div class="media">
                     <div class="media-body ml-3">
-                     <div class="primary">
-                            @forelse($tags as $tag)
-                             <button type="button" class="btn btn-xs btn-success" href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}">{{ $tag }}</button>&nbsp;
-                            @empty
-                            No Tags
-                            @endforelse
+                            @foreach($tags as $tag)
+                                @if(@count($tag) > 0)
+                             <a  href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}"><span class="fas fa-tags"></span> &nbsp;{{ $tag }}</a><br />
+                            @endif
+                            @endforeach
                     </div>
-             </div>
+                </div>
             </div>
-        </div>
+
         <!-- /.col-md-4 -->
     </div>
     </div>

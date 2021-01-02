@@ -48,13 +48,14 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                 <div class="row">
                     <div class="col-sm-8">
-                        <label>News Title</label>
+                        <label>Job Title (Subject/Course)</label>
                         <div class="form-group {{ $errors->first('title', 'has-error') }}">
-                            {!! Form::text('title', null, ['class' => 'form-control input-lg','placeholder'=> trans('blog/form.ph-title')]) !!}
+                            {!! Form::text('title', null, ['class' => 'form-control input-lg','placeholder'=> 'Subject/Course Area']) !!}
                             <span class="help-block">{{ $errors->first('title', ':message') }}</span>
                         </div>
+                        <label>Job Description</label>
                         <div class='box-body pad form-group {{ $errors->first('content', 'has-error') }}'>
-                            {!! Form::textarea('content', NULL, ['placeholder'=>trans('blog/form.ph-content'),'rows'=>'5','class'=>'textarea form-control','style'=>'style="width: 100%; height: 200px !important; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"']) !!}
+                            {!! Form::textarea('content', NULL, ['placeholder'=>'Job description here ...','rows'=>'5','class'=>'textarea form-control','style'=>'style="width: 100%; height: 200px !important; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"']) !!}
                             <span class="help-block">{{ $errors->first('content', ':message') }}</span>
                         </div>
                     </div>
@@ -62,34 +63,32 @@
                     <div class="col-sm-4">
 
                         <div class="form-group {{ $errors->first('category', 'has-error') }}">
-                            <label for="blog_category" class="">News Category</label>
-                            {!! Form::select('category',['popular'=>'popular','hotnews'=>'Hot News','world'=>'Wolrd News','lifestyle'=>'Life Style','business'=>'Business','sports'=>'Sports'], null, ['class' => 'form-control select2', 'id'=>'blog_category' ,'placeholder'=>trans('blog/form.select-category')]) !!}
+                            <label for="blog_category" class="">Job Category</label>
+                            {!! Form::select('category',['day school teaching'=>'Classroom Teaching (day school)','night school teaching '=>'Classroom Teaching (evening school)', 'home teaching'=>'Home Teaching'], null, ['class' => 'form-control select2', 'id'=>'blog_category' ,'placeholder'=>trans('blog/form.select-category')]) !!}
                             <span class="help-block">{{ $errors->first('category', ':message') }}</span>
                         </div>
-
-                        <div class="form-group {{ $errors->first('image', 'has-error') }}">
-                            <label class="control-label col-12">@lang('blog/form.lb-featured-img')</label>
-                            <div class="col-12 fileinput fileinput-new" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail" style="max-width: 200px; max-height: 200px;">
-                                    <img src="{{ asset('images/authors/no_avatar.jpg') }}" alt="..."
-                                         class="img-responsive"/>
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail"
-                                     style="max-width: 200px; max-height: 150px;">
-
-                                </div>
-                                <div>
-                                            <span class="btn btn-primary btn-file">
-                                                <span class="fileinput-new">Select image</span>
-                                                <span class="fileinput-exists">Change</span>
-                                                <input type="file" name="image" id="pic" accept="image/*"/>
-                                            </span>
-                                    <span class="btn btn-primary fileinput-exists"
-                                          data-dismiss="fileinput">Remove</span>
-                                </div>
-                                <span class="help-block">{{ $errors->first('image', ':message') }}</span>
-                            </div>
+                        <label>Salary/Month</label>
+                        <div class="form-group {{ $errors->first('salary', 'has-error') }}">
+                            {!! Form::text('salary', null, ['class' => 'form-control input-lg','placeholder'=> 'Salary']) !!}
+                            <span class="help-block">{{ $errors->first('salary', ':message') }}</span>
                         </div>
+                        <label>Employer/Institution</label>
+                        <div class="form-group {{ $errors->first('employer', 'has-error') }}">
+                            {!! Form::text('employer', null, ['class' => 'form-control input-lg','placeholder'=> 'Employer']) !!}
+                            <span class="help-block">{{ $errors->first('employer', ':message') }}</span>
+                        </div>
+                        <label>Employer's Contact</label>
+                        <div class="form-group {{ $errors->first('employercontact', 'has-error') }}">
+                            {!! Form::text('employercontact', null, ['class' => 'form-control input-lg','placeholder'=> 'Employer Contact']) !!}
+                            <span class="help-block">{{ $errors->first('employercontact', ':message') }}</span>
+                        </div>
+                        <label>Location</label>
+                        <div class="form-group {{ $errors->first('location', 'has-error') }}">
+                            {!! Form::text('location', null, ['class' => 'form-control input-lg','placeholder'=> 'Employer']) !!}
+                            <span class="help-block">{{ $errors->first('location', ':message') }}</span>
+                        </div>
+
+
                         <div class="form-group col-12">
                             <button type="submit" class="btn btn-success">@lang('blog/form.publish')</button>
                             <a href="{!! URL::to('admin/news/create') !!}"

@@ -50,7 +50,7 @@ Contact
                 </div>
             </form>
         </div>
-        <!-- //Conatc Form Section End -->
+        <!-- //Contact Form Section End -->
         <!-- Address Section Start -->
         <div class="col-md-6 col-sm-6 my-3">
             <h2 style="font-family:chalkduster; color:#418bca;">Address</h2>
@@ -67,7 +67,7 @@ Contact
                     <address>
                         Elig-Effa Yaounde
                         <br> Centre Region, Cameroon
-                    
+
                     </address>
                 </div>
             </div>

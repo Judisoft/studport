@@ -3,20 +3,26 @@
 namespace App\Http\Controllers;
 
 use Activation;
+use App\Http\Requests\BlogRequest;
+use \Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\PasswordResetRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\FrontendRequest;
 use App\Mail\Register;
+use App\Models\BookRequest;
+use App\Models\News;
 use App\Models\User;
 use App\Models\Blog;
 use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
 use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
+use DOMDocument;
 use File;
 use Hash;
+use http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Intervention\Image\Facades\Image;
 use Mail;
-use Redirect;
 use Reminder;
 use Validator;
 use Sentinel;
@@ -101,9 +107,11 @@ class FrontEndController extends JoshController
         $users = User::all();
         $countries = Country::all()->pluck('name', 'sortname')->toArray();
         $blogcategory = BlogCategory::pluck('title', 'id');
-        $blog_categories = BlogCategory::all();
+        $categories = BlogCategory::all();
         //$id = Blog::get('user_id');
-        $blogs = Blog::latest()->paginate(5);
+        $blogs = Blog::latest()->paginate(10);
+        $news = News::latest()->paginate(10);
+        //$categories = BlogCategory::all();
         //get all users with session-on
         //Session::updateCurrent();
         //$all = Session::activity(10)->get();
@@ -113,8 +121,9 @@ class FrontEndController extends JoshController
 
         //$blog_id = Blog::all()->user_id;
         //return view('user_account', compact('user', 'countries'));
-        return view('user_dashboard', compact('user', 'countries', 'blog_categories', 'blogcategory', 'blogs','users'));
+        return view('user_dashboard', compact('user', 'countries', 'blogcategory', 'blogs','users', 'categories', 'news'));
     }
+
 
     /**
      * update user details and display
@@ -396,4 +405,65 @@ class FrontEndController extends JoshController
         // Redirect to the users page
         return redirect('login')->with('success', 'You have successfully logged out!');
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function question(BlogRequest $request)
+    {
+
+        $blog = new Blog($request->except('files', 'image', 'tags'));
+        $message=$request->get('content');
+        $dom = new DomDocument();
+        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+
+        // foreach <img> in the submited message
+        foreach ($images as $img) {
+            $src = $img->getAttribute('src');
+            // if the img source is 'data-url'
+            if (preg_match('/data:image/', $src)) {
+                // get the mimetype
+                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+                $mimetype = $groups['mime'];
+                // Generating a random filename
+                $filename = uniqid();
+                $filepath = "uploads/blog/$filename.$mimetype";
+                // @see http://image.intervention.io/api/
+                $image = Image::make($src)
+                    // resize if required
+                    /* ->resize(300, 200) */
+                    ->encode($mimetype, 100)  // encode file to the specified mimetype
+                    ->save(public_path($filepath));
+                $new_src = asset($filepath);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $new_src);
+            } // <!--endif
+        } // <!-
+        $blog->content = $dom->saveHTML();
+
+        $picture = "";
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $extension = $file->extension()?: 'png';
+            $picture = str_random(10) . '.' . $extension;
+            $destinationPath = public_path() . '/uploads/blog/';
+            $file->move($destinationPath, $picture);
+            $blog->image = $picture;
+        }
+        $blog->user_id = Sentinel::getUser()->id;
+        $blog->save();
+
+        $blog->tag($request->tags?$request->tags:'');
+        if ($blog->id) {
+            return Redirect::route("my-account")->with('success', trans('Question Post Success'));
+            //return redirect('user_dashboard')->with('success', trans('admin/blog/message.success.create'));
+        } else {
+            return Redirect::route('my-account')->with('error', trans('Question Post Fail'));
+        }
+    }
+
 }

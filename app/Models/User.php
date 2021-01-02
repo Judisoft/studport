@@ -4,6 +4,7 @@ use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentTaggable\Taggable;
 use Str;
+use Cache;
 
 class User extends EloquentUser
 {
@@ -48,5 +49,10 @@ class User extends EloquentUser
     public function country()
     {
         return $this->belongsTo(Country::class);
+    }
+    //check if user is online
+    public function isOnline()
+    {
+        return Cache::has('user-is-online-' . $this->id);
     }
 }

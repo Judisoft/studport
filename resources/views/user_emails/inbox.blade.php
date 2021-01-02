@@ -11,7 +11,7 @@
     <link href="{{ asset('vendors/iCheck/css/all.css')}}" rel="stylesheet">
     <link href="{{ asset('css/pages/mail_box.css') }}" rel="stylesheet" type="text/css" />
 
-    <!-- page level css ends--> 
+    <!-- page level css ends-->
 @stop
 
 {{-- Page content --}}
@@ -40,7 +40,7 @@
                     <ul>
                         <li class="compose">
                             <a href="{{ URL::to('user_emails/compose') }}">
-                                <i class="fa fa-fw fa-envelope"></i>
+                                <i class="fa fa-fw fa-edit"></i>
                                 &nbsp; &nbsp;Compose
                             </a>
                         </li>

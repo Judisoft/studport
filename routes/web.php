@@ -309,7 +309,8 @@ Route::group(
     function () {
         Route::put('my-account', 'FrontEndController@update');
         Route::get('my-account', 'FrontEndController@myAccount')->name('my-account');
-        //Route::put('/user_account', 'FrontEndController@update');
+        Route::post('my-account', 'FrontEndController@question');
+
     }
 );
 // Email System
@@ -334,7 +335,10 @@ Route::post('contact', 'FrontEndController@postContact')->name('contact');
 Route::get(
     '/',
     ['as' => 'home', function () {
-        return view('index');
+        $questions = \App\Models\Blog::all();
+        $users = \App\Models\User::all();
+        $questionCategory = \App\Models\BlogCategory::all();
+        return view('index', compact('questions', 'users'));
     }]
 );
 
@@ -348,4 +352,6 @@ Route::get('news', 'NewsController@index')->name('news');
 Route::get('news/{news}', 'NewsController@show')->name('news.show');
 
 Route::get('{name?}', 'FrontEndController@showFrontEndView');
+// Book request route
+Route::post('user_dashboard', 'BooksController@store');
 

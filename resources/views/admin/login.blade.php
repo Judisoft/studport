@@ -19,8 +19,9 @@
     <div class="row vertical-offset-100">
         <div class=" col-10 col-offset-1 col-sm-6 col-sm-offset-3  col-md-5 col-md-offset-4 col-lg-4 col-lg-offset-4 mx-auto">
             <div class="card ">
-                <div class="card-header bg-default ">
-                    <h3 class="text-center">Admin | Sign In</h3>
+                <div class="card-header bg-default " style="background-color: #fff !important; text-align: center !important;">
+                    <img src="{{asset('images/logo.png')}}" >
+                    <h3 class="text-center text-primary">Administrator</h3>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('signin') }}" id="authentication" autocomplete="on" method="post" role="form">

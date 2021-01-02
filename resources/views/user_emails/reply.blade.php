@@ -42,7 +42,7 @@
                     <ul class="web-mail1">
                         <li class="compose">
                             <a href="{{ URL::to('user_emails/compose') }}">
-                                <i class="fa fa-fw fa-envelope"></i>
+                                <i class="fa fa-fw fa-edit"></i>
                                 &nbsp; &nbsp;Compose
                             </a>
                         </li>

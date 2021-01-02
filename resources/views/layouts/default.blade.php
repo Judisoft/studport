@@ -24,8 +24,144 @@
 
 <style>
 body{
+    font-family: "Open Sans", sans-serif !important;
+    -webkit-font-smoothing: antialiased;
     background-color: #fff;
 
+}
+a.nav-link{
+    font-size: 16px !important;
+
+}
+a.dropdown-item{
+    font-size: 16px;
+}
+a.main-button-slider2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    border-radius: 25px;
+    padding: 15px 25px;
+    background-color: #fba70b;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+a.main-button-slider2:hover {
+    background-color: #418bca;
+    color: #fff;
+    text-decoration: none;
+
+}
+
+/* Search bar */
+
+
+input[type="search"] {
+    -webkit-appearance: none !important;
+    background-clip: padding-box;
+    background-color: white;
+    vertical-align: middle;
+    border-radius: 0.25rem;
+    border: 1px solid #e0e0e5;
+    font-family: "Open Sans", Sans-Serif;
+    font-size: 1rem;
+    width: 100%;
+    line-height: 2;
+    padding: 0.375rem 1.25rem;
+    -webkit-transition: border-color 0.2s;
+    -moz-transition: border-color 0.2s;
+    transition: border-color 0.2s;
+}
+
+input[type="search"]:focus {
+    transition: all 0.5s;
+    box-shadow: 0 0 40px #fff;
+    border-color: #fff;
+    outline: none;
+}
+
+form.search-form {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    align-self: center;
+    margin-bottom: 0;
+}
+
+input.search-field {
+    width: 25%;
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    margin-bottom: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    align-self: center;
+    height: 51px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input.search-submit {
+    height: 51px;
+    margin: 0;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    padding: 1rem 1.3rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    font-family: "Font Awesome 5 Free";
+    font-size: 1rem;
+}
+
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.button {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.15;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    background: #f9d342;
+    color: #292826;
+    border: 1px solid transparent;
+    vertical-align: middle;
+    text-shadow: none;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+    cursor: pointer;
+    background: #d4b743;
+    color: #292826;
+    outline: 0;
 }
 
 </style>
@@ -33,54 +169,55 @@ body{
 <body>
     <!-- Header Start -->
     <header>
-            <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-            <p style="font-family:  chalkduster; font-size: 32px; color:#e69138 "><i class="fa fa-chalkboard-teacher"></i>StudPort</p>
+            <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" style="background-color: #fff !important;">
+            <img src="{{asset('images/logo.png')}}">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div style="height:50px;"> </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto  margin_right">
-                        <li class="nav-item ">
-                            <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-home"></i> Home </a>
-                        </li>
-                          @if(Sentinel::check())
-                            <li
-                            class=" nav-item dropdown">
-                            <a href="{{ URL::to('blog') }}" class="nav-link"><i class="fas fa-book"></i> Academic Forum </a>
-                        </li>
+
+                        @if(Sentinel::check())
+                            <li class="nav-item ">
+                                <a href="{{ route('home') }}" class="nav-link"><span class="fas fa-home"></span> Home</a>
+                            </li>
                         @endif
-                        <li class="nav-item"><a href="{{ URL::to('contact') }}" class="nav-link"><i class="fas fa-address-card"></i> Contact Us </a>
+                        <li
+                            class=" nav-item dropdown">
+                            <a href="{{ URL::to('blog') }}" class="nav-link"><span class="fas fa-book-reader"></span> Academic Blog</a>
                         </li>
+
 
                           @if(Sentinel::check())
                         <li
                             class=" nav-item dropdown ">
-                            <a href="#" aria-expanded="false" class="nav-link"><i class="fas fa-envelope"></i> Messages </a>
+                            <a href="#" aria-expanded="false" class="nav-link" style="display: block; border: none !important;"><span class="fas fa-envelope"></span> Messages <span class="fas fa-angle-down"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ URL::to('user_emails/compose') }}" class="dropdown-item"><i class="fas fa-edit"> </i> COMPOSE </a>
+                                    <a href="{{ URL::to('user_emails/compose') }}" class="dropdown-item"><span class="fas fa-edit"></span> Compose </a>
                                 </li>
+                                <hr>
                                 <li>
-                                    <a href="{{ URL::to('user_emails/inbox') }}" class="dropdown-item"><i class="fas fa-inbox"> </i> INBOX </a>
+                                    <a href="{{ URL::to('user_emails/inbox') }}" class="dropdown-item"><span class="fas fa-envelope-open-text"></span> Inbox </a>
                                 </li>
+                                <hr>
                                 <li>
-                                    <a href="{{ URL::to('user_emails/sent') }}" class="dropdown-item"><i class="fas fa-envelope"> </i> SENT </a>
+                                    <a href="{{ URL::to('user_emails/sent') }}" class="dropdown-item"><span class="fas fa-paper-plane"></span> Sent </a>
                                 </li>
                             </ul>
                         </li>
-                        @endif
 
-                          @if(Sentinel::check())
                         <li
                             class=" nav-item dropdown">
-                            <a href="#" aria-expanded="false" class="nav-link"><i class="fas fa-user"></i> My Account  </a>
+                            <a href="#" aria-expanded="false" class="nav-link" style="display: block; border: none !important; text-transform: capitalize !important;"> {{Sentinel::check()->first_name}} <span class="fas fa-angle-down"></span> </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ URL::to('my-account') }}" class="dropdown-item"><i class="fas fa-user"> </i> MY PORTAL </a>
+                                    <a href="{{ URL::to('my-account') }}" class="dropdown-item"><span class="fas fa-cogs"></span> My Portal </a>
                                 </li>
+                                <hr>
                                 <li>
-                                    <a href="{{ URL::to('logout') }}" class="dropdown-item"><i class="fas fa-sign-out-alt"> </i> LOGOUT </a>
+                                    <a href="{{ URL::to('logout') }}" class="dropdown-item"> <span class="fas fa-sign-out-alt"></span> Log Out </a>
                                 </li>
                             </ul>
                         </li>
@@ -88,18 +225,30 @@ body{
 
                         {{--based on anyone login or not display menu items--}}
                         @if(Sentinel::guest())
-                        <li class="nav-item"><a href="{{ URL::to('login') }}" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login </a>
+                        <li class="nav-item"><a href="{{ URL::to('login') }}" class="nav-link"><span class="fas fa-user-lock"></span> Sign In </a>
                         </li>
-                        <li class="nav-item"><a href="{{ URL::to('register') }}" class="nav-link"><i class="fas fa-user-plus"></i> Register </a>
+                        <li class="nav-item"><a href="{{ URL::to('register') }}" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up </a>
                         </li>
-
+                                <li
+                                    class=" nav-item dropdown">
+                                    <a href="#" aria-expanded="false" class="nav-link" style="display: block; border: none !important; text-transform: capitalize !important;"> <span class="fas fa-globe"></span> <span class="fas fa-angle-down"></span> </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#" class="dropdown-item"> En </a>
+                                        </li>
+                                        <hr>
+                                        <li>
+                                            <a href="#" class="dropdown-item"> Fr </a>
+                                        </li>
+                                    </ul>
+                                </li>
                         @endif
+
                     </ul>
                 </div>
             </nav>
             <!-- Nav bar End -->
     </header>
-
     <!-- //Header End -->
 
     @yield('top')
@@ -125,7 +274,7 @@ body{
 
                         </p>
                         <hr id="hr_border2">
-                        <h4 class="menu">Follow Us</h4>
+                        <h4 class="menu">Follow Us on Social Media</h4>
                         <ul class="list-inline mb-2">
                             <li>
                                 <a href="#"> <i class="livicon" data-name="facebook" data-size="18" data-loop="true"
@@ -159,25 +308,24 @@ body{
                     <div class="col-sm-4 col-lg-4 col-md-4 col-12">
                         <h4>Contact Us</h4>
                         <ul class="list-unstyled">
-                            <li>Elig-Effa</li>
-                            <li>Yaounde, Cameroon</li>
+                            <li><span class="fas fa-map-marker-alt"></span> Elig-Effa, Yaounde Cameroon</li>
                             <li><i class="livicon icon4 icon3" data-name="cellphone" data-size="18" data-loop="true"
                                     data-c="#ccc" data-hc="#ccc"></i>Phone: 652 459 059
                             </li>
                             <li>
                                 <i class="livicon icon3" data-name="mail-alt" data-size="20" data-loop="true"
                                     data-c="#ccc" data-hc="#ccc"></i>
-                                Email: <a class="text-success" href="mailto:info@studport.com">info@studport.cm</a>
+                                Email: <a class="text-warning" href="mailto:info@studport.com">info@studport.cm</a>
                             </li>
                         </ul>
                         <hr id="hr_border">
                         <div class="news menu">
                             <h4>News letter</h4>
-                            <p>subscribe to our newsletter and stay up to date with the latest news and deals</p>
+                            <p>Subscribe to our newsletter and stay up to date with the latest news and deals</p>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="yourmail@mail.com"
-                                    aria-describedby="basic-addon2"> <br />
-                                <a href="#" class="btn btn-success text-white" role="button">Subscribe</a>
+                                    aria-describedby="basic-addon2" style="border-radius: 5px; font-size: 20px;"> <br />
+                                <a href="#" class="main-button-slider2" role="button" >Subscribe</a>
                             </div>
                         </div>
                     </div>
@@ -194,20 +342,32 @@ body{
                                  StudPort Community is here to help you become an excellent student.
                                 Become a StudPort Community member!
                                 </p>
-                                <p class="text-right"><i>CEO, StudPort</i></p>
-                                <div align="right">
-                                <a  class="btn btn-success" href="{{route('register')}}">Join Now!</a>
-                                </div>
+                                <p class="text-right"><i>Founder and CEO, StudPort</i></p>
                             </div>
                         </div>
-
-        </div>
-        <!-- //Footer Section End -->
-        <div class=" col-12 copyright">
-            <div class="container">
-                <p>Copyright &copy; StudPort, <?php echo date('Y') ?></p>
+                        <div class="media">
+                            <img class="media-object rounded-circle mr-3" src="{{ asset('images/no_avatar.jpg') }}"
+                                 alt="image">
+                            <div class="media-body">
+                                <p class="media-heading text-justify">Welcome to StudPort!</p>
+                                <p>Do you have questions that need answers, assignments that are hard to do, looking for a supervisor?
+                                    StudPort Community is here to help you become an excellent student.
+                                    Become a StudPort Community member!
+                                </p>
+                                <p class="text-right"><i>Managing Direction, StudPort</i></p>
+                            </div>
+                        </div>
+                    </div>
+                <!-- //Footer Section End -->
+                <div class=" col-12 copyright">
+                    <div class="container">
+                        <p>Copyright &copy; <?php echo date('Y') ?> All rights reserved</p>
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
+
     </footer>
     <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button"
         data-original-title="Back to top" data-toggle="tooltip" data-placement="left">

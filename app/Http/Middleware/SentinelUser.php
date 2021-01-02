@@ -2,7 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use Carbon\Carbon;
 use Closure;
+use Illuminate\Support\Facades\Cache;
 use Sentinel;
 use Redirect;
 
@@ -25,6 +27,8 @@ class SentinelUser
                 return Redirect::route('login');
             }
         }
+
         return $next($request);
     }
+
 }
