@@ -466,4 +466,8 @@ class FrontEndController extends JoshController
         }
     }
 
+    public function services(){
+        return view('services');
+    }
+
 }

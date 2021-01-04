@@ -24,7 +24,7 @@
                             <h3 class="banner-text">
                                 Learn Anytime, Anywhere<br> Accelerate Your success
                             </h3>
-                            <p class="my-4 mb-sm-5">We believe every question has an Answer. StudPort is a place where students can
+                            <p class="my-4 mb-sm-5">Questions are everywhere, answers are on StudPort. StudPort is a place where students can
                                 get answers to all their questions anytime anywhere.
                             </p><br>
                             <a href="#signup.html" class="btn btn-primary theme-button mr-3">Become a Teacher</a>
@@ -41,22 +41,28 @@
     <div class="new-block py-5">
         <div class="container py-lg-3">
             <div class="header-section text-center">
-                <h3>Got a Question?</h3>
-                <p class="mt-3 mb-5" style="text-align: justify;">You can ask questions in every course/subject and our StudPort Teachers will provide answers to your questions.
-                    You can give back by providing answers to questions. Join the StudPort Community now and get answers to all your questions - yeah, ALL!</p>
-                <a href="#signup.html" class="btn btn-primary theme-button">Join our Community</a>
+                <h3>StudPort for Students and Teachers</h3>
+                <hr style="width: 10%; height: 5px; background-color: #e69138; border-radius: 5px;">
+                <p>We build virtual learning communities that empower Students and connect them to solutions
+                    that enable academic growth, discovery, and success.</p>
+                <p class="mt-3 mb-5"></p>
+                <a href="#signup.html" class="btn btn-outline-primary theme-button">For Students</a>
+                <a href="#signup.html" class="btn btn-outline-primary theme-button">For Teachers</a>
             </div>
             <div class="list-single-view mt-5">
                 <div class="row">
                     <div class="col-md-12 mt-3">
                         <div class="grids5-info">
-                            <a href="#url" class="d-block zoom"><img src="{{asset('images/p1.jpg')}}" alt="" class="img-fluid news-image" /></a>
+                            <a href="#url" class="d-block zoom"><img src="{{asset('images/background5.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info">
                                 <p class="date">Step 01</p>
-                                <h4>Join Community</h4>
-                                <p class="blog-text">You can join the StudPort Community by creating a StudPort account - It is FREE!
+                                <h4>Join the StudPort Community</h4>
+                                <p class="blog-text">StudPort is an open community for every student.
+                                    We help students get answers to all their questions ( even the toughest ones), share knowledge with fellow students.
+                                    You can join the StudPort Community by registering for a StudPort account - It is FREE!
                                     Click the link below to Create your StudPort Account. <br>
-                                    <a  class="btn btn-info theme-button mr-3" href="#" >Create Account</a>
+                                    <hr>
+                                    <a  class="btn btn-info theme-button mr-3" href="#" style="left: 50px; ">Create Account</a>
                                 </p>
                             </div>
                         </div>
@@ -67,17 +73,22 @@
                 <div class="row">
                     <div class="col-md-12 mt-3">
                         <div class="grids5-info">
-                            <a href="#url" class="d-block zoom"><img src="{{asset('images/p2.jpg')}}" alt="" class="img-fluid news-image" /></a>
+                            <a href="#url" class="d-block zoom"><img src="{{asset('images/p1.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info">
                                 <p class="date">Step 02</p>
-                                <h4>Learning</h4>
-                                <p class="blog-text">Once your StudPort Account is activated, you shall be granted access to your Portal.
-                                Here, you will be able to:
+                                <h4>Ask your Questions</h4>
+                                <hr>
+                                <p class="blog-text">Once your StudPort Account is activated, you shall be granted access to your Portal where
+                                    you can ask questions in every course/subject and our StudPort Teachers will provide answers to your questions.
+                                    <hr>
+                                    <a  class="btn btn-info theme-button mr-3" href="#" >Ask Questions</a>
+                                <!--
                                     <ul class="color-with-marker">
-                                    <li><span class="fas fa-check"></span>Ask questions either by typing it or by just uploading an image file</li>
-                                    <li>View answers to answered questions</li>
-                                    <li>Meet a teacher for one-on-one tutoring</li>
+                                    <li><span class="fa fa-check" style="color: #00bc8c;"></span> Ask questions </li>
+                                    <li><span class="fa fa-check" style="color: #00bc8c;"></span> View answers</li>
+                                    <li><span class="fa fa-check" style="color: #00bc8c;"></span> Meet a teacher for one-on-one tutoring</li>
                                 </ul>
+                                -->
                                 </p>
                             </div>
                         </div>
@@ -88,12 +99,19 @@
                 <div class="row">
                     <div class="col-md-12 mt-3">
                         <div class="grids5-info">
-                            <a href="#url" class="d-block zoom"><img src="{{asset('images/p3.jpg')}}" alt="" class="img-fluid news-image" /></a>
+                            <a href="#url" class="d-block zoom"><img src="{{asset('images/image1.png')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info">
                                 <p class="date">Step 03</p>
-                                <h4>Get the Best Job</h4>
-                                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
-                                    reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                                <h4>Get Personalised Tutoring</h4>
+                                <p class="blog-text">Our Teachers are available 24/7 to provide one-on-one tutoring. You will be able to see Teachers who
+                                are online and available to tutor you, either online or in-person arrangement. You may be charged a fee for one-on-one sessions.
+                                    You may ask for a refund, in case your needs are not met.
+                                    <a class="text-primary" href="#"> Our refund policies apply</a>
+                                    <br>
+                                    <hr>
+                                    <a  class="btn btn-info theme-button mr-3" href="#" >Request a Tutor</a>
+
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -106,9 +124,12 @@
                             <a href="#url" class="d-block zoom"><img src="{{asset('images/p4.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info">
                                 <p class="date">Step 04</p>
-                                <h4>Community</h4>
-                                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
-                                    reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                                <h4>StudPort Connect</h4>
+                                <p class="blog-text">With StudPort Connect, Students can join study groups within their institution as well as those of
+                                other institutions. You can create your own study group and invite friends to join</p>
+                                <br>
+                                <hr>
+                                <a  class="btn btn-success theme-button mr-3" href="#" >View Online Tutors</a>
                             </div>
                         </div>
                     </div>
@@ -122,23 +143,27 @@
     <div class="gallery-inner container py-md-5 py-4">
         <div class="row stats-con text-white">
             <div class="col-md-3 col-6 stats_info counter_grid">
-                <span class="fa fa-smile-o"></span>
-                <p class="counter">196</p>
-                <h4>Complete Courses</h4>
+                <span class="fa fa-question-circle"></span>
+                @foreach($questions as $question)
+                @endforeach
+                <p class="counter">{{$question->count()}}</p>
+                <h4>Questions Asked</h4>
+            </div>
+            <div class="col-md-3 col-6 stats_info counter_grid1">
+                <span class="fa fa-comments"></span>
+                <p class="counter">0</p>
+                <h4>Answers Provided</h4>
             </div>
             <div class="col-md-3 col-6 stats_info counter_grid1">
                 <span class="fa fa-graduation-cap"></span>
-                <p class="counter">96</p>
+                <p class="counter">0</p>
                 <h4>Certified Teachers</h4>
-            </div>
-            <div class="col-md-3 col-6 stats_info counter_grid mt-md-0 mt-5">
-                <span class="fa fa-history"></span>
-                <p class="counter">25</p>
-                <h4>Years of Experience</h4>
             </div>
             <div class="col-md-3 col-6 stats_info counter_grid2 mt-md-0 mt-5">
                 <span class="fa fa-users"></span>
-                <p class="counter">890</p>
+                @foreach($users as $user)
+                @endforeach
+                <p class="counter">{{$user->count()}}</p>
                 <h4>Students Enrolled</h4>
             </div>
         </div>
@@ -150,8 +175,10 @@
         <div class="container py-lg-3">
             <div class="header-section text-center">
                 <h3>Our Programs</h3>
-                <p class="mt-3 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum cumque distinctio eveniet tempore delectus
-                    totam ratione repudiandae ipsum vel molestias?</p>
+                <hr style="width: 10%; height: 5px; background-color: #e69138; border-radius: 5px;">
+                <p class="mt-3 mb-5">Our question and answer format is a proven approach for accessing the right information in less time.
+                    Our programs are tailored to help students get answers to questions and  study resources a as quick as possible.
+                    </p>
             </div>
             <div class="features-grids">
                 <div class="row">
@@ -161,16 +188,15 @@
                                 <img src="{{asset('images/seminors.png')}}" class="img-fluid" alt="" />
                             </div>
                             <div class="feature-16-gd-info">
-                                <h4 class="mt-4 mb-2">Group Seminars</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                                <h4 class="mt-4 mb-2">StudPort Support</h4>
                                 <ul>
-                                    <li>Our job is to make your life easier.</li>
-                                    <li>Experience students as it should be.</li>
-                                    <li>Doing the right thing,
-                                        at the right time.</li>
-                                    <li>Explore The World Of Our Graduates</li>
+                                    <li>Teacher-Student Support</li>
+                                    <li>Student-Student Support</li>
+                                    <li>Something here</li>
+                                    <li>Something here</li>
+
                                 </ul>
-                                <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
+                                <a href="#" class="btn btn-primary theme-button mt-4">Learn more</a>
                             </div>
                         </div>
                     </div>
@@ -180,16 +206,14 @@
                                 <img src="{{asset('images/course.png')}}" class="img-fluid" alt="" />
                             </div>
                             <div class="feature-16-gd-info">
-                                <h4 class="mt-4 mb-2">Trending Courses</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                                <h4 class="mt-4 mb-2">StudPort Exams</h4>
                                 <ul>
-                                    <li>Our job is to make your life easier.</li>
-                                    <li>Experience students as it should be.</li>
-                                    <li>Doing the right thing,
-                                        at the right time.</li>
-                                    <li>Explore The World Of Our Graduates</li>
+                                    <li>Semester Exams Preparations </li>
+                                    <li>Competitive Entrance Exams Preparations</li>
+                                    <li>GCE Advanced Level Exams Preparations</li>
+                                    <li>GCE Ordinary Level Exams Preparations</li>
                                 </ul>
-                                <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
+                                <a href="#" class="btn btn-primary theme-button mt-4">Learn more</a>
                             </div>
                         </div>
                     </div>
@@ -199,16 +223,15 @@
                                 <img src="{{asset('images/library.png')}}" class="img-fluid" alt="" />
                             </div>
                             <div class="feature-16-gd-info">
-                                <h4 class="mt-4 mb-2">Large Library</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                                <h4 class="mt-4 mb-2">StudPort Library</h4>
                                 <ul>
-                                    <li>Our job is to make your life easier.</li>
-                                    <li>Experience students as it should be.</li>
-                                    <li>Doing the right thing,
-                                        at the right time.</li>
-                                    <li>Explore The World Of Our Graduates</li>
+                                    <li>Something here</li>
+                                    <li>Something here</li>
+                                    <li>Something here</li>
+                                    <li>Something here</li>
+
                                 </ul>
-                                <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
+                                <a href="#" class="btn btn-primary theme-button mt-4">Learn more</a>
                             </div>
                         </div>
                     </div>
@@ -219,13 +242,11 @@
                             </div>
                             <div class="feature-16-gd-info">
                                 <h4 class="mt-4 mb-2">Expert Teachers</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
                                 <ul>
-                                    <li>Our job is to make your life easier.</li>
-                                    <li>Experience students as it should be.</li>
-                                    <li>Doing the right thing,
-                                        at the right time.</li>
-                                    <li>Explore The World Of Our Graduates</li>
+                                    <li>Something here</li>
+                                    <li>Something here</li>
+                                    <li>Something here</li>
+                                    <li>Something here</li>
                                 </ul>
                                 <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
                             </div>
@@ -236,17 +257,22 @@
         </div>
     </div>
 </section>
+<br>
+<div class="header-section text-center">
+    <h3>StudPort Showcase</h3>
+    <hr style="width: 10%; height: 5px; background-color: #e69138; border-radius: 5px;">
+</div>
 <!-- //subscribe -->
 <section class="w3l-get-started">
     <div class="new-block top-bottom">
         <div class="container">
             <div class="middle-section">
                 <div class="section-width">
-                    <h2>Start your Business today with this professional template.</h2>
+                    <h2>Showcase your Work on <span style="color: #e69138;">StudPort Showcase</span></h2>
                 </div>
                 <div class="link-list-menu">
-                    <p class="mb-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae sapiente facere amet quas quae, inventore, dolore modi, delectus illum velit magni quod blanditiis nam quasi perspiciatis. Quod cupiditate eum sit!</p>
-                    <a href="about.html" class="btn btn-outline-light btn-more">About Us</a>
+                    <p class="mb-5">Showcase what you've done and get what you deserve.</p>
+                    <a href="about.html" class="btn btn-outline-light btn-more">Learn More</a>
                 </div>
             </div>
         </div>
@@ -256,7 +282,8 @@
     <div class="testimonials py-5">
         <div class="container py-lg-5">
             <div class="header-section text-center">
-                <h3>What our Student Saying</h3>
+                <h3>What Students Say About Us</h3>
+                <hr style="width: 10%; height: 5px; background-color: #e69138; border-radius: 5px;">
             </div>
             <div class="row mt-4">
                 <div class="col-md-10 mx-auto">
@@ -268,11 +295,9 @@
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
-                                        officia quod quasi necessitatibus perspiciatis Harum error provident
-                                        quibusdam tenetur.</p>
+                                    <p>Message</p>
                                     <div class="name mt-4">
-                                        <h4>Adam Ster</h4>
+                                        <h4>Nji Awah</h4>
                                         <p>Designation goes here</p>
                                     </div>
                                 </div>
@@ -285,11 +310,9 @@
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
-                                        officia quod quasi necessitatibus perspiciatis Harum error provident
-                                        quibusdam tenetur.</p>
+                                    <p>Message</p>
                                     <div class="name mt-4">
-                                        <h4>Dennis Jack</h4>
+                                        <h4>Jayford</h4>
                                         <p>Designation goes here</p>
                                     </div>
                                 </div>
@@ -298,15 +321,13 @@
                         <div class="item">
                             <div class="slider-info mt-lg-4 mt-3">
                                 <div class="img-circle">
-                                    <img src="{{asset('images/student3.jpg')}}" class="img-fluid testimonial-img" alt="client image">
+                                    <img src="{{asset('images/avatar3.png')}}" class="img-fluid testimonial-img" alt="client image">
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
-                                        officia quod quasi necessitatibus perspiciatis Harum error provident
-                                        quibusdam tenetur.</p>
+                                    <p>Message</p>
                                     <div class="name mt-4">
-                                        <h4>Camillae</h4>
+                                        <h4>Avatar</h4>
                                         <p>Designation goes here</p>
                                     </div>
                                 </div>
@@ -315,15 +336,13 @@
                         <div class="item">
                             <div class="slider-info mt-lg-4 mt-3">
                                 <div class="img-circle">
-                                    <img src="{{asset('images/student4.jpg')}}" class="img-fluid testimonial-img" alt="client image">
+                                    <img src="{{asset('images/avatar3.png')}}" class="img-fluid testimonial-img" alt="client image">
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
-                                        officia quod quasi necessitatibus perspiciatis Harum error provident
-                                        quibusdam tenetur.</p>
+                                    <p>Message</p>
                                     <div class="name mt-4">
-                                        <h4>Charlotte</h4>
+                                        <h4>Avatar</h4>
                                         <p>Designation goes here</p>
                                     </div>
                                 </div>
@@ -360,65 +379,50 @@
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>We denounce with righteous?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda excepturi aperiam iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>At vero eos iusto odio ducimus qui?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>But I must explain to you how all this idea?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>Sed ut perspiciatis unde omnis?</h2>
-                                        <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>The standard chunk of Lorem Ipsum used since the 1500s?</h2>
-                                        <p>Consectetur quae quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>There are many variations of passages but the majority?</h2>
-                                        <p>Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>But I must explain to you how all this idea?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>Sed ut perspiciatis unde omnis?</h2>
-                                        <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                 </ul>
                             </div>
@@ -431,66 +435,50 @@
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>But I must explain to you how all this idea?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>At vero eos iusto odio ducimus qui?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Ttitle</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>Sed ut perspiciatis unde omnis?</h2>
-                                        <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>The standard chunk of Lorem Ipsum used since the 1500s?</h2>
-                                        <p>Consectetur quae quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>We denounce with righteous?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda excepturi aperiam iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>But I must explain to you how all this idea?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>At vero eos iusto odio ducimus qui?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>There are many variations of passages but the majority?</h2>
-                                        <p>Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                 </ul>
                             </div>
@@ -503,65 +491,50 @@
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>We denounce with righteous?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda excepturi aperiam iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>At vero eos iusto odio ducimus qui?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>But I must explain to you how all this idea?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>Sed ut perspiciatis unde omnis?</h2>
-                                        <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>The standard chunk of Lorem Ipsum used since the 1500s?</h2>
-                                        <p>Consectetur quae quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>There are many variations of passages but the majority?</h2>
-                                        <p>Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
-                                            non assumenda, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>But I must explain to you how all this idea?</h2>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                     <li>
                                         <input type="checkbox" checked>
                                         <i></i>
-                                        <h2>perspiciatis unde omnis?</h2>
-                                        <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
-                                            laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
-                                            voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
+                                        <h2>Title</h2>
+                                        <p>Content</p>
                                     </li>
                                 </ul>
                             </div>

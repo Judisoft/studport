@@ -42,17 +42,65 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item @@about-active">
-                                <a class="nav-link" href="about.html">About</a>
+                                <a class="nav-link" href="#">About</a>
                             </li>
                             <li class="nav-item @@services-active">
-                                <a class="nav-link" href="services.html">Services</a>
+                                <a class="nav-link" href="{{ URL::to('services') }}">Services</a>
                             </li>
+                            <li class="nav-item @@services-active">
+                                <a class="nav-link" href="{{ URL::to('blog') }}">Academic Blog</a>
+                            </li>
+
+                                @if(Sentinel::check())
+                                    <li
+                                        class=" nav-item dropdown ">
+                                        <a href="#" aria-expanded="false" class="nav-link" style="display: block; border: none !important;"> Messages </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="{{ URL::to('user_emails/compose') }}" class="dropdown-item"> Compose </a>
+                                            </li>
+                                            <hr>
+                                            <li>
+                                                <a href="{{ URL::to('user_emails/inbox') }}" class="dropdown-item">Inbox </a>
+                                            </li>
+                                            <hr>
+                                            <li>
+                                                <a href="{{ URL::to('user_emails/sent') }}" class="dropdown-item"> Sent </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li
+                                        class=" nav-item dropdown">
+                                        <a href="#" aria-expanded="false" class="nav-link" style="display: block; border: none !important; text-transform: capitalize !important;"> </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="{{ URL::to('my-account') }}" class="dropdown-item"> My Portal </a>
+                                            </li>
+                                            <hr>
+                                            <li>
+                                                <a href="{{ URL::to('logout') }}" class="dropdown-item"> Log Out </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                @endif
+
                             <li class="nav-item @@contact-active">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a class="nav-link" href="{{ URL::to('contact') }}">Contact</a>
                             </li>
+                                @if(Sentinel::guest())
+                                    <li class="nav-item"><a href="{{ URL::to('login') }}" class="nav-link"> Sign In </a>
+                                    </li>
+                                    <li class="nav-item"><a href="{{ URL::to('register') }}" class="nav-link"> Sign Up </a>
+                                    </li>
+                                <li class="nav-item"><a href="#" class="nav-link"><span class="fa fa-globe"></span> en  <span class="fa fa-chevron-down"></span> </a>
+
+                                </li>
+
+                                @endif
                         </ul>
                     </div>
                 </nav>
@@ -108,10 +156,12 @@
                 <div class="col-lg-2 col-md-6 footer-list-29 footer-4 mt-5">
                     <h6 class="footer-title-29">Quick Links</h6>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        @if(Sentinel::check())
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        @endif
                         <li><a href="about.html">About</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="#blog.html"> Blog</a></li>
+                        <li><a href="#blog.html">Academic Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -123,13 +173,12 @@
             <div class="footers14-bottom text-center">
                 <div class="social">
                     <a href="#facebook" class="facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                    <a href="#google" class="google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
                     <a href="#twitter" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
                     <a href="#instagram" class="instagram"><span class="fa fa-instagram" aria-hidden="true"></span></a>
                     <a href="#youtube" class="youtube"><span class="fa fa-youtube" aria-hidden="true"></span></a>
                 </div>
                 <div class="copyright mt-1">
-                    <p>&copy; <?php echo date('Y') ?> StudPort. All Rights Reserved | Developed by <a href="#">StudPort</a></p>
+                    <p>&copy; <?php echo date('Y') ?> StudPort. All Rights Reserved | Developed by <a href="#" style="color: #e69138;">StudPort</a></p>
                 </div>
             </div>
         </div>

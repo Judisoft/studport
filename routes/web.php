@@ -330,6 +330,8 @@ Route::resource('user_emails', 'UsersEmailController');
 Route::get('logout', 'FrontEndController@getLogout')->name('logout');
 // contact form
 Route::post('contact', 'FrontEndController@postContact')->name('contact');
+// services
+Route::post('services', 'FrontEndController@services')->name('services');
 
 // frontend views
 Route::get(
