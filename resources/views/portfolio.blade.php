@@ -18,40 +18,11 @@ Portfolio
 <!--end of page level css-->
 @stop
 
-{{-- breadcrumb --}}
-@section('top')
-<div class="breadcum">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('home') }}"> <i class="livicon icon3 icon4" data-name="home" data-size="18"
-                                data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i>Dashboard
-                        </a>
-                    </li>
-                    <li class="d-none d-sm-block">
-                        <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="true"
-                            data-c="#01bc8c" data-hc="#01bc8c"></i>
-                        <a href="#">Portfolio</a>
-                    </li>
-                </ol>
-                <div class="float-right mt-1">
-                    <i class="livicon icon3" data-name="briefcase" data-size="20" data-loop="true" data-c="#3d3d3d"
-                        data-hc="#3d3d3d"></i> Portfolio
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@stop
-
-
 {{-- Page content --}}
 @section('content')
 <!-- Container Section Start -->
 <div class="container my-3">
-    <h2 class="mb-3 ml-2">Portfolio</h2>
+    <h3 style="padding-top: 30px;">StudPort Instructors</h3>
     <!-- Images Section Start -->
     <div class="row">
         <div class="col-md-12">
@@ -75,7 +46,7 @@ Portfolio
                         </div>
                         <div class="mix category-1" data-my-order="2">
                             <div class="col-md-3 col-sm-6 col-6">
-                                <a class="fancybox" href="{{ asset('images/gallery/8.jpg') }}"><i
+                                <a class="fancybox" href="{{ asset('images/gallery/about.jpg') }}"><i
                                         class="fa fa-search-plus img-icon"></i></a>
                                 <a href="{{ URL::to('portfolioitem') }}"><i class="fa fa-link img-icon"></i></a>
                             </div>

@@ -3,6 +3,7 @@
 require_once 'web_builder.php';
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 
 /*
@@ -310,6 +311,10 @@ Route::group(
         Route::put('my-account', 'FrontEndController@update');
         Route::get('my-account', 'FrontEndController@myAccount')->name('my-account');
         Route::post('my-account', 'FrontEndController@question');
+        Route::get('subscription', 'SubscriptionController@subscribe');
+
+        //Newsletter 
+       // Route::post('index', 'FrontEndController@newsletter')->name('newsletter');
 
     }
 );
@@ -328,19 +333,30 @@ Route::group(
 );
 Route::resource('user_emails', 'UsersEmailController');
 Route::get('logout', 'FrontEndController@getLogout')->name('logout');
-// contact form
-Route::post('contact', 'FrontEndController@postContact')->name('contact');
+// contact 
+Route::get('contact', 'ContactController@index')->name('contact');
+//contact form
+Route::post('contact', 'ContactController@store');
+// about
+Route::get('about_us', 'FrontEndController@about')->name('about');
 // services
-Route::post('services', 'FrontEndController@services')->name('services');
+Route::get('services', 'FrontEndController@services')->name('services');
+// tutor
+Route::get('tutor', 'FrontEndController@tutor')->name('tutor');
+//courses
+Route::get('courses', 'CoursesController@index');
 
-// frontend views
+// frontend views -> Index
 Route::get(
     '/',
     ['as' => 'home', function () {
         $questions = \App\Models\Blog::all();
         $users = \App\Models\User::all();
         $questionCategory = \App\Models\BlogCategory::all();
-        return view('index', compact('questions', 'users'));
+        $answers = \App\Models\BlogComment::all();
+        $tutors = DB::table('role_users')->pluck('role_id');
+        //$roles = Sentinel::getRoleRepository()->all();
+        return view('index', compact('questions', 'users', 'answers', 'tutors'));
     }]
 );
 
@@ -356,4 +372,20 @@ Route::get('news/{news}', 'NewsController@show')->name('news.show');
 Route::get('{name?}', 'FrontEndController@showFrontEndView');
 // Book request route
 Route::post('user_dashboard', 'BooksController@store');
+// Library Book Search
+Route::get('user_dashboard', 'LibraryController@search');
+// Newsletter Route
+Route::post('/', 'FrontEndController@newsletter');
+//Exams
+Route::resource('exams','ExamsController');
+//Route::get('exams/index', 'ExamsController@index');
+Route::get('exams/{uuid}/download', 'ExamsController@download')->name('exams.download');
+//Terms and Conditions
+Route::get('terms_and_conditions', 'TermsAndConditionsController@privacy')->name('privacy');
+//Subscription
+Route::get('subscription', 'SubscriptionController@subscribe');
+Route::post('my-account', 'FrontEndController@newsletter');
+Route::resource('questions', 'UserBlogController');
+Route::get('download', 'ExamsController@download')->middleware('download')->name('download');
+
 

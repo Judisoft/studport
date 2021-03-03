@@ -17,14 +17,15 @@
 @section('content')
     <aside class="right-aside">
     <!-- Content Header (Page header) -->
-        <div class="container my-3">
-            <h4 class="text-primary"> <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
+            <h4 style="color: #2C3E50;"> <span class="fa fa-paper-plane" aria-hidden="true"></span>
                                  &nbsp;Sent</h4>
             <hr>
     <!-- Main content -->
     <section class="content pr-3 pl-3">
         <div class="row web-mail">
-            <div class="col-lg-2 col-md-3 col-sm-4">
+            <div class="col-xl-2 col-md-3 col-sm-4 web-mail" style="background-color: #e9ecef;">
+            <div style="height: 30px;"> </div>
                 <div class="whitebg1">
                     <ul>
                         <li class="compose">
@@ -50,16 +51,17 @@
                         </li>
                     </ul>
                 </div>
+                <div style="height: 30px;"></div>
             </div>
             <div class="col-lg-10 col-md-9 col-sm-8">
                 <div class="whitebg1 mail_inbox_all">
                     <table class="table table-striped table-advance table-hover table-responsive" id="inbox-check">
                         <thead>
                         <tr>
-                            <td colspan="6" class="bg-primary">
+                            <td colspan="6" class="card-header compose border-bottom" style="background-color: #2C3E50;">
                                 <div class="col-md-8">
                                     <h4 class="mb-0">
-                                        <strong>Sent</strong>
+                                        <h6 class="text-default text-white">SENT MESSAGE(S)</h6>
                                     </h4>
                                 </div>
                             </td>

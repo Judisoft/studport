@@ -17,6 +17,7 @@ class LastUserActivity
      * @param  \Closure  $next
      * @return mixed
      */
+    
     public function handle(Request $request, Closure $next)
     {
         if (Sentinel::check()) {
@@ -25,4 +26,5 @@ class LastUserActivity
         }
         return $next($request);
     }
+    
 }

@@ -59,7 +59,7 @@ class UsersEmailController extends Controller
                 $ids[]=$email->id;
             }
         }
-        $emails = Email::whereIn('id', $ids)->paginate(10);
+        $emails = Email::whereIn('id', $ids)->latest()->paginate(10);
         return view('user_emails/inbox', compact('emails'));
     }
     public function sent()

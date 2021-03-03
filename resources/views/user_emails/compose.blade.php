@@ -18,7 +18,7 @@
 @section('content')
     <aside class="right-aside">
     <!-- Content Header (Page header) -->
-        <div class="container my-3">
+        <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
             @if (isset($email_not_found))
                 <div id="notific">
                     <div class="alert alert-danger alert-dismissable margin5">
@@ -35,14 +35,15 @@
                     </div>
                 </div>
             @endif
-            <h4 class="text-primary"> <i class="fa fa-envelope" aria-hidden="true"></i>
+            <h4 style="color: #2C3E50;"> <span class="fa fa-edit" aria-hidden="true"></span>
                                  &nbsp;Compose</h4>
             <hr>
     <!-- Main content -->
-    <section class="content pr-3 pl-3">
-        <div class="row ">
-            <div class="col-xl-2 col-md-3 col-sm-4 web-mail">
-                <div class="whitebg">
+    <section class="content pr-3 pl-3" >
+        <div class="row web-mail">
+            <div class="col-xl-2 col-md-3 col-sm-4 web-mail" style="background-color: #e9ecef;">
+            <div style="height: 30px;"> </div>
+                <div class="whitebg1">
                     <ul>
                         <li class="compose">
                             <a href="{{ URL::to('user_emails/compose') }}">
@@ -67,12 +68,13 @@
                         </li>
                     </ul>
                 </div>
+                <div style="height: 30px;"></div>
             </div>
             <div class="col-xl-10 col-md-9 col-sm-8 mt-3 mt-sm-0">
-                <div class="card border-primary">
-                    <div class="card-header bg-primary border-bottom">
+                <div class="card">
+                    <div class="card-header compose border-bottom" style="background-color: #2C3E50;">
                         <h4 class="mb-0">
-                            <strong>Compose</strong>
+                            <h6 class="text-default text-white">NEW MESSAGE</h6>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -85,10 +87,10 @@
                                         <select class="form-control select_email" name="email_id" id="email_id">
                                             <option></option>
                                             @foreach($existing_emails as $existing_email)
-                                                <option value={{ $existing_email->email }}"">{{ $existing_email->email }}</option>
+                                                <option value="{{ $existing_email->email }}">{{ $existing_email->email }}</option>
                                             @endforeach
                                         </select>
-                                        {!! $errors->first('email_id', '<span class="help-block">:message</span>') !!}
+                                        <small>{!! $errors->first('email_id', '<span class="help-block">:message</span>') !!} </small>
                                     </div>
                                 </div>
                                 <div class="clear"></div>
@@ -109,13 +111,13 @@
                                 </div>
                             </div>
                             <div class="col-xs-12">
-                                <button type="submit" class="btn btn-sm  btn-primary btn_margin_top">
-                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <button type="submit" class="btn btn-sm  btn-secondary  btn_margin_top">
+                                    <span class="fa fa-paper-plane" aria-hidden="true"></span>
                                     Send
                                 </button>
 
-                                <a href="#" class="btn btn-sm btn-success btn_margin_top text-white">
-                                    <i class="fa fa-archive" aria-hidden="true"></i>
+                                <a href="#" class="btn btn-sm btn-secondary  btn_margin_top text-white">
+                                    <span class="fa fa-archive" aria-hidden="true"></span>
                                     Draft
                                 </a>
                             </div>
@@ -125,7 +127,6 @@
 
                 </div>
             </div>
-
 
         </div>
     </section>

@@ -16,15 +16,16 @@
 {{-- Page content --}}
 @section('content')
     <aside class="right-aside">
-        <div class="container my-3">
-            <h4 class="text-primary"> <i class="fa fa-envelope" aria-hidden="true"></i>
+        <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
+            <h4 style="color: #2C3E50;"> <i class="fa fa-envelope" aria-hidden="true"></i>
                                  &nbsp;Message(s)</h4>
         <hr>
     <!-- Main content -->
     <section class="content pl-3 pr-3">
         <div class="row web-mail">
-            <div class="col-lg-3 col-xl-2 col-md-3 col-sm-4">
-                <div class="whitebg">
+            <div class="col-lg-3 col-xl-2 col-md-3 col-sm-4" style="background-color: #e9ecef;">
+            <div style="height: 30px;"> </div>
+                <div class="whitebg1">
                     <ul>
                         <li class="compose">
                             <a href="{{ URL::to('user_emails/compose') }}">
@@ -49,16 +50,17 @@
                         </li>
                     </ul>
                 </div>
+                <div style="height: 30px;"></div>
             </div>
             <div class="col-lg-9 col-xl-10 col-md-9 col-sm-8">
                 <div class="whitebg1">
                     <table class="table table-striped table-advance table-responsive">
                         <thead>
                         <tr>
-                            <td colspan="4" class="bg-primary">
+                            <td colspan="4" class="card-header compose border-bottom" style="background-color: #2C3E50;">
                                 <div class="col-md-8">
                                     <h4 class="mb-0">
-                                        <strong>Single Message</strong>
+                                        <h6 class="text-default text-white">MESSAGE</h6>
                                     </h4>
                                 </div>
                             </td>
@@ -69,10 +71,10 @@
                                     <div class="col-md-7 col-lg-9 col-xs-12">
                                         <div class="btn-group">
                                             <a href="#" class="btn btn-secondary btn-toolbar" data-toggle="tooltip" data-placement="top" title="Delete Message" >
-                                                <i class="fa fa-trash-o text-danger"></i>
+                                                <span class="fa fa-trash text-danger"></span>
                                             </a>
                                             <button type="button" class="btn btn-secondary btn-toolbar" data-toggle="tooltip" data-placement="top" title="Refresh">
-                                                <i class="fa fa-redo"></i>
+                                                <span class="fa fa-refresh"></span>
                                             </button>
 
                                         </div>
@@ -131,14 +133,12 @@
                                 <div class="row nopadmar">
                                     {{--<div class="nopadmar">--}}
                                     <div class="col-6 col-sm-4 no-padding col-md-3 mt-3 col-lg-3 col-xl-2">
-                                        <a href="{{ URL::to('user_emails/'.$email->id.'/reply') }}" class="btn btn-sm btn-primary text-white">
-                                            <span class="fa fa-reply"></span>
+                                        <a href="{{ URL::to('user_emails/'.$email->id.'/reply') }}" class="btn btn-sm btn-secondary  text-white">
                                             &nbsp;&nbsp;Reply
                                         </a>
                                     </div>
                                     <div class="col-6 col-sm-4 no-padding col-md-3 mt-3 col-lg-3 col-xl-2">
-                                        <a href="{{ URL::to('user_emails/'.$email->id.'/forward') }}" class="btn btn-sm btn-success  text-white">
-                                            <span class="fa fa-share"></span>
+                                        <a href="{{ URL::to('user_emails/'.$email->id.'/forward') }}" class="btn btn-sm btn-secondary  text-white">
                                             &nbsp;&nbsp;Forward
                                         </a>
                                     </div>

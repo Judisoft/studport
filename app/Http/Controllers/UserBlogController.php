@@ -1,19 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\JoshController;
+use \Illuminate\Support\Facades\Redirect;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\BlogComment;
+use App\Models\User;
 use App\Http\Requests\BlogCommentRequest;
+use App\Models\News as NewsAlias;
 use App\Http\Requests\BlogRequest;
 use Response;
 use Sentinel;
 use Intervention\Image\Facades\Image;
 use DOMDocument;
 
-class BlogController extends JoshController
+
+
+class UserBlogController extends JoshController
 {
 
 
@@ -32,21 +37,32 @@ class BlogController extends JoshController
      */
     public function index()
     {
-        // Grab all the blogs
-        $blogs = Blog::all();
+        
+        //Grab all blogs and paginate
+        $blogs = Blog::latest()->paginate(10);
+        // Grab user session
+        $user = Sentinel::getUser();
+        // Grab all users
+        $users = User::all();
+        // Blog categories
+        $blogcategory = BlogCategory::pluck('title', 'id');
+        $categories = BlogCategory::all();
+        // get news, news is use here to refer to jobs
+        $news = NewsAlias::orderBy('id', 'DESC')->get();
         // Show the page
-        return view('user_dashboard', compact('blogs'));
+        return view('user_dashboard', compact('blogs', 'user', 'users', 'blogcategory', 'categories', 'news'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * * @return \Illuminate\Http\RedirectResponse
      * @return Response
      */
     public function create()
     {
-        $blogcategory = BlogCategory::pluck('title', 'id');
-        return view('user_dashboard', compact('blogcategory'));
+        //$blogcategory = BlogCategory::pluck('title', 'id');
+        return Redirect::route('my-account');
     }
 
     /**
@@ -103,9 +119,9 @@ class BlogController extends JoshController
         $blog->tag($request->tags?$request->tags:'');
 
         if ($blog->id) {
-            return redirect('user_dashboard')->with('success', trans('blog/message.success.create'));
+            return Redirect::route('my-account')->with('success', trans('Question Posted successfully'));
         } else {
-            return Redirect::route('user_dashboard')->withInput()->with('error', trans('blog/message.error.create'));
+            return Redirect::route('my-account')->withInput()->with('error', trans('Question post failed'));
         }
     }
 

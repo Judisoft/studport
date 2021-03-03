@@ -267,6 +267,36 @@
                                             </div>
                                             <span class="help-block">{{ $errors->first('role', ':message') }}</span>
                                         </div>
+                                        <div class="form-group required">
+                                            <div class="row">
+                                            <label for="user role" class="col-sm-2 control-label">User Type </label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control required" title="Select user type..." name="user_role"
+                                                        id="user_role">
+                                                        <option value="">Select</option>
+                                                        <option value="tutor">tutor</option>
+                                                        <option value="student">student</option>
+                                                </select>
+                                                {!! $errors->first('user_type', '<span class="help-block">:message</span>') !!}
+                                            </div>
+                                            </div>
+                                            <span class="help-block">{{ $errors->first('user_type', ':message') }}</span>
+                                        </div>
+                                        <div class="form-group required">
+                                            <div class="row">
+                                            <label for="account type" class="col-sm-2 control-label">Account Type </label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control required" title="Select role..." name="account_type"
+                                                        id="account_type">
+                                                        <option value="">Select</option>
+                                                        <option value="premium">premium</option>
+                                                        <option value="vip">vip</option>
+                                                </select>
+                                                {!! $errors->first('account_type', '<span class="help-block">:message</span>') !!}
+                                            </div>
+                                            </div>
+                                            <span class="help-block">{{ $errors->first('account_type', ':message') }}</span>
+                                        </div>
                                         <div class="form-group">
                                             <div class="row">
                                             <label for="activate" class="col-sm-2 control-label"> Activate User *</label>

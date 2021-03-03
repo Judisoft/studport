@@ -39,7 +39,8 @@ class BooksController extends Controller
         $this -> validate($request,[
             'title' => 'required',
             'author' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'telephone' => 'required'
         ]);
 
         $books = new Book;
@@ -47,12 +48,15 @@ class BooksController extends Controller
         $books->author = $request->input('author');
         $books->description = $request->input('description');
         $books->user_id = Sentinel::getUser()->id;
+        $books->name = Sentinel::getUser()->first_name . ' ' . Sentinel::getUser()->last_name;
+        $books->email = Sentinel::getUser()->email;
+        $books->telephone = $request->input('telephone');
         $books->save();
         if ($books->id) {
-            return Redirect::route("my-account")->with('success', trans('Book Request Sent Success'));
+            return Redirect::route("my-account")->with('success', trans('Request Sent Successfully, One of our agents will contact you.'));
             //return redirect('user_dashboard')->with('success', trans('admin/blog/message.success.create'));
         } else {
-            return Redirect::route('my-account')->with('error', trans('Book Request Sent Failed'));
+            return Redirect::route('my-account')->with('error', trans('Request Sent Failed'));
         }
 
     }

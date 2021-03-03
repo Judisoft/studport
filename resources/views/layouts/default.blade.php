@@ -7,402 +7,362 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         @section('title')
-        Welcome to StudPort
+            Welcome to StudPort
         @show
     </title>
     <!--global css starts-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/lib.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/custom1.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/searchbar.css') }}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{{asset('css/style-starter.css')}}">
+     <link rel="stylesheet" href="{{ asset('vendors/simple-line-icons/css/simple-line-icons.css') }}"/>
     <!--end of global css-->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
     <!-- page level css-->
-    @yield('header_styles')
-    <!--end of page level css-->
+    
+@yield('header_styles')
+<!--end of page level css-->
 </head>
-
 <style>
-body{
-    font-family: "Open Sans", sans-serif !important;
-    -webkit-font-smoothing: antialiased;
-    background-color: #fff;
-
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Roboto Slab', serif !important;
 }
-a.nav-link{
-    font-size: 16px !important;
-
-}
-a.dropdown-item{
-    font-size: 16px;
-}
-a.main-button-slider2 {
-    font-family: "Open Sans", sans-serif;
-    font-size: 12px;
-    border-radius: 25px;
-    padding: 15px 25px;
-    background-color: #fba70b;
-    text-decoration: none;
-    text-transform: uppercase;
+    .btn-nav{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border:none !important;
+    }
+     .btn-outline-primary-nav:hover {
     color: #fff;
-    font-weight: 600;
-    letter-spacing: 1px;
-    -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
+    background-color: #2C504F;
+    border-color: #28a745; }
+
+    [placeholder]:focus::-webkit-input-placeholder {
+    transition: text-indent 0.4s 0.4s ease; 
+    text-indent: -200%;
+    opacity: 1;
+    }
+  .card-1 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 5px rgba(0,0,0,0.23);
 }
-
-a.main-button-slider2:hover {
-    background-color: #418bca;
-    color: #fff;
-    text-decoration: none;
-
 }
-
-/* Search bar */
-
-
-input[type="search"] {
-    -webkit-appearance: none !important;
-    background-clip: padding-box;
-    background-color: white;
-    vertical-align: middle;
-    border-radius: 0.25rem;
-    border: 1px solid #e0e0e5;
-    font-family: "Open Sans", Sans-Serif;
-    font-size: 1rem;
-    width: 100%;
-    line-height: 2;
-    padding: 0.375rem 1.25rem;
-    -webkit-transition: border-color 0.2s;
-    -moz-transition: border-color 0.2s;
-    transition: border-color 0.2s;
-}
-
-input[type="search"]:focus {
-    transition: all 0.5s;
-    box-shadow: 0 0 40px #fff;
-    border-color: #fff;
-    outline: none;
-}
-
-form.search-form {
-    display: flex;
-    justify-content: center;
-}
-
-label {
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: auto;
-    align-self: center;
-    margin-bottom: 0;
-}
-
-input.search-field {
-    width: 25%;
-    position: absolute;
-    top: 15%;
-    left: 25%;
-    margin-bottom: 0;
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: auto;
-    align-self: center;
-    height: 51px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-input.search-submit {
-    height: 51px;
-    margin: 0;
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    padding: 1rem 1.3rem;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-    font-family: "Font Awesome 5 Free";
-    font-size: 1rem;
-}
-
-.screen-reader-text {
-    clip: rect(1px, 1px, 1px, 1px);
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-}
-
-.button {
-    display: inline-block;
-    font-weight: 600;
-    font-size: 0.8rem;
-    line-height: 1.15;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-    background: #f9d342;
-    color: #292826;
-    border: 1px solid transparent;
-    vertical-align: middle;
-    text-shadow: none;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    transition: all 0.2s;
-}
-
-.button:hover,
-.button:active,
-.button:focus {
-    cursor: pointer;
-    background: #d4b743;
-    color: #292826;
-    outline: 0;
-}
-
 </style>
-
 <body>
-    <!-- Header Start -->
-    <header>
-            <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" style="background-color: #fff !important;">
-            <img src="{{asset('images/logo.png')}}">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div style="height:50px;"> </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto  margin_right">
-
-                        @if(Sentinel::check())
-                            <li class="nav-item ">
-                                <a href="{{ route('home') }}" class="nav-link"><span class="fas fa-home"></span> Home</a>
+<!-- header -->
+<header class="w3l-header">
+    <div class="hero-header-11">
+        <div class="hero-header-11-content">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg  navbar-light sticky-bar sticky" style="background-color: #01182F;">
+                    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" /> </a>
+                    <!-- if logo is image enable this
+                <a class="navbar-brand" href="#index.html">
+                        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                </a> -->
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-radius: 2px;">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                    </button>
+                        
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item {!! (Request::is('/') ? 'active' : '') !!}">
+                                <a class="nav-link text-capitalize" href="{{ route('home') }}">Home</a>
                             </li>
-                        @endif
-                        <li
-                            class=" nav-item dropdown">
-                            <a href="{{ URL::to('blog') }}" class="nav-link"><span class="fas fa-book-reader"></span> Academic Blog</a>
-                        </li>
+                            <li class="nav-item {!! (Request::is('about_us') ? 'active' : '') !!}">
+                                <a class="nav-link text-capitalize" href="{{route('about')}}">About</a>
+                            </li>
+                            <li class="nav-item {!! (Request::is('services') ? 'active' : '') !!}">
+                                <a class="nav-link text-capitalize" href="{{ route('services')}}">Services</a>
+                            </li>
+                            <li class="nav-item {!! (Request::is('blog') ? 'active' : '') !!}">
+                                <a class="nav-link text-capitalize" href="{{ route('blog') }}">Academia</a>
+                            </li>
+                            <li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
+                                <a class="nav-link text-capitalize" href="{{ URL::to('contact') }}">Contact</a>
+                            </li>
+
+                                @if(Sentinel::check())
+                                    <li class=" nav-item {!! (Request::is('my-account') ? 'active' : '') !!}">
+                                        <a href="{{ URL::to('my-account') }}" class="nav-link text-capitalize">My Portal</a>
+                                    </li>
+                                    <li class=" nav-item">
+                                        <a href="{{ URL::to('logout') }}" class="nav-link text-capitalize">Sign Out</a>
+                                    </li>
+                                    
+
+                                @endif
+                                @if(Sentinel::guest())
+                                    <li class="nav-item"><a href="{{ URL::to('login') }}" class="nav-link text-capitalize"> Sign In </a>
+                                    </li>
+                                    <li class="nav-item"><a href="{{ URL::to('register') }}" class="nav-link text-capitalize"> Register </a>
+                                    </li>
 
 
-                          @if(Sentinel::check())
-                        <li
-                            class=" nav-item dropdown ">
-                            <a href="#" aria-expanded="false" class="nav-link" style="display: block; border: none !important;"><span class="fas fa-envelope"></span> Messages <span class="fas fa-angle-down"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ URL::to('user_emails/compose') }}" class="dropdown-item"><span class="fas fa-edit"></span> Compose </a>
-                                </li>
-                                <hr>
-                                <li>
-                                    <a href="{{ URL::to('user_emails/inbox') }}" class="dropdown-item"><span class="fas fa-envelope-open-text"></span> Inbox </a>
-                                </li>
-                                <hr>
-                                <li>
-                                    <a href="{{ URL::to('user_emails/sent') }}" class="dropdown-item"><span class="fas fa-paper-plane"></span> Sent </a>
-                                </li>
-                            </ul>
-                        </li>
+                                @endif 
+                        </ul>
+                    </div>
+                </nav>
+        </div>
+    </div>
+</header>
+@yield('top')
+<!-- <div style="margin-top: 80px;"></div> -->
+<!-- Content -->
+               <!--Request Section Start -->
+                                            @if(session()->has('success'))
+                                                <div class="alert alert-success text-center p-5">
+                                                    <span class="fa fa-check-circle fa-5x py-2"></span><br><h4>{{ session()->get('success') }}</h4>
+                                                </div>
+                                            @endif
+                                            @if(session()->has('error'))
+                                                <div class="alert alert-danger text-center p-5">
+                                                    <span class="fa fa-times-circle fa-5x py-2"></span><br><h4>{{ session()->get('error') }}</h4>
+                                                </div>
+                                            @endif
 
-                        <li
-                            class=" nav-item dropdown">
-                            <a href="#" aria-expanded="false" class="nav-link" style="display: block; border: none !important; text-transform: capitalize !important;"> {{Sentinel::check()->first_name}} <span class="fas fa-angle-down"></span> </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ URL::to('my-account') }}" class="dropdown-item"><span class="fas fa-cogs"></span> My Portal </a>
-                                </li>
-                                <hr>
-                                <li>
-                                    <a href="{{ URL::to('logout') }}" class="dropdown-item"> <span class="fas fa-sign-out-alt"></span> Log Out </a>
-                                </li>
-                            </ul>
-                        </li>
-                        @endif
 
-                        {{--based on anyone login or not display menu items--}}
-                        @if(Sentinel::guest())
-                        <li class="nav-item"><a href="{{ URL::to('login') }}" class="nav-link"><span class="fas fa-user-lock"></span> Sign In </a>
-                        </li>
-                        <li class="nav-item"><a href="{{ URL::to('register') }}" class="nav-link"><span class="fas fa-user-plus"></span> Sign Up </a>
-                        </li>
-                                <li
-                                    class=" nav-item dropdown">
-                                    <a href="#" aria-expanded="false" class="nav-link" style="display: block; border: none !important; text-transform: capitalize !important;"> <span class="fas fa-globe"></span> <span class="fas fa-angle-down"></span> </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a href="#" class="dropdown-item"> En </a>
-                                        </li>
-                                        <hr>
-                                        <li>
-                                            <a href="#" class="dropdown-item"> Fr </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                        @endif
+@yield('content')
+<!-- Footer Section Start -->
 
+<footer class="w3l-footer-29-main" id="footer">
+    <div class="footer-29 py-5">
+        <div class="container pb-lg-3">
+            <div class="row footer-top-29">
+                <div class="col-lg-4 col-md-6 footer-list-29 footer-1 mt-md-5">
+                    <h6 class="footer-title-29">Our Mission</h6>
+                    <p>Creating a gateway that leads to academic excellence
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-list-29 footer-2 mt-5">
+                    <h6 class="footer-title-29">Explore More</h6>
+                    <ul>
+                        <li><a href="#">Surpport Groups</a></li>
+                        <li><a href="#">Exhibition</a></li>
+                        <li><a href="#">Our Partners</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Online Library</a></li>
+                        <li><a href="#">Internship Opportunities</a></li>
                     </ul>
                 </div>
-            </nav>
-            <!-- Nav bar End -->
-    </header>
-    <!-- //Header End -->
-
-    @yield('top')
-
-
-    <!-- Content -->
-    @yield('content')
- <!-- Footer Section Start -->
-    <footer>
-        <div class=" container">
-            <div class="footer-text">
-                <!-- About Us Section Start -->
-                <div class="row">
-                    <div class="col-sm-4 col-lg-4 col-md-4 col-12">
-                        <h4>About Us</h4>
-                        <p>
-                            StudPort is an open community
-                            for all students and teachers. We help student get answers
-                            to questions, share knowledge with other students, consult teachers
-                             anytime anywhere. StudPort provides career orientation services offered by
-                             qualified professionals.
-                             The contents in StudPort is 100% based on Cameroon curriculum.
-
-                        </p>
-                        <hr id="hr_border2">
-                        <h4 class="menu">Follow Us on Social Media</h4>
-                        <ul class="list-inline mb-2">
-                            <li>
-                                <a href="#"> <i class="livicon" data-name="facebook" data-size="18" data-loop="true"
-                                        data-c="#ccc" data-hc="#ccc"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"> <i class="livicon" data-name="twitter" data-size="18" data-loop="true"
-                                        data-c="#ccc" data-hc="#ccc"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"> <i class="livicon" data-name="youtube" data-size="18" data-loop="true"
-                                        data-c="#ccc" data-hc="#ccc"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"> <i class="livicon" data-name="linkedin" data-size="18" data-loop="true"
-                                        data-c="#ccc" data-hc="#ccc"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"> <i class="livicon" data-name="instagram" data-size="18" data-loop="true"
-                                        data-c="#ccc" data-hc="#ccc"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- //About us Section End -->
-                    <!-- Contact Section Start -->
-                    <div class="col-sm-4 col-lg-4 col-md-4 col-12">
-                        <h4>Contact Us</h4>
-                        <ul class="list-unstyled">
-                            <li><span class="fas fa-map-marker-alt"></span> Elig-Effa, Yaounde Cameroon</li>
-                            <li><i class="livicon icon4 icon3" data-name="cellphone" data-size="18" data-loop="true"
-                                    data-c="#ccc" data-hc="#ccc"></i>Phone: 652 459 059
-                            </li>
-                            <li>
-                                <i class="livicon icon3" data-name="mail-alt" data-size="20" data-loop="true"
-                                    data-c="#ccc" data-hc="#ccc"></i>
-                                Email: <a class="text-warning" href="mailto:info@studport.com">info@studport.cm</a>
-                            </li>
-                        </ul>
-                        <hr id="hr_border">
-                        <div class="news menu">
-                            <h4>News letter</h4>
-                            <p>Subscribe to our newsletter and stay up to date with the latest news and deals</p>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="yourmail@mail.com"
-                                    aria-describedby="basic-addon2" style="border-radius: 5px; font-size: 20px;"> <br />
-                                <a href="#" class="main-button-slider2" role="button" >Subscribe</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- //Contact Section End -->
-                    <!-- Recent post Section Start -->
-                    <div class="col-sm-4 col-lg-4 col-md-4 col-12">
-                        <h4>Our Team</h4>
-                        <div class="media">
-                            <img class="media-object rounded-circle mr-3" src="{{ asset('images/ceo.jpg') }}"
-                                alt="image">
-                            <div class="media-body">
-                                <p class="media-heading text-justify">Welcome to StudPort!</p>
-                                <p>Do you have questions that need answers, assignments that are hard to do, looking for a supervisor?
-                                 StudPort Community is here to help you become an excellent student.
-                                Become a StudPort Community member!
-                                </p>
-                                <p class="text-right"><i>Founder and CEO, StudPort</i></p>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <img class="media-object rounded-circle mr-3" src="{{ asset('images/no_avatar.jpg') }}"
-                                 alt="image">
-                            <div class="media-body">
-                                <p class="media-heading text-justify">Welcome to StudPort!</p>
-                                <p>Do you have questions that need answers, assignments that are hard to do, looking for a supervisor?
-                                    StudPort Community is here to help you become an excellent student.
-                                    Become a StudPort Community member!
-                                </p>
-                                <p class="text-right"><i>Managing Direction, StudPort</i></p>
-                            </div>
-                        </div>
-                    </div>
-                <!-- //Footer Section End -->
-                <div class=" col-12 copyright">
-                    <div class="container">
-                        <p>Copyright &copy; <?php echo date('Y') ?> All rights reserved</p>
+                <div class="col-lg-4 col-md-6 footer-list-29 footer-3 mt-5">
+                    <div class="properties">
+                        <h6 class="footer-title-29">Quick Reads</h6>
+                        <a class="d-grid twitter-feed" href="#blog-single.html">
+                            <img src="{{asset('images/g5.jpg')}}" class="img-fluid rounded" alt="">
+                            <p>Title <br>
+                                 Description<br>
+                                Tag 
+                            </p>
+                        </a>
+                        <a class="d-grid twitter-feed" href="#blog-single.html">
+                            <img src="{{asset('images/g5.jpg')}}" class="img-fluid rounded" alt="">
+                            <p>Title <br>
+                                Description<br>
+                                Tag 
+                            </p>
+                        </a>
+                        <a class="d-grid twitter-feed" href="#blog-single.html">
+                            <img src="{{asset('images/g5.jpg')}}" class="img-fluid rounded" alt="">
+                            <p>Title <br>
+                                 Description<br>
+                                Tag 
+                            </p>
+                        </a>
                     </div>
                 </div>
+                <div class="col-lg-2 col-md-6 footer-list-29 footer-4 mt-5">
+                    <h6 class="footer-title-29">Quick Links</h6>
+                    <ul>
+                        @if(Sentinel::check())
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        @endif
+                        <li><a href="{{route('about')}}">About</a></li>
+                        <li><a href="{{route('services')}}">Services</a></li>
+                        <li><a href="{{route('blog')}}">Academia</a></li>
+                        <li><a href="{{route('contact')}}">Contact</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
+    </div>
+    <div id="footers14-block" class="py-3">
+        <div class="container">
+            <div class="footers14-bottom text-center">
+                <div class="social">
+                    <a href="#facebook" class="facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                    <a href="#twitter" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+                    <a href="#instagram" class="instagram"><span class="fa fa-instagram" aria-hidden="true"></span></a>
+                    <a href="#youtube" class="youtube"><span class="fa fa-youtube" aria-hidden="true"></span></a>
+                </div>
+                <div class="copyright mt-1">
+                    <p style="text-align: center !important;">&copy; <?php echo date('Y') ?> StudPort. All Rights Reserved | Developed with <i class="icon-heart text-dark px-2"></i> by &nbsp;<a href="#" style="color: #e69138;">StudPort</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </footer>
-    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button"
-        data-original-title="Back to top" data-toggle="tooltip" data-placement="left">
-        <i class="fas fa-angle-up fa-2x"></i>
-    </a>
-
-
-
-    <!--global js starts-->
-    <script type="text/javascript" src="{{ asset('js/frontend/lib.js') }}"></script>
-
-    <!--global js end-->
-    <!-- begin page level js -->
-    @yield('footer_scripts')
-    <!-- end page level js -->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-angle-up" aria-hidden="true"></span>
+    </button>
     <script>
-        $(".navbar-toggler-icon").click(function () {
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- /move top -->
+
+</footer>
+<!-- Footer -->
+<!--global js starts-->
+<script type="text/javascript" src="{{ asset('js/frontend/lib.js') }}"></script>
+<!--global js end-->
+<!-- begin page level js -->
+@yield('footer_scripts')
+<!-- end page level js -->
+<script>
+    $(".navbar-toggler-icon").click(function () {
         $(this).closest('.navbar').find('.collapse').toggleClass('collapse1')
     })
 
     $(function () {
         $('[data-toggle="tooltip"]').tooltip().css('font-size', '14px');
     })
-    </script>
-
-<!-- Start of LiveChat (www.livechatinc.com) code -->
-<script>
-    window.__lc = window.__lc || {};
-    window.__lc.license = 12411216;
-    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
 </script>
-<noscript><a href="https://www.livechatinc.com/chat-with/12411216/" rel="nofollow">Chat with us</a><a href="#" rel="noopener nofollow" target="_blank">StudPort</a></noscript>
-<!-- End of LiveChat code -->
+
+<script>
+    $(".navbar-toggler-icon").click(function () {
+        $(this).closest('.navbar').find('.collapse').toggleClass('collapse1')
+    })
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip().css('font-size', '14px');
+    })
+</script>
 
 
+<!-- Template JavaScript -->
+
+<!-- stats number counter-->
+<script src="{{('js/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('js/jquery.countup.js')}}"></script>
+<script>
+    $('.counter').countUp();
+</script>
+<!-- //stats number counter -->
+
+
+<!-- testimonials owlcarousel -->
+<script src="{{asset('js/owl.carousel.js')}}"></script>
+
+<!-- script for owlcarousel -->
+<script>
+    $(document).ready(function () {
+        $('.owl-one').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            responsiveClass: true,
+            autoplay: false,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 1000,
+            autoplayHoverPause: false,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                480: {
+                    items: 1,
+                    nav: false
+                },
+                667: {
+                    items: 1,
+                    nav: false
+                },
+                1000: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+</script>
+<!-- //script for owlcarousel -->
+<!-- //testimonials owlcarousel -->
+
+<!-- script for courses -->
+<script>
+    $(document).ready(function () {
+        $('.owl-two').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: false,
+            responsiveClass: true,
+            autoplay: false,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 1000,
+            autoplayHoverPause: false,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                480: {
+                    items: 1,
+                    nav: false
+                },
+                667: {
+                    items: 2,
+                    nav: false
+                },
+                1000: {
+                    items: 3,
+                    nav: false
+                }
+            }
+        })
+    })
+</script>
+<!-- //script for courses -->
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<script>
+$(document).ready(function(){
+  $("#showSearch").click(function(){
+    $("#search-icon").hide();
+  });
+});
+</script>
 
 </body>
 

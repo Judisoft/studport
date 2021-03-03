@@ -42,6 +42,11 @@ class User extends EloquentUser
     protected $dates = ['deleted_at'];
 
     protected $appends = ['full_name'];
+
+    public static function whereHas(string $string, \Closure $param)
+    {
+    }
+
     public function getFullNameAttribute()
     {
         return Str::limit($this->first_name . ' ' . $this->last_name, 30);
@@ -55,4 +60,11 @@ class User extends EloquentUser
     {
         return Cache::has('user-is-online-' . $this->id);
     }
+    // User roles
+    public function role()
+    {
+
+        return $this->hasMany('App\Role');
+    }
+
 }

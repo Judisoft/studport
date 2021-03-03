@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <title>Josh Admin</title>
+    <title>StudPort Admin</title>
     <!-- Jquery Framework -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!-- API 2 -->
@@ -12,6 +12,9 @@
         @import url('https://fonts.googleapis.com/css?family=Montserrat');
         @import url('https://fonts.googleapis.com/css?family=Open Sans');
     </style>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style-starter.css')}}">
+
 </head>
 <body>
     @yield('content')

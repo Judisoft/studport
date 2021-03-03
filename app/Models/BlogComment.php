@@ -20,4 +20,10 @@ class BlogComment extends Model
     {
         return $this->belongsTo(Blog::class);
     }
+    /**
+* Get votes associated with an answer
+*/
+public function votes() {
+    return $this->hasMany( 'App\Vote' );
+  }
 }

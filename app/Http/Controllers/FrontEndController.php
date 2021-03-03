@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Activation;
 use App\Http\Requests\BlogRequest;
+use App\Models\BlogComment;
+use App\Models\News;
+use Illuminate\Support\Facades\DB;
 use \Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\PasswordResetRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\FrontendRequest;
 use App\Mail\Register;
 use App\Models\BookRequest;
-use App\Models\News;
+use App\Models\News as NewsAlias;
 use App\Models\User;
 use App\Models\Blog;
 use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
@@ -29,15 +32,26 @@ use Sentinel;
 use URL;
 use View;
 use stdClass;
-use App\Mail\Contact;
+//use App\Mail\Contact;
 use App\Mail\ContactUser;
 use App\Mail\ForgotPassword;
 use App\Models\BlogCategory;
 use App\Models\Country;
+use Webpatser\Uuid\Uuid;
+use App\Models\Exam;
+use App\Models\Book;
+use App\Models\Newsletter;
+use App\Models\Contact;
 
 class FrontEndController extends JoshController
 {
+    private $tags;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->tags = Blog::allTags();
+    }
     /*
      * $user_activation set to false makes the user activation via user registered email
      * and set to true makes user activated while creation
@@ -101,16 +115,55 @@ class FrontEndController extends JoshController
      * get user details and display
      *  @param  int  $id
      */
-    public function myAccount()
+    public function myAccount($slug = '')
     {
         $user = Sentinel::getUser();
         $users = User::all();
+        $teachers = User::where('user_role', 'tutor')->get();
+        $role = 'tutor';
+        //$users = User::select('first_name','last_name')->where('user_role', $role)->get();
         $countries = Country::all()->pluck('name', 'sortname')->toArray();
         $blogcategory = BlogCategory::pluck('title', 'id');
         $categories = BlogCategory::all();
+        $blogscategories = BlogCategory::all();
         //$id = Blog::get('user_id');
-        $blogs = Blog::latest()->paginate(10);
-        $news = News::latest()->paginate(10);
+        $blogs = Blog::latest()->simplePaginate(10);
+        $blog = Blog::where('slug', $slug)->first();
+        //$docSize = filesize($blog->image);
+        $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->latest()->get(); //DB::table('blogs')->where('user_id', Sentinel::getUser()->id)->get();
+        $school_mates = User::where('institution', Sentinel::getUser()->institution)->get();
+        $blogscategories = BlogCategory::all();
+       // $user_categories = Blog::where('blog_category_id', Sentinel::getUser()->id)->get();
+        $tags = $this->tags;
+        $news = NewsAlias::orderBy('id', 'DESC')->get();
+        // Get distinct departments
+        $user_departments =  User::select('department')->whereNotNull('department')->distinct()->orderBy('department')->get();
+         // search funcionality
+         //Number of users' questions asked
+         $numberOfUserQuestions = count($user_questions);
+         //number of questions user answered
+         $user_answers = BlogComment::where('email', Sentinel::getUser()->email)->get(); 
+         $numberOfUserAnswers = count($user_answers);
+         //Books requested
+         $book_request = Book::where('email', Sentinel::getUser()->email)->get();
+         $numberOfUserRequest = count($book_request);
+         //get user courses
+         $course_title = Exam::select('title')->where('department', Sentinel::getUser()->department)->distinct()->orderBy('title')->get();
+         //get institutions
+         $institutions = User::select('institution')->whereNotNull('institution')->distinct()->orderBy('institution')->get();
+        
+        
+
+         $search = request()->query('search');
+         if ($search) {
+            $exam_questions = Exam::where('title', 'LIKE', "%{$search}%")
+                                    ->simplePaginate(10);
+         }
+         else {
+            $exam_questions = Exam::where('department', Sentinel::getuser()->department)
+                                    ->simplePaginate(10);
+         }
+        
         //$categories = BlogCategory::all();
         //get all users with session-on
         //Session::updateCurrent();
@@ -121,7 +174,28 @@ class FrontEndController extends JoshController
 
         //$blog_id = Blog::all()->user_id;
         //return view('user_account', compact('user', 'countries'));
-        return view('user_dashboard', compact('user', 'countries', 'blogcategory', 'blogs','users', 'categories', 'news'));
+
+        return view('user_dashboard', 
+                compact('user', 
+                'countries', 
+                'blogcategory', 
+                'user_questions', 
+                'blogscategories', 
+                'blogs',
+                 'users',
+                 'teachers', 
+                'categories', 
+                'tags',
+                 'news', 
+                 'school_mates', 
+                 'exam_questions', 
+                 'user_departments',
+                 'numberOfUserQuestions',
+                 'numberOfUserAnswers',
+                 'numberOfUserRequest',
+                 'course_title',
+                 'institutions'
+                ));
     }
 
 
@@ -348,33 +422,6 @@ class FrontEndController extends JoshController
         return Redirect::route('login')->with('success', trans('auth/message.forgot-password-confirm.success'));
     }
 
-    /**
-     * Contact form processing.
-     *
-     * @param  Request $request
-     * @return Redirect
-     */
-    public function postContact(Request $request)
-    {
-        $data = [
-            'contact-name' => $request->get('contact-name'),
-            'contact-email' => $request->get('contact-email'),
-            'contact-msg' => $request->get('contact-msg'),
-        ];
-
-
-        // Send Email to admin
-        Mail::to('email@domain.com')
-            ->send(new Contact($data));
-
-        // Send Email to user
-        Mail::to($data['contact-email'])
-            ->send(new ContactUser($data));
-
-        //Redirect to contact page
-        return redirect('contact')->with('success', trans('auth/message.contact.success'));
-    }
-
     public function showFrontEndView($name = null)
     {
         if (View::exists($name)) {
@@ -453,6 +500,7 @@ class FrontEndController extends JoshController
             $destinationPath = public_path() . '/uploads/blog/';
             $file->move($destinationPath, $picture);
             $blog->image = $picture;
+            //$blog->doc_size = $request->file('image')->getClientSize();
         }
         $blog->user_id = Sentinel::getUser()->id;
         $blog->save();
@@ -466,8 +514,70 @@ class FrontEndController extends JoshController
         }
     }
 
-    public function services(){
-        return view('services');
+    public function download($uuid)
+    {
+        $exam = Exam::where('uuid', $uuid)->firstOrFail();
+        $pathToFile = storage_path('app/exams/' . $exam->cover);
+        return response()->download($pathToFile);
+    }
+
+    public function about()
+    {
+        $news = News::all();
+        $number_of_jobs =count($news);
+        $teachers = User::where('user_role', 'tutor')->get();
+        $number_of_teachers = count($teachers);
+        $experience = date('Y') - 2020;
+        $students = User::where('user_role', 'student')->get();
+        $number_of_students = count($students);
+        return view('about_us', compact('news', 'number_of_teachers', 'number_of_students', 'number_of_jobs', 'experience'));
+    }
+
+    public function services() {
+        $news = News::all();
+        $number_of_jobs =count($news);
+        $teachers = User::where('user_role', 'tutor')->get();
+        $number_of_teachers = count($teachers);
+        return view('services', compact('news', 'number_of_teachers', 'number_of_jobs'));
+    }
+    public function tutor() {
+        $blogs = Blog::all();
+
+        $search = request()->query('search');
+        if ($search) {
+            $blogs = Blog::where('title', 'LIKE', "%{$search}%")
+                                ->orWhere('content', "%{$search}%")
+                                ->simplePaginate(10);
+        }
+        else {
+            $blogs = Blog::latest()->simplePaginate(10);
+
+        }
+
+        return view('tutor', compact('blogs'));
+    }
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function newsletter(Request $request)
+    {
+        $this -> validate($request,[
+            'email' => 'required'
+        ]);
+
+        $newsletter = new Newsletter;
+        $newsletter->email = $request->input('email');
+        $newsletter->save();
+        if ($newsletter->id) {
+            return Redirect::route("home")->with('success', trans('Thank you for subscribing to our newsletter'));
+            //return redirect('user_dashboard')->with('success', trans('admin/blog/message.success.create'));
+        } else {
+            return Redirect::route("home")->with('error', trans('Oups! an error occured'));
+        }
+
     }
 
 }

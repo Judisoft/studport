@@ -1718,6 +1718,11 @@ bootstrap-fileinput@^4.4.7:
   version "0.0.0"
   resolved "https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#73ddbaf5d76de98a78728f2f305f736fe33805a3"
 
+bootstrap-icons@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.3.0.tgz#fb9d704622fcb30a0329695d5033d97171947d04"
+  integrity sha512-w6zQ93p626zmPDqDtET7VdB9EkoDtfmCBV53hunjntoCke6X5LafXf6TxPAP+ImjRAhhxAyA/sjzQnHBY0uoiQ==
+
 "bootstrap-magnify@https://github.com/marcaube/bootstrap-magnify.git":
   version "0.0.0"
   resolved "https://github.com/marcaube/bootstrap-magnify.git#323ec932556362034326bf5258f17ccbc93cba63"

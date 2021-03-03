@@ -12,7 +12,11 @@
     <link href="{{ asset('css/pages/lockscreen.css') }}" rel="stylesheet" />
     <!-- end of page level css -->
 </head>
-
+<style>
+    body{
+        background-color: #2C504F;
+    }
+</style>
 <body>
     <div class="top">
         <div class="colors"></div>

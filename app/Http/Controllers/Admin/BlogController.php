@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\JoshController;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\BlogComment;
@@ -96,6 +97,7 @@ class BlogController extends JoshController
             $destinationPath = public_path() . '/uploads/blog/';
             $file->move($destinationPath, $picture);
             $blog->image = $picture;
+            //$blog->doc_size = Storage::size($destinationPath);
         }
         $blog->user_id = Sentinel::getUser()->id;
         $blog->save();

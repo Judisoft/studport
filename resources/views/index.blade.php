@@ -1,4 +1,4 @@
-@extends('layouts/default2')
+@extends('layouts/default')
 
 {{-- Page title --}}
 @section('title')
@@ -8,290 +8,178 @@
 {{-- page level styles --}}
 @section('header_styles')
     <!--page level css starts-->
-
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;500&display=swap" rel="stylesheet">
     <!--end of page level css-->
 @stop
-
 <!--  Main banner section -->
 @section('content')
-<section class="w3l-main-banner">
-    <div class="companies20-content">
-        <div class="companies-wrapper">
-            <div class="container">
-                <div class="banner-item">
-                    <div class="banner-view">
-                        <div class="banner-info">
-                            <h3 class="banner-text">
-                                Learn Anytime, Anywhere<br> Accelerate Your success
-                            </h3>
-                            <p class="my-4 mb-sm-5">Questions are everywhere, answers are on StudPort. StudPort is a place where students can
-                                get answers to all their questions anytime anywhere.
-                            </p><br>
-                            <a href="#signup.html" class="btn btn-primary theme-button mr-3">Become a Teacher</a>
-                            <a href="#courses.html" class="btn btn-outline-primary theme-button">Courses</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
+    <div class="new-block top-bottom">
+      <div class="container">
+        <div class="middle-section text-center">
+          <div class="section-width mb-5">
+            <h2 class="mb-5 text-favorite" style="font-weight: 600 !important;">Ask Anything, Anytime! <br> We are here to help you get Answers</h2>
+            <h3 class="mb-5 text-primary text-bold">Learn, Grow and become the best.</h3>
+            <a href="{{route('register')}}" class="btn btn-outline-favorite theme-button py-2 px-5">Get Started</a>
+          </div>
         </div>
+      </div>
     </div>
-</section>
-<!--  //Main banner section -->
-<section class="w3l-index5" id="about">
-    <div class="new-block py-5">
-        <div class="container py-lg-3">
-            <div class="header-section text-center">
-                <h3>StudPort for Students and Teachers</h3>
-                <hr style="width: 10%; height: 5px; background-color: #e69138; border-radius: 5px;">
-                <p>We build virtual learning communities that empower Students and connect them to solutions
-                    that enable academic growth, discovery, and success.</p>
-                <p class="mt-3 mb-5"></p>
-                <a href="#signup.html" class="btn btn-outline-primary theme-button">For Students</a>
-                <a href="#signup.html" class="btn btn-outline-primary theme-button">For Teachers</a>
-            </div>
-            <div class="list-single-view mt-5">
-                <div class="row">
-                    <div class="col-md-12 mt-3">
-                        <div class="grids5-info">
-                            <a href="#url" class="d-block zoom"><img src="{{asset('images/background5.jpg')}}" alt="" class="img-fluid news-image" /></a>
-                            <div class="blog-info">
-                                <p class="date">Step 01</p>
-                                <h4>Join the StudPort Community</h4>
-                                <p class="blog-text">StudPort is an open community for every student.
-                                    We help students get answers to all their questions ( even the toughest ones), share knowledge with fellow students.
-                                    You can join the StudPort Community by registering for a StudPort account - It is FREE!
-                                    Click the link below to Create your StudPort Account. <br>
-                                    <hr>
-                                    <a  class="btn btn-info theme-button mr-3" href="#" style="left: 50px; ">Create Account</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-single-view mt-3">
-                <div class="row">
-                    <div class="col-md-12 mt-3">
-                        <div class="grids5-info">
-                            <a href="#url" class="d-block zoom"><img src="{{asset('images/p1.jpg')}}" alt="" class="img-fluid news-image" /></a>
-                            <div class="blog-info">
-                                <p class="date">Step 02</p>
-                                <h4>Ask your Questions</h4>
-                                <hr>
-                                <p class="blog-text">Once your StudPort Account is activated, you shall be granted access to your Portal where
-                                    you can ask questions in every course/subject and our StudPort Teachers will provide answers to your questions.
-                                    <hr>
-                                    <a  class="btn btn-info theme-button mr-3" href="#" >Ask Questions</a>
-                                <!--
-                                    <ul class="color-with-marker">
-                                    <li><span class="fa fa-check" style="color: #00bc8c;"></span> Ask questions </li>
-                                    <li><span class="fa fa-check" style="color: #00bc8c;"></span> View answers</li>
-                                    <li><span class="fa fa-check" style="color: #00bc8c;"></span> Meet a teacher for one-on-one tutoring</li>
-                                </ul>
-                                -->
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-single-view mt-3">
-                <div class="row">
-                    <div class="col-md-12 mt-3">
-                        <div class="grids5-info">
-                            <a href="#url" class="d-block zoom"><img src="{{asset('images/image1.png')}}" alt="" class="img-fluid news-image" /></a>
-                            <div class="blog-info">
-                                <p class="date">Step 03</p>
-                                <h4>Get Personalised Tutoring</h4>
-                                <p class="blog-text">Our Teachers are available 24/7 to provide one-on-one tutoring. You will be able to see Teachers who
-                                are online and available to tutor you, either online or in-person arrangement. You may be charged a fee for one-on-one sessions.
-                                    You may ask for a refund, in case your needs are not met.
-                                    <a class="text-primary" href="#"> Our refund policies apply</a>
-                                    <br>
-                                    <hr>
-                                    <a  class="btn btn-info theme-button mr-3" href="#" >Request a Tutor</a>
+  </section>
 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-single-view mt-3">
-                <div class="row">
-                    <div class="col-md-12 mt-3">
-                        <div class="grids5-info">
-                            <a href="#url" class="d-block zoom"><img src="{{asset('images/p4.jpg')}}" alt="" class="img-fluid news-image" /></a>
-                            <div class="blog-info">
-                                <p class="date">Step 04</p>
-                                <h4>StudPort Connect</h4>
-                                <p class="blog-text">With StudPort Connect, Students can join study groups within their institution as well as those of
-                                other institutions. You can create your own study group and invite friends to join</p>
-                                <br>
-                                <hr>
-                                <a  class="btn btn-success theme-button mr-3" href="#" >View Online Tutors</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- stats -->
-<section class="w3l-stats py-lg-5 py-4" id="stats">
-    <div class="gallery-inner container py-md-5 py-4">
-        <div class="row stats-con text-white">
-            <div class="col-md-3 col-6 stats_info counter_grid">
-                <span class="fa fa-question-circle"></span>
-                @foreach($questions as $question)
-                @endforeach
-                <p class="counter">{{$question->count()}}</p>
-                <h4>Questions Asked</h4>
-            </div>
-            <div class="col-md-3 col-6 stats_info counter_grid1">
-                <span class="fa fa-comments"></span>
-                <p class="counter">0</p>
-                <h4>Answers Provided</h4>
-            </div>
-            <div class="col-md-3 col-6 stats_info counter_grid1">
-                <span class="fa fa-graduation-cap"></span>
-                <p class="counter">0</p>
-                <h4>Certified Teachers</h4>
-            </div>
-            <div class="col-md-3 col-6 stats_info counter_grid2 mt-md-0 mt-5">
-                <span class="fa fa-users"></span>
-                @foreach($users as $user)
-                @endforeach
-                <p class="counter">{{$user->count()}}</p>
-                <h4>Students Enrolled</h4>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- //stats -->
-<section class="w3l-index-block4">
-    <div class="feature-16-main py-5">
-        <div class="container py-lg-3">
-            <div class="header-section text-center">
-                <h3>Our Programs</h3>
-                <hr style="width: 10%; height: 5px; background-color: #e69138; border-radius: 5px;">
-                <p class="mt-3 mb-5">Our question and answer format is a proven approach for accessing the right information in less time.
-                    Our programs are tailored to help students get answers to questions and  study resources a as quick as possible.
+       <!--  //servcies section -->
+    <section class="w3l-services2">
+        <div class="feature-16-main py-2">
+            <div class="container py-lg-3">
+                <div class="header-section text-center mb-4">
+                    <h1 class="text-dark">For Students, by Teachers</h1>
+                    <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
+                    <p>Student-focused, Teacher-assisted Platform.<br> StudPort is a digital platform developed to facilitate the teaching-learning process.<br>
+                        It is a community for learners with teacher-assistance.
                     </p>
-            </div>
-            <div class="features-grids">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="feature-16-gd">
-                            <div class="icon">
-                                <img src="{{asset('images/seminors.png')}}" class="img-fluid" alt="" />
-                            </div>
-                            <div class="feature-16-gd-info">
-                                <h4 class="mt-4 mb-2">StudPort Support</h4>
-                                <ul>
-                                    <li>Teacher-Student Support</li>
-                                    <li>Student-Student Support</li>
-                                    <li>Something here</li>
-                                    <li>Something here</li>
-
-                                </ul>
-                                <a href="#" class="btn btn-primary theme-button mt-4">Learn more</a>
+                </div>
+                <div class="features-grids">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 featured-service">
+                            <div class="feature-16-gd mt-5 shadow">
+                                <div class="feature-16-gd-info">
+                                    <h4 class="text-center text-gray"><span class="fa fa-question-circle fa-2x"></span></h4>
+                                    <h4 class="mt-4 mb-4 text-center text-dark">Public Q&A</h4>
+                                    <p class="text-center">StudPort allows students to ask questions in an open community where every studport user can view, answer or Comment</p>
+                                    <p align="center"><a class="btn  btn-theme" href="{{route('blog')}}">Browse Questions</a></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 mt-md-0 mt-4">
-                        <div class="feature-16-gd">
-                            <div class="icon">
-                                <img src="{{asset('images/course.png')}}" class="img-fluid" alt="" />
-                            </div>
-                            <div class="feature-16-gd-info">
-                                <h4 class="mt-4 mb-2">StudPort Exams</h4>
-                                <ul>
-                                    <li>Semester Exams Preparations </li>
-                                    <li>Competitive Entrance Exams Preparations</li>
-                                    <li>GCE Advanced Level Exams Preparations</li>
-                                    <li>GCE Ordinary Level Exams Preparations</li>
-                                </ul>
-                                <a href="#" class="btn btn-primary theme-button mt-4">Learn more</a>
+                        <div class="col-lg-4 col-md-6 featured-service">
+                            <div class="feature-16-gd shadow">
+                                <div class="feature-16-gd-info">
+                                <h4 class="text-center text-gray"><span class="fa fa-user-lock fa-2x"></span></h4>
+                                    <h4 class="mt-4 mb-4 text-center" text-center>Private Q&A</h4>
+                                    <p class="text-center">StudPort allows students to ask questions privately to specific teachers or users. Here, Questions and Answers are kept from public view</p>
+                                    <p align="center"><a class="btn  btn-primary" href="#url">Learn More</a></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 mt-4">
-                        <div class="feature-16-gd">
-                            <div class="icon">
-                                <img src="{{asset('images/library.png')}}" class="img-fluid" alt="" />
-                            </div>
-                            <div class="feature-16-gd-info">
-                                <h4 class="mt-4 mb-2">StudPort Library</h4>
-                                <ul>
-                                    <li>Something here</li>
-                                    <li>Something here</li>
-                                    <li>Something here</li>
-                                    <li>Something here</li>
-
-                                </ul>
-                                <a href="#" class="btn btn-primary theme-button mt-4">Learn more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mt-4">
-                        <div class="feature-16-gd">
-                            <div class="icon">
-                                <img src="{{asset('images/teacher.png')}}" class="img-fluid" alt="" />
-                            </div>
-                            <div class="feature-16-gd-info">
-                                <h4 class="mt-4 mb-2">Expert Teachers</h4>
-                                <ul>
-                                    <li>Something here</li>
-                                    <li>Something here</li>
-                                    <li>Something here</li>
-                                    <li>Something here</li>
-                                </ul>
-                                <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
+                        <div class="col-lg-4 col-md-6 featured-service">
+                            <div class="feature-16-gd mt-5 shadow">
+                                <div class="feature-16-gd-info">
+                                <h4 class="text-center text-gray"><span class="fa fa-chalkboard-teacher fa-2x"></span></h4>
+                                    <h4 class="mt-4 mb-4 text-center">Tutoring Jobs</h4>
+                                    <p>Tutoring Jobs are published on our Job Portal. Users can view and  apply for jobs that match their competence directly from their portal</p>
+                                    <p align="center"><a class="btn  btn-theme" href="{{route('news')}}">Find A Job</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+<br>
+<section class="w3l-get-started-index" style="background-color: #F0F5F7 !important; min-height: 400px;">
+    <div class="new-block top-bottom">
+        <div class="container">
+            <div class="middle-section">
+            <div class="header-section text-center mb-4 p-5">
+                    <h1 class="text-dark">For Institutions, by Developers</h1>
+                    <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
+                    <p>StudPort equips learning institutions with appropriate technologies to facilitate the teaching & learning processes
+                        We offer training and Staff capacity building in new age technologies to increase performance and success 
+                    </p>
+                </div>
+            </div>          <div class="row">
+                            <div class="col-lg-4 col-md-6 featured-service mb-5 pb-5">
+                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
+                                    <div class="feature-16-gd-info">
+                                        <p class="mt-4 mb-4">
+                                        <h4 class="text-primary float-left"><span class="fa fa-graduation-cap fa-2x px-3"></span></h4>
+                                        Scholarship & Study Abroad Programs
+                                        </p>                                    
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-lg-4 col-md-6 featured-service">
+                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
+                                <div class="feature-16-gd-info">
+                                        <p class="mt-4 mb-4">
+                                        <h4 class="text-primary float-left"><span class="fa fa-users fa-2x px-3"></span></h4>
+                                            Student Mentorship and Entrepreneurship 
+                                        </p>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-lg-4 col-md-6 featured-service">
+                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
+                                <div class="feature-16-gd-info">
+                                        <p class="mt-4 mb-4"><h4 class="text-primary float-left"><span class="fa fa-rocket fa-2x px-3"></span></h4>Student Admissions and Staff Recruitment Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         </div>
     </div>
 </section>
 <br>
-<div class="header-section text-center">
-    <h3>StudPort Showcase</h3>
-    <hr style="width: 10%; height: 5px; background-color: #e69138; border-radius: 5px;">
-</div>
 <!-- //subscribe -->
 <section class="w3l-get-started">
     <div class="new-block top-bottom">
         <div class="container">
             <div class="middle-section">
                 <div class="section-width">
-                    <h2>Showcase your Work on <span style="color: #e69138;">StudPort Showcase</span></h2>
+                    <h2 class="text-primary">StudPort Library & Bookshop <span class="text-white"><br>Get E-books from</span></h2>
                 </div>
                 <div class="link-list-menu">
-                    <p class="mb-5">Showcase what you've done and get what you deserve.</p>
-                    <a href="about.html" class="btn btn-outline-light btn-more">Learn More</a>
+                    <p class="mb-5">Visit our E-Library and Bookshop with over 1000+ e-books and lecture notes.
+                    <a href="{{route('register')}}">Register</a> now and get access to StudPort Library</p>
+                    <a href="#" class="btn btn-outline-light">Learn More</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<section class="w3l-get-started-index" style="background-color: #F0F5F7 !important; min-height: 400px;">
+    <div class="new-block top-bottom">
+        <div class="container">
+            <div class="middle-section">
+            <div class="header-section text-center mb-4 p-5">
+                    <h1 class="text-dark">Learn and grow with Us</h1>
+                    <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
+                    <p>StudPort equips learning institutions with appropriate technologies to facilitate the teaching & learning processes
+                        We offer training and Staff capacity building in new age technologies to increase performance and success 
+                    </p>
+                </div>
+            </div>          <div class="row">
+                            <div class="col-lg-12 col-md-12 featured-service mb-5 pb-5">
+                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
+                                    <div class="feature-16-gd-info">
+                                        <p class="mt-4 mb-4">
+                                        <h4 class="text-primary float-left"><span class="fa fa-graduation-cap fa-2x px-3"></span></h4>
+                                        Scholarship & Study Abroad Programs
+                                        </p>                                    
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+        </div>
+    </div>
+</section>
+
 <section class="w3l-testimonials" id="testimonials">
-    <div class="testimonials py-5">
+    <div class="testimonials py-5" >
         <div class="container py-lg-5">
             <div class="header-section text-center">
-                <h3>What Students Say About Us</h3>
-                <hr style="width: 10%; height: 5px; background-color: #e69138; border-radius: 5px;">
+              <h1 class="text-dark">What Students Say About Us</h1>
+                <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
             </div>
             <div class="row mt-4">
-                <div class="col-md-10 mx-auto">
+                <div class="col-lg-12 mx-auto">
                     <div class="owl-one owl-carousel owl-theme">
                         <div class="item">
                             <div class="slider-info mt-lg-4 mt-3">
                                 <div class="img-circle">
-                                    <img src="{{asset('images/student1.jpg')}}" class="img-fluid testimonial-img" alt="client image">
+                                    <img src="{{asset('images/student1.jpg')}}" class="img-fluid testimonial-img shadow" alt="client image">
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
@@ -306,7 +194,7 @@
                         <div class="item">
                             <div class="slider-info mt-lg-4 mt-3">
                                 <div class="img-circle">
-                                    <img src="{{asset('images/student2.jpg')}}" class="img-fluid testimonial-img" alt="client image">
+                                    <img src="{{asset('images/student2.jpg')}}" class="img-fluid testimonial-img shadow" alt="client image">
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
@@ -321,7 +209,7 @@
                         <div class="item">
                             <div class="slider-info mt-lg-4 mt-3">
                                 <div class="img-circle">
-                                    <img src="{{asset('images/avatar3.png')}}" class="img-fluid testimonial-img" alt="client image">
+                                    <img src="{{asset('images/avatar3.png')}}" class="img-fluid testimonial-img shadow" alt="client image">
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
@@ -336,7 +224,7 @@
                         <div class="item">
                             <div class="slider-info mt-lg-4 mt-3">
                                 <div class="img-circle">
-                                    <img src="{{asset('images/avatar3.png')}}" class="img-fluid testimonial-img" alt="client image">
+                                    <img src="{{asset('images/avatar3.png')}}" class="img-fluid testimonial-img shadow" alt="client image">
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
@@ -354,220 +242,39 @@
         </div>
     </div>
 </section>
-<div class="w3l-faq-block py-5">
-    <div class="container py-lg-5">
-        <div class="header-section mb-4">
-            <h3>FAQ</h3>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab"
-                       aria-controls="home">Teaching</a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab"
-                       aria-controls="profile">Courses</a>
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab"
-                       aria-controls="messages">Programs</a>
-                </div>
-            </div>
-            <div class="col-md-8 mt-md-0 mt-5">
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                        <section class="w3l-faq" id="faq">
-                            <div class="faq-page">
-                                <ul>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                        <section class="w3l-faq" id="faq">
-                            <div class="faq-page">
-                                <ul>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Ttitle</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                        <section class="w3l-faq" id="faq">
-                            <div class="faq-page">
-                                <ul>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-</div>
 <section class="w3l-subscribe">
     <div class="subscription-infhny">
-        <div class="container-fluid">
-            <div class="subscription-grids row">
-                <div class="subscription-right form-right-inf col-lg-6 p-md-5 p-4">
-                    <div class="px-lg-5 py-md-0 py-3">
+        <div class="container"><br>
+            <div class="subscription-grids row mb-5">
+                <div class="subscription-right form-right-inf col-lg-12 p-md-5 p-4 shadow">
+                    <div class="px-lg-5 py-md-0 py-1">
                         <div class="header-section">
-                            <h3>Join us for FREE to get instant <span>email updates!</span></h3>
-                            <p class="mt-3">Subscribe and get notified at first on the latest update and offers!</p>
-                        </div>
-                        <form action="#" method="post" class="signin-form mt-lg-5 mt-4">
+                            <img src="{{asset('images/features-icon-3.png')}}" class="float-left" />
+                            <h3 class="text-primary text-center" style="font-weight: 200;">Join us for FREE to get instant <span>email updates!</span></h3>
+                            <p class="text-center mt-3 py-2">Subscribe and get notified at first on the latest update and offers!</p>
+                             <div class="card-body">
+                                                @if(session()->has('success'))
+                                                     <div class="alert alert-success px-10 py-10 text-center">
+                                                        {{ session()->get('success') }}
+                                                    </div>
+                                                @endif
+                                                    @if(session()->has('error'))
+                                                        <div class="alert alert-danger px-10 py-10 text-center">
+                                                            {{ session()->get('error') }}
+                                                        </div>
+                                                    @endif
+                            </div>
+                        <form action="{{route('my-account')}}" method="POST" class="signin-form mt-lg-4 mt-2">
                             <div class="forms-gds">
                                 <div class="form-input">
-                                    <input type="email" name="" placeholder="Your email here" required="">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                    <input type="email" name="email" placeholder="Your email here" class="text-center" required>
                                 </div>
-                                <div class="form-input"><button class="btn btn-primary theme-button">Subscribe</button></div>
+                                <div class="form-input"><button type="submit" class="btn btn-primary theme-button">Subscribe</button></div>
                             </div>
                         </form>
                     </div>
-                </div>
-                <div class="subscription-left forms-25-info col-lg-6 ">
-
                 </div>
             </div>
         </div>
@@ -575,4 +282,8 @@
 </section>
 @stop
 
+{{-- page level scripts --}}
+@section('footer_scripts')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@stop
 
