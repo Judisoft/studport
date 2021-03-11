@@ -12,16 +12,18 @@
     </title>
     <!--global css starts-->
     <link rel="stylesheet" href="{{asset('css/style-starter.css')}}">
-     <link rel="stylesheet" href="{{ asset('vendors/simple-line-icons/css/simple-line-icons.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('vendors/simple-line-icons/css/simple-line-icons.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"/>
     <!--end of global css-->
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+   
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+   
 
     <!-- page level css-->
     
@@ -50,8 +52,8 @@ h1,h2,h3,h4,h5,h6{
   .card-1 {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 5px rgba(0,0,0,0.23);
 }
-}
 </style>
+
 <body>
 <!-- header -->
 <header class="w3l-header">
@@ -115,19 +117,6 @@ h1,h2,h3,h4,h5,h6{
 @yield('top')
 <!-- <div style="margin-top: 80px;"></div> -->
 <!-- Content -->
-               <!--Request Section Start -->
-                                            @if(session()->has('success'))
-                                                <div class="alert alert-success text-center p-5">
-                                                    <span class="fa fa-check-circle fa-5x py-2"></span><br><h4>{{ session()->get('success') }}</h4>
-                                                </div>
-                                            @endif
-                                            @if(session()->has('error'))
-                                                <div class="alert alert-danger text-center p-5">
-                                                    <span class="fa fa-times-circle fa-5x py-2"></span><br><h4>{{ session()->get('error') }}</h4>
-                                                </div>
-                                            @endif
-
-
 @yield('content')
 <!-- Footer Section Start -->
 
@@ -268,11 +257,25 @@ h1,h2,h3,h4,h5,h6{
 <!-- stats number counter-->
 <script src="{{('js/jquery.waypoints.min.js')}}"></script>
 <script src="{{asset('js/jquery.countup.js')}}"></script>
+<script src="{{asset('js/toastr.min.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>
     $('.counter').countUp();
 </script>
 <!-- //stats number counter -->
-
+<!-- Session notifications -->
+    <script>
+        @if(session()->has('success'))
+            toastr.success("{{Session::get('success')}}")
+        @endif
+    </script>
+    <script>
+        @if(session()->has('error'))
+            toastr.error("{{Session::get('error')}}")
+        @endif
+    </script>
+        
+<!-- End Session notifications -->
 
 <!-- testimonials owlcarousel -->
 <script src="{{asset('js/owl.carousel.js')}}"></script>

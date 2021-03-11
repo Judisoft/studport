@@ -16,53 +16,61 @@
 @stop
 {{-- Page content --}}
 @section('content')
+<section class="w3l-get-started-index" style="background-color: #F0F5F7 !important; min-height: 400px;">
+    <div class="new-block top-bottom">
+        <div class="container">
+            <div class="middle-section">
+                <div class="header-section text-center mb-4 p-5">
+                    <h3 class="text-dark">StudPort Services</h3>
+                    <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
+                    <p class="mt-5">
+                        StudPort is committed to providing quality digital services to improve the
+                        teaching and learning process for Students and Teachers.  
+                        Our services are designed to empower each student to reach his or her highest potential.
+                    </p>
+                </div>
+            </div> 
+            <div class="py-5">
+                <h1 class="text-center" style="font-weight: 200;"><span class="icon-puzzle fa-5x px-2" style="color: #E4D7D6;"></span> We are here to give you the Support you need. Just let us know how</h1>
+            </div>         
+        </div>
+</section>
     <!--  servcies section -->
     <div class="w3l-services1 pt-2" id="services">
         <div class="container pt-lg-3">
             <div class="aboutgrids row">
-                <div class="col-lg-12 col-12 aboutgrid2">
-                    <div class="header-section text-center">
-                   <div class="bg-warning mb-3" style="background-color: #147E83; padding-top: 60px; min-height: 500px; width: 100%; border-radius: 5px 5px 0 0;">
-                        <h3 class="text-black" style="font-weight: 500;"><span class="fa fa-tools fa-2x px-2"></span>StudPort Services</h3>
-                   
-                      <h5 class="p-3" style="font-weight: 200; line-height: 1.5;" >
-                        StudPort is committed to providing quality digital services to improve the
-                        teaching and learning process for Students and Teachers.  
-                        Our services are designed to empower each student to reach his or her highest potential.
-                    </h5>
+                <div class="col-lg-6 col-12 aboutgrid2">
+                    <div class="mt-5">
+                        <h1 class="text-left" style="font-weight: 600;">StudPort For Students</h1>
+                        <hr>
                     </div>
-                    <div class="py-5">
-                        <h1 class="text-center" style="font-weight: 200;"><span class="icon-puzzle fa-5x px-2" style="color: #E4D7D6;"></span> We are here to give you the Support you need. Just let us know how</h1>
-                    </div>
-                    <img src="{{asset('images/pic3.jpg')}}" alt="about image" class="img-fluid" /> 
-                   </div>
-                </div>
-                <div class="col-lg-12 col-12 aboutgrid1 my-5">
-                    <ul class="services-list mt-4">
-                        <h3 class="text-black text-center text-uppercase bg-warning p-3"><span class="fa fa-graduation-cap fa-4x px-2 py-2"></span><br> StudPort for Students</h3>
-                        <p style="font-weight: 200;">Our Student-focused services include:</p>
-                        <li>Personalised Question and Answer Management System</li>
-                        <li>E-Book Library & Stores</li>
-                        <li>Study/Support Groups Integration</li>
-                        <li>One-On-One Tutoring</li>
-                        <li>StudPort Clubs for Students</li>
-                        <li>Internship Placements</li>
-                        <li>Academic Orientation</li><br>
-                        <a href="{{URL::to('contact')}}" class="btn btn-secondary  theme-button" style="border-radius: 30px;color: #fff; ">Click To Know More</a>
-                        <br>
-
-                        <br>
-                        <ul class="services-list mt-4">
-                            <h3 class="text-black text-center text-uppercase bg-warning p-3"><span class="fa fa-chalkboard-teacher fa-2x fa-4x px-2 py-2"></span><br> StudPort for Teachers and Institutions</h3>
-                            <p style="font-weight: 200;">Our Teacher-focused services include:</p>
-                            <li>E-book Library and Teaching Resources</li>
-                            <li>Tutoring Job Finder</li>
-                            <li>Capacity-building seminar placements </li>
-                            <li>Training Programs in Educational Technologies</li>
+                        <ul class="services-list mt-1">
+                            <p style="font-weight: 200;">Our Student-focused services include:</p>
+                            <li>Personalised Question and Answer Management System</li>
+                            <li>Digital Library & BookStore</li>
+                            <li>Study/Support Groups Integration</li>
+                            <li>One-On-One Tutoring</li>
+                            <li>StudPort Clubs for Students</li>
+                            <li>Internship Placements</li>
+                            <li>Academic Orientation</li><br>
+                            <a href="{{URL::to('contact')}}" class="btn btn-secondary  theme-button" style="border-radius: 30px;color: #fff; ">Click To Know More</a>
                             <br>
-                            <a href="{{URL::to('contact')}}" class="btn btn-secondary theme-button" style="border-radius: 30px;color: #fff;">Click To Know More</a>
                         </ul>
-                    </ul>
+
+                </div>
+                        <div class="col-lg-6 col-12 mt-5">
+                            <h1 class="text-left" style="font-weight: 600;">Teachers and Institutions</h1>
+                            <hr>
+                            <ul class="services-list mt-1">
+                                <p style="font-weight: 200;">Our Teacher-focused services include:</p>
+                                <li>E-book Library and Teaching Resources</li>
+                                <li>Tutoring Job Finder</li>
+                                <li>Capacity-building seminar placements </li>
+                                <li>Training Programs in Educational Technologies</li>
+                                <br>
+                                <a href="{{URL::to('contact')}}" class="btn btn-secondary theme-button" style="border-radius: 30px;color: #fff;">Click To Know More</a>
+                            </ul>
+                        </div>
                 </div>
             </div>
         </div>

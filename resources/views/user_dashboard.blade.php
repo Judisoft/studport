@@ -868,8 +868,8 @@ li, p{
                                         </div>
                                         <div class="card-body">
                                     <br>
-                                            <h3 class="text-center" style="left: 50%; padding-top: 20px;"><a style="color: #0B5345; font-weight: 200;">
-                                            &nbsp; Book Search</a></h3>
+                                            <h3 class="text-center text-favorite" style="left: 50%; padding-top: 20px;">
+                                            &nbsp; Book Search</h3>
                                             <p style="text-align: center; padding-bottom: 20px;"><small>Electronic Book Search</small></p>
                                             
                                                                             <!-- Search bar -->
@@ -880,13 +880,13 @@ li, p{
                                                     {!! Form::text('search', null, ['class' => 'form-control input-lg', 'id'=>'search', 'name'=>'search', 'placeholder'=>'Search by Title, Course, Author, etc ...', 'style'=>'height: 50px; border-radius: 50px;']) !!}
                                                 </div>
                                                 <div class="form-group text-center ">
-                                                    <button type="submit" class="btn bg-tab theme-button text-white" value="submit">
+                                                    <button type="submit" class="btn btn-danger theme-button text-white" value="submit">
                                                     Search
                                                     </button><br><br>
                                                 </div>
                                             {!! Form::close() !!}
                                         <!-- End Search bar -->
-                                            <div class="card">
+                                            <div class="card" style=" display:none;">
                                             <div class="card-header" style="padding: 30px;"><b>Didn't find what you're looking for? </b><button id="show" class="btn  btn-xs btn-xs float-right"><span class="fa fa-chevron-down"></span></button>
                                                         <button id="hide" class="btn btn-xs btn-xs float-right"><span class="fa fa-chevron-up"></span></button>
                                                     </div>

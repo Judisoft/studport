@@ -12,6 +12,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;500&display=swap" rel="stylesheet">
     <!--end of page level css-->
 @stop
+<style>
+    p{
+        font-weight: 300 !important;
+    }
+</style>
 <!--  Main banner section -->
 @section('content')
   <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
@@ -19,7 +24,7 @@
       <div class="container">
         <div class="middle-section text-center">
           <div class="section-width mb-5">
-            <h2 class="mb-5 text-favorite" style="font-weight: 600 !important;">Ask Anything, Anytime! <br> We are here to help you get Answers</h2>
+            <h2 class="mb-5 text-dark" style="font-weight: 600 !important;">Ask Anything, Anytime! <br> We are here to help you get Answers</h2>
             <h3 class="mb-5 text-primary text-bold">Learn, Grow and become the best.</h3>
             <a href="{{route('register')}}" class="btn btn-outline-favorite theme-button py-2 px-5">Get Started</a>
           </div>
@@ -35,7 +40,7 @@
                 <div class="header-section text-center mb-4">
                     <h1 class="text-dark">For Students, by Teachers</h1>
                     <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
-                    <p>Student-focused, Teacher-assisted Platform.<br> StudPort is a digital platform developed to facilitate the teaching-learning process.<br>
+                    <p>Student-focused, Teacher-assisted Platform. StudPort is a digital platform developed to facilitate the teaching-learning process.
                         It is a community for learners with teacher-assistance.
                     </p>
                 </div>
@@ -88,7 +93,8 @@
                         We offer training and Staff capacity building in new age technologies to increase performance and success 
                     </p>
                 </div>
-            </div>          <div class="row">
+            </div>          
+            <div class="row">
                             <div class="col-lg-4 col-md-6 featured-service mb-5 pb-5">
                                 <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
                                     <div class="feature-16-gd-info">
@@ -127,12 +133,12 @@
         <div class="container">
             <div class="middle-section">
                 <div class="section-width">
-                    <h2 class="text-primary">StudPort Library & Bookshop <span class="text-white"><br>Get E-books from</span></h2>
+                    <h2 class="text-primary">StudPort Library & Bookshop <span class="text-white"><br></span></h2>
                 </div>
                 <div class="link-list-menu">
-                    <p class="mb-5">Visit our E-Library and Bookshop with over 1000+ e-books and lecture notes.
+                    <p class="mb-5" style="font-weight: 200;">Visit our E-Library and Bookshop with over 1000+ e-books and lecture notes available for downloads
                     <a href="{{route('register')}}">Register</a> now and get access to StudPort Library</p>
-                    <a href="#" class="btn btn-outline-light">Learn More</a>
+                    <a href="#" class="btn btn-outline-primary">Learn More</a>
                 </div>
             </div>
         </div>

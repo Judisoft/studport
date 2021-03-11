@@ -5,39 +5,124 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register | Welcome to StudPort</title>
+    <title>
+        @section('title')
+            Welcome to StudPort
+        @show
+    </title>
     <!--global css starts-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset('css/style-starter.css')}}">
+     <link rel="stylesheet" href="{{ asset('vendors/simple-line-icons/css/simple-line-icons.css') }}"/>
+         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/all.css') }}">
     <!--end of global css-->
-    <!--page level css starts-->
-    <link type="text/css" rel="stylesheet" href="{{asset('vendors/iCheck/css/all.css')}}" />
-    <link href="{{ asset('vendors/bootstrapvalidator/css/bootstrapValidator.min.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/register.css') }}">
-    <!--end of page level css-->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- page level css-->
+    
+@yield('header_styles')
+<!--end of page level css-->
 </head>
 <style>
-body{
-    background-color: #147E83 !important;
+
+    .btn-nav{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border:none !important;
+    }
+     .btn-outline-primary-nav:hover {
+    color: #fff;
+    background-color: #2C504F;
+    border-color: #28a745; }
+
+    [placeholder]:focus::-webkit-input-placeholder {
+    transition: text-indent 0.4s 0.4s ease; 
+    text-indent: -200%;
+    opacity: 1;
+    }
+  .card-1 {
+  box-shadow: 0 10px 20px #D5DDE6, 0 5px 5px #D5DDE6;
 }
-.br-5{
-    border-radius: 5px;
+.box {
+  background: transparent;
+  width: 500px;
+  margin: auto;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+    
+}
+
+.box1 {
+  padding: 30px 30px;
+  background-color: #D5DDE6;
+  
+}
+
+.help-block {
+  color: #a94442 !important;
+  font-size: 12px;
+}
+
+.has-error .form-control {
+  border-color: #a94442;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.has-error .form-control:focus {
+  border-color: #843534;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+
+.social {
+  position: relative;
+  padding-left: 44px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.social i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  line-height: 34px;
+  text-align: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.social:hover {
+  color: white;
 }
 </style>
-
 <body>
-    <div class="container">
-        <!--Content Section Start -->
-        <div class="row">
-            <div class="box">
-                <img src="{{ asset('images/logo.png') }}" alt="logo" class="img-responsive mar">
-                <h3 class="text-primary">Sign Up</h3>
-                <!-- Notifications -->
-                <div id="notific">
-                    @include('notifications')
-                </div>
-                <form action="{{ route('register') }}" method="POST" id="reg_form">
+  <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
+    <div class="new-block top-bottom">
+      <div class="container-fluid">
+        <div class="middle-section">
+          <div class="section-width">
+            <div class="box shadow">
+                <div class="box1 br-5">
+                    <div class="py-3 text-center">
+                        <h4 class="text-primary" style="font-weight: 400;"><br>SIGN UP</h4>
+                        
+                        <hr>
+                    </div>
+                    <!-- Notifications -->
+                    <div id="notific">
+                        @include('notifications')
+                    </div>
+                         <form action="{{ route('register') }}" method="POST" id="reg_form">
                     <!-- CSRF Token -->
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
@@ -109,20 +194,12 @@ body{
                     <button type="submit" class="btn btn-block br-0 btn-primary my-2" style="border: none !important;">Sign Up</button>
                     Already have an account? Please <a href="{{ route('login') }}"> Log In</a>
                 </form>
+                    <br />
+                </div>
+                
             </div>
         </div>
-
-        <!-- //Content Section End -->
+        </div>
+      </div>
     </div>
-    <!--global js starts-->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    {{--<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>--}}
-    <script type="text/javascript" src="{{ asset('js/frontend/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendors/bootstrapvalidator/js/bootstrapValidator.min.js') }}" type="text/javascript">
-    </script>
-    <script type="text/javascript" src="{{ asset('vendors/iCheck/js/icheck.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/frontend/register_custom.js') }}"></script>
-    <!--global js end-->
-</body>
-
-</html>
+  </section>

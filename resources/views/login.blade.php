@@ -31,9 +31,7 @@
 <!--end of page level css-->
 </head>
 <style>
-h1,h2,h3,h4,h5,h6{
-    font-family: 'Roboto Slab', serif !important;
-}
+
     .btn-nav{
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
@@ -50,10 +48,9 @@ h1,h2,h3,h4,h5,h6{
     opacity: 1;
     }
   .card-1 {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 5px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px #D5DDE6, 0 5px 5px #D5DDE6;
 }
 .box {
-  background: transparent;
   width: 400px;
   margin: auto;
   align-items: left;
@@ -63,7 +60,8 @@ h1,h2,h3,h4,h5,h6{
 
 .box1 {
   padding: 20px 20px;
-  background-color: transparent;
+  background-color: #D5DDE6;
+  border-radius: 5px;
 }
 
 .help-block {
@@ -109,12 +107,14 @@ h1,h2,h3,h4,h5,h6{
   <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
     <div class="new-block top-bottom">
       <div class="container">
-        <div class="middle-section text-center">
-          <div class="section-width mb-5">
+        <div class="middle-section">
+          <div class="section-width">
             <div class="box shadow">
                 <div class="box1 br-5">
-                    <div class="text-center">
-                        <i class="fa fa-user-lock text-danger fa-5x p-3"></i>
+                    <div class="py-3 text-center">
+                        <h4 class="text-primary" style="font-weight: 400;"><br>SIGN IN</h4>
+                        
+                        <hr>
                     </div>
                     <!-- Notifications -->
                     <div id="notific">
@@ -139,7 +139,7 @@ h1,h2,h3,h4,h5,h6{
                             </label>
 
                         </div>
-                        <input type="submit" class="btn btn-block btn-primary" value="Log In">
+                        <input type="submit" class="btn btn-block btn-primary py-2 mb-3" value="Log In">
                         Don't have an account? <a href="{{ route('register') }}"><strong> Sign Up</strong></a>
                     </form>
                     <br />
