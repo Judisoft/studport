@@ -25,6 +25,7 @@ Home
 <link href="{{ asset('vendors/bootstrap-tagsinput/css/bootstrap-tagsinput.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/pages/blog.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('vendors/sweetalert/css/sweetalert2.css') }}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{{asset('vendors/ionicons/css/ionicons.min.css')}}"/>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -48,12 +49,19 @@ Home
     min-width: 100% !important;
     max-width: 100% !important;
 }
+h2{
+    font-weight: 600px !important;
+}
 
 h3{
-    font-size: 36px;
+    font-size: 36px !important;
+    font-family: 'Open Sans', serif;
 }
 h4{
-    font-size: 28;
+    font-size: 28 !important;
+}
+h5{
+    font-size: 48 !important;
 }
 li, p{
     font-family:"Open Sans", Sans-Serif;
@@ -134,7 +142,7 @@ li, p{
 
 .fl-table thead th {
     color: #ffffff;
-    background: #324960;
+    background: #037392;
     height: 30px;
     text-transform: capitalize;
 }
@@ -142,7 +150,7 @@ li, p{
 
 .fl-table thead th:nth-child(odd) {
     color: #ffffff;
-    background: #324960;
+    background: #037392;
 }
 
 .fl-table tr:nth-child(even) {
@@ -252,7 +260,7 @@ li, p{
                             <div class="row">
                             <div class="col-lg-3 col-md-3 col-12">
                                             <div class="card">
-                                                    <div class="card-header avatar mb-3 bg-tab">
+                                                    <div class="card-header avatar mb-3 bg-index">
                                                         <div class="tile__list">
                                                               @if($user->pic)
                                                                 <img src="{{ $user->pic }}" alt="img"
@@ -325,18 +333,18 @@ li, p{
                             <div class="tab-content">
                                 <div class="tab-pane" id="tab_default_1">
                                     <div class="card">
-                                        <div class="card-header bg-tab text-white">
-                                    <b><i class="livicon px-2" data-name="dashboard" data-size="28" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                                        MY DASHBOARD</b>
+                                        <div class="card-header bg-index text-white">
+                                    <h5 class="text-center p-3"><i class="livicon px-2 float-left" data-name="dashboard" data-size="48" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
+                                        USER DASHBOARD</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="col-lg-12 col-md-12  mt-lg-0 mt-0 py-1">
-                                            <div class="card-body bg-white br-5  text-info text-right" style="box-shadow: 5px 10px 18px #7C7C7C;">
+                                            <div class="card-body bg-white br-5  text-info text-right shadow">
                                             @if(Sentinel::getUser()->account_type != 'vip')
-                                                <a href="#url" class="btn btn-success theme-button"><span class="fa fa-cart-plus fa-2x px-2"></span>Upgrade my Account </a><br>
+                                                <a href="#url" class="btn btn-success theme-button"><span class="fa fa-cart-plus fa-2x p-3"></span>Upgrade my Account </a><br>
                                             @endif
                                                 <i class="livicon px-2" data-name="lock" data-size="68" data-c="#dc3545" data-hc="#28a745" data-loop="true" data-animate="true" data-duration="0" ></i>
-                                                <h4 class="text-uppercase text-danger mt-2">{{Sentinel::getUser()->account_type}} account</h4>
+                                                <h5 class="text-uppercase text-danger mt-2">{{Sentinel::getUser()->account_type}} account</h5>
                                             </div>
                                         </div>
             <div class="aboutbottom mt-5">
@@ -345,7 +353,7 @@ li, p{
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2 text-settings">
                         <div class="card-body bg-white br-5  text-danger">
                         <i class="icon-question fa-3x py-3"></i>
-                        <h4>Questions Asked</h4>
+                        <h5>Questions Asked</h5>
                         <br>
                         <h3 class="text-dark">{{$numberOfUserQuestions}}</h3>
                         </div>
@@ -353,7 +361,7 @@ li, p{
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2 text-settings">
                         <div class="card-body bg-white br-5  text-info">
                         <i class="icon-cloud-download fa-3x py-3"></i>
-                        <h4>Downloads</h4>
+                        <h5>Downloads</h5>
                         <br>
                         <h3 class="text-dark">0</h3>
                         </div>
@@ -361,7 +369,7 @@ li, p{
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
                         <div class="card-body bg-white br-5  text-success">
                         <i class="icon-speech fa-3x py-3"></i>
-                        <h4>Answers Provided</h4>
+                        <h5>Answers Provided</h5>
                         <br>
                         <h3 class="text-dark">{{$numberOfUserAnswers}}</h3>
                         </div>
@@ -369,7 +377,7 @@ li, p{
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
                         <div class="card-body bg-white br-5  text-warning">
                         <span class="fa fa-database fa-3x py-3"></span>
-                        <h4>Disk Usage</h4>
+                        <h5>Disk Usage</h5>
                         <br>
                         <h3 class="text-dark">0</h3>
                         </div>
@@ -377,14 +385,14 @@ li, p{
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2">
                         <div class="card-body bg-white br-5  text-info">
                         <i class="icon-book-open fa-3x"></i>
-                        <h4 class="py-4">Books & Courses Requested</h4>
+                        <h5 class="py-3">Books & Courses Requested</h5>
                         <h3 class="text-dark py-1">{{$numberOfUserRequest}}</h3>
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
                         <div class="card-body bg-white br-5  text-warning">
                         <span class="fa fa-dollar fa-3x py-3"></span>
-                        <h4>Subscriptions</h4>
+                        <h5>Subscriptions</h5>
                         <br>
                         <h3 class="text-dark"> 0</h3>
                         </div>
@@ -401,8 +409,8 @@ li, p{
                             
                       
                                 <div class="card">
-                                <div class="card-header bg-tab text-white">
-                                    <b><i class="icon-settings fa-2x px-2"></i>ACCOUNT SETTINGS</b>
+                                <div class="card-header bg-index text-white">
+                                    <h5 class="text-center p-3"><i class="icon-settings fa-2x px-2 float-left"></i>ACCOUNT SETTINGS</h5>
                                 </div>
                                 <br>
                                 
@@ -721,8 +729,8 @@ li, p{
                                     <div class="row">
                                         <div class="col-12">
                                         <div class="card">
-                                        <div class="card-header bg-tab text-white">
-                                        <b><i class="icon-question fa-2x px-2"></i> POST QUESTION</b>
+                                        <div class="card-header bg-index text-white">
+                                        <h5 class="text-center p-3"><i class="icon-question fa-2x px-2 float-left"></i> POST QUESTION</h5>
                                         </div>
                                         <div class="card-body">
                                                 {!! Form::open(['action' => 'UserBlogController@store', 'method' => 'post', 'class' => 'bf', 'files'=> true,])!!}
@@ -813,8 +821,8 @@ li, p{
                                     <div class="tabbable-line">
                                         <!-- Nav Nav-tabs Start -->
                                         <div class="card">
-                                                    <div class="card-header bg-tab text-white" style="padding: 20px;"><i class="icon-layers fa-2x px-2"></i><b> QUESTIONS MANAGER </b><button id="show3" class="btn  btn-xs btn-xs float-right"><span class="fa fa-chevron-down text-white"></span></button>
-                                                        <button id="hide3" class="btn  btn-xs btn-xs float-right"><span class="fa fa-chevron-up text-white"></span></button>
+                                                    <div class="card-header bg-index text-white" style="padding: 20px;"><i class="icon-layers fa-2x px-2 float-left"></i>
+                                                    <h5 class="text-center p-3"> QUESTIONS MANAGER </h5>
                                                     </div>
                             <!-- //Nav Nav-tabs End -->
                             <!-- Tab-content Start -->
@@ -822,23 +830,23 @@ li, p{
                                     <table class="fl-table table-bordered table-hover">
                                         <thead>
                                             <tr>
-                                                <th><span class="icon-calendar"></span><br> Posted on</th>
-                                                <th><span class="icon-folder-alt"></span><br> Category </th>
-                                                <th><span class="icon-doc"></span><br> Course/Subject</th>
-                                                <th><span class="icon-wrench"></span><br> Actions</th>
+                                                <th><span class="icon-calendar fa-2x"></span><br></th>
+                                                <th><span class="icon-folder-alt fa-2x"></span><br> </th>
+                                                <th><span class="icon-question fa-2x"></span><br></th>
+                                                <th><span class="icon-wrench fa-2x"></span><br></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         @foreach ($user_questions as $my_questions)
                                                 <tr>
                                                     <td>{{ $my_questions->created_at->format('d/m/Y') }} </td>
-                                                    <td class="text-left">@foreach($blogscategories as $category)
+                                                    <td class="text-uppercase text-left p-4">@foreach($blogscategories as $category)
                                                             @if($my_questions->blog_category_id === $category->id)
                                                                 {{$category->title}}
                                                             @endif
                                                         @endforeach
                                                     </td>
-                                                    <td class="text-left px-5"><a href="{{ URL::to('blogitem/'.$my_questions->slug) }}" class="text-danger" style="text-decoration: underline;"><b>{{$my_questions->title}}</b></a></td>
+                                                    <td class="text-uppercase text-left p-4"><a href="{{ URL::to('blogitem/'.$my_questions->slug) }}" class="text-danger" style="text-decoration: underline;"><b>{{$my_questions->title}}</b></a></td>
                                                     <td><a href="#"><span class="icon-note text-info px-3"></span></a> 
                                                         <a href="#"><span class="icon-trash text-danger px-3"></span></a>
                                                         <a href="#"><span class="icon-share text-danger px-1"></span></a>
@@ -863,13 +871,13 @@ li, p{
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-12">
                                         <div class="card">
-                                        <div class="card-header bg-tab text-white">
-                                        <b><i class="icon-folder-alt fa-2x px-2"></i> STUDY RESOURCES</b>
+                                        <div class="card-header bg-index text-white">
+                                        <h5 class="text-center p-3"><i class="icon-folder-alt fa-2x px-2 float-left"></i> STUDY RESOURCES</h5>
                                         </div>
                                         <div class="card-body">
                                     <br>
-                                            <h3 class="text-center text-favorite" style="left: 50%; padding-top: 20px;">
-                                            &nbsp; Book Search</h3>
+                                            <h2 class="text-center text-dark" style="font-weight: 600;left: 50%; padding-top: 20px;">
+                                            &nbsp; Book Search</h2>
                                             <p style="text-align: center; padding-bottom: 20px;"><small>Electronic Book Search</small></p>
                                             
                                                                             <!-- Search bar -->
@@ -886,7 +894,7 @@ li, p{
                                                 </div>
                                             {!! Form::close() !!}
                                         <!-- End Search bar -->
-                                            <div class="card" style=" display:none;">
+                                            <div class="card">
                                             <div class="card-header" style="padding: 30px;"><b>Didn't find what you're looking for? </b><button id="show" class="btn  btn-xs btn-xs float-right"><span class="fa fa-chevron-down"></span></button>
                                                         <button id="hide" class="btn btn-xs btn-xs float-right"><span class="fa fa-chevron-up"></span></button>
                                                     </div>
@@ -930,20 +938,20 @@ li, p{
                                 </div>
                                 <div class="tab-pane " id="tab_default_6">
                                     <div class="card">
-                                    <div class="card-header bg-tab text-white">
-                                    <b><i class="icon-wrench fa-2x px-2"></i> TUTORING JOBS</b>
+                                    <div class="card-header bg-index text-white">
+                                    <h5 class="text-center p-3"><i class="icon-wrench fa-2x px-2 float-left"></i> TUTORING JOBS</h5>
                                     </div>
                                     <br>
                                     <div class="card-body">
                                     <table class="fl-table table-bordered table-hover">
                                         <thead>
                                         <tr>
-                                            <th><span class="icon-key"></span><br>Job Id</th>
-                                            <th><span class="icon-calendar"></span><br>Posted on</th>
-                                            <th><span class="icon-folder-alt"></span><br>Category</th>
-                                            <th><span class="icon-doc"></span><br>Subject/Course Area</th>
-                                            <th><span class="icon-paper-plane"></span><br>Location</th>
-                                            <th><span class="fas fa-money-check-alt"></span><br>Salary (FCFA)</th>
+                                            <th><span class="icon-key fa-2x"></span><br></th>
+                                            <th><span class="icon-calendar fa-2x"></span><br></th>
+                                            <th><span class="icon-folder-alt fa-2x"></span><br></th>
+                                            <th><span class="far fa-file-alt fa-2x"></span><br></th>
+                                            <th><i class="ion ion-md-pin fa-2x"></i><br></th>
+                                            <th><span class="fas fa-money-check-alt fa-2x"></span><br></th>
 
                                         </tr>
                                         </thead>
@@ -952,13 +960,13 @@ li, p{
                                                 <tr>
                                                     <td class="text-uppercase text-left">SSN{{$job->id}}</td>
                                                     <td class="text-uppercase text-left"><span class="far fa-clock"></span> {{$job->created_at->diffForHumans()}}</td>
-                                                    <td class="text-uppercase text-left">{{$job->category}}</td>
-                                                    <td class="text-uppercase text-left"><a href="{{ route('news.show',$job->id) }}" class="text-primary">
+                                                    <td class="text-uppercase text-left p-4">{{$job->category}}</td>
+                                                    <td class="text-uppercase text-left p-4"><a href="{{ route('news.show',$job->id) }}" class="text-primary">
                                                             {{ $job->title }} [ click to view job details ... ]
                                                         </a>
                                                     </td>
-                                                    <td class="text-uppercase text-left">{{$job->location}}</td>
-                                                    <td class="text-uppercase text-left">{{$job->salary}}</td>
+                                                    <td class="text-uppercase text-left p-4">{{$job->location}}</td>
+                                                    <td class="text-uppercase text-left p-4">{{$job->salary}}</td>
                                                 </tr>
                                         @endforeach
                                         </tbody>
@@ -968,24 +976,24 @@ li, p{
                                 </div>
                                 <div class="tab-pane " id="tab_default_7">
                                     <div class="card">
-                                    <div class="card-header bg-tab text-white">
-                                    <b><i class="icon-screen-desktop fa-2x px-2"></i> ONLINE TUTORS</b>
+                                    <div class="card-header bg-index text-white">
+                                    <h5 class="text-center p-3"><i class="icon-screen-desktop fa-2x px-2 float-left"></i> ONLINE TUTORS</h5>
                                     </div>
                                     <div class="card-body">
                                     <table class="fl-table table-bordered table-hover">
                                         <thead>
                                         <tr>
-                                            <th><span class="fa fa-user-circle"></span><br> Teachers</th>
-                                            <th><span class="fa fa-institution"></span><br> Institution</th>
-                                            <th><span class="icon-clock"></span><br> Status</th>
-                                            <th><span class="icon-speech"></span><br> Contact Tutor</th>
+                                            <th><span class="fa fa-user-circle fa-2x"></span><br></th>
+                                            <th><span class="fa fa-institution fa-2x"></span><br></th>
+                                            <th><span class="icon-clock fa-2x"></span><br></th>
+                                            <th><span class="icon-speech fa-2x"></span><br></th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
                                             @foreach($teachers as $item)
                                             <tr>
-                                                <td class="text-uppercase text-left px-3"><a href="#" style="color: #0A3B45;"><b> {{$item->first_name . ' ' . $item->last_name }}</b></a></td>
+                                                <td class="text-uppercase text-left p-4"><a href="#" style="color: #0A3B45;"><b> {{$item->first_name . ' ' . $item->last_name }}</b></a></td>
                                                 <td>{{$item->institution}}</td>
                                                 <td>
                                                     @if($item->isOnline())
@@ -996,7 +1004,7 @@ li, p{
                                                 </td>
                                                     <td>
                                                     @if($item->isOnline())
-                                                    <a class="text-info" href="#"> <i class="icon-speech fa-2x"></i><br><small>send instant message</small></a>
+                                                    <a class="text-info" href="#"><i class="icon-speech fa-2x"></i><br><small>send instant message</small></a>
                                                     @else
                                                         <a href="mailto:{{$item->email}}" disabled><i class="icon-envelope fa-2x"></i><br><small>leave a message</small></a>
                                                         @endif
@@ -1015,10 +1023,10 @@ li, p{
                                     
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-lg-12 col-12">
                         <div class="card">
-                        <div class="card-header bg-tab text-white">
-                        <b><i class="icon-docs fa-2x px-2"></i> EXAMINATION RESOURCES</b>
+                        <div class="card-header bg-index text-white">
+                        <h5 class="text-center p-3"><i class="icon-docs fa-2x px-2 float-left"></i> EXAMINATION RESOURCES</h5>
                         </div>
                         <div class="card-body">
                             
@@ -1053,15 +1061,15 @@ li, p{
                     </div>
                     @endif
                     <br /><br />
-                    <table class="fl-table table-striped table-hover">
+                    <table class="fl-table table-stripped table-bordered table-hover">
                     @if($exam_questions->count() > 0)
                   <thead>
                         <tr>
-                            <th><i class="icon-calendar"></i><br>Year</th>
-                            <th><i class="icon-doc"></i><br>Course</th>
-                            <th><i class="icon-user"></i><br>Instructor</th>
-                            <th><i class="icon-question"></i><br>Question</th>
-                            <th><i class="icon-speech"></i><br>Solution</th>
+                            <th><i class="icon-calendar fa-2x"></i><br>Year</th>
+                            <th><i class="icon-doc fa-2x"></i><br>Course</th>
+                            <th><i class="icon-user fa-2x"></i><br>Instructor</th>
+                            <th><i class="icon-question fa-2x"></i><br>Question</th>
+                            <th><i class="icon-speech fa-2x"></i><br>Solution</th>
 
                         </tr>
                     </thead>
@@ -1070,13 +1078,13 @@ li, p{
                     <tbody>
                             <tr>
                                 <td>{{ $item->year }}</td>
-                                <td>{{ $item->title }}</td>
-                                <td>{{ $item->instructor }}</td>
-                                <td style="padding-bottom: 50px;"><a href="{{ route('download') }}" class="btn btn-outline-danger"><span class="fa fa-download px-2"></span> Download</a>
+                                <td class="text-uppercase text-left p-4">{{ $item->title }}</td>
+                                <td class="text-uppercase text-left p-4">{{ $item->instructor }}</td>
+                                <td class="text-uppercase text-left p-4""><a href="{{ route('exams.download', $item->uuid) }}" class="btn btn-outline-danger"><span class="fa fa-download px-2"></span> Download</a>
                                     <small> <br>{{ $item->title }} <br>{{ $item->type }} {{$item->year}}</small><br>
-                                    <small class="alert-success p-1">Free Download</small>
+                                    <small class="alert-success">Free Download</small>
                                 </td>
-                                <td style="padding-bottom: 50px;"><a href="#url" class="btn btn-info"><span class="fa fa-download px-2"></span> Solution</a>
+                                <td class="text-uppercase text-left p-4"><a href="#url" class="btn btn-info"><span class="fa fa-download px-2"></span> Solution</a>
                                     <small> <br>{{ $item->title }} {{ $item->year }}</small><br>
                                     <small class="alert-info p-1">Cost: FCFA 250</small>
                                 </td>

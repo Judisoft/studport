@@ -31,7 +31,7 @@
 <!--end of page level css-->
 </head>
 <style>
-h1,h2,h3,h4,h5,h6{
+h1,h2,h3,h4{
     font-family: 'Roboto Slab', serif !important;
 }
     .btn-nav{
@@ -84,7 +84,7 @@ h1,h2,h3,h4,h5,h6{
                                 <a class="nav-link text-capitalize" href="{{ route('services')}}">Services</a>
                             </li>
                             <li class="nav-item {!! (Request::is('blog') ? 'active' : '') !!}">
-                                <a class="nav-link text-capitalize" href="{{ route('blog') }}">Academia</a>
+                                <a class="nav-link text-capitalize" href="{{ route('blog') }}">Academic Forum</a>
                             </li>
                             <li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
                                 <a class="nav-link text-capitalize" href="{{ URL::to('contact') }}">Contact</a>
@@ -258,7 +258,7 @@ h1,h2,h3,h4,h5,h6{
 <script src="{{('js/jquery.waypoints.min.js')}}"></script>
 <script src="{{asset('js/jquery.countup.js')}}"></script>
 <script src="{{asset('js/toastr.min.js')}}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
 <script>
     $('.counter').countUp();
 </script>

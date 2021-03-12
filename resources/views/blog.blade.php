@@ -65,17 +65,14 @@ Blog
 @section('content')
 <!-- Container Section Strat -->
 <div class="container">
-    <div class="row" style="background-color: #f5f5f5;">
-    <div class="box1 full-width p-5" style="background-color: #000;  height: 200px; width: 100%; border-bottom: 5px solid #ffc107;">
-    <h1 class="text-warning text-uppercase text-center mb-2" style=" font-size: 30px; "><span class="fa fa-graduation-cap fa-2x px-3 py-1"></span><br>StudPort Academia </h1>
-    </div>
+    <div class="row">
         <div class="col-md-9 col-lg-9 col-12 my-2" style="padding: 25px;">
             @forelse ($blogs as $blog)
             <!-- BEGIN FEATURED POST -->
             <div class="thumbnail" style=" padding-bottom: 50px;">
             <div class="card" style="margin-left: 20px;">
-            <div class="card-header " style=" text-transform: capitalize; box-shadow: 4px 4px 10px 1px #ddd;">
-            <h4 style="font-weight: 200; float: right;"><a  href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-settings"> {{$blog->title}}</a></h4>
+            <div class="card-header">
+            <h4 class="text-capitalize" style="font-weight: 200; float: right;"><a  href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-settings"> {{$blog->title}}</a></h4>
                 @if($blog->author->pic)
                 <img src="{{$blog->author->pic}}" alt="img" width="35"  height="35" class="rounded-circle img-responsive img_height float-left"/>
                 @else<img src="{{asset('images/avatar3.png')}}" alt="img" width="35"  height="35" class="rounded-circle img-responsive img_height float-left"/>
@@ -86,8 +83,8 @@ Blog
                 <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" height="200px" width="200px" alt="Image" style="float: left; padding: 25px;">
                 </a>
                 @endif
-                <div class="p-1 relative-left">
-                    <div style="padding: 10px; border: 1px solid #ddd; border-radius: 3px; background-color: #fff;">
+                <div class="p-3 relative-left">
+                    <div class="card card-body p-4">
                         <p>
                             <img src="{{asset('images/question_mark.png')}}" /><a style="padding-left: 25px;">{!! $blog->content !!}</a>
                         </p>
@@ -133,8 +130,8 @@ Blog
             <!-- /.featured-post-wide -->
             <!-- END FEATURED POST -->
             @empty
-            <div style="border: none; background-color: #D5DDE6; opacity: 0.5;">
-                <h1 class="text-center text-secondary" style="font-weight: 200; ">Ouuups! No item matches <br><em>{{request()->query('search')}}</em></h1>
+            <div class="alert alert-primary p-5">
+                <h5 class="text-center" style="font-weight: 200; ">Ouuups! No item matches &nbsp;<em>{{request()->query('search')}}</em></h5>
             </div>
             @endforelse
             

@@ -119,6 +119,6 @@ class ExamsController extends Controller
 {
     $exam = Exam::where('uuid', $uuid)->firstOrFail();
     $pathToFile = storage_path('app/exams/' . $exam->cover);
-    return redirect('download')->with('pathToFile', $pathToFile); //response()->download($pathToFile);
+    return response()->download($pathToFile);
 }
 }

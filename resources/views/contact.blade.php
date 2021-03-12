@@ -21,11 +21,10 @@ Contact
     <div class="container py-5">
             <div class="header-section text-center">
             <div class="card">
-            <div class="card-header bg-black text-warning p-5" style="border-bottom: 5px solid #ffc107;">
-                <h3 class="mb-md-2 mb-2 text-warning">Contact Us</h3>
+            <div class="card-header text-warning p-5" style="border-bottom: 5px solid #ffc107;">
+                <h3 class="mb-md-2 mb-2 text-dark">Contact Us</h3>
             </div>
             <div class="card-body px-5">
-                <hr style="width: 25%;">
                 <small class="text-dark mb-md-5">Fill the form and we shall respond to you within 48hrs</small>
             </div>
             <form class="contact" id="contact" action="{{route('contact')}}" method="POST">

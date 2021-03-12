@@ -136,26 +136,24 @@
             <div class="col-md-12 col-lg-12 col-12">
                 <div class="thumbnail">
                 <div class="card">
-                        <div class="card-header bg-info" style="width: 100%; text-transform: capitalize;">
-                            <h4 style="font-weight: 200;"><a  href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-white"><span class="fa fa-file-alt"></span>&nbsp;Question {{$blog->id}} <span class="fa fa-angle-right"></span> {{$blog->title}}</a></h4>
+                        <div class="p-5 text-center" style="width: 100%; text-transform: capitalize; border-bottom: 1px solid #ddd;">
+                            <h3 style="font-weight: 200;"><a  href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-dark">&nbsp;Question Title: {{$blog->title}}</a></h3>
                         </div>
-                        <div class="card-body">
-
-                            <div class=" thumbnail featured-post-wide img">
+                            <div class="text-center thumbnail featured-post-wide img mt-5">
                                 @if($blog->image)
                                     <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image" onclick="window.print()">
                                 @endif
-                                 <p class="py-2 px-2 text-info"> 
-                        <small>
-                            <b>Tags: </b>
-                            @forelse($blog->tags as $tag)
-                                <small><a class="text-white bg-info p-1 px-2 br-5"  href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}" style="border-radius: 5px;">{{ $tag }}</a></small>
-                            @empty
-                           <em> No Tags </em>
-                            @endforelse
-                        </small>
-                    
-                 <p class="additional-post-wrap text-info">
+                                 <p class="py-2 px-2 text-info text-left"> 
+                                <small>
+                                    <b>Tags: </b>
+                                    @forelse($blog->tags as $tag)
+                                        <small><a class="text-white bg-info p-1 px-2 br-5"  href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}" style="border-radius: 5px;">{{ $tag }}</a></small>
+                                    @empty
+                                <em> No Tags </em>
+                                    @endforelse
+                                </small>
+                                </p>
+                 <p class="additional-post-wrap text-info text-left">
                     <small>
                         <span class="additional-post px-2">
                          <b>Author: </b> &nbsp;<a> <span class="icon-user"></span>&nbsp;{{$blog->author->first_name . ' ' . $blog->author->last_name}}</a>
@@ -174,7 +172,7 @@
                                 <hr>
                                 <!-- /.blog-detail-image -->
                                 <div class="p-3 mb-3 blog-detail-content">
-                                    <div class="card-body" style="padding:10px; border: 1px solid #ddd; border-left: 5px solid #FF5733; border-radius: 5px; background-color: #eee;">
+                                    <div class="card-body shadow" style="padding:10px; border: 1px solid #ddd; border-left: 5px solid #FF5733; border-radius: 5px; background-color: #eee;">
                                     <img src="{{asset('images/question_mark.png')}}" style="float:left;" />
                                         <p>
                                             <a style="padding-left: 25px;">{!! $blog->content !!}</a>
@@ -202,8 +200,12 @@
                             <tbody>
                                         <tr>
                                         <td>
+                                            @if($comment->picture)
+                                                <img src="{{$comment->picture}}" class="rounded-circle" alt="img" style="height: 50px; width: 50px;"/>
+                                            @else
                                             <span class="fa fa-user-circle fa-3x" style="color: #B8B7B7;"></span><br>
-                                            <p><small><a href="#" style="color: #848484; text-transform: capitalize;">Name: {{$comment->name}} <br> Institution:@if(Sentinel::check()) {{Sentinel::getUser()->institution}} @endif  <br>Level {{$comment->website}} <br> {{$comment->created_at}}</small></p>
+                                            @endif
+                                            <p><small><a href="#" style="color: #848484; text-transform: capitalize;">{{$comment->name}} <br> @if(Sentinel::check()) {{Sentinel::getUser()->institution}} @endif  <br>Level {{$comment->website}} <br> {{$comment->created_at}}</small></p>
                                         </td>
                                         <td>
                                             <p> {!! $comment->comment !!} </p>
@@ -217,7 +219,7 @@
                                         </td>
                                         <td>
                                             @if(Sentinel::check())
-                                                <h5><a  href="#url"><span class="icon-arrow-up fa-2x text-dark px-3"></span></a><br><small>0</small><br><a href="#url"><span class="icon-arrow-down fa-2x text-dark"></span></a></h5>
+                                                <h5><a  href="#url"><span class="icon-arrow-up fa-2x text-info px-3"></span></a><br><small class="badge badge-info">0 &nbsp;votes</small><br><a href="#url"><span class="icon-arrow-down fa-2x text-info"></span></a></h5>
                                             <br>
                                             @endif
                                         </td>
@@ -233,14 +235,14 @@
                         <!-- Comment Section Start -->
                         <div>
                             <div style="padding-top: 25px; ">
-                            <h4 class="px-3" style="font-weight: 400; opacity: 0.3; text-align: left;"><span class="icon-speech fa-2x px-2"></span>Your Answer</h4>
-                            <div class="card-body">
+                            <h4 class="px-3 mt-3" style="font-weight: 400; opacity: 0.3; text-align: left;"><span class="icon-speech fa-2x px-2"></span>Your Answer</h4>
+                            <div class="card-body mt-5">
                                 {!! Form::open(['url' => URL::to('blogitem/'.$blog->id.'/comment'), 'method' => 'post', 'class' => 'bf',
                                 'files'=> true]) !!}
 
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                                     @if(Sentinel::check())
-                                    {!! Form::text('name', Sentinel::getUser()->first_name  . '&nbsp;' . Sentinel::getUser()->last_name, ['class' => 'form-control input-lg','required' => 'required',
+                                    {!! Form::text('name', Sentinel::getUser()->first_name  . '&nbsp;' . Sentinel::getUser()->last_name, ['class' => 'form-control input-lg','required' => 'required', 'disabled' => 'disabled',
                                     'placeholder'=>'Name']) !!}
                                     @else
                                     {!! Form::text('name', null, ['class' => 'form-control input-lg','readonly' => 'true',
@@ -250,7 +252,7 @@
                                 </div>
                                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                                     @if(Sentinel::check())
-                                    {!! Form::text('email', Sentinel::getUser()->email, ['class' => 'form-control input-lg','required' => 'required',
+                                    {!! Form::text('email', Sentinel::getUser()->email, ['class' => 'form-control input-lg','required' => 'required', 'disabled' => 'disabled',
                                     'placeholder'=>'Email']) !!}
                                     @else
                                     {!! Form::text('email', null, ['class' => 'form-control input-lg','readonly' => 'true',
@@ -272,7 +274,7 @@
                                 </div>
                                 <div class="form-group">
                                 @if(Sentinel::check())
-                                    <button type="submit" class="btn btn-info theme-button">
+                                    <button type="submit" class="btn btn-success theme-button">
                                         Submit  Answer
                                     </button>
                                 @endif
@@ -290,20 +292,19 @@
                         </div>
                         </div>
                         <!-- //Media left section End -->
-                                <div class="card-body" style="background-color: #DEE6F5; border-left: 5px solid #2C504F; border-radius: 5px; margin-left: 10px; margin-right: 10px; margin-bottom: 20px;">
+                                <div class="card-body shadow mt-5" style="background-color: #DEE6F5; border-left: 5px solid #2C504F; border-radius: 5px; margin-left: 10px; margin-right: 10px; margin-bottom: 20px;">
                                     <span class="fa fa-info-circle fa-5x float-left text-info" style="padding-right: 20px;"></span><h5> Can't answer this question? </h5> 
-                                    <p>Copy this link:<a style="color: #19A0EE; text-decoration: underline;"><br> {{url()->current()}}</a> and <a href="{{URL::to('user_emails/compose')}}"> Send <span class="fa fa-external-link-alt"></span></a> to a teacher or someone who can answer</p>
+                                    <p>Copy this link:<a href="{{url()->current()}}" style="color: #19A0EE; text-decoration: underline;"><br> {{url()->current()}}</a> and <a href="{{URL::to('user_emails/compose')}}" style="text-decoration: underline;"> Send <span class="fa fa-external-link-alt"></span></a> to a teacher or someone who can answer</p>
                                     <br>
                                     <small>Thanks for contributing an answer to StudPort. We appreciate your contribution!</small>
                                 </div>
                             </div>
-                        </div>
-                
                 </div>
                 </div>
             </div>
         </div>
     </section>
+    <br>
 @stop
 
 
@@ -313,13 +314,13 @@
 
 {{-- page level scripts --}}
 @section('footer_scripts')
-    <script src="{{ asset('vendors/summernote/js/summernote-bs4.min.js') }}" type="text/javascript"></script>
     <script src="print.js"></script>
+    <script src="{{ asset('vendors/summernote/js/summernote-bs4.min.js') }}" type="text/javascript"></script>
+
     <script>
-    $(document).ready(function() {
-    $('#textarea').summernote();
-    });
-    
+        $(document).ready(function() {
+        $('#textarea').summernote();
+        });
     </script>
     
 @stop

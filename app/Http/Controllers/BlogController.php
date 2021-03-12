@@ -96,6 +96,7 @@ class BlogController extends JoshController
     {
         $blogcooment = new BlogComment($request->all());
         $blogcooment->blog_id = $blog->id;
+        $blogcooment->picture = Sentinel::getUser()->pic;
         $blogcooment->save();
         return redirect('blogitem/' . $blog->slug);
     }
