@@ -10,6 +10,7 @@
 @section('header_styles')
     <!--page level css starts-->
 <link href="{{ asset('vendors/summernote/css/summernote-bs4.css') }}" rel="stylesheet" media="screen" />
+<link rel="stylesheet" href="{{asset('vendors/ionicons/css/ionicons.min.css')}}"/>
     <!--end of page level css-->
 @stop
 <style>
@@ -136,8 +137,8 @@
             <div class="col-md-12 col-lg-12 col-12">
                 <div class="thumbnail">
                 <div class="card">
-                        <div class="p-5 text-center" style="width: 100%; text-transform: capitalize; border-bottom: 1px solid #ddd;">
-                            <h3 style="font-weight: 200;"><a  href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-dark">&nbsp;Question Title: {{$blog->title}}</a></h3>
+                        <div class=" card-header p-5 text-center"">
+                            <h3 class="text-capitalize"><a  href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-dark">&nbsp;Question Title: {{$blog->title}}</a></h3>
                         </div>
                             <div class="text-center thumbnail featured-post-wide img mt-5">
                                 @if($blog->image)
@@ -219,7 +220,7 @@
                                         </td>
                                         <td>
                                             @if(Sentinel::check())
-                                                <h5><a  href="#url"><span class="icon-arrow-up fa-2x text-info px-3"></span></a><br><small class="badge badge-info">0 &nbsp;votes</small><br><a href="#url"><span class="icon-arrow-down fa-2x text-info"></span></a></h5>
+                                                <h5><a  href="#url"><span class="ion ion-md-arrow-dropup fa-4x text-dark px-3"></span></a><br>0<br><a href="#url"><span class="ion ion-md-arrow-dropdown fa-4x text-dark px-3"></span></a></h5>
                                             <br>
                                             @endif
                                         </td>
@@ -242,7 +243,7 @@
 
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                                     @if(Sentinel::check())
-                                    {!! Form::text('name', Sentinel::getUser()->first_name  . '&nbsp;' . Sentinel::getUser()->last_name, ['class' => 'form-control input-lg','required' => 'required', 'disabled' => 'disabled',
+                                    {!! Form::text('name', Sentinel::getUser()->first_name  . '&nbsp;' . Sentinel::getUser()->last_name, ['class' => 'form-control input-lg','required' => 'required',
                                     'placeholder'=>'Name']) !!}
                                     @else
                                     {!! Form::text('name', null, ['class' => 'form-control input-lg','readonly' => 'true',
@@ -252,7 +253,7 @@
                                 </div>
                                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                                     @if(Sentinel::check())
-                                    {!! Form::text('email', Sentinel::getUser()->email, ['class' => 'form-control input-lg','required' => 'required', 'disabled' => 'disabled',
+                                    {!! Form::text('email', Sentinel::getUser()->email, ['class' => 'form-control input-lg','required' => 'required',
                                     'placeholder'=>'Email']) !!}
                                     @else
                                     {!! Form::text('email', null, ['class' => 'form-control input-lg','readonly' => 'true',

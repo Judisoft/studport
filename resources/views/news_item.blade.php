@@ -51,21 +51,22 @@
 <div class="container">
     <div class="row">
         <!-- Jelly-o sesame Section Strat -->
-        <div class="col-sm-7 col-md-8">
+        <div class="col-sm-7 col-md-8 col-lg-8">
             <div class="col-md-12">
-                <div class="mt-1 thumbnail">
+                <div class="mt-5 thumbnail">
                     <label>
-                        <p><h3>{{ $news->title }} <small>job description</small></h3></p>
+                        <h5>{{ $news->title }} <small>job description</small></h5>
                         <hr>
                     </label>
-                    <div class="text-justify p-5" style="background-color: #D5DDE6;">
+                    <div class="text-justify text-capitalize p-5" style="background-color: #D5DDE6;">
                         <ul>
-                            <li><strong>Job Id:</strong> SSN{{$news->id}}</li>
-                            <li><strong>Category:</strong> {{$news->category}}</li>
-                            <li><strong>Employer/Institution:</strong> {{$news->employer}}</li>
-                            <li><strong>Location:</strong> {{$news->location}}</li>
-                            <li><strong>Salary (FCFA):</strong>{{$news->salary}}</li>
-                            <li style="padding-top: 20px;"><strong>Job Description: </strong><p> {!! $news->content !!}</p></li>
+                            <li><strong>Job Id:</strong> SSN{{$news->id}}</li><hr>
+                            <li><strong>Category:</strong> {{$news->category}}</li><hr>
+                            <li><strong>Employer/Institution:</strong> {{$news->employer}}</li><hr>
+                            <li><strong>Location:</strong> {{$news->location}}</li><hr>
+                            <li><strong>Salary (FCFA):</strong>{{$news->salary}}</li><hr>
+                            <li style="padding-top: 20px;"><strong>Job Description: </strong><hr><p> {!! $news->content !!}</p></li>
+                            <hr>
                             <li>Send application to jobs@studport.cm. <button type="button" class="rkmd-btn btn-lightBlue"> <a href="{{ URL::to('user_emails/compose') }}" class="text-info">Apply <span class="fa fa-external-link"></span></a></button>
                                 </small>
                             </li>
@@ -78,7 +79,7 @@
         </div>
         <div class="col-sm-5 col-md-4 col-full-width-left">
             <!-- Featured Author Section Start -->
-            <div class="mt-1 border rounded p-2">
+            <div class="mt-5 border rounded p-2">
                 <h5 style="color: #2C3E50;">Job Categories</h5>
                 <hr>
                   <ul class="p-0">
@@ -87,7 +88,7 @@
                         <div>
                             <div class="media-heading">
                                     <p>{{ $item->category }} &nbsp;<span class="badge badge-success float-right mt-1 badge-pill">{{'0'}} </span></p>
-                                <small class="text-info"><span class="fa fa-calendar"><i>&nbsp;published on the &nbsp;{!! date('d-m-Y', strtotime($item->created_at)) !!}</i></small></small>
+                                <small class="text-info"><span class="fa fa-calendar"></span><i>&nbsp;published on the &nbsp;{!! date('d-m-Y', strtotime($item->created_at)) !!}</i></small>
                             </div>
                         </div>
                     </li>
@@ -101,7 +102,7 @@
 
             <!-- Recent Post Section Start -->
             <div class="mt-2 border rounded p-2">
-                <h4 class="small-heading more-margin-bottom">Recent Jobs</h4>
+                <h5 class="small-heading more-margin-bottom"><span class="fa fa-clock px-2"></span>Recent Jobs</h5>
                 <hr>
                 <ul class="p-0">
                     @foreach($recentnews as $item)
@@ -111,13 +112,14 @@
                                 <a href="{{ route('news.show',$item->id) }}">
                                     <p style="text-decoration: underline;">{{ $item->title }}</p>
                                 </a>
-                                <small class="text-info"><span class="fa fa-calendar"><i>&nbsp;published on the &nbsp;{!! date('d-m-Y', strtotime($item->created_at)) !!}</i></small></small>
+                                <small class="text-info"><span class="fa fa-calendar"></span><i>&nbsp;published on the &nbsp;{!! date('d-m-Y', strtotime($item->created_at)) !!}</i></small>
                             </div>
                         </div>
                     </li>
                     @endforeach
                 </ul>
             </div>
+            <br>
             <!-- Recent Post Section End -->
             <!-- /..no-border -->
         </div>

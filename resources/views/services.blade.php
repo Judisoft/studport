@@ -41,7 +41,7 @@
             <div class="aboutgrids row">
                 <div class="col-lg-6 col-12 aboutgrid2">
                     <div class="mt-5">
-                        <h1 class="text-left text-secondary" style="font-weight: 200;"> For Students</h1>
+                        <h5 class="text-left text-secondary"> For Students</h5>
                         <hr>
                     </div>
                         <ul class="services-list mt-1">
@@ -59,7 +59,7 @@
 
                 </div>
                         <div class="col-lg-6 col-12 mt-5">
-                            <h1 class="text-left text-secondary" style="font-weight: 200;">For Teachers and Institutions</h1>
+                            <h5 class="text-left text-secondary">For Teachers and Institutions</h5>
                             <hr>
                             <ul class="services-list mt-1">
                                 <p style="font-weight: 200;">Our Teacher-focused services include:</p>
@@ -147,13 +147,13 @@
             </div>
         </div>
     </section>
-                <div class="header-section text-center mb-5 py-5 shadow">
+                <div class="header-section text-center mb-5 py-5">
                     <small class="alert alert-warning"><sup class="text-danger">*</sup> Third party fee association, Student pays for third party fees </small>
                 </div>
 
         <div class="w3l-services1 aboutbottom py-5 mt-5" style="background-color:#090909;">
             <div class="container py-lg-3 text-center">
-            <h3 class="text-white" style="text-align: center; padding:10px;">OUR RESOURCES </h3>
+            <h5 class="text-white" style="text-align: center; padding:10px;">OUR RESOURCES </h5>
             <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
                 <div class="bottomgrids row no-gutters">
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0">
@@ -185,7 +185,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-5">
                         <span class="fa fa-phone"></span>
-                        <h4><a class="service-title badge badge-primary" href="#url">120</a></h4>
+                        <h4><a class="service-title badge badge-primary" href="#url">12</a></h4>
                         <h5><a class="service-title" href="#url">Online Assistance Agents</a></h5>
                     </div>
                     <div class="clearfix"> </div>

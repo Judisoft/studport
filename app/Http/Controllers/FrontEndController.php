@@ -151,6 +151,8 @@ class FrontEndController extends JoshController
          $course_title = Exam::select('title')->where('department', Sentinel::getUser()->department)->distinct()->orderBy('title')->get();
          //get institutions
          $institutions = User::select('institution')->whereNotNull('institution')->distinct()->orderBy('institution')->get();
+         //questions from user's institution. We grab all questions from authenticated user's institution
+         $userInstitutionQuestions = Blog::where('institution', Sentinel::getUser()->institution)->get();
         
         
 
@@ -194,7 +196,8 @@ class FrontEndController extends JoshController
                  'numberOfUserAnswers',
                  'numberOfUserRequest',
                  'course_title',
-                 'institutions'
+                 'institutions',
+                 'userInstitutionQuestions'
                 ));
     }
 

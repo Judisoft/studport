@@ -9,9 +9,9 @@ Blog
 {{-- page level styles --}}
 @section('header_styles')
 <!--page level css starts-->
-<link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/tabbular.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/blog.css') }}">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ asset('vendors/simple-line-icons/css/simple-line-icons.css') }}"/>
+<link rel="stylesheet" href="{{asset('css/frontend/style-starter.css')}}">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Playfair+Display+SC:wght@700&family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
 <!--end of page level css-->
@@ -57,8 +57,14 @@ Blog
     min-width: 100% !important;
     max-width: 100% !important;
 }
-
-
+@media(min-width: 575px){
+    .card-body{
+        min-width: 100% !important;
+    }
+}
+p{
+    font-size: 14px !important;
+}
 </style>
 
 {{-- Page content --}}
@@ -66,66 +72,122 @@ Blog
 <!-- Container Section Strat -->
 <div class="container">
     <div class="row">
-        <div class="col-md-9 col-lg-9 col-12 my-2" style="padding: 25px;">
+         <div class="ml-auto col-md-3 col-lg-3 col-12 mt-5" style="padding: 15px;border-right: 1px solid #ddd;">
+            <div class="list-item1">
+                <div class="box1 text-dark mt-2"><h6><i class="fa fa-braille px-2"></i>STUDPORT</h6><hr> </div>
+                <h6><a href="#" class="text-gray"><i class="fa fa-tag px-2"></i>Tags &nbsp;&nbsp;&nbsp;&nbsp;</a></h6><br>
+                <h6><a href="#" class="text-gray"><i class="fa fa-university px-2"></i>Institutions</a></h6><br>
+                <h6><a href="#" class="text-gray"><i class="fa fa-users px-2"></i>Users</a></h6><br>
+                <h6><a href="#" class="text-gray"><i class="fa fa-file px-2"></i>Courses</a></h6><br>
+                <h6><a href="#" class="text-gray"><i class="fa fa-comments px-2"></i>Study Groups</a></h6><br>
+            </div>
+            <div >
+                <div class="box1 text-dark mt-2"><h6><i class="fa fa-sort px-2"></i>CATEGORIES</h6><hr> </div>
+                        @foreach($blogscategories as $blogscategory)
+                            @if(@count($blogscategory) > 0)
+                                <div>
+                                <h6><a  href="#" class="text-gray text-left px-2 py-3"><small>{{$blogscategory->title}}<span class=""></span></small></a></h6><br>
+                                </div>
+                            @endif
+                        @endforeach
+                </div>
+                       <div class="mt-2">
+                <div class="box1 text-dark"><h6><i class="fa fa-users px-2"></i>TUTORS</h6></div>
+                    <hr>
+                        @foreach($teachers as $teacher)
+                            @if(@count($teacher) > 0)
+                                <div class="mt-2">
+                                <a  href="#" class="text-dark text-capitalize px-2 py-3">
+                                    @if($teacher->pic)
+                                        <img src="{{$teacher->pic}}" alt="img" width="50px"  height="50px" class="rounded-circle img-responsive img_height float-left"/>
+                                        @else<img src="{{asset('images/no_avatar.jpg')}}" alt="img" width="50px"  height="50px" class="rounded-circle img-responsive img_height float-left"/>
+                                    @endif
+                                    <small><b>{{$teacher->first_name. ' '.$teacher->last_name }}</b> @if($teacher->isOnline()) <span class="fa fa-circle px-2 text-success float-right"></span> @else <span class="fa fa-circle px-2 text-danger float-right"></span>@endif</small>
+                                    <br>
+                                    <small class="px-2 text-gray"><i>{{$teacher->department}}</i><br><i>{{$teacher->institution}}</i></small>
+                               </a>
+                               <hr>
+                                </div>
+                                @else
+                                <div class="mt-2">
+                                <a  href="#" class="text-dark"><small>No Tutor</small></a><br>
+                                </div>
+                            @endif
+                        @endforeach
+                </div>
+            <br>
+    </div>
+        <div class="col-md-6 col-lg-6 col-12 p-5">
+                 <div class="form-group input-group">
+                    <form class="input-group" action="{{route('blog')}}" method="GET">
+                        <input type="text" class="form-control text-gray" name="search" value="{{request()->query('search')}}" placeholder="Search Questions: by tags, subject/course..." style="font-size: 14px !important;">
+                            <div class="input-group-append">
+                                <span class="input-group-btn input-group-append">
+                                    <button class="btn btn-warning input-group-text image_radius" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                    </form>
+                </div>
             @forelse ($blogs as $blog)
             <!-- BEGIN FEATURED POST -->
             <div class="thumbnail" style=" padding-bottom: 50px;">
-            <div class="card" style="margin-left: 20px;">
-            <div class="card-header">
-            <h4 class="text-capitalize" style="font-weight: 200; float: right;"><a  href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-settings"> {{$blog->title}}</a></h4>
-                @if($blog->author->pic)
-                <img src="{{$blog->author->pic}}" alt="img" width="35"  height="35" class="rounded-circle img-responsive img_height float-left"/>
-                @else<img src="{{asset('images/avatar3.png')}}" alt="img" width="35"  height="35" class="rounded-circle img-responsive img_height float-left"/>
-                @endif
-            </div>
+            <h5 class="text-capitalize"> {{$blog->title}}</h5>
+            <hr>
+            <p class="text-gray">
+                    <small>
+                        <span class="additional-post px-2">
+                            <a> <span class="icon-calendar px-2"></span>Asked &nbsp;{{$blog->created_at->diffForHumans()}}</a>
+                        </span>
+                        <span class="additional-post px-2">
+                            <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} Answer(s) provided</a>
+                        </span>
+                        <span class="additional-post">
+                            <a>Viewed&nbsp;{{$blog->views}}  times</a>
+                        </span>
+                    </small>
+            </p>
+            <hr>
                 @if($blog->image)
                 <a href="{{ URL::to('blogitem/'.$blog->slug) }}">
-                <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" height="200px" width="200px" alt="Image" style="float: left; padding: 25px;">
+                <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" height="200px" width="200px" alt="Image" style="padding: 25px;">
                 </a>
                 @endif
                 <div class="p-3 relative-left">
-                    <div class="card card-body p-4">
+                    <div class="card card-body  p-4" style="background-color: #F5F7F7;border: 1px solid #EAECEE;">
                         <p>
-                            <img src="{{asset('images/question_mark.png')}}" /><a style="padding-left: 25px;">{!! $blog->content !!}</a>
+                            <a>{!! $blog->content !!}</a>
                         </p>
-                         <p style="padding: 25px 0 25px 0;">
+                         <p style="padding: 25px 0 5px 0;">
                         @if($blog->comments->count() > 0)
-                            <button type="button" class="rkmd-btn btn-lightBlue"><a href="{{ URL::to('blogitem/'.$blog->slug) }}" style="color: #11AF35;">View Answers</a></button>
+                            <a href="{{ URL::to('blogitem/'.$blog->slug) }}" style="color: #11AF35;"><i class="icon-bubbles px-2"></i><small>View Answers</small></a>
                         @else
-                            <button type="button" class="rkmd-btn btn-lightBlue"><a href="{{ URL::to('blogitem/'.$blog->slug) }}" style="color: #32BADC;">Answer this question</a></button>
+                            <a href="{{ URL::to('blogitem/'.$blog->slug) }}" style="color: #32BADC;"><i class="icon-speech px-2"></i><small>Answer this question</small></a>
                         @endif
                     </p>
+                    <hr>
+                    <span class="additional-post p-2">
+                          @if($blog->author->pic)
+                            <img src="{{$blog->author->pic}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
+                            @else<img src="{{asset('images/avatar3.png')}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
+                        @endif
+                        <small class="px-2 py-2 text-gray">{{$blog->author->first_name}} asked this question on the {!! date('d-m-y', strtotime($blog->created_at)) !!}</small>
+                    </span>
                     </div>
                     <p class="py-2 px-2 text-info"> 
                         <small>
-                            <b>Tags: </b>
+                            Tags:
                             @forelse($blog->tags as $tag)
-                                <small><a class="text-white bg-info p-1 px-2 br-5"  href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}" style="border-radius: 5px;">{{ $tag }}</a></small>
+                                <small><a class="alert alert-info p-1 px-2"  href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}">{{ $tag }}</a></small>
                             @empty
                            <em> No Tags </em>
                             @endforelse
                         </small>
-                    
                     </p>
-                    <p class="additional-post-wrap text-info">
-                    <small>
-                        <span class="additional-post px-2">
-                         <b>Author: </b> &nbsp;<a> <span class="icon-user"></span>&nbsp;{{$blog->author->first_name . ' ' . $blog->author->last_name}}</a>
-                        </span>
-                        <span class="additional-post px-2">
-                            <a> <span class="icon-calendar"></span>&nbsp;{{$blog->created_at->diffForHumans()}}</a>
-                        </span>
-                        <span class="additional-post px-2">
-                            <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} answer(s)</a>
-                        </span>
-                        <span class="additional-post px-2">
-                            <a> <span class="icon-eye"></span>&nbsp;{{$blog->views}}  views</a>
-                        </span>
-                    </small>
-                    </p>
+                    <hr>
                 </div>
                 <!-- /.featured-text -->
-            </div>
             </div>
             <!-- /.featured-post-wide -->
             <!-- END FEATURED POST -->
@@ -141,65 +203,36 @@ Blog
             
         </div>
         <!-- /.col-md-8 -->
-        <div class="ml-auto col-md-3 col-lg-3 col-12" style="padding: 25px;">
-
-                <div class="form-group input-group">
-                    <form class="input-group" action="{{route('blog')}}" method="GET">
-                        <input type="text" class="form-control" name="search" value="{{request()->query('search')}}" placeholder="Search Questions...">
-                            <div class="input-group-append">
-                                <span class="input-group-btn input-group-append">
-                                    <button class="btn btn-warning input-group-text image_radius" type="submit">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                    </form>
-                </div>
-            <!--Display Search Results  -->
-               
-              
-            <!-- END POPULAR POST -->
-            <!-- Tabbable-Panel Start -->
-            <div class="tabbable-panel">
-                <!-- Tabbablw-line Start -->
-                <div class="tabbable-line">
-                    <!-- Nav Nav-tabs Start -->
-                    <div class="card">
-                    <div class="card-header text-center box1 text-info" style="color: #fff;"><h5 style="font-weight: 200;"> FREQUENTLY VIEWED QUESTIONS</h5> </div>
-                    <!-- //Nav Nav-tabs End -->
-                    <!-- Tab-content Start -->
-                    @foreach ($popular_questions as $blog)
-                        <a  href="{{ URL::to('blogitem/'.$blog->slug) }}" style=" background-color: #f8f9fa; color: #2C3E50 !important; text-decoration: underline; padding-left: 30px;">{{$blog->title}} <small><i>({{$blog->views}} views)</i></small></a><br>
-                    @endforeach
-                    <!-- //Tab-content End -->
-                </div>
-                <!-- //Tabbablw-line End -->
-            </div>
-            </div>
-            <br>
-            <div class="card">
-                <div class="card-header text-center box1 text-info" style="color: #fff;"><h5 style="font-weight: 200;">RECENTLY ASKED QUESTION</h5> </div>
-                        @foreach($recent_questions as $recent_question)
-                            @if(@count($recent_question) > 0)
-                                <a  href="#" style=" background-color: #f8f9fa; color: #2C3E50 !important; text-decoration: underline; padding-left: 30px;  ">{{$recent_question->title }}</a><br>
+        <div class="ml-auto col-md-3 col-lg-3 col-12 mt-5" style="padding: 5px;">
+                <div class="box1 text-dark"><h6><i class="fa fa-chalkboard-teacher px-2"></i>TUTORING JOBS</h6> </div>
+                <hr>
+                    <div style="background-color: #F6F6F6;">
+                        @foreach($jobs as $job)
+                            @if(@count($job) > 0)
+                                <div class="mt-3 px-2">
+                                <a   class="text-dark p-2 pt-5"><small><b><u>{{$job->title }}</u></b></small></a><br>
+                                <div style="padding:0 0 10px 5px;">
+                                <br>
+                                    <small>{!! $job->content !!}</small>
+                                    <small class="py-3"><b>Employer: {{$job->employer}}</b></small><br>
+                                     <small class="py-3"><b>Location: {{$job->location}}</b></small><br>
+                                    <small class="py-3"><b>Salary: {{$job->salary}}</b></small><br>
+                                    <p class="pt-3"><a href="{{ route('news.show',$job->id) }}"><small>Apply for this Job</small></a></p><br>
+                                 </div>
+                                </div>
+                                 @else
+                                <div class="mt-2">
+                                <a  href="#" class="text-dark"><small>No Jobs Available</small></a><br>
+                                </div>
                             @endif
                         @endforeach
                 </div>
                 <br>
-                  <div class="card">
-                <div class="card-header text-center box1 text-info" style="color: #fff;"><h5 style="font-weight: 200;">COURSE/SUBJECT</h5> </div>
-                        @foreach($blogscategories as $blogscategory)
-                            @if(@count($blogscategory) > 0)
-                                <a  href="#" style=" background-color: #f8f9fa; color: #2C3E50 !important; text-decoration: underline; padding-left: 30px;  ">{{$blogscategory->title }}</a><br>
-                            @endif
-                        @endforeach
-                </div>
             </div>
-            </div>
-            <!-- Tabbable_panel End -->
             <!-- Category -->
             <br>
-        <!-- /.col-md-4 -->
+            
+        
     </div>
     </div>
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         @section('title')
-            Welcome to StudPort
+            Sign Up | Welcome to StudPort
         @show
     </title>
     <!--global css starts-->
@@ -31,7 +31,11 @@
 <!--end of page level css-->
 </head>
 <style>
-
+  .full-width {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
     .btn-nav{
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
@@ -49,14 +53,44 @@
     }
   .card-1 {
   box-shadow: 0 10px 20px #D5DDE6, 0 5px 5px #D5DDE6;
-}
+} 
+@media(min-width: 576px){
 .box {
-  width: 400px;
+  min-width: 90%;
   margin: auto;
   align-items: left;
   border-radius: 5px;
     
 }
+}
+@media(min-width: 768px){
+.box {
+  max-width: 50%;
+  margin: auto;
+  align-items: left;
+  border-radius: 5px;
+    
+}
+}
+@media(min-width: 992px){
+.box {
+  max-width: 50%;
+  margin: auto;
+  align-items: left;
+  border-radius: 5px;
+    
+}
+}
+@media(min-width: 1200px){
+.box {
+  max-width: 50%;
+  margin: auto;
+  align-items: left;
+  border-radius: 5px;
+    
+}
+}
+
 
 .box1 {
   padding: 20px 20px;
@@ -102,6 +136,10 @@
 .social:hover {
   color: white;
 }
+h4{
+  font-weight: 400 !important;
+}
+
 </style>
 <body>
   <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
@@ -109,12 +147,11 @@
       <div class="container">
         <div class="middle-section">
           <div class="section-width">
-            <div class="box shadow">
-                <div class="box1 br-5">
-                    <div class="py-3 text-center">
-                        <h4 class="text-primary" style="font-weight: 400;"><br>SIGN IN</h4>
-                        
-                        <hr>
+            <div class="box">
+                <div class="box1 br-5 shadow">
+                    <div class="text-center">
+                        <span class="fa fa-user-circle fa-5x px-2 py-2 text-dark"></span>
+                        <h4>SIGN IN</h4>
                     </div>
                     <!-- Notifications -->
                     <div id="notific">
@@ -135,32 +172,19 @@
                         <span class="help-block">{{ $errors->first('password', ':message') }}</span>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox"> Remember Password
+                                <input type="checkbox"> Remember Me
                             </label>
 
                         </div>
-                        <input type="submit" class="btn btn-block btn-primary py-2 mb-3" value="Log In">
+                        <input type="submit" class="btn btn-block btn-secondary py-2 mb-3" value="Log In">
                         Don't have an account? <a href="{{ route('register') }}"><strong> Sign Up</strong></a>
                     </form>
                     <br />
-                    <div class="row">
-                        <div class="col-lg-12 text-center social_login mb-3">
-                            <a class="btn btn-block btn-social btn-primary btn-facebook social" href="{{ url('/facebook') }}">
-                                <i class="fab fa-facebook-f"></i> Sign in with Facebook
-                            </a>
-                            <a class="btn btn-block btn-danger btn-social btn-google social" href="{{ url('/google') }}">
-                                <i class="fab fa-google-plus-g"></i> Sign in with Google
-                            </a>
-                            <a class="btn btn-block btn-primary btn-social btn-linkedin social" href="{{ url('/linkedin') }}">
-                                <i class="fab fa-linkedin-in"></i> Sign in with LinkedIn
-                            </a>
-                        </div>
-                    </div>
                     <div class="bg-transparent animation flipInX">
                         <a href="{{ route('forgot-password') }}">Forgot Password?</a>
                     </div>
                 </div>
-                
+              <div class="text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
             </div>
         </div>
         </div>

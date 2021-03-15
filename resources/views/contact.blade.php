@@ -9,7 +9,7 @@ Contact
 {{-- page level styles --}}
 @section('header_styles')
 <!--page level css starts-->
-
+<link rel="stylesheet" href="{{asset('vendors/ionicons/css/ionicons.min.css')}}"/>
 
 <!--end of page level css-->
 @stop
@@ -20,13 +20,9 @@ Contact
 <section class="w3l-contacts-12" id="contact">
     <div class="container py-5">
             <div class="header-section text-center">
-            <div class="card">
-            <div class="card-header text-warning p-5" style="border-bottom: 5px solid #ffc107;">
-                <h3 class="mb-md-2 mb-2 text-dark">Contact Us</h3>
-            </div>
-            <div class="card-body px-5">
-                <small class="text-dark mb-md-5">Fill the form and we shall respond to you within 48hrs</small>
-            </div>
+            <div class="alert alert-gray">
+                <h5 class="mb-md-2 mb-2 text-dark">Contact Us</h5>
+                <small class="text-gray mb-md-5">Fill the form and leave us a message. We shall respond to you within 48hrs</small>  
             <form class="contact" id="contact" action="{{route('contact')}}" method="POST">
                 <div class="main-input p-5">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -49,9 +45,9 @@ Contact
             <div class="d-grid contact section-gap">
                 <div class="contact-info-left d-grid">
                     <div class="contact-info">
-                            <span class="fa fa-location-arrow" aria-hidden="true"></span>
+                            <span class="fa fa-map-marker-alt" aria-hidden="true"></span>
                         <div class="contact-details">
-                            <h4>Address:</h4>
+                            <h5>Address:</h5>
                             <hr>
                             <p class="py-3">Elig-Effa, Yaoundé Cameroon</p>
                         </div>
@@ -61,7 +57,7 @@ Contact
                             <span class="fa fa-phone fa-5x" aria-hidden="true"></span>
 
                         <div class="contact-details">
-                            <h4>Phone:</h4>
+                            <h5>Phone:</h5>
                             <hr>
                             For General Inquiries
                             <p><a href="tel:+237-652-459-059">(+237) 652-459-059</a></p>
@@ -78,7 +74,7 @@ Contact
                     <div class="contact-info">
                             <span class="fa fa-envelope" aria-hidden="true"></span>
                         <div class="contact-details">
-                            <h4>E-Mail:</h4>
+                            <h5>E-Mail:</h5>
                             <hr>
                             For General Inquiries
                             <p><a href="mailto:info@studport.cm" class="email">info@studport.cm</a></p>

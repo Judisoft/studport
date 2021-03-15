@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\BlogComment;
 use App\Models\User;
+use App\Models\News as NewsAlias;
 use Sentinel;
 
 use App\Http\Requests\BlogCommentRequest;
@@ -27,20 +28,23 @@ class BlogController extends JoshController
      */
     public function index()
     {
-        // search funcionality
+        // search questions by title and content 
 
         $search = request()->query('search');
         if ($search) {
             $blogs = Blog::where('title', 'LIKE', "%{$search}%")
                                 ->orWhere('content', "%{$search}%")
-                                ->simplePaginate(10);
+                                ->simplePaginate(5);
         }
         else {
-            $blogs = Blog::latest()->simplePaginate(10);
+            $blogs = Blog::latest()->simplePaginate(5);
 
         }
-        //Gett users
+
+        //Gett autheticated user
         $user = Sentinel::getUser();
+        //grab all institutions of users
+        $user_institutions = User::select('institution')->distinct()->get();
         // Grab all the blogs
         //$blogs = Blog::latest()->simplePaginate(5);
         $tags = $this->tags;
@@ -50,8 +54,12 @@ class BlogController extends JoshController
         $popular_questions = Blog::orderBy('views', 'desc')->get();
         //recent questions
         $recent_questions = Blog::latest()->get();
+        // teachers
+        $teachers = User::where('user_role', 'tutor')->get();
+        //jobs
+        $jobs = NewsAlias::orderBy('id', 'DESC')->get();
         // Show the page
-        return view('blog', compact('blogs', 'tags', 'blogscategories', 'user', 'popular_questions', 'recent_questions'));
+        return view('blog', compact('blogs', 'tags', 'blogscategories', 'user', 'popular_questions', 'recent_questions', 'teachers', 'jobs'));
     }
 
     /**

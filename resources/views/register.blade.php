@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         @section('title')
-            Welcome to StudPort
+            Sign Up | Welcome To StudPort
         @show
     </title>
     <!--global css starts-->
@@ -50,20 +50,47 @@
   .card-1 {
   box-shadow: 0 10px 20px #D5DDE6, 0 5px 5px #D5DDE6;
 }
+@media(min-width: 576px){
 .box {
-  background: transparent;
-  width: 500px;
+  min-width: 90%;
   margin: auto;
-  align-items: center;
-  border: 1px solid #ddd;
+  align-items: left;
   border-radius: 5px;
     
 }
+}
+@media(min-width: 768px){
+.box {
+  max-width: 50%;
+  margin: auto;
+  align-items: left;
+  border-radius: 5px;
+    
+}
+}
+@media(min-width: 992px){
+.box {
+  max-width: 50%;
+  margin: auto;
+  align-items: left;
+  border-radius: 5px;
+    
+}
+}
+@media(min-width: 1200px){
+.box {
+  max-width: 50%;
+  margin: auto;
+  align-items: left;
+  border-radius: 5px;
+    
+}
+}
 
 .box1 {
-  padding: 30px 30px;
+  padding: 20px 20px;
   background-color: #D5DDE6;
-  
+  border-radius: 5px;
 }
 
 .help-block {
@@ -104,25 +131,28 @@
 .social:hover {
   color: white;
 }
+h4{
+  font-weight: 400 !important;
+}
+
 </style>
 <body>
   <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
     <div class="new-block top-bottom">
-      <div class="container-fluid">
+      <div class="container">
         <div class="middle-section">
           <div class="section-width">
-            <div class="box shadow">
-                <div class="box1 br-5">
-                    <div class="py-3 text-center">
-                        <h4 class="text-primary" style="font-weight: 400;"><br>SIGN UP</h4>
-                        
-                        <hr>
+            <div class="box">
+                <div class="box1 br-5 shadow">
+                    <div class="text-center">
+                        <span class="fa fa-user-circle fa-5x px-2 py-2 text-dark"></span>
+                        <h4>CREATE ACCOUNT</h4>
                     </div>
                     <!-- Notifications -->
                     <div id="notific">
                         @include('notifications')
                     </div>
-                         <form action="{{ route('register') }}" method="POST" id="reg_form">
+                   <form action="{{ route('register') }}" method="POST" id="reg_form">
                     <!-- CSRF Token -->
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
@@ -191,12 +221,15 @@
                         </label>
                     </div>
                     <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
-                    <button type="submit" class="btn btn-block br-0 btn-primary my-2" style="border: none !important;">Sign Up</button>
+                    <button type="submit" class="btn btn-block br-0 btn-secondary my-2" style="border: none !important;">Sign Up</button>
                     Already have an account? Please <a href="{{ route('login') }}"> Log In</a>
                 </form>
                     <br />
+                    <div class="bg-transparent animation flipInX">
+                        <a href="{{ route('forgot-password') }}">Forgot Password?</a>
+                    </div>
                 </div>
-                
+                <div class="text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
             </div>
         </div>
         </div>

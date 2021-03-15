@@ -86,6 +86,7 @@ class QuestionsController extends Controller
             $blog->image = $picture;
         }
         $blog->user_id = Sentinel::getUser()->id;
+        $blog->institution = Sentinel::getUser()->institution;
         $blog->save();
 
         $blog->tag($request->tags?$request->tags:'');

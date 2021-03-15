@@ -108,7 +108,9 @@ li, p{
     border-radius: 5px;
 }
 
-
+.text-blue{
+    color: #045DEF !important;
+}
 
 
 /* Table Styles */
@@ -276,7 +278,7 @@ li, p{
                                                                     style="height: 100px; width: 100px;"/>
                                                             @endif
                                                     </div>
-                                                        <h6 class="text-white">Welcome {{$user->first_name}} &nbsp;! <hr>
+                                                        <h6 class="text-white text-capitalize">Welcome {{$user->first_name}} &nbsp; <hr>
                                                         <i class="fa fa-lock"></i> {{$user->user_role}} <hr>
                                                         <i class="fa fa-institution"></i> {{$user->institution}}</b></h6><br>
                                                     </div>
@@ -322,7 +324,7 @@ li, p{
                                             </li>
                                             <li class="nav-item list-item1">
                                                 <a href="{{ URL::to('logout') }}" class="nav-link">
-                                                    <i class="icon-power fa-2x px-2"></i>Sign Out</a><hr>
+                                                    <i class="icon-power fa-2x px-2"></i>Sign Out</a>
                                             </li>
                                         </ul>
                                         </div>
@@ -761,7 +763,7 @@ li, p{
                                                             {!! Form::text('tags', null, ['class' => 'form-control input-lg input-group input-group-append',
                                                             'data-role'=>"tagsinput", 'placeholder'=>'Tags/Keywords', 'style'=>'font-size: 18px;']) !!}
                                                             <br>
-                                                            <p  class="alert-warning p-2 mt-3"><small>To enter multiple tags/keywords,
+                                                            <p  class="alert-info p-2 mt-3"><small>To enter multiple tags/keywords,
                                                             press the return/enter button and type the next and so on.</small></p>
                                                         </div>
                                                         <label></label>
@@ -1035,7 +1037,7 @@ li, p{
                                     <b class="text-uppercase"><span class="fa fa-institution px-3"></span>{{Sentinel::getUser()->institution}} <span class="fa fa-angle-double-right px-3"></span>Department of  {{Sentinel::getUser()->department}} @if(request()->search) <span class="fa fa-angle-double-right px-3"></span> {{request()->search}} @endif</b>
                                     </span>
                                 </div>
-                            <div class="card mt-5 p-5">
+                            <div class="mt-5 p-5">
                             <h3 class="text-center" style="left: 50%; padding-top: 20px;"><a style="color: #0B5345; font-weight: 200;">
                                 &nbsp; Past Examination Questions</a></h3>
                             <p style="text-align: center; padding-bottom: 20px;"><small>Select a course to get past questions for that course</small></p>
@@ -1055,56 +1057,31 @@ li, p{
                                             </form>
                 <div class="card-body">
                     @if(request()->search)
-                    <div style="margin-top: 50px !important;">
-                        <h4 class="p-3" style="font-weight: 200;">Showing resources for: <i>{{request()->search}}</i></h4>
+                    <div class="shadow" style="margin-top: 50px !important;">
+                        <h5 class="p-3">Showing Examination resources for <i class="text-blue">{{request()->search}}</i></h5>
                         <hr>
                     </div>
-                    @endif
-                    <br /><br />
-                    <table class="fl-table table-stripped table-bordered table-hover">
-                    @if($exam_questions->count() > 0)
-                  <thead>
-                        <tr>
-                            <th><i class="icon-calendar fa-2x"></i><br>Year</th>
-                            <th><i class="icon-doc fa-2x"></i><br>Course</th>
-                            <th><i class="icon-user fa-2x"></i><br>Instructor</th>
-                            <th><i class="icon-question fa-2x"></i><br>Question</th>
-                            <th><i class="icon-speech fa-2x"></i><br>Solution</th>
-
-                        </tr>
-                    </thead>
-                    @endif
                         @forelse ($exam_questions as $item)
-                    <tbody>
-                            <tr>
-                                <td>{{ $item->year }}</td>
-                                <td class="text-uppercase text-left p-4">{{ $item->title }}</td>
-                                <td class="text-uppercase text-left p-4">{{ $item->instructor }}</td>
-                                <td class="text-uppercase text-left p-4""><a href="{{ route('exams.download', $item->uuid) }}" class="btn btn-outline-danger"><span class="fa fa-download px-2"></span> Download</a>
-                                    <small> <br>{{ $item->title }} <br>{{ $item->type }} {{$item->year}}</small><br>
-                                    <small class="alert-success">Free Download</small>
-                                </td>
-                                <td class="text-uppercase text-left p-4"><a href="#url" class="btn btn-info"><span class="fa fa-download px-2"></span> Solution</a>
-                                    <small> <br>{{ $item->title }} {{ $item->year }}</small><br>
-                                    <small class="alert-info p-1">Cost: FCFA 250</small>
-                                </td>
-                            </tr>
+                            <div class="card card-body  p-3">
+                                <h5 class="text-capitalize text-left text-danger py-4"><a href="{{ route('exams.download', $item->uuid) }}"><i class="far fa-file-pdf px-2"></i>{{ $item->title }} <i class="ion ion-md-arrow-dropright px-3"></i><small>{{ $item->type }}</small></a></h5>
+                                <br>
+                                <small class="text-capitalize">Course Instructor:&nbsp;{{ $item->instructor }} | &nbsp; {{ $item->type }} {{ $item->year }} <a href="#url"><small class="alert-success p-3 float-right"><i class="ion ion-md-download fa-2x px-2"></i>DOWNLOAD SOLUTION</small></a></small>
+                            </div>
+                            </div>
+                            <hr>
                         @empty
                                 <div class="alert-warning text-center br-5 p-5"><h4><i class="icon-speech  fa-3x px-2" style="opacity: 0.1;"></i>No Past Question Available Yet.</h4></div>
                         @endforelse
                     </tbody>
                     </table>
-                    @if($exam_questions->count() > 0)
+                    @if($exam_questions->count() > 10)
                     <div class="text-right mt-5"> 
                         {!! $blogs->appends(['search' => request()->query('search')])->links() !!} 
                     </div>
                      @endif
-                     @foreach ($exam_questions as $item)
-                         {{ route('exams.download', $item->uuid) }}
-                     @endforeach
                 </div>
             </div>
-       
+            @endif
                 </div>
                     </div>
                     </div>
@@ -1118,7 +1095,8 @@ li, p{
         <!-- //Nav Nav-tabs End -->
     
     <!--item desciption end-->
-
+</div>
+</div>
 </div>
 </div>
 @stop
