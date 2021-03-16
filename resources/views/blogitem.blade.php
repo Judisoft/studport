@@ -134,97 +134,78 @@
     <!-- container section start-->
     <section class="container blogpage">
         <div class="row pt-5">
-            <div class="col-md-12 col-lg-12 col-12">
+            <div class="col-md-10 col-lg-10 col-12">
                 <div class="thumbnail">
-                <div class="card">
-                        <div class=" card-header p-5 text-center"">
-                            <h3 class="text-capitalize"><a  href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-dark">&nbsp;Question Title: {{$blog->title}}</a></h3>
+                <div>
+                        <div class="text-center"">
+                             <h5 class="text-capitalize"> {!! $blog->content !!}</h5>
                         </div>
-                            <div class="text-center thumbnail featured-post-wide img mt-5">
-                                @if($blog->image)
-                                    <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image" onclick="window.print()">
-                                @endif
-                                 <p class="py-2 px-2 text-info text-left"> 
-                                <small>
-                                    <b>Tags: </b>
-                                    @forelse($blog->tags as $tag)
-                                        <small><a class="text-white bg-info p-1 px-2 br-5"  href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}" style="border-radius: 5px;">{{ $tag }}</a></small>
-                                    @empty
-                                <em> No Tags </em>
-                                    @endforelse
-                                </small>
-                                </p>
-                 <p class="additional-post-wrap text-info text-left">
+                        <div class="thumbnail" style=" padding-bottom: 50px;">
+                        <hr>
+                    <p class="text-gray">
                     <small>
                         <span class="additional-post px-2">
-                         <b>Author: </b> &nbsp;<a> <span class="icon-user"></span>&nbsp;{{$blog->author->first_name . ' ' . $blog->author->last_name}}</a>
+                            <a> <span class="icon-calendar px-2"></span>Asked &nbsp;{{$blog->created_at->diffForHumans()}}</a>
                         </span>
                         <span class="additional-post px-2">
-                            <a> <span class="icon-calendar"></span>&nbsp;{{$blog->created_at->diffForHumans()}}</a>
+                            <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} Answer(s) provided</a>
                         </span>
-                        <span class="additional-post px-2">
-                            <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} answer(s)</a>
-                        </span>
-                        <span class="additional-post px-2">
-                            <a> <span class="icon-eye"></span>&nbsp;{{$blog->views}}  views</a>
+                        <span class="additional-post">
+                            <a>Viewed&nbsp;{{$blog->views}}  times</a>
                         </span>
                     </small>
-                    </p>
+                </p>
+                <hr>
+                  <span class="additional-post p-2">
+                          @if($blog->author->pic)
+                            <img src="{{$blog->author->pic}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
+                            @else<img src="{{asset('images/avatar3.png')}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
+                        @endif
+                        <small class="px-2 py-2 text-gray">{{$blog->author->first_name}} asked this question on {!! date('M d, Y', strtotime($blog->created_at)) !!} at {!! date('G:i', strtotime($blog->created_at)) !!}</small>
+                    </span>
+                            <div class="text-center thumbnail featured-post-wide img mt-5">
+                                @if($blog->image)
+                                    <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image">
+                                @endif
+                                <h5 class="text-left text-gray px-2">
+                                    {{$blog->comments->count()}} Answer(s)
+                                </h5>
                                 <hr>
                                 <!-- /.blog-detail-image -->
                                 <div class="p-3 mb-3 blog-detail-content">
-                                    <div class="card-body shadow" style="padding:10px; border: 1px solid #ddd; border-left: 5px solid #FF5733; border-radius: 5px; background-color: #eee;">
-                                    <img src="{{asset('images/question_mark.png')}}" style="float:left;" />
-                                        <p>
-                                            <a style="padding-left: 25px;">{!! $blog->content !!}</a>
-                                        </p>
-                                        <div class="blog-detail-image">
-                                            @if(!empty($blog->summernote_image))
-                                                <img src="{{URL::to('uploads/blog/'.$blog->summernote_image)}}"
-                                                     class="img-fluid summernote_image" alt="Image">
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                        <div class="table-responsive">
-                            <table class="fl-table table-stripped">
-                            <thead >
-                            <tr>
-                              
-                            </tr>
-                             <br>
-                            </thead>
+                        <div class="p-3">
+                            <table class="table table-borderless">
                             @foreach($blog->comments as $comment)
                             @if($comment->count() > 0)
                             <tbody>
                                         <tr>
-                                        <td>
-                                            @if($comment->picture)
-                                                <img src="{{$comment->picture}}" class="rounded-circle" alt="img" style="height: 50px; width: 50px;"/>
-                                            @else
-                                            <span class="fa fa-user-circle fa-3x" style="color: #B8B7B7;"></span><br>
-                                            @endif
-                                            <p><small><a href="#" style="color: #848484; text-transform: capitalize;">{{$comment->name}} <br> @if(Sentinel::check()) {{Sentinel::getUser()->institution}} @endif  <br>Level {{$comment->website}} <br> {{$comment->created_at}}</small></p>
-                                        </td>
-                                        <td>
-                                            <p> {!! $comment->comment !!} </p>
+                                         <td>
+                                            <h5 class="text-center text-gray"><a  href="#url"><span class="ion ion-md-arrow-dropup fa-4x text-gray px-3"></span></a><br>0<br><a href="#url"><span class="ion ion-md-arrow-dropdown fa-4x text-gray px-3"></span></a></h5>
                                             <br>
-                                            @if(Sentinel::check())
-                                             @if(Sentinel::getUser()->email === $comment->email)
-                                                <a href="#url" class="text-info"><span class="fa fa-edit  text-info px-2"></span><small></small></a>&nbsp;
-                                                <a href="#url" class="text-danger"><span class="fa fa-trash text-danger"></span> <small></small></a>
-                                             @endif
-                                             @endif
                                         </td>
                                         <td>
-                                            @if(Sentinel::check())
-                                                <h5><a  href="#url"><span class="ion ion-md-arrow-dropup fa-4x text-dark px-3"></span></a><br>0<br><a href="#url"><span class="ion ion-md-arrow-dropdown fa-4x text-dark px-3"></span></a></h5>
-                                            <br>
-                                            @endif
+                                            <div class="card card-body" style="min-height:200px; background-color:#F6F8FA; border:none;">
+                                                <small>
+                                                    {!! $comment->comment !!} 
+                                                    <br>
+                                                    <div class="mt-auto">
+                                                        @if($comment->picture)
+                                                            <img src="{{$comment->picture}}" class="rounded-circle" alt="img" style="height: 35px; width: 35px;"/>
+                                                            <small class="text-gray">{{$comment->name}} answered on {!! date('M d, Y', strtotime($comment->created_at)) !!} at {!! date('G:i', strtotime($comment->created_at)) !!}</small>
+                                                        @else
+                                                        <span class="fa fa-user-circle fa-3x" style="color: #B8B7B7;"></span><br>
+                                                        @endif
+                                                        @if(Sentinel::check() && Sentinel::getUser()->email === $comment->email)
+                                                            <a href="#url" class="text-info"><span class="fa fa-edit  text-info px-2"></span><small>edit answer</small></a>&nbsp;
+                                                            <a href="#url" class="text-danger"><span class="fa fa-trash text-danger px-2"></span><small>delete answer </small></a>
+                                                        @endif
+                                                    </div>
+                                                </small>
+                                            </div>
                                         </td>
-                                        </tr>
+                                    </tr>
                             @else
                              <h5 class="px-5" style="opacity: 0.3;"><em>No Answers Yet</em></h5>
                             @endif
@@ -236,7 +217,7 @@
                         <!-- Comment Section Start -->
                         <div>
                             <div style="padding-top: 25px; ">
-                            <h4 class="px-3 mt-3" style="font-weight: 400; opacity: 0.3; text-align: left;"><span class="icon-speech fa-2x px-2"></span>Your Answer</h4>
+                            <h5 class="px-3 mt-3" style="opacity: 0.3; text-align: left;"><span class="icon-speech fa-2x px-2"></span>Answer this question</h5>
                             <div class="card-body mt-5">
                                 {!! Form::open(['url' => URL::to('blogitem/'.$blog->id.'/comment'), 'method' => 'post', 'class' => 'bf',
                                 'files'=> true]) !!}
@@ -249,7 +230,7 @@
                                     {!! Form::text('name', null, ['class' => 'form-control input-lg','readonly' => 'true',
                                     'placeholder'=>'Name']) !!}
                                     @endif
-                                    <span class="help-block">{{ $errors->first('name', ':message') }}</span>
+                                    <span class="text-danger"><small>{{ $errors->first('name', ':message') }}</small></span>
                                 </div>
                                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                                     @if(Sentinel::check())
@@ -259,23 +240,22 @@
                                     {!! Form::text('email', null, ['class' => 'form-control input-lg','readonly' => 'true',
                                     'placeholder'=>'Email']) !!}
                                     @endif
-                                    <span class="help-block">{{ $errors->first('email', ':message') }}</span>
+                                    <span class="text-danger"><small>{{ $errors->first('email', ':message') }}</small></span>
                                 </div>
                                 @if(Sentinel::check() && Sentinel::getUser()->user_role === 'student')
                                     <div class="form-group {{ $errors->has('website') ? 'has-error' : '' }}">
                                         {!! Form::number('website', null, ['class' => 'form-control input-lg', 'min' => '1', 'max' =>'5', 'placeholder'=>'Level']) !!}
-                                        <span class="help-block">{{ $errors->first('website', ':message') }}</span>
+                                        <span class="text-danger"><small>{{ $errors->first('website', ':message') }}</small></span>
                                     </div>
                                 @endif
 
                                 <div class="form-group {{ $errors->has('comment') ? 'has-error' : '' }}">
-                                    {!! Form::textarea('comment', null, ['class' => 'text-area form-control', 'row'=>'5', 'placeholder'=>'Your Answer','id'=>'textarea', 'required' =>
-                                    'required', 'style'=>'min-height: 200px !important; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
-                                    <span class="help-block">{{ $errors->first('comment', ':message') }}</span>
+                                    {!! Form::textarea('comment', null, ['class' => 'text-area form-control', 'row'=>'5', 'placeholder'=>'Your Answer','id'=>'textarea', 'style'=>'min-height: 200px !important; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
+                                    <span class="text-danger"><small>{{ $errors->first('comment', ':message') }}</small></span>
                                 </div>
                                 <div class="form-group">
                                 @if(Sentinel::check())
-                                    <button type="submit" class="btn btn-success theme-button">
+                                    <button type="submit" class="btn btn-favorite theme-button">
                                         Submit  Answer
                                     </button>
                                 @endif
@@ -323,7 +303,7 @@
         $('#textarea').summernote();
         });
     </script>
-    
+
 @stop
 
 
