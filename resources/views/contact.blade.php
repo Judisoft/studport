@@ -22,6 +22,7 @@ Contact
             <div class="header-section text-center">
             <div class="alert alert-gray">
                 <h5 class="mb-md-2 mb-2 text-dark">Contact Us</h5>
+                <hr>
                 <small class="text-gray mb-md-5">Fill the form and leave us a message. We shall respond to you within 48hrs</small>  
             <form class="contact" id="contact" action="{{route('contact')}}" method="POST">
                 <div class="main-input p-5">
@@ -47,7 +48,7 @@ Contact
                     <div class="contact-info">
                             <span class="fa fa-map-marker-alt" aria-hidden="true"></span>
                         <div class="contact-details">
-                            <h5>Address:</h5>
+                            <h5>Address</h5>
                             <hr>
                             <p class="py-3">Elig-Effa, Yaoundé Cameroon</p>
                         </div>
@@ -57,7 +58,7 @@ Contact
                             <span class="fa fa-phone fa-5x" aria-hidden="true"></span>
 
                         <div class="contact-details">
-                            <h5>Phone:</h5>
+                            <h5>Phone</h5>
                             <hr>
                             For General Inquiries
                             <p><a href="tel:+237-652-459-059">(+237) 652-459-059</a></p>
@@ -74,7 +75,7 @@ Contact
                     <div class="contact-info">
                             <span class="fa fa-envelope" aria-hidden="true"></span>
                         <div class="contact-details">
-                            <h5>E-Mail:</h5>
+                            <h5>E-Mail</h5>
                             <hr>
                             For General Inquiries
                             <p><a href="mailto:info@studport.cm" class="email">info@studport.cm</a></p>

@@ -17,13 +17,8 @@ Form Validation
 
 <style>
     .iti-flag {
-        background-image: url({{ asset('vendors/intl-tel-input/flags.png')
+        background-image: url('{{ asset('vendors/intl-tel-input/flags.png')}}')
     }
-    }
-
-    );
-    }
-
     @media (max-width: 992px) {
         .form-horizontal .control-label {
             text-align: left;

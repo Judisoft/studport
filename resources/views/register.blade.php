@@ -50,6 +50,26 @@
   .card-1 {
   box-shadow: 0 10px 20px #D5DDE6, 0 5px 5px #D5DDE6;
 }
+.theme-button {
+  transition: 0.3s ease-out;
+  display: inline-block;
+  line-height: 42px;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px 30px;
+  background-color: #063755;
+  color: #fff;
+  text-transform: uppercase; }
+.theme-button a:hover{
+    color: #fff !important;
+}
+
+@media screen and (max-width: 384px) {
+  .theme-button {
+    line-height: 44px;
+    padding: 0px 20px; } }
+
 @media(min-width: 576px){
 .box {
   min-width: 90%;
@@ -65,6 +85,7 @@
   margin: auto;
   align-items: left;
   border-radius: 5px;
+  
     
 }
 }
@@ -91,6 +112,7 @@
   padding: 20px 20px;
   background-color: #D5DDE6;
   border-radius: 5px;
+  border: 1px solid #CCD1D1;
 }
 
 .help-block {
@@ -134,23 +156,37 @@
 h4{
   font-weight: 400 !important;
 }
-
+.full-width{
+  min-width: 100%;
+  max-width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 </style>
 <body>
-  <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #01182F !important;">
+    <a class="navbar-brand ml-5" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" /></a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item ml-auto text-primary px-2">Already have an Account?</li>
+        <li class="nav-item ml-auto">
+            <a class="btn btn-sm btn-outline-primary my-2 my-sm-0" href="{{route('login')}}" >Sign In</a>
+        </li>
+    </ul>
+</nav>
+<section class="w3l-intro" id="intro" style="margin-top: 0 !important">
     <div class="new-block top-bottom">
       <div class="container">
         <div class="middle-section">
+         <!-- Notifications -->
+                    <div id="notific">
+                        @include('notifications')
+                    </div>
           <div class="section-width">
             <div class="box">
                 <div class="box1 br-5 shadow">
-                    <div class="text-center">
-                        <span class="fa fa-user-circle fa-5x px-2 py-2 text-dark"></span>
-                        <h4>CREATE ACCOUNT</h4>
-                    </div>
-                    <!-- Notifications -->
-                    <div id="notific">
-                        @include('notifications')
+                    <div class="text-center mb-3">
+                         <span class="icon-user-follow fa-4x px-2 py-2 float-right" style="opacity: 0.1;"></span>
+                        <h4 class="pt-3 text-favorite float-left"><b>CREATE STUDPORT ACCOUNT</b></h4>
                     </div>
                    <form action="{{ route('register') }}" method="POST" id="reg_form">
                     <!-- CSRF Token -->
@@ -221,13 +257,9 @@ h4{
                         </label>
                     </div>
                     <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
-                    <button type="submit" class="btn btn-block br-0 btn-secondary my-2" style="border: none !important;">Sign Up</button>
-                    Already have an account? Please <a href="{{ route('login') }}"> Log In</a>
+                    <button type="submit" class="btn btn-block theme-button" style="border: none !important;">Sign Up</button>
                 </form>
                     <br />
-                    <div class="bg-transparent animation flipInX">
-                        <a href="{{ route('forgot-password') }}">Forgot Password?</a>
-                    </div>
                 </div>
                 <div class="text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
             </div>

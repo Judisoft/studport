@@ -259,13 +259,14 @@ li, p{
    <!--item desciption start-->
                     <!-- Nav Nav-tabs Start -->
     <section>
-                            <div class="row">
-                            <div class="col-lg-3 col-md-3 col-12">
-                                            <div class="card">
-                                                    <div class="card-header avatar mb-3 bg-index">
-                                                        <div class="tile__list">
+                            <div class="row" style="background-color: #FBFBFB;">
+                            <div class="col-lg-2 col-md-2 col-12"  style="border-right: 1px solid #ddd;">
+                                        <div class="ml-auto">     
+                                            <div class="card-body">
+                                                <div class="box1 text-dark text-center mt-2">
+                                                    <div class="tile__list">
                                                               @if($user->pic)
-                                                                <img src="{{ $user->pic }}" alt="img"
+                                                                <img src="{{ $user->pic }}" alt="img s"
                                                                     style="height: 100px; width: 100px;"/>
                                                             @elseif($user->gender === "male")
                                                             <img src="{{ asset('images/authors/avatar3.png') }}" alt="..."
@@ -278,51 +279,50 @@ li, p{
                                                                     style="height: 100px; width: 100px;"/>
                                                             @endif
                                                     </div>
-                                                        <h6 class="text-white text-capitalize">Welcome {{$user->first_name}} &nbsp; <hr>
-                                                        <i class="fa fa-lock"></i> {{$user->user_role}} <hr>
-                                                        <i class="fa fa-institution"></i> {{$user->institution}}</b></h6><br>
-                                                    </div>
-                                            <div class="card-body">
-                                            <ul class="nav" style="font-weight: 200 !important; text-transform: uppercase !important;">
-                                            <li class="nav-item list-item1">
+                                                    <h6 class="text-uppercase">{{$user->first_name. ' ' .$user->last_name}}</h6><br>
+                                                     <h6><small>{{$user->institution}} &nbsp; ({{$user->user_role}}) </small></h6>
+                                                    <hr> 
+                                                </div>
+                                            <ul class="nav" style="font-weight: 500 !important; text-transform: !important;">
+                                            <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_1" data-toggle="tab" class="nav-link">
-                                                <i class="livicon px-2" data-name="dashboard" data-size="28" data-c="#2D2E2E" data-hc="#2D2E2E" data-loop="false" data-animate="false"></i>User Dashboard</a><hr>
+                                                <i class="livicon px-2" data-name="dashboard" data-size="28" data-c="#2D2E2E" data-hc="#2D2E2E" data-loop="false" data-animate="false"></i>User Dashboard</a>
                                             </li>
-                                            <li class="nav-item list-item1">
+                                            <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_2" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-settings fa-2x px-2"></i>Account Settings</a><hr>
+                                                    <i class="icon-settings fa-2x px-2"></i>Account Settings</a>
                                             </li>
-                                            <li class="nav-item list-item1">
+                                            <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_3" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-question fa-2x px-2"></i>Post Question</a><hr>
+                                                    <i class="icon-question fa-2x px-2"></i>Post Question</a>
                                             </li>
-                                            <li class="nav-item list-item1">
+                                            <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_4" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-layers fa-2x px-2"></i>Questions Manager</a><hr>
+                                                    <i class="icon-layers fa-2x px-2"></i>Questions Manager</a>
                                             </li>
-                                            <li class="nav-item list-item1">
+                                            <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_5" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-folder-alt fa-2x px-2"></i>Study Resources</a><hr>
+                                                    <i class="icon-folder-alt fa-2x px-2"></i>Study Resources</a>
                                             </li>
 
-                                            <li class="nav-item list-item1">
+                                            <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_6" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-wrench fa-2x px-2"></i>Tutoring Jobs</a><hr>
+                                                    <i class="icon-wrench fa-2x px-2"></i>Tutoring Jobs</a>
                                             </li>
                                             
-                                            <li class="nav-item list-item1">
+                                            <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_7" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-screen-desktop fa-2x px-2"></i>Online Tutors</a><hr>
+                                                    <i class="icon-screen-desktop fa-2x px-2"></i>Online Tutors</a>
                                             </li>
-                                            <li class="nav-item list-item1">
+                                            <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_8" data-toggle="tab" class="nav-link">
-                                                   <i class="icon-docs fa-2x px-2"></i>Examination Resources</a><hr>
+                                                   <i class="icon-docs fa-2x px-2"></i>Exams Resources</a>
                                             </li>
-                                            <li class="nav-item list-item1">
+                                            <li class="nav-item list-item1 py-1">
                                                 <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link">
-                                                   <i class="icon-drawer fa-2x px-2"></i>Inbox</a><hr>
+                                                   <i class="icon-drawer fa-2x px-2"></i>Inbox</a>
                                             </li>
-                                            <li class="nav-item list-item1">
+                                            <li class="nav-item list-item1 py-1">
                                                 <a href="{{ URL::to('logout') }}" class="nav-link">
                                                     <i class="icon-power fa-2x px-2"></i>Sign Out</a>
                                             </li>
@@ -330,23 +330,37 @@ li, p{
                                         </div>
                                         </div><br>
                                         </div>
-                                        <div class="col-lg-9 col-md-9 col-12">
+                                        <div class="col-lg-9 col-md-9 col-12" style="background-color: #FBFBFB;">
                                         <!-- Tab-content Start -->
                             <div class="tab-content">
                                 <div class="tab-pane" id="tab_default_1">
-                                    <div class="card">
-                                        <div class="card-header bg-index text-white">
-                                    <h5 class="text-center p-3"><i class="livicon px-2 float-left" data-name="dashboard" data-size="48" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                                        USER DASHBOARD</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="col-lg-12 col-md-12  mt-lg-0 mt-0 py-1">
-                                            <div class="card-body bg-white br-5  text-info text-right shadow">
+                                    <div>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
+                                            <div class="card-body bg-dark br-5  text-info text-right">
                                             @if(Sentinel::getUser()->account_type != 'vip')
-                                                <a href="#url" class="btn btn-success theme-button"><span class="fa fa-cart-plus fa-2x p-3"></span>Upgrade my Account </a><br>
+                                                <a href="#url" class="btn btn-info theme-button"><span class="fa fa-cart-plus fa-2x p-3"></span>Upgrade my Account </a><br>
                                             @endif
-                                                <i class="livicon px-2" data-name="lock" data-size="68" data-c="#dc3545" data-hc="#28a745" data-loop="true" data-animate="true" data-duration="0" ></i>
-                                                <h5 class="text-uppercase text-danger mt-2">{{Sentinel::getUser()->account_type}} account</h5>
+                                                <i class="livicon px-2" data-name="lock" data-size="48" data-c="#dc3545" data-hc="#28a745" data-loop="true" data-animate="true" data-duration="0" ></i>
+                                                <h6 class="text-uppercase text-secondary mt-2">{{Sentinel::getUser()->account_type}} account</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
+                                            <div class="card-body bg-theme br-5  text-info text-right">
+                                            @if(Sentinel::getUser()->account_type != 'vip')
+                                                <a href="#url" class="btn btn-info theme-button"><span class="fa fa-cart-plus fa-2x p-3"></span>Upgrade my Account </a><br>
+                                            @endif
+                                                <i class="livicon px-2" data-name="lock" data-size="48" data-c="#dc3545" data-hc="#28a745" data-loop="true" data-animate="true" data-duration="0" ></i>
+                                                <h6 class="text-uppercase text-secondary mt-2">{{Sentinel::getUser()->account_type}} account</h6>
+                                            </div>
+                                        </div>
+                                          <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
+                                            <div class="card-body bg-warning br-5  text-info text-right">
+                                            @if(Sentinel::getUser()->account_type != 'vip')
+                                                <a href="#url" class="btn btn-info theme-button"><span class="fa fa-cart-plus fa-2x p-3"></span>Upgrade my Account </a><br>
+                                            @endif
+                                                <i class="livicon px-2" data-name="lock" data-size="48" data-c="#dc3545" data-hc="#28a745" data-loop="true" data-animate="true" data-duration="0" ></i>
+                                                <h6 class="text-uppercase text-secondary mt-2">{{Sentinel::getUser()->account_type}} account</h6>
                                             </div>
                                         </div>
             <div class="aboutbottom mt-5">
@@ -355,48 +369,48 @@ li, p{
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2 text-settings">
                         <div class="card-body bg-white br-5  text-danger">
                         <i class="icon-question fa-3x py-3"></i>
-                        <h5>Questions Asked</h5>
+                        <h6>Questions Asked</h6>
                         <br>
-                        <h3 class="text-dark">{{$numberOfUserQuestions}}</h3>
+                        <h3 class="text-gray">{{$numberOfUserQuestions}}</h3>
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2 text-settings">
                         <div class="card-body bg-white br-5  text-info">
                         <i class="icon-cloud-download fa-3x py-3"></i>
-                        <h5>Downloads</h5>
+                        <h6>Downloads</h6>
                         <br>
-                        <h3 class="text-dark">0</h3>
+                        <h3 class="text-gray">0</h3>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
                         <div class="card-body bg-white br-5  text-success">
                         <i class="icon-speech fa-3x py-3"></i>
-                        <h5>Answers Provided</h5>
+                        <h6>Answers Provided</h6>
                         <br>
-                        <h3 class="text-dark">{{$numberOfUserAnswers}}</h3>
+                        <h3 class="text-gray">{{$numberOfUserAnswers}}</h3>
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
                         <div class="card-body bg-white br-5  text-warning">
                         <span class="fa fa-database fa-3x py-3"></span>
-                        <h5>Disk Usage</h5>
+                        <h6>Disk Usage</h6>
                         <br>
-                        <h3 class="text-dark">0</h3>
+                        <h3 class="text-gray">0</h3>
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2">
                         <div class="card-body bg-white br-5  text-info">
                         <i class="icon-book-open fa-3x"></i>
-                        <h5 class="py-3">Books & Courses Requested</h5>
-                        <h3 class="text-dark py-1">{{$numberOfUserRequest}}</h3>
+                        <h6 class="py-3">Books & Courses Requested</h6>
+                        <h3 class="text-gray">{{$numberOfUserRequest}}</h3>
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
                         <div class="card-body bg-white br-5  text-warning">
                         <span class="fa fa-dollar fa-3x py-3"></span>
-                        <h5>Subscriptions</h5>
+                        <h6>Subscriptions</h6>
                         <br>
-                        <h3 class="text-dark"> 0</h3>
+                        <h3 class="text-gray"> 0</h3>
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -410,24 +424,21 @@ li, p{
                             <!-- Notifications -->
                             
                       
-                                <div class="card">
-                                <div class="card-header bg-index text-white">
-                                    <h5 class="text-center p-3"><i class="icon-settings fa-2x px-2 float-left"></i>ACCOUNT SETTINGS</h5>
-                                </div>
+                                <div class=" ml-5">
                                 <br>
-                                
-                                <div class="card-body">
-                                 <div class="card-header bg-settings text-theme" style="border-radius: 5px;">
+                                 <div class="text-right">
                                     <b><span class="fa fa-user-edit  px-3"></span>PERSONAL INFORMATION</b>
+                                    <hr>
                                 </div>
                                 <br>
+                                <div class="card-body">
                                 {!! Form::model($user, ['url' => URL::to('my-account'), 'method' => 'put', 'class' => 'form-horizontal','enctype'=>"multipart/form-data"]) !!}
 
                                     {{ csrf_field() }}
                                 <div class="form-group {{ $errors->first('pic', 'has-error') }}">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <h4>Profile Picture <small class="text-danger"><i>(optional)</i></small></h4>
+                                        <h6>Profile Picture <small class="text-danger"><i>(optional)</i></small></h6>
                                     </div>
                                 <div class="col-lg-10">
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -464,7 +475,7 @@ li, p{
                                         <div class="row">
                                             <div class="col-lg-2 col-12">
                                         <label class="control-label">
-                                            <h4>First Name<small class="text-danger"><i>(required)</i></small></h4>
+                                            <h6>First Name<small class="text-danger"><i>(required)</i></small></h6>
                                         </label>
                                         </div>
                                             <div class="col-lg-10 col-12">
@@ -485,7 +496,7 @@ li, p{
                                         <div class="row">
                                             <div class="col-lg-2 col-12">
                                                 <label class="control-label">
-                                                    <h4>Last Name<small class="text-danger"><i>(required)</i></small></h4>
+                                                    <h6>Last Name<small class="text-danger"><i>(required)</i></small></h6>
                                                 </label>
                                             </div>
 
@@ -507,7 +518,7 @@ li, p{
                                         <div class="row">
                                             <div class="col-lg-2 col-12">
                                                 <label class="control-label">
-                                            <h4>Email<small class="text-danger"><i>(required)</i></small></h4>
+                                            <h6>Email<small class="text-danger"><i>(required)</i></small></h6>
                                                 </label>
                                             </div>
                                             <div class="col-lg-10 col-12">
@@ -528,7 +539,7 @@ li, p{
                                             <div class="row">
                                                 <div class="col-lg-2 col-12">
                                                 <label class="control-label">
-                                                <h4>Password<small class="text-danger"><i>(required)</i></small></h4>
+                                                <h6>Password<small class="text-danger"></small></h6>
                                                 </label>
                                             </div>
 
@@ -546,7 +557,7 @@ li, p{
                                     <div class="form-group {{ $errors->first('password_confirm', 'has-error') }}">
                                         <div class="row">
                                         <label class="col-lg-2  col-12 control-label">
-                                        <h4>Confirm Password<small class="text-danger"><i>(required)</i></small></h4>
+                                        <h6>Confirm Password<small class="text-danger"></small></h6>
                                         </label>
                                             <div class="col-lg-10 col-12">
                                             <div class="input-group input-group-addon">
@@ -562,25 +573,25 @@ li, p{
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-lg-2 col-12">
-                                            <h4>Gender:</h4>
+                                            <h6>Gender:</h6>
                                         </div>
                                             <div class="col-lg-10 col-12">
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" name="gender" value="male" @if($user->gender === "male") checked="checked" @endif />
-                                                <h4> Male </h4>
+                                                <h6> Male </h6>
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" name="gender" value="female" @if($user->gender === "female") checked="checked" @endif />
-                                                    <h4>Female</h4>
+                                                    <h6>Female</h6>
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" name="gender" value="other" @if($user->gender === "other") checked="checked" @endif />
-                                                    <h4>Other</h4>
+                                                    <h6>Other</h6>
                                                 </label>
                                             </div>
                                         </div>
@@ -589,7 +600,7 @@ li, p{
                                     <div class="form-group {{ $errors->first('dob', 'has-error') }}">
                                         <div class="row">
                                             <div class="col-lg-2 col-12">
-                                        <h4>Date of Birth<span class='require text-danger'></span>:</h4>
+                                        <h6>Date of Birth<span class='require text-danger'></span>:</h6>
                                             </div>
                                             <div class="col-lg-10 col-12">
                                             <div class="input-group input-group-append">
@@ -609,7 +620,7 @@ li, p{
                                     <div class="form-group  {{ $errors->first('bio', 'has-error') }}">
                                         <div class="row">
                                             <div class="col-lg-2 col-12">
-                                            <h4>Bio<small class="text-danger"><i>(optional)</i></small></h4> <small>(brief intro)</small></label>
+                                            <h6>Bio<small class="text-danger"><i>(optional)</i></small></h6> <small>(brief intro)</small></label>
                                             </div>
 
                                             <div class="col-lg-10 col-12">
@@ -620,15 +631,16 @@ li, p{
                                         </div>
                                         </div>
 
-                                        <div class="card-header bg-settings text-theme" style="border-radius: 5px;">
+                                        <div class="text-right">
                                         <b><span class="fa fa-user-graduate fa-2x px-3"></span>ACADEMIC INFORMATION</b>
+                                        <hr>
                                     </div>
                                     <br>
                                     <div class="form-group {{ $errors->first('institution', 'has-error') }}">
                                         <div class="row">
                                             <div class="col-lg-2 col-12">
                                                 <label class="control-label">
-                                                    <h4>Institution<small class="text-danger"><i>(required)</i></small></h4> 
+                                                    <h6>Institution<small class="text-danger"><i>(required)</i></small></h6> 
                                                 </label>
                                             </div>
                                                 <div class="col-lg-10 col-12">
@@ -649,7 +661,7 @@ li, p{
                                         <div class="row">
                                             <div class="col-lg-2 col-12">
                                                 <label class="control-label">
-                                                    <h4>Department<small class="text-danger"><i>(required)</i></small></h4> 
+                                                    <h6>Department<small class="text-danger"><i>(required)</i></small></h6> 
                                                 </label>
                                             </div>
 
@@ -672,7 +684,7 @@ li, p{
                                         <div class="row">
                                             <div class="col-lg-2 col-12">
                                                 <label class="control-label">
-                                                <h4>Level<small class="text-danger"><i>(required)</i></small></h4> 
+                                                <h6>Level<small class="text-danger"><i>(required)</i></small></h6> 
                                                 </label>
                                             </div>
                                             <div class="col-lg-10 col-12">
@@ -689,8 +701,9 @@ li, p{
                                     </div>
 
 
-                                    <div class="card-header bg-settings text-theme" style="border-radius: 5px;">
+                                    <div class="text-right">
                                         <b><span class="fa fa-address-card fa-2x px-3"></span>CONTACT INFORMATION</b>
+                                        <hr>
                                     </div>
                                     <br>
 
@@ -699,7 +712,7 @@ li, p{
 
                                             <div class="col-lg-2 col-12">
                                         <label class="control-label">
-                                            <h4>Address:</h4> 
+                                            <h6>Address:</h6> 
                                         </label>
                                     </div>
                                             <div class="col-lg-10 col-12">
@@ -730,10 +743,7 @@ li, p{
                                     <!--main content-->
                                     <div class="row">
                                         <div class="col-12">
-                                        <div class="card">
-                                        <div class="card-header bg-index text-white">
-                                        <h5 class="text-center p-3"><i class="icon-question fa-2x px-2 float-left"></i> POST QUESTION</h5>
-                                        </div>
+                                        <div >
                                         <div class="card-body">
                                                 {!! Form::open(['action' => 'UserBlogController@store', 'method' => 'post', 'class' => 'bf', 'files'=> true,])!!}
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -797,7 +807,7 @@ li, p{
                                             </div>
                                             </div>
                                             <div class="card-body alert-warning mt-3">
-                                            <h4 class="mt-0"><span class="fa fa-info-circle fa-2x px-2"></span>Tips on how to Post a good question</h4>
+                                            <h6 class="mt-0"><span class="fa fa-info-circle fa-2x px-2"></span>Tips on how to Post a good question</h6>
                                             <ul class="list-group list-group-flush mt-3">
                                                 <li class="list-group-item-warning">Be concise</li>
                                                 <li class="list-group-item-warning">Be concise</li>
@@ -823,9 +833,6 @@ li, p{
                                     <div class="tabbable-line">
                                         <!-- Nav Nav-tabs Start -->
                                         <div class="card">
-                                                    <div class="card-header bg-index text-white" style="padding: 20px;"><i class="icon-layers fa-2x px-2 float-left"></i>
-                                                    <h5 class="text-center p-3"> QUESTIONS MANAGER </h5>
-                                                    </div>
                             <!-- //Nav Nav-tabs End -->
                             <!-- Tab-content Start -->
                             <div class="card-body" id="p3">
@@ -872,10 +879,7 @@ li, p{
                                 <div class="tab-pane" id="tab_default_5">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-12">
-                                        <div class="card">
-                                        <div class="card-header bg-index text-white">
-                                        <h5 class="text-center p-3"><i class="icon-folder-alt fa-2x px-2 float-left"></i> STUDY RESOURCES</h5>
-                                        </div>
+                                        <div>
                                         <div class="card-body">
                                     <br>
                                             <h2 class="text-center text-dark" style="font-weight: 600;left: 50%; padding-top: 20px;">
@@ -939,10 +943,7 @@ li, p{
                                     </div>
                                 </div>
                                 <div class="tab-pane " id="tab_default_6">
-                                    <div class="card">
-                                    <div class="card-header bg-index text-white">
-                                    <h5 class="text-center p-3"><i class="icon-wrench fa-2x px-2 float-left"></i> TUTORING JOBS</h5>
-                                    </div>
+                                    <div>
                                     <br>
                                     <div class="card-body">
                                     <table class="fl-table table-bordered table-hover">
@@ -977,10 +978,7 @@ li, p{
                                 </div>
                                 </div>
                                 <div class="tab-pane " id="tab_default_7">
-                                    <div class="card">
-                                    <div class="card-header bg-index text-white">
-                                    <h5 class="text-center p-3"><i class="icon-screen-desktop fa-2x px-2 float-left"></i> ONLINE TUTORS</h5>
-                                    </div>
+                                    <div>
                                     <div class="card-body">
                                     <table class="fl-table table-bordered table-hover">
                                         <thead>
@@ -1026,10 +1024,7 @@ li, p{
 
                     <div class="row">
                         <div class="col-lg-12 col-12">
-                        <div class="card">
-                        <div class="card-header bg-index text-white">
-                        <h5 class="text-center p-3"><i class="icon-docs fa-2x px-2 float-left"></i> EXAMINATION RESOURCES</h5>
-                        </div>
+                        <div>
                         <div class="card-body">
                             
                                 <div class="card-header text-settings">
@@ -1057,7 +1052,7 @@ li, p{
                                             </form>
                 <div class="card-body">
                     @if(request()->search)
-                    <div class="shadow" style="margin-top: 50px !important;">
+                    <div style="margin-top: 50px !important;">
                         <h5 class="p-3">Showing Examination resources for <i class="text-blue">{{request()->search}}</i></h5>
                         <hr>
                     </div>

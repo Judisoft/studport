@@ -127,15 +127,34 @@
         text-align: center;
     }
 }
+
 </style>
 
 {{-- Page content --}}
 @section('content')
-    <!-- container section start-->
+        <!-- container section start-->
     <section class="container blogpage">
-        <div class="row pt-5">
-            <div class="col-md-10 col-lg-10 col-12">
-                <div class="thumbnail">
+        <div class="row">
+            <div class="ml-auto col-md-3 col-lg-3 col-12 mt-5" style="padding: 15px;border-right: 1px solid #ddd;">
+                    <div class="list-item1">
+                        <div class="box1 text-dark mt-2"><h6><i class="fa fa-braille px-2"></i>STUDPORT</h6><hr> </div>
+                        <h6><a href="#" class="text-gray"><i class="fa fa-tag px-2"></i>Tags &nbsp;&nbsp;&nbsp;&nbsp;</a></h6><br>
+                        <h6><a href="#" class="text-gray"><i class="fa fa-university px-2"></i>Institutions</a></h6><br>
+                        <h6><a href="#" class="text-gray"><i class="fa fa-users px-2"></i>Users</a></h6><br>
+                        <h6><a href="#" class="text-gray"><i class="fa fa-file px-2"></i>Courses</a></h6><br>
+                        <h6><a href="#" class="text-gray"><i class="fa fa-comments px-2"></i>Study Groups</a></h6><br>
+                    </div>
+                      <div class="list-item1">
+                        <div class="box1 text-dark mt-2"><h6><i class="fa fa-braille px-2"></i>RELATED QUESTIONS</h6><hr> </div>
+                        <h6><a href="#" class="text-gray"><i class="fa fa-tag px-2"></i>Tags &nbsp;&nbsp;&nbsp;&nbsp;</a></h6><br>
+                        <h6><a href="#" class="text-gray"><i class="fa fa-university px-2"></i>Institutions</a></h6><br>
+                        <h6><a href="#" class="text-gray"><i class="fa fa-users px-2"></i>Users</a></h6><br>
+                        <h6><a href="#" class="text-gray"><i class="fa fa-file px-2"></i>Courses</a></h6><br>
+                        <h6><a href="#" class="text-gray"><i class="fa fa-comments px-2"></i>Study Groups</a></h6><br>
+                    </div>
+            </div>
+            <div class="col-md-9 col-lg-9 col-12">
+                    <div class="pt-5 thumbnail">
                 <div>
                         <div class="text-center"">
                              <h5 class="text-capitalize"> {!! $blog->content !!}</h5>
@@ -165,14 +184,14 @@
                     </span>
                             <div class="text-center thumbnail featured-post-wide img mt-5">
                                 @if($blog->image)
-                                    <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image">
+                                    <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image" style="max-width:200px;">
                                 @endif
-                                <h5 class="text-left text-gray px-2">
+                                <h5 class="text-left text-gray px-2 pt-2">
                                     {{$blog->comments->count()}} Answer(s)
                                 </h5>
                                 <hr>
                                 <!-- /.blog-detail-image -->
-                                <div class="p-3 mb-3 blog-detail-content">
+                                <div class="p-2 mb-3 blog-detail-content">
                             </div>
                         </div>
                         <div class="p-3">
@@ -182,27 +201,23 @@
                             <tbody>
                                         <tr>
                                          <td>
-                                            <h5 class="text-center text-gray"><a  href="#url"><span class="ion ion-md-arrow-dropup fa-4x text-gray px-3"></span></a><br>0<br><a href="#url"><span class="ion ion-md-arrow-dropdown fa-4x text-gray px-3"></span></a></h5>
-                                            <br>
+                                            <h5 class="text-center text-gray"><a  href="#url"><span class="ion ion-md-arrow-dropup fa-3x text-gray px-3"></span></a><br>0<br><a href="#url"><span class="ion ion-md-arrow-dropdown fa-3x text-gray px-3"></span></a></h5>
                                         </td>
                                         <td>
-                                            <div class="card card-body" style="min-height:200px; background-color:#F6F8FA; border:none;">
-                                                <small>
-                                                    {!! $comment->comment !!} 
-                                                    <br>
-                                                    <div class="mt-auto">
+                                            <div class=" card-body" style="background-color:#F6F8FA; border:none;">
+                                                    <small>{!! $comment->comment !!} </small>
+                                                    <div class="mt-auto pt-5">
                                                         @if($comment->picture)
                                                             <img src="{{$comment->picture}}" class="rounded-circle" alt="img" style="height: 35px; width: 35px;"/>
                                                             <small class="text-gray">{{$comment->name}} answered on {!! date('M d, Y', strtotime($comment->created_at)) !!} at {!! date('G:i', strtotime($comment->created_at)) !!}</small>
                                                         @else
-                                                        <span class="fa fa-user-circle fa-3x" style="color: #B8B7B7;"></span><br>
+                                                        <span class="fa fa-user-circle fa-2x" style="color: #B8B7B7;"></span><br>
                                                         @endif
                                                         @if(Sentinel::check() && Sentinel::getUser()->email === $comment->email)
                                                             <a href="#url" class="text-info"><span class="fa fa-edit  text-info px-2"></span><small>edit answer</small></a>&nbsp;
                                                             <a href="#url" class="text-danger"><span class="fa fa-trash text-danger px-2"></span><small>delete answer </small></a>
                                                         @endif
                                                     </div>
-                                                </small>
                                             </div>
                                         </td>
                                     </tr>
@@ -217,8 +232,8 @@
                         <!-- Comment Section Start -->
                         <div>
                             <div style="padding-top: 25px; ">
-                            <h5 class="px-3 mt-3" style="opacity: 0.3; text-align: left;"><span class="icon-speech fa-2x px-2"></span>Answer this question</h5>
-                            <div class="card-body mt-5">
+                            <h5 class="px-3 mt-3" style="opacity: 0.3; text-align: left;">Answer this question<span class="icon-speech fa-2x px-2"></span></h5>
+                            <div class="card card-body mt-5">
                                 {!! Form::open(['url' => URL::to('blogitem/'.$blog->id.'/comment'), 'method' => 'post', 'class' => 'bf',
                                 'files'=> true]) !!}
 
@@ -268,14 +283,14 @@
                                       <br> Don't have an account? <a href="{{ URL::to('register') }}">Sign Up here</a></h6>
                                     </div>
                                 @endif
-                                <br>
                                 {!! Form::close() !!}
                         </div>
                         </div>
                         <!-- //Media left section End -->
-                                <div class="card-body shadow mt-5" style="background-color: #DEE6F5; border-left: 5px solid #2C504F; border-radius: 5px; margin-left: 10px; margin-right: 10px; margin-bottom: 20px;">
-                                    <span class="fa fa-info-circle fa-5x float-left text-info" style="padding-right: 20px;"></span><h5> Can't answer this question? </h5> 
-                                    <p>Copy this link:<a href="{{url()->current()}}" style="color: #19A0EE; text-decoration: underline;"><br> {{url()->current()}}</a> and <a href="{{URL::to('user_emails/compose')}}" style="text-decoration: underline;"> Send <span class="fa fa-external-link-alt"></span></a> to a teacher or someone who can answer</p>
+                                <div class="alert alert-info shadow mt-3 p-2" style="margin: auto;">
+                                    <h5> Can't answer this question? </h5> 
+                                    <hr>
+                                    Copy this link:<a href="{{url()->current()}}" style="color: #19A0EE; text-decoration: underline;"> {{url()->current()}}</a> and <a href="{{URL::to('user_emails/compose')}}" style="text-decoration: underline;"> Send <span class="fa fa-external-link-alt"></span></a> to a teacher or someone who can answer</p>
                                     <br>
                                     <small>Thanks for contributing an answer to StudPort. We appreciate your contribution!</small>
                                 </div>
@@ -285,7 +300,6 @@
             </div>
         </div>
     </section>
-    <br>
 @stop
 
 

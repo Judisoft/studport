@@ -75,6 +75,7 @@ class BlogController extends JoshController
         $tutors = User::where('user_role', 'tutor')->get();
         $institutions = User::get('institution');
         $blogscategories = BlogCategory::all();
+        //$related_questions = Blog::select('title')->where('', $slug)
         if ($blog) {
             $blog->increment('views');
         } else {
@@ -90,7 +91,7 @@ class BlogController extends JoshController
      */
     public function getBlogTag($tag)
     {
-        $blogs = Blog::withAnyTags($tag)->simplePaginate(5);
+        $blogs = Blog::withAnyTags($tag);//->simplePaginate(5);
         $tags = $this->tags;
         return view('blog', compact('blogs', 'tags'));
     }

@@ -31,10 +31,11 @@
 <!--end of page level css-->
 </head>
 <style>
-  .full-width {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
+.full-width{
+  min-width: 100%;
+  max-width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
     .btn-nav{
         border-top-left-radius: 0;
@@ -54,6 +55,27 @@
   .card-1 {
   box-shadow: 0 10px 20px #D5DDE6, 0 5px 5px #D5DDE6;
 } 
+.theme-button {
+  transition: 0.3s ease-out;
+  display: inline-block;
+  line-height: 42px;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px 30px;
+  background-color: #063755;
+  color: #fff;
+  text-transform: uppercase; }
+    
+.theme-button a:hover{
+    color: #fff !important;
+}
+
+@media screen and (max-width: 384px) {
+  .theme-button {
+    line-height: 44px;
+    padding: 0px 20px; } }
+
 @media(min-width: 576px){
 .box {
   min-width: 90%;
@@ -96,6 +118,7 @@
   padding: 20px 20px;
   background-color: #D5DDE6;
   border-radius: 5px;
+  border: 1px solid #CCD1D1;
 }
 
 .help-block {
@@ -142,34 +165,40 @@ h4{
 
 </style>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #01182F !important;">
+    <a class="navbar-brand ml-5" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" /></a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item ml-auto text-primary px-2">Tips to Secure Password?</li>
+    </ul>
+</nav>
   <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
     <div class="new-block top-bottom">
-      <div class="container">
+      <div class="container full-width">
         <div class="middle-section">
-          <div class="section-width">
-            <div class="box">
-                <div class="box1 br-5 shadow">
-                    <div class="text-center">
-                        <span class="fa fa-key fa-5x px-2 py-2 text-dark"></span>
-                        <h4>FORGOT PASSWORD</h4>
-                    </div>
                     <!-- Notifications -->
                     <div id="notific">
                         @include('notifications')
+                    </div>
+          <div class="section-width">
+            <div class="box">
+                <div class="box1 br-5 shadow">
+                    <div class="text-center mb-3">
+                         <span class="fa fa-key fa-3x px-2 py-2 float-right"></span>
+                        <h4 class="pt-3 text-favorite float-left"><b>FORGOT PASSWORD</b></h4>
                     </div>
                      <form action="{{ route('forgot-password') }}" class="omb_loginForm" autocomplete="off" method="POST">
                                 {!! Form::token() !!}
                               <div class="form-group {{ $errors->first('email', 'has-error') }}">
                                     <label class="sr-only">Email</label>
                                     <input type="email" class="form-control" name="email" placeholder="Email"
-                                           value="{!! old('email') !!}" style="font-size: 150%; font-weight: 100 !important;" >
+                                           value="{!! old('email') !!}">
                                     <span class="help-block"> {{ $errors->first('email', ':message') }} </span>
                                 </div>
 
-                                <input type="submit" class="btn btn-block btn-primary" value="Reset Your Password">
-                                <br  />
-                                <span class="text-dark">Back to login page?</span> <a href="{{ route('login') }}">click here</a>
+                                <input type="submit" class="btn btn-block theme-button" value="Reset Your Password">
                             </form>
+                            <br />
+                                <span class="text-dark pt-2">Back to login page?</span> <a href="{{ route('login') }}">click here</a>
                     <br />
                 </div>
               <div class="text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>

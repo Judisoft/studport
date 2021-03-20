@@ -86,7 +86,7 @@ p{
                         @foreach($blogscategories as $blogscategory)
                             @if(@count($blogscategory) > 0)
                                 <div>
-                                <h6><a  href="#" class="text-gray text-left px-2 py-3"><small>{{$blogscategory->title}}<span class=""></span></small></a></h6><br>
+                                <h6><a  href="#" class="text-gray text-left px-2 py-3"><small>{{$blogscategory->title}}</small></a></h6><br>
                                 </div>
                             @endif
                         @endforeach
@@ -172,7 +172,7 @@ p{
                             <img src="{{$blog->author->pic}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
                             @else<img src="{{asset('images/avatar3.png')}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
                         @endif
-                        <small class="px-2 py-2 text-gray">{{$blog->author->first_name}} asked this question on the {!! date('d-m-y', strtotime($blog->created_at)) !!}</small>
+                        <small class="px-2 py-2 text-gray">{{$blog->author->first_name}} asked this question on {!! date('M d, Y', strtotime($blog->created_at)) !!} at {!! date('G:i', strtotime($blog->created_at)) !!}</small>
                     </span>
                     </div>
                     <p class="py-2 px-2 text-info"> 
@@ -234,7 +234,7 @@ p{
             
         
     </div>
-    </div>
+</div>
 
 @stop
 

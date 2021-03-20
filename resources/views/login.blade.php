@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         @section('title')
-            Sign Up | Welcome to StudPort
+            Sign In | Welcome to StudPort
         @show
     </title>
     <!--global css starts-->
@@ -60,6 +60,7 @@
   margin: auto;
   align-items: left;
   border-radius: 5px;
+  
     
 }
 }
@@ -90,12 +91,30 @@
     
 }
 }
-
+.theme-button {
+  transition: 0.3s ease-out;
+  display: inline-block;
+  line-height: 42px;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px 30px;
+  background-color: #063755;
+  color: #fff;
+  text-transform: uppercase; }
+.theme-button a:hover{
+    color: #fff !important;
+}
+@media screen and (max-width: 384px) {
+  .theme-button {
+    line-height: 44px;
+    padding: 0px 20px; } }
 
 .box1 {
   padding: 20px 20px;
   background-color: #D5DDE6;
   border-radius: 5px;
+  border: 1px solid #CCD1D1;
 }
 
 .help-block {
@@ -139,23 +158,40 @@
 h4{
   font-weight: 400 !important;
 }
+.full-width{
+  min-width: 100%;
+  max-width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 
 </style>
 <body>
+<div class="container full-width">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #01182F !important;">
+    <a class="navbar-brand ml-5" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" /></a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item ml-auto text-primary px-2">Don't have an Account?</li>
+        <li class="nav-item ml-auto">
+            <a class="btn btn-sm btn-outline-primary my-2 my-sm-0" href="{{route('register')}}" >Sign Up</a>
+        </li>
+    </ul>
+  </nav>
+</div>
   <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
     <div class="new-block top-bottom">
       <div class="container">
         <div class="middle-section">
+         <!-- Notifications -->
+                    <div id="notific">
+                        @include('notifications')
+                    </div>
           <div class="section-width">
             <div class="box">
                 <div class="box1 br-5 shadow">
-                    <div class="text-center">
-                        <span class="fa fa-user-circle fa-5x px-2 py-2 text-dark"></span>
-                        <h4>SIGN IN</h4>
-                    </div>
-                    <!-- Notifications -->
-                    <div id="notific">
-                        @include('notifications')
+                    <div class="mt-auto">
+                        <span class="icon-lock fa-4x px-2 py-2 float-right" style="opacity: 0.1;"></span>
+                        <h4 class="pt-3 text-favorite float-left"><b>SIGN IN</b></h4>
                     </div>
                     <form action="{{ route('login') }}" class="omb_loginForm" autocomplete="off" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -176,8 +212,7 @@ h4{
                             </label>
 
                         </div>
-                        <input type="submit" class="btn btn-block btn-secondary py-2 mb-3" value="Log In">
-                        Don't have an account? <a href="{{ route('register') }}"><strong> Sign Up</strong></a>
+                        <input type="submit" class="btn btn-block theme-button" value="Log In">
                     </form>
                     <br />
                     <div class="bg-transparent animation flipInX">
