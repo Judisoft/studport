@@ -28,16 +28,20 @@ class BlogController extends JoshController
      */
     public function index()
     {
+        $blogCategoryId = BlogCategory::get('id');
         // search questions by title and content 
 
         $search = request()->query('search');
         if ($search) {
-            $blogs = Blog::where('title', 'LIKE', "%{$search}%")
-                                ->orWhere('content', "%{$search}%")
+         $blogs = Blog::where('title', 'LIKE', "%{$search}%")
+                                ->orWhere('content', 'LIKE', "%{$search}%")
                                 ->simplePaginate(5);
+        $numberOfItems = count($blogs);
+      
         }
         else {
             $blogs = Blog::latest()->simplePaginate(5);
+            $numberOfItems = count($blogs);
 
         }
 
@@ -59,7 +63,7 @@ class BlogController extends JoshController
         //jobs
         $jobs = NewsAlias::orderBy('id', 'DESC')->get();
         // Show the page
-        return view('blog', compact('blogs', 'tags', 'blogscategories', 'user', 'popular_questions', 'recent_questions', 'teachers', 'jobs'));
+        return view('blog', compact('blogs', 'numberOfItems', 'tags', 'blogscategories', 'user', 'popular_questions', 'recent_questions', 'teachers', 'jobs'));
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\JoshController;
 use \Illuminate\Support\Facades\Redirect;
 use App\Models\Blog;
+use App\Models\Tag;
 use App\Models\BlogCategory;
 use App\Models\BlogComment;
 use App\Models\User;

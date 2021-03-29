@@ -50,8 +50,8 @@
                     </div>
                 </div>
             @endif
-           <h4 style="color: #2C3E50;"> <span class="fa fa-share" aria-hidden="true"></span>
-                                 &nbsp;Forward</h4>
+           <h5 style="color: #2C3E50;"> <span class="fa fa-share" aria-hidden="true"></span>
+                                 &nbsp;Forward</h5>
             <hr>
     <!-- Main content -->
     <section class="content pr-3 pl-3">

@@ -2,38 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fadf153-b947-4409-94dc-fc6541812bb6" name="Default Changelist" comment="second backup">
-      <change afterPath="$PROJECT_DIR$/resources/views/tutor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/portal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/portal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserBlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserBlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/LastUserActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/LastUserActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/frontend/holder.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/holder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about_us.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about_us.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/horizontal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/horizontal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/minisidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/minisidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogitem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogitem.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/forgotpwd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/forgotpwd.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/default2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/news_item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news_item.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/portfolio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/portfolio.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/services.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_emails/compose.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_emails/compose.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_emails/forward.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_emails/forward.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_emails/inbox.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_emails/inbox.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_emails/reply.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_emails/reply.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_emails/sent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_emails/sent.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_emails/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_emails/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/notifications.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/notifications.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -212,6 +187,9 @@
       <path value="$PROJECT_DIR$/vendor/prettus/l5-repository" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/larasocket/larasocket-driver" />
+      <path value="$PROJECT_DIR$/vendor/webpatser/laravel-uuid" />
+      <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jyRH4OA78S9T1o9ZFpiSKn6XnW" />
@@ -311,6 +289,7 @@
       <workItem from="1611725372254" duration="1159000" />
       <workItem from="1611791108155" duration="282000" />
       <workItem from="1611970530866" duration="114000" />
+      <workItem from="1616413896299" duration="887000" />
     </task>
     <task id="LOCAL-00001" summary="second backup">
       <created>1609621737742</created>

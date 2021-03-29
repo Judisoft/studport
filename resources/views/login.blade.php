@@ -178,7 +178,7 @@ h4{
     </ul>
   </nav>
 </div>
-  <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
+  <section class="w3l-intro" id="intro">
     <div class="new-block top-bottom">
       <div class="container">
         <div class="middle-section">
@@ -190,7 +190,7 @@ h4{
             <div class="box">
                 <div class="box1 br-5 shadow">
                     <div class="mt-auto">
-                        <span class="icon-lock fa-4x px-2 py-2 float-right" style="opacity: 0.1;"></span>
+                        <span class="fa fa-user-lock fa-4x px-2 py-2 float-right" style="opacity: 0.1;"></span>
                         <h4 class="pt-3 text-favorite float-left"><b>SIGN IN</b></h4>
                     </div>
                     <form action="{{ route('login') }}" class="omb_loginForm" autocomplete="off" method="POST">

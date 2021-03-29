@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         @section('title')
-            Welcome to StudPort
+            StudPort
         @show
     </title>
     <!--global css starts-->
@@ -52,6 +52,20 @@ h1,h2,h3,h4{
   .card-1 {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 5px 5px rgba(0,0,0,0.23);
 }
+#navBar {
+  position: fixed;
+  width: 100vw;
+  height: 50px;
+  background-color: #DEDEDE;
+  transition: 0.2s;
+  display: flex;
+}
+
+.floatingNav {
+  width: calc(100vh - 100px); 
+  border-radius: 2px;
+  box-shadow: 0px 1px 10px #999;
+}
 </style>
 
 <body>
@@ -60,7 +74,7 @@ h1,h2,h3,h4{
     <div class="hero-header-11">
         <div class="hero-header-11-content">
             <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg  navbar-light sticky-bar sticky" style="background-color: #01182F;">
+                <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: #01182F;">
                     <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" /> </a>
                     <!-- if logo is image enable this
                 <a class="navbar-brand" href="#index.html">
@@ -91,23 +105,21 @@ h1,h2,h3,h4{
                             </li>
 
                                 @if(Sentinel::check())
-                                    <li class=" nav-item {!! (Request::is('my-account') ? 'active' : '') !!}">
-                                        <a href="{{ URL::to('my-account') }}" class="nav-link text-capitalize">My Portal</a>
-                                    </li>
-                                    <li class=" nav-item">
-                                        <a href="{{ URL::to('logout') }}" class="nav-link text-capitalize">Sign Out</a>
-                                    </li>
-                                    
-
+                            <li class=" nav-item {!! (Request::is('my-account') ? 'active' : '') !!}">
+                                <a href="{{ URL::to('my-account') }}" class="nav-link text-capitalize">My Portal</a>
+                            </li>
+                            <li class=" nav-item">
+                                <a href="{{ URL::to('logout') }}" class="nav-link text-capitalize">Sign Out</a>
+                            </li>
                                 @endif
                                 @if(Sentinel::guest())
-                                    <li class="nav-item"><a href="{{ URL::to('login') }}" class="nav-link text-capitalize"> Sign In </a>
-                                    </li>
-                                    <li class="nav-item"><a href="{{ URL::to('register') }}" class="nav-link text-capitalize"> Register </a>
-                                    </li>
-
-
-                                @endif 
+                            <li class="nav-item text-primary px-2">
+                                <a class="btn btn-sm btn-outline-warning my-2 my-sm-0 p-2" href="{{route('login')}}" ><span class="fa fa-sign-in-alt px-2"></span>SIGN IN &nbsp;</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-sm btn-warning my-2 my-sm-0 p-2" href="{{route('register')}}" ><span class="fa fa-user-plus px-2"></span>SIGN UP &nbsp;</a>
+                            </li>
+                                @endif
                         </ul>
                     </div>
                 </nav>

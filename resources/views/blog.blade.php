@@ -72,8 +72,8 @@ p{
 <!-- Container Section Strat -->
 <div class="container">
     <div class="row">
-         <div class="ml-auto col-md-3 col-lg-3 col-12 mt-5" style="padding: 15px;border-right: 1px solid #ddd;">
-            <div class="list-item1">
+         <div class="ml-auto col-md-3 col-lg-3 col-12" style="padding: 15px;border-right: 1px solid #ddd;">
+            <div class="list-item1  mt-5">
                 <div class="box1 text-dark mt-2"><h6><i class="fa fa-braille px-2"></i>STUDPORT</h6><hr> </div>
                 <h6><a href="#" class="text-gray"><i class="fa fa-tag px-2"></i>Tags &nbsp;&nbsp;&nbsp;&nbsp;</a></h6><br>
                 <h6><a href="#" class="text-gray"><i class="fa fa-university px-2"></i>Institutions</a></h6><br>
@@ -81,12 +81,12 @@ p{
                 <h6><a href="#" class="text-gray"><i class="fa fa-file px-2"></i>Courses</a></h6><br>
                 <h6><a href="#" class="text-gray"><i class="fa fa-comments px-2"></i>Study Groups</a></h6><br>
             </div>
-            <div >
+            <div class="list-item1">
                 <div class="box1 text-dark mt-2"><h6><i class="fa fa-sort px-2"></i>CATEGORIES</h6><hr> </div>
                         @foreach($blogscategories as $blogscategory)
                             @if(@count($blogscategory) > 0)
                                 <div>
-                                <h6><a  href="#" class="text-gray text-left px-2 py-3"><small>{{$blogscategory->title}}</small></a></h6><br>
+                                <h6><a  href="#" class="text-gray text-left px-2 py-3">{{$blogscategory->title}}</a></h6><br>
                                 </div>
                             @endif
                         @endforeach
@@ -120,7 +120,7 @@ p{
         <div class="col-md-6 col-lg-6 col-12 p-5">
                  <div class="form-group input-group">
                     <form class="input-group" action="{{route('blog')}}" method="GET">
-                        <input type="text" class="form-control text-gray" name="search" value="{{request()->query('search')}}" placeholder="Search Questions: by tags, subject/course..." style="font-size: 14px !important;">
+                        <input type="text" class="form-control text-gray" name="search" value="{{request()->query('search')}}" placeholder="Search Questions: by tags, subject/course ..." style="font-size: 14px !important; height: 50px;">
                             <div class="input-group-append">
                                 <span class="input-group-btn input-group-append">
                                     <button class="btn btn-warning input-group-text image_radius" type="submit">
@@ -130,10 +130,58 @@ p{
                             </div>
                     </form>
                 </div>
-            @forelse ($blogs as $blog)
+            <!-- BEGIN FEATURED POST SEARCH -->
+        @if(request()->search)
+            <div class="thumbnail" style=" padding-bottom: 20px;"> 
+                <p>Showning search results for <em class="text-secondary">{{request()->search}}</em>
+                <br>
+                <small class="text-gray">About {{$numberOfItems}}  result(s) found</small> 
+                </p>
+                <hr> 
+                <div style="min-height: 10px;"></div>
+            @foreach($blogs as $blog) 
+                <div class="p-3 relative-left">
+                    <div class="card  p-4" style="background-color: #EAECEE;border:none;">
+                        <h5 class="text-capitalize"> 
+                            @if($blog->comments->count() > 0)
+                                <span class="icon-lock-open text-success"></span>
+                            @else
+                                <span class="icon-lock text-gray"></span>
+                            @endif
+                            {{$blog->title}}
+                        </h5>
+                        <br>
+                        <p class="text-dark">
+                            <a href="{{ URL::to('blogitem/'.$blog->slug) }}" class="float-left text-blue"><small>{!! $blog->content !!}</small></a>
+                        </p>
+                        <br>
+                    <small class="text-gray">
+                        <span class="additional-post px-2">
+                            <a> <span class="icon-calendar px-2"></span>Asked &nbsp;{{$blog->created_at->diffForHumans()}}</a>
+                        </span>
+                        <span class="additional-post px-2">
+                            <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} Answer(s)</a>
+                        </span>
+                        <span class="additional-post">
+                            <a>Viewed&nbsp;{{$blog->views}}  times</a>
+                        </span>
+                    </small>
+                    </div>
+                </div>
+            @endforeach
+            </div>
+            @else
+             @forelse ($blogs as $blog)
             <!-- BEGIN FEATURED POST -->
             <div class="thumbnail" style=" padding-bottom: 50px;">
-            <h5 class="text-capitalize"> {{$blog->title}}</h5>
+            <h5 class="text-capitalize"> 
+                @if($blog->comments->count() > 0)
+                    <span class="icon-lock-open text-success"></span>
+                @else
+                    <span class="icon-lock text-gray"></span>
+                @endif
+                {{$blog->title}}
+            </h5>
             <hr>
             <p class="text-gray">
                     <small>
@@ -141,7 +189,7 @@ p{
                             <a> <span class="icon-calendar px-2"></span>Asked &nbsp;{{$blog->created_at->diffForHumans()}}</a>
                         </span>
                         <span class="additional-post px-2">
-                            <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} Answer(s) provided</a>
+                            <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} Answer(s)</a>
                         </span>
                         <span class="additional-post">
                             <a>Viewed&nbsp;{{$blog->views}}  times</a>
@@ -177,11 +225,10 @@ p{
                     </div>
                     <p class="py-2 px-2 text-info"> 
                         <small>
-                            Tags:
                             @forelse($blog->tags as $tag)
-                                <small><a class="alert alert-info p-1 px-2"  href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}">{{ $tag }}</a></small>
+                                Tags: <small><a class="alert alert-info p-1 px-2"  href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}">{{ $tag }}</a></small>
                             @empty
-                           <em> No Tags </em>
+                           <em> No Tags available for this question</em>
                             @endforelse
                         </small>
                     </p>
@@ -192,32 +239,32 @@ p{
             <!-- /.featured-post-wide -->
             <!-- END FEATURED POST -->
             @empty
-            <div class="alert alert-primary p-5">
-                <h5 class="text-center" style="font-weight: 200; ">Ouuups! No item matches &nbsp;<em>{{request()->query('search')}}</em></h5>
+            <div class="card card-body border-0 p-3">
+                <p class="text-center text-gray" style="font-weight: 400; ">Ouuups! No item matches &nbsp;<em class="text-danger">{{request()->query('search')}}</em></p>
             </div>
             @endforelse
-            
+            @endif
            <div class="text-right"> 
                 {!! $blogs->appends(['search' => request()->query('search')])->links() !!} 
            </div>
             
         </div>
         <!-- /.col-md-8 -->
-        <div class="ml-auto col-md-3 col-lg-3 col-12 mt-5" style="padding: 5px;">
-                <div class="box1 text-dark"><h6><i class="fa fa-chalkboard-teacher px-2"></i>TUTORING JOBS</h6> </div>
-                <hr>
-                    <div style="background-color: #F6F6F6;">
+        <div class="ml-auto col-md-3 col-lg-3 col-12 mt-4" style="padding: 5px;">
+                <div class="card card-header border-0 bg-dark"><h5 class="text-warning" style="font-weight: 500;">TUTORING JOBS</h5></div>
+                <br>
+                    <div class="card card-body" style="background-color: #F6F6F6;">
                         @foreach($jobs as $job)
                             @if(@count($job) > 0)
-                                <div class="mt-3 px-2">
-                                <a   class="text-dark p-2 pt-5"><small><b><u>{{$job->title }}</u></b></small></a><br>
-                                <div style="padding:0 0 10px 5px;">
-                                <br>
+                                <div class="mt-3 px-2 pt-3">
+                                <h6 class="text-jobs" style="font-weight: 700;"><u>{{$job->title }}</u></h6><br>
+                                <div>
                                     <small>{!! $job->content !!}</small>
                                     <small class="py-3"><b>Employer: {{$job->employer}}</b></small><br>
                                      <small class="py-3"><b>Location: {{$job->location}}</b></small><br>
                                     <small class="py-3"><b>Salary: {{$job->salary}}</b></small><br>
-                                    <p class="pt-3"><a href="{{ route('news.show',$job->id) }}"><small>Apply for this Job</small></a></p><br>
+                                    <p class="pt-3"><a href="{{ route('news.show',$job->id) }}" class="btn btn-sm btn-secondary"><small>Apply for this Job</small></a></p>
+                                    <hr>
                                  </div>
                                 </div>
                                  @else

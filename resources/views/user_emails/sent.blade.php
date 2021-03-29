@@ -18,8 +18,8 @@
     <aside class="right-aside">
     <!-- Content Header (Page header) -->
         <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
-            <h4 style="color: #2C3E50;"> <span class="fa fa-paper-plane" aria-hidden="true"></span>
-                                 &nbsp;Sent</h4>
+            <h5 style="color: #2C3E50;"> <span class="fa fa-paper-plane" aria-hidden="true"></span>
+                                 &nbsp;Sent</h5>
             <hr>
     <!-- Main content -->
     <section class="content pr-3 pl-3">

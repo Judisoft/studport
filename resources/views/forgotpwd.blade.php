@@ -183,7 +183,7 @@ h4{
             <div class="box">
                 <div class="box1 br-5 shadow">
                     <div class="text-center mb-3">
-                         <span class="fa fa-key fa-3x px-2 py-2 float-right"></span>
+                         <span class="fa fa-key fa-3x px-2 py-2 float-right" style="opacity: 0.1;"></span>
                         <h4 class="pt-3 text-favorite float-left"><b>FORGOT PASSWORD</b></h4>
                     </div>
                      <form action="{{ route('forgot-password') }}" class="omb_loginForm" autocomplete="off" method="POST">

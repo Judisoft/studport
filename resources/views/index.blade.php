@@ -17,14 +17,6 @@
         font-weight: 300 !important;
     }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #01182F !important;">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item ml-auto text-primary px-2">Already have an Account?</li>
-        <li class="nav-item ml-auto">
-            <a class="btn btn-sm btn-outline-primary my-2 my-sm-0" href="{{route('login')}}" >Sign In</a>
-        </li>
-    </ul>
-</nav>
 <!--  Main banner section -->
 @section('content')
   <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
@@ -32,7 +24,7 @@
       <div class="container">
         <div class="middle-section text-center">
           <div class="section-width mb-5">
-            <h2 class="mb-5 text-dark" style="font-weight: 600 !important;">Ask Anything, Anytime! <br> We are here to help you get Answers</h2>
+            <h2 class="mb-5 text-dark" style="font-weight: 600 !important;">Ask Anything, Anytime ! <br> We are here to help you get Answers</h2>
             <h3 class="mb-5 text-primary text-bold">Learn, Grow and become the best.</h3>
             <a href="{{route('register')}}" class="btn btn-outline-favorite theme-button py-2 px-5">Get Started</a>
           </div>
@@ -95,7 +87,7 @@
         <div class="container">
             <div class="middle-section">
             <div class="header-section text-center mb-4 p-5">
-                    <h1 class="text-dark">For Institutions, by Developers</h1>
+                    <h1 class="text-dark">For Institutions, by Technologists</h1>
                     <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
                     <p>StudPort equips learning institutions with appropriate technologies to facilitate the teaching & learning processes.
                         We offer training and Staff capacity building in Information Technologies to increase performance and success. 
@@ -117,7 +109,7 @@
                             <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
                                 <div class="feature-16-gd-info">
                                         <p class="mt-4 mb-4">
-                                        <h4 class="text-primary float-left"><span class="fa fa-users fa-2x px-3"></span></h4>
+                                            <h4 class="text-primary float-left"><span class="fa fa-users fa-2x px-3"></span></h4>
                                             Student Mentorship and Entrepreneurship 
                                         </p>
                                 </div>

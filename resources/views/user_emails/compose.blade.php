@@ -35,8 +35,8 @@
                     </div>
                 </div>
             @endif
-            <h4 style="color: #2C3E50;"> <span class="fa fa-edit" aria-hidden="true"></span>
-                                 &nbsp;Compose</h4>
+            <h5 style="color: #2C3E50;"> <span class="fa fa-edit" aria-hidden="true"></span>
+                                 &nbsp;Compose</h5>
             <hr>
     <!-- Main content -->
     <section class="content pr-3 pl-3" >

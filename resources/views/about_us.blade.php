@@ -14,7 +14,15 @@ About
 <link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Playfair+Display+SC:wght@700&family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
 <!--end of page level css-->
 @stop
-
+<style>
+.icon-circle{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: var(--warning);
+  padding: 30px;
+}
+</style>
 
 {{-- Page content --}}
 @section('content')
@@ -25,11 +33,10 @@ About
       <div class="container">
         <div class="middle-section text-center">
           <div class="section-width mb-5">
-            <h2 class="mb-5"></h2>
             <div class="cwp23-title">
-            <h1 class="text-center text-warning">Welcome to StudPort! </h1>
+            <h2 class="text-center text-warning">Welcome to StudPort! </h2>
             <br>
-            <h5 class="text-center text-white" style="font-weight: 200;">The No. 1 Portal for Academic Excellence in Cameroon!</h5>
+            <h5 class="text-center text-gray" style="font-weight: 400;">The No. 1 Portal for Academic Excellence in Cameroon!</h5>
           </div>
           </div>
         </div>
@@ -53,8 +60,11 @@ About
                         <div class="grids5-info" >
                             <a href="#url" class="d-block zoom"><img src="{{asset('images/p4.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info">
-                                <h4 class="text-primary"><span class="fa fa-user-plus fa-2x"></span> Join the StudPort Community</h4>
-                                <hr style="width: 30%;">
+                              <div class="icon-circle text-center float-left">
+                                <span class="fa fa-users fa-2x text-white"></span>
+                              </div>
+                                <h3 class="p-3 text-warning text-center">&nbsp;&nbsp; Join the StudPort Community</h3>
+                                <br>
                                 <p class="blog-text">StudPort is an open community for every student.
                                     We help students obtain answers to all their questions ( even the toughest ones, yeah! ) and to share knowledge with other students.
                                     You can join the StudPort Community by signing up for a StudPort account.
@@ -86,8 +96,11 @@ About
                         <div class="grids5-info">
                             <a href="#url" class="d-block zoom"><img src="{{asset('images/p1.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info">
-                                <h4 class="text-primary"><span class="fa fa-comments fa-2x"></span> Personalised Q & A Manager </h4>
-                                <hr style="width: 30%;">
+                               <div class="icon-circle text-center float-left">
+                                <span class="fa fa-question fa-2x text-white"></span>
+                              </div>
+                                <h3 class="p-3 text-warning text-center">&nbsp;&nbsp; Personalised Q&A Manager </h3>
+                                <br>
                                 <p class="blog-text">Once you activate your StudPort Account, you are granted access to your Personal Portal where
                                     you can ask questions in any course/subject. If your school/institution is registered with StudPort,
                                     your teachers will be able to view your questions and provide answers to your questions, nevertheless, StudPort Teachers offer 
@@ -115,8 +128,11 @@ About
                         <div class="grids5-info">
                             <a href="#url" class="d-block zoom"><img src="{{asset('images/pic11.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info">
-                                <h4 class="text-primary"><span class="fa fa-laptop fa-2x"></span> Request Personalised Tutoring</h4>
-                                <hr style="width: 30%;">
+                                <div class="icon-circle text-center float-left">
+                                <span class="fa fa-laptop fa-2x text-white"></span>
+                              </div>
+                                <h3 class="p-3 text-warning text-center">&nbsp;&nbsp; Request Personalised Tutoring</h3>
+                                <br>
                                 <p class="blog-text">Our Teachers are available to offer one-on-one tutoring to meet your individual need. You will be able to see Teachers who
                                     are online and available to tutor you, either online or arrange for an in-person tutoring session. You shall be charged a fee for one-on-one sessions.
                                     You may ask for a refund, in case your needs are not met.
@@ -135,8 +151,11 @@ About
                         <div class="grids5-info">
                             <a href="#url" class="d-block zoom"><img src="{{asset('images/about.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info text-center">
-                                <h4 class="text-primary"><span class="fa fa-share-alt fa-2x"></span>  StudPort Connect</h4>
-                                <hr style="width: 30%;">
+                                <div class="icon-circle text-center float-left">
+                                <span class="fa fa-share-alt fa-2x text-white"></span>
+                              </div>
+                                <h3 class="p-3 text-warning text-center">&nbsp;StudPort Connect</h3>
+                                <br>
                                 <p class="blog-text">With StudPort Connect, Students can join study groups within their institution as well as those of
                                 other institutions. You can create your own study group and invite participants to join</p>
                                 <br>

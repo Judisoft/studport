@@ -186,7 +186,7 @@ h4{
                 <div class="box1 br-5 shadow">
                     <div class="text-center mb-3">
                          <span class="icon-user-follow fa-4x px-2 py-2 float-right" style="opacity: 0.1;"></span>
-                        <h4 class="pt-3 text-favorite float-left"><b>CREATE STUDPORT ACCOUNT</b></h4>
+                        <h4 class="pt-3 text-favorite float-left"><b>SIGN UP</b></h4>
                     </div>
                    <form action="{{ route('register') }}" method="POST" id="reg_form">
                     <!-- CSRF Token -->

@@ -17,8 +17,8 @@
 @section('content')
     <aside class="right-aside">
         <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
-            <h4 style="color: #2C3E50;"> <i class="fa fa-envelope" aria-hidden="true"></i>
-                                 &nbsp;Message(s)</h4>
+            <h5 style="color: #2C3E50;"> <i class="fa fa-envelope" aria-hidden="true"></i>
+                                 &nbsp;Message(s)</h5>
         <hr>
     <!-- Main content -->
     <section class="content pl-3 pr-3">

@@ -130,7 +130,7 @@ class FrontEndController extends JoshController
         $blogs = Blog::latest()->simplePaginate(10);
         $blog = Blog::where('slug', $slug)->first();
         //$docSize = filesize($blog->image);
-        $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->latest()->get(); //DB::table('blogs')->where('user_id', Sentinel::getUser()->id)->get();
+        $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->latest()->simplePaginate(5); //DB::table('blogs')->where('user_id', Sentinel::getUser()->id)->get();
         $school_mates = User::where('institution', Sentinel::getUser()->institution)->get();
         $blogscategories = BlogCategory::all();
        // $user_categories = Blog::where('blog_category_id', Sentinel::getUser()->id)->get();
