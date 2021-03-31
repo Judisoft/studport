@@ -387,5 +387,7 @@ Route::get('subscription', 'SubscriptionController@subscribe');
 Route::post('my-account', 'FrontEndController@newsletter');
 Route::resource('questions', 'UserBlogController');
 Route::get('download', 'ExamsController@download')->middleware('download')->name('download');
+//institutions
+Route::get('institutions', 'FrontEndController@institutions')->name('institutions');
 
 

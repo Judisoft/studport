@@ -19,14 +19,14 @@
 </style>
 <!--  Main banner section -->
 @section('content')
-  <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
-    <div class="new-block top-bottom">
+  <section class="w3l-intro" id="intro">
+    <div class="new-block top-bottom" style="min-height:calc(10vh - 0px) !important;">
       <div class="container">
         <div class="middle-section text-center">
           <div class="section-width mb-5">
-            <h2 class="mb-5 text-dark" style="font-weight: 600 !important;">Ask Anything, Anytime ! <br> We are here to help you get Answers</h2>
-            <h3 class="mb-5 text-primary text-bold">Learn, Grow and become the best.</h3>
-            <a href="{{route('register')}}" class="btn btn-outline-favorite theme-button py-2 px-5">Get Started</a>
+            <h2 class="mb-5 text-dark" style="font-weight: 600 !important;">Find the best answer to your questions</h2>
+            <h3 class="mb-5 text-primary text-bold">Ask Anything, Anytime!</h3>
+            <a href="{{route('register')}}" class="btn btn-dark theme-btn  px-5" style="border-radius: 0;">Get Started</a>
           </div>
         </div>
       </div>

@@ -254,13 +254,13 @@ li, p{
 
 
 </style>
-<div class="container full-width">
+<div class="container-fluid " style="overflow-x: hidden;">
 
    <!--item desciption start-->
                     <!-- Nav Nav-tabs Start -->
     <section>
                             <div class="row" style="background-color: #FBFBFB;">
-                            <div class="col-lg-2 col-md-2 col-12"  style="border-right: 1px solid #ddd;">
+                            <div class="col-lg-3 col-md-3 col-12"  style="border-right: 1px solid #ddd;">
                                         <div class="ml-auto">     
                                             <div class="card-body">
                                                 <div class="box1 text-dark text-center mt-2">
@@ -421,14 +421,14 @@ li, p{
                                 </div>
                                 <div class="tab-pane fade" id="tab_default_2">
                             
-                                <div class=" ml-5 pt-3">
+                                <div class=" ml-5 mr-5 pt-3">
                                 <h5>Account Settings</h5>
                                 <hr>
-                                 <div class="card card-body alert-info text-right">
-                                    <b><span class="fa fa-user-edit fa-2x px-3"></span>PERSONAL INFORMATION</b>
+                                <div class="card card-body alert-info">
+                                    <b><span class="fa fa-address-card fa-2x px-3"></span>PERSONAL INFORMATION</b>
                                 </div>
                                 <br>
-                                <div class="card card-body">
+                                <div class="card card-body bg-settings">
                                 {!! Form::model($user, ['url' => URL::to('my-account'), 'method' => 'put', 'class' => 'form-horizontal','enctype'=>"multipart/form-data"]) !!}
 
                                     {{ csrf_field() }}
@@ -437,7 +437,7 @@ li, p{
                                     <div class="col-lg-2">
                                         <h6>Profile Picture</h6>
                                     </div>
-                                <div class="col-lg-10">
+                                <div class="col-lg-9">
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <div class="fileinput-new thumbnail rounded-circle" style="max-width: 200px; max-height: 200px;">
                                             @if($user->pic)
@@ -457,7 +457,7 @@ li, p{
                                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                         <div>
                                             <span class="btn btn-secondary btn-file">
-                                                <span class="fileinput-new">Select image</span>
+                                                <span class="fileinput-new">Update profile picture</span>
                                                 <span class="fileinput-exists">Change</span>
                                                 <input type="file" name="pic" id="pic" />
                                             </span>
@@ -478,7 +478,7 @@ li, p{
                                             <div class="col-lg-10 col-12">
                                             <div class="input-group input-group-append">
                                             <span class="input-group-text">
-                                            <i class="livicon" data-name="user" data-size="24" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
+                                            <i class="livicon" data-name="user" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
                                             </span>
                                                 <input type="text" placeholder=" " name="first_name" id="first_name"
                                                     class="form-control" value="{!! old('first_name',$user->first_name) !!}">
@@ -501,7 +501,7 @@ li, p{
                                             <div class="col-lg-10 col-12">
                                             <div class="input-group input-group-append">
                                                     <span class="input-group-text">
-                                                <i class="livicon" data-name="user" data-size="24" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
+                                                <i class="livicon" data-name="user" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
                                                     </span>
                                                 <input type="text" placeholder=" " name="last_name" id="last_name"
                                                     class="form-control"
@@ -521,7 +521,7 @@ li, p{
                                             <div class="col-lg-10 col-12">
                                             <div class="input-group input-group-append">
                                                                         <span class="input-group-text">
-                                                <i class="livicon" data-name="mail" data-size="20" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
+                                                <i class="livicon" data-name="mail" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
                                                                         </span>
                                                 <input type="text" placeholder=" " id="email" name="email" class="form-control"
                                                     value="{!! old('email',$user->email) !!}"></div>
@@ -559,7 +559,7 @@ li, p{
                                             <div class="col-lg-10 col-12">
                                             <div class="input-group input-group-addon">
                                                     <span class="input-group-text">
-                                <i class="livicon" data-name="key" data-size="20" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
+                                <i class="livicon" data-name="key" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
                                                     </span>
                                                 <input type="password" name="password_confirm" placeholder=" " id="cpwd" class="form-control"></div>
                                             <span class="help-block">{{ $errors->first('password_confirm', ':message') }}</span>
@@ -602,7 +602,7 @@ li, p{
                                             <div class="col-lg-10 col-12">
                                             <div class="input-group input-group-append">
                                                     <span class="input-group-text">
-                                <i class="livicon" data-name="calendar" data-size="24" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
+                                <i class="livicon" data-name="calendar" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
                                                     </span>
                                                     @if($user->dob === '')
                                                         {!!  Form::text('dob', null, ['id' => 'datepicker','class' => 'form-control'])  !!}
@@ -628,7 +628,7 @@ li, p{
                                         </div>
                                         </div>
 
-                                        <div class="card card-body alert-info text-right">
+                                        <div class="card card-body alert-info">
                                         <b><span class="fa fa-user-graduate fa-2x px-3"></span>ACADEMIC INFORMATION</b>
                                     </div>
                                     <br>
@@ -642,7 +642,7 @@ li, p{
                                                 <div class="col-lg-10 col-12">
                                             <div class="input-group input-group-append">
                                             <span class="input-group-text">
-                                <i class="fa fa-institution" data-size="20" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
+                                <i class="fa fa-institution" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
                                                     </span>
                                                 <input  type="text" name="institution" id="institution"
                                                     class="form-control" value="{!! old('institution',$user->institution) !!}">
@@ -665,7 +665,7 @@ li, p{
                                             <div class="col-lg-10 col-12">
                                             <div class="input-group input-group-append">
                                             <span class="input-group-text">
-                                <i class="fa fa-file-alt" data-size="20" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
+                                            <i class="fa fa-file-alt" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
                                                     </span>
                                                 <input  type="text" name="department" id="department"
                                                     class="form-control" value="{!! old('department',$user->department) !!}">
@@ -697,7 +697,7 @@ li, p{
                                     </div>
 
 
-                                    <div class="card card-body alert-info text-right">
+                                    <div class="card card-body alert-info">
                                         <b><span class="fa fa-address-card fa-2x px-3"></span>CONTACT INFORMATION</b>
                                     </div>
                                     <br>
@@ -720,7 +720,7 @@ li, p{
                                     <br>
                                     <div class="form-group">
                                         <div class="col-lg-10 col-12 ml-auto">
-                                            <button class="btn btn-info btn-block theme-button" type="submit">Update Profile</button>
+                                            <button class="btn btn-favorite btn-block theme-button" type="submit">Update Profile</button>
                                         </div>
                                     </div>
 

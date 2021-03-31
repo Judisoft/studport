@@ -70,29 +70,29 @@ p{
 {{-- Page content --}}
 @section('content')
 <!-- Container Section Strat -->
-<div class="container">
+<div class="container-fluid" style="overflow-x: hidden;">
     <div class="row">
-         <div class="ml-auto col-md-3 col-lg-3 col-12" style="padding: 15px;border-right: 1px solid #ddd;">
+         <div class="pl-5 col-md-3 col-lg-3 col-12" style="border-right: 1px solid #ddd;">
             <div class="list-item1  mt-5">
-                <div class="box1 text-dark mt-2"><h6><i class="fa fa-braille px-2"></i>STUDPORT</h6><hr> </div>
-                <h6><a href="#" class="text-gray"><i class="fa fa-tag px-2"></i>Tags &nbsp;&nbsp;&nbsp;&nbsp;</a></h6><br>
-                <h6><a href="#" class="text-gray"><i class="fa fa-university px-2"></i>Institutions</a></h6><br>
-                <h6><a href="#" class="text-gray"><i class="fa fa-users px-2"></i>Users</a></h6><br>
-                <h6><a href="#" class="text-gray"><i class="fa fa-file px-2"></i>Courses</a></h6><br>
-                <h6><a href="#" class="text-gray"><i class="fa fa-comments px-2"></i>Study Groups</a></h6><br>
+                <div class="box1 mt-2"><h5 class="text-dark"><i class="fa fa-braille px-2"></i>STUDPORT</h5><hr> </div>
+                <h6><a href="#"><i class="fa fa-tag px-2"></i>Tags &nbsp;&nbsp;&nbsp;&nbsp;</a></h6><br>
+                <h6><a href="{{route('institutions')}}"><i class="fa fa-university px-2"></i>Institutions</a></h6><br>
+                <h6><a href="#"><i class="fa fa-users px-2"></i>Users</a></h6><br>
+                <h6><a href="#"><i class="far fa-file px-2"></i>Courses</a></h6><br>
+                <h6><a href="#"><i class="far fa-comments px-2"></i>Study Groups</a></h6><br>
             </div>
             <div class="list-item1">
-                <div class="box1 text-dark mt-2"><h6><i class="fa fa-sort px-2"></i>CATEGORIES</h6><hr> </div>
+                <div class="box1  mt-2"><h5 class="text-dark" style="font-weight: 500;"><i class="fa fa-sort px-2"></i>CATEGORIES</h5><hr> </div>
                         @foreach($blogscategories as $blogscategory)
                             @if(@count($blogscategory) > 0)
                                 <div>
-                                <h6><a  href="#" class="text-gray text-left px-2 py-3">{{$blogscategory->title}}</a></h6><br>
+                                <h6><a href="#"><i class="icon-notebook px-2"></i>{{$blogscategory->title}}</a></h6><br>
                                 </div>
                             @endif
                         @endforeach
                 </div>
                        <div class="mt-2">
-                <div class="box1 text-dark"><h6><i class="fa fa-users px-2"></i>TUTORS</h6></div>
+                <div class="box1 text-dark"><h5><i class="fa fa-users px-2"></i>TUTORS</h5></div>
                     <hr>
                         @foreach($teachers as $teacher)
                             @if(@count($teacher) > 0)
@@ -120,10 +120,10 @@ p{
         <div class="col-md-6 col-lg-6 col-12 p-5">
                  <div class="form-group input-group">
                     <form class="input-group" action="{{route('blog')}}" method="GET">
-                        <input type="text" class="form-control text-gray" name="search" value="{{request()->query('search')}}" placeholder="Search Questions: by tags, subject/course ..." style="font-size: 14px !important; height: 50px;">
+                        <input type="text" class="form-control text-gray" name="search" value="{{request()->query('search')}}" placeholder="SEARCH" style="font-size: 16px !important; height: 50px; border-radius: 5px;">
                             <div class="input-group-append">
                                 <span class="input-group-btn input-group-append">
-                                    <button class="btn btn-warning input-group-text image_radius" type="submit">
+                                    <button class="btn btn-warning input-group-text image_radius" type="submit" style="border-radius: 0 5px 5px 0;">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </span>
@@ -163,7 +163,7 @@ p{
                             <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} Answer(s)</a>
                         </span>
                         <span class="additional-post">
-                            <a>Viewed&nbsp;{{$blog->views}}  times</a>
+                            <a>Viewed&nbsp;{{$blog->views}}  times</a>assss
                         </span>
                     </small>
                     </div>
@@ -209,7 +209,7 @@ p{
                         </p>
                          <p style="padding: 25px 0 5px 0;">
                         @if($blog->comments->count() > 0)
-                            <a href="{{ URL::to('blogitem/'.$blog->slug) }}" style="color: #11AF35;"><i class="icon-bubbles px-2"></i><small>View Answers</small></a>
+                            <a href="{{ URL::to('blogitem/'.$blog->slug) }}" style="color: #11AF35;"><i class="icon-speech px-2"></i><small>View Answers</small></a>
                         @else
                             <a href="{{ URL::to('blogitem/'.$blog->slug) }}" style="color: #32BADC;"><i class="icon-speech px-2"></i><small>Answer this question</small></a>
                         @endif
@@ -250,16 +250,17 @@ p{
             
         </div>
         <!-- /.col-md-8 -->
-        <div class="ml-auto col-md-3 col-lg-3 col-12 mt-4" style="padding: 5px;">
-                <div class="card card-header border-0 bg-dark"><h5 class="text-warning" style="font-weight: 500;">TUTORING JOBS</h5></div>
+        <div class="ml-0col-md-3 col-lg-3 col-12 mt-5" style="padding: 5px;">
+                <div class="card card-body bg-index">
+                    <h5 class="text-center text-warning" style="font-weight: 500;">TUTORING JOBS</h5>
                 <br>
-                    <div class="card card-body" style="background-color: #F6F6F6;">
+                    <div class="card card-body" style="background-color: #FAFDFF; border: none;">
                         @foreach($jobs as $job)
                             @if(@count($job) > 0)
                                 <div class="mt-3 px-2 pt-3">
-                                <h6 class="text-jobs" style="font-weight: 700;"><u>{{$job->title }}</u></h6><br>
+                                <h6 class="text-dark" style="font-weight: 700;"><u>{{$job->title }}</u></h6><br>
                                 <div>
-                                    <small>{!! $job->content !!}</small>
+                                    
                                     <small class="py-3"><b>Employer: {{$job->employer}}</b></small><br>
                                      <small class="py-3"><b>Location: {{$job->location}}</b></small><br>
                                     <small class="py-3"><b>Salary: {{$job->salary}}</b></small><br>
@@ -278,8 +279,7 @@ p{
             </div>
             <!-- Category -->
             <br>
-            
-        
+        </div>
     </div>
 </div>
 

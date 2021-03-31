@@ -109,7 +109,7 @@ h1,h2,h3,h4{
                                 <a href="{{ URL::to('my-account') }}" class="nav-link text-capitalize">My Portal</a>
                             </li>
                             <li class=" nav-item">
-                                <a href="{{ URL::to('logout') }}" class="nav-link text-capitalize">Sign Out</a>
+                                <a href="{{ URL::to('logout') }}" class="btn btn-sm btn-warning my-2 my-sm-0 p-2">SIGN OUT</a>
                             </li>
                                 @endif
                                 @if(Sentinel::guest())

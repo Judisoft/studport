@@ -559,6 +559,13 @@ class FrontEndController extends JoshController
 
         return view('tutor', compact('blogs'));
     }
+
+    public function institutions() {
+        
+        //$users = User::all();
+
+        return view('institutions');
+    }
         /**
      * Store a newly created resource in storage.
      *

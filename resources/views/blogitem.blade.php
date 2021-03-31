@@ -135,7 +135,7 @@
         <!-- container section start-->
     <section class="container blogpage">
         <div class="row">
-            <div class="ml-auto col-md-3 col-lg-3 col-12 mt-5" style="padding: 15px;border-right: 1px solid #ddd;">
+            <div class="ml-auto col-md-3 col-lg-3 col-12" style="padding: 15px;border-right: 1px solid #ddd;">
                     <div class="list-item1">
                         <div class="box1 text-dark mt-2"><h6><i class="fa fa-braille px-2"></i>STUDPORT</h6><hr> </div>
                         <h6><a href="#" class="text-gray"><i class="fa fa-tag px-2"></i>Tags &nbsp;&nbsp;&nbsp;&nbsp;</a></h6><br>
@@ -180,21 +180,22 @@
                             <img src="{{$blog->author->pic}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
                             @else<img src="{{asset('images/avatar3.png')}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
                         @endif
-                        <small class="px-2 py-2 text-gray">{{$blog->author->first_name}} asked this question on {!! date('M d, Y', strtotime($blog->created_at)) !!} at {!! date('G:i', strtotime($blog->created_at)) !!}</small>
+                        <small class="px-2 py-2 text-black">{{$blog->author->first_name}} asked this question on {!! date('M d, Y', strtotime($blog->created_at)) !!} at {!! date('G:i', strtotime($blog->created_at)) !!}</small>
                     </span>
                             <div class="text-center thumbnail featured-post-wide img mt-5">
                                 @if($blog->image)
-                                    <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image" style="max-width:200px;">
+                                    <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image" style="max-width:80%;">
                                 @endif
-                                <h5 class="text-left text-gray px-2 pt-2">
-                                    {{$blog->comments->count()}} Answer(s)
-                                </h5>
-                                <hr>
+                                <br>
+                                <p class="text-left text-gray px-2 pt-2">
+                                    <span class="icon-bubbles fa-2x px-2"></span>{{$blog->comments->count()}} answer(s)
+                                </p>
+                                <hr style="opacity: 0.3;">
                                 <!-- /.blog-detail-image -->
                                 <div class="p-2 mb-3 blog-detail-content">
                             </div>
                         </div>
-                        <div class="p-3">
+                        <div class="py-3">
                             <table class="table table-borderless">
                             @foreach($blog->comments as $comment)
                             @if($comment->count() > 0)
@@ -232,7 +233,7 @@
                         <!-- Comment Section Start -->
                         <div>
                             <div style="padding-top: 25px; ">
-                            <h5 class="px-3 mt-3" style="opacity: 0.3; text-align: left;">Answer this question<span class="icon-speech fa-2x px-2"></span></h5>
+                            <h5 class="px-3 mt-3" style="opacity: 0.5; text-align: left;">Answer this question<span class="icon-bubbles fa-2x px-2"></span></h5>
                             <div class="card card-body mt-5">
                                 {!! Form::open(['url' => URL::to('blogitem/'.$blog->id.'/comment'), 'method' => 'post', 'class' => 'bf',
                                 'files'=> true]) !!}
@@ -240,26 +241,26 @@
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                                     @if(Sentinel::check())
                                     {!! Form::text('name', Sentinel::getUser()->first_name  . '&nbsp;' . Sentinel::getUser()->last_name, ['class' => 'form-control input-lg','required' => 'required',
-                                    'placeholder'=>'Name']) !!}
+                                    'placeholder'=>'Name', 'style'=>'font-size: 14px;']) !!}
                                     @else
                                     {!! Form::text('name', null, ['class' => 'form-control input-lg','readonly' => 'true',
-                                    'placeholder'=>'Name']) !!}
+                                    'placeholder'=>'Name', 'style'=>'font-size: 14px;']) !!}
                                     @endif
                                     <span class="text-danger"><small>{{ $errors->first('name', ':message') }}</small></span>
                                 </div>
                                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                                     @if(Sentinel::check())
                                     {!! Form::text('email', Sentinel::getUser()->email, ['class' => 'form-control input-lg','required' => 'required',
-                                    'placeholder'=>'Email']) !!}
+                                    'placeholder'=>'Email', 'style'=>'font-size: 14px;']) !!}
                                     @else
                                     {!! Form::text('email', null, ['class' => 'form-control input-lg','readonly' => 'true',
-                                    'placeholder'=>'Email']) !!}
+                                    'placeholder'=>'Email', 'style'=>'font-size: 14px;']) !!}
                                     @endif
                                     <span class="text-danger"><small>{{ $errors->first('email', ':message') }}</small></span>
                                 </div>
                                 @if(Sentinel::check() && Sentinel::getUser()->user_role === 'student')
                                     <div class="form-group {{ $errors->has('website') ? 'has-error' : '' }}">
-                                        {!! Form::number('website', null, ['class' => 'form-control input-lg', 'min' => '1', 'max' =>'5', 'placeholder'=>'Level']) !!}
+                                        {!! Form::number('website', null, ['class' => 'form-control input-lg', 'min' => '1', 'max' =>'5', 'placeholder'=>'Level', 'style'=>'font-size: 14px;']) !!}
                                         <span class="text-danger"><small>{{ $errors->first('website', ':message') }}</small></span>
                                     </div>
                                 @endif
@@ -287,7 +288,7 @@
                         </div>
                         </div>
                         <!-- //Media left section End -->
-                                <div class="alert alert-info shadow mt-3 p-2" style="margin: auto;">
+                                <div class="alert alert-info shadow mt-3 p-2" style="margin: auto; overflow-x: hidden;">
                                     <h5> Can't answer this question? </h5> 
                                     <hr>
                                     Copy this link:<a href="{{url()->current()}}" style="color: #19A0EE; text-decoration: underline;"> {{url()->current()}}</a> and <a href="{{URL::to('user_emails/compose')}}" style="text-decoration: underline;"> Send <span class="fa fa-external-link-alt"></span></a> to a teacher or someone who can answer</p>
