@@ -386,6 +386,7 @@ Route::get('terms_and_conditions', 'TermsAndConditionsController@privacy')->name
 Route::get('subscription', 'SubscriptionController@subscribe');
 Route::post('my-account', 'FrontEndController@newsletter');
 Route::resource('questions', 'UserBlogController');
+Route::resource('questions/{my_questions->id}/edit', 'UserBlogController@edit');
 Route::get('download', 'ExamsController@download')->middleware('download')->name('download');
 //institutions
 Route::get('institutions', 'FrontEndController@institutions')->name('institutions');

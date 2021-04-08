@@ -169,7 +169,9 @@ h4{
 <body>
 <div class="container full-width">
  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #01182F !important;">
-    <a class="navbar-brand ml-5" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" /></a>
+    <a class="navbar-brand" href="{{route('home')}}">
+      <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px;" />
+    </a>    
     <ul class="navbar-nav ml-auto">
         <li class="nav-item ml-auto text-primary px-2">Don't have an Account?</li>
         <li class="nav-item ml-auto">

@@ -74,12 +74,10 @@ h1,h2,h3,h4{
     <div class="hero-header-11">
         <div class="hero-header-11-content">
             <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: #01182F;">
-                    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" /> </a>
-                    <!-- if logo is image enable this
-                <a class="navbar-brand" href="#index.html">
-                        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-                </a> -->
+                <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: #151515;box-shadow: inset 0px -11px 3px -10px #ddd;">
+                <a class="navbar-brand" href="{{route('home')}}">
+                        <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px;" />
+                </a> 
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-radius: 2px;">
                         <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
@@ -108,16 +106,19 @@ h1,h2,h3,h4{
                             <li class=" nav-item {!! (Request::is('my-account') ? 'active' : '') !!}">
                                 <a href="{{ URL::to('my-account') }}" class="nav-link text-capitalize">My Portal</a>
                             </li>
+                             <li class=" nav-item {!! (Request::is('user_emails/inbox') ? 'active' : '') !!}">
+                                <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link text-capitalize">Messages &nbsp;<span class="badge badge-danger float-right mt-1 badge-pill">{{ $count}}</span></a>
+                            </li>
                             <li class=" nav-item">
-                                <a href="{{ URL::to('logout') }}" class="btn btn-sm btn-warning my-2 my-sm-0 p-2">SIGN OUT</a>
+                                <a href="{{ URL::to('logout') }}" class="btn btn-sm btn-warning my-2 my-sm-0 p-2">Sign Out</a>
                             </li>
                                 @endif
                                 @if(Sentinel::guest())
                             <li class="nav-item text-primary px-2">
-                                <a class="btn btn-sm btn-outline-warning my-2 my-sm-0 p-2" href="{{route('login')}}" ><span class="fa fa-sign-in-alt px-2"></span>SIGN IN &nbsp;</a>
+                                <a class="btn btn-sm btn-outline-warning my-2 my-sm-0 p-2" href="{{route('login')}}" ><span class="fa fa-sign-in-alt px-2"></span>Sign In &nbsp;</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-sm btn-warning my-2 my-sm-0 p-2" href="{{route('register')}}" ><span class="fa fa-user-plus px-2"></span>SIGN UP &nbsp;</a>
+                                <a class="btn btn-sm btn-warning my-2 my-sm-0 p-2" href="{{route('register')}}" ><span class="fa fa-user-plus px-2"></span>Sign Up &nbsp;</a>
                             </li>
                                 @endif
                         </ul>

@@ -21,12 +21,15 @@
 @section('content')
   <section class="w3l-intro" id="intro">
     <div class="new-block top-bottom" style="min-height:calc(10vh - 0px) !important;">
-      <div class="container">
+      <div class="container-fluid" style="overflow-x: hidden;">
         <div class="middle-section text-center">
           <div class="section-width mb-5">
+            <div class="float-left" style="margin-left: -100px;">
+                <img src="{{asset('images/start2.png')}}" style="height:300px; width:300px;" />
+            </div>
             <h2 class="mb-5 text-dark" style="font-weight: 600 !important;">Find the best answer to your questions</h2>
-            <h3 class="mb-5 text-primary text-bold">Ask Anything, Anytime!</h3>
-            <a href="{{route('register')}}" class="btn btn-dark theme-btn  px-5" style="border-radius: 0;">Get Started</a>
+            <h3 class="mb-5 text-success">Ask Anything, Anytime!</h3>
+            <a href="{{route('register')}}" class="btn btn-dark theme-btn px-5"><img src="{{asset('images/start.png')}}" style="width: 50px; height: 50px; padding: 5px 5px;" /><span class="text-uppercase px-2">Start Asking, It's Free </span></a>
           </div>
         </div>
       </div>
@@ -35,7 +38,7 @@
 
        <!--  //servcies section -->
     <section class="w3l-services2">
-        <div class="feature-16-main py-2">
+        <div class="feature-16-main py-3">
             <div class="container py-lg-3">
                 <div class="header-section text-center mb-4">
                     <h1 class="text-dark">For Students, by Teachers</h1>

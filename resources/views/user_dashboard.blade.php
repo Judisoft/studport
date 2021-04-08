@@ -259,7 +259,7 @@ li, p{
    <!--item desciption start-->
                     <!-- Nav Nav-tabs Start -->
     <section>
-                            <div class="row" style="background-color: #FBFBFB;">
+                            <div class="row" style="background-color: #FBFBFB; margin-right: 5px;">
                             <div class="col-lg-3 col-md-3 col-12"  style="border-right: 1px solid #ddd;">
                                         <div class="ml-auto">     
                                             <div class="card-body">
@@ -340,21 +340,21 @@ li, p{
                                     <div>
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body bg-info br-5  text-white text-right">
+                                            <div class="card-body br-5  text-white text-right" style="background-color: #151515;">
                                                 <span class="fa fa-users fa-3x"></span>
                                                 <h6>Study Groups</h6>
                                                 <h5>0</h5>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body bg-info br-5  text-white text-right">
+                                            <div class="card-body br-5  text-white text-right" style="background-color: #151515;">
                                             <span class="fa fa-trophy fa-3x"></span>
                                                 <h6>Points</h6>
                                                 <h5>0</h5>
                                             </div>
                                         </div>
                                           <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body bg-info br-5  text-info text-right">
+                                            <div class="card-body br-5  text-info text-right" style="background-color: #151515;">
                                             @if(Sentinel::getUser()->account_type != 'vip')
                                                 <a href="#url" class="text-white"><span class="fa fa-cart-plus fa-2x p-3"></span>Upgrade my Account </a><br>
                                             @endif
@@ -859,7 +859,14 @@ li, p{
                                                             </span>
                                                         </small>       
                                                     <p class="pt-3 text-right">
-                                                        <a href="#"><span class="icon-note text-info px-3"></span></a> 
+                                                        <a href="/questions/{{$my_questions->id}}/edit"><span class="icon-note text-info px-3"></span></a>
+                                                        {!! Form::open(['action' => ['UserBlogController@destroy', $my_questions->id], 'method'=> 'POST', 'class' => 'btn']) !!}
+
+            {{Form::hidden('_method', 'DELETE')}} 
+
+        {{Form::Submit('Delete', ['class'=>'btn btn-danger']  )}}
+
+        {!! Form::close() !!} 
                                                         <a href="#"><span class="icon-trash text-danger px-3"></span></a>
                                                         <a href="#"><span class="icon-share text-danger px-1"></span></a>
                                                     </p>

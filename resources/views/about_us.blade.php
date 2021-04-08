@@ -50,8 +50,9 @@ About
             <div class="header-section text-center">
             <h1 class="text-dark text-center">StudPort Community </h1>
                 <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
-                <p>We build virtual learning communities from the traditional existing in-person institution that empower Students and connect them to solutions
-                    that enable academic growth, discovery, and success.</p>
+                  <p>We build virtual learning communities from the traditional existing in-person institution that empower Students and connect them to solutions
+                    that enable academic growth, discovery, and success.
+                  </p>
             </div>
 
             <div class="list-single-view mt-5">

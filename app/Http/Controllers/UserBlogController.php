@@ -142,14 +142,22 @@ class UserBlogController extends JoshController
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @param  Blog $blog
      * @return view
      */
     public function edit(Blog $blog)
     {
-        $blogcategory = BlogCategory::pluck('title', 'id');
-        return view('user_dashboard', compact('blog', 'blogcategory'));
+        //$blogcategory = BlogCategory::pluck('title', 'id');
+        //return  view('user_dashboard', compact('blog', 'blogcategory'));
+        //return Redirect::route('my-account');
+        //$blog = Blog::find($id);
+        if(Sentinel::getUser()->id !== $blog->user_id)
+        {
+            return view('questions.edit')->with('blog', $blog);
+        //return redirect('my-account')->with('error', 'You are not auhorised to Edit this Post');
+        }
+
+        return view('questions.edit')->with('blog', $blog);
     }
 
     /**
@@ -202,9 +210,9 @@ class UserBlogController extends JoshController
         $blog->retag($request->tags?$request->tags:'');
 
         if ($blog->update($request->except('content', 'image', 'files', '_method', 'tags'))) {
-            return redirect('admin/blog')->with('success', trans('blog/message.success.update'));
+            return redirect('my-account')->with('success', trans('blog/message.success.update'));
         } else {
-            return Redirect::route('admin/blog')->withInput()->with('error', trans('blog/message.error.update'));
+            return Redirect::route('my-account')->withInput()->with('error', trans('blog/message.error.update'));
         }
     }
 
@@ -230,15 +238,16 @@ class UserBlogController extends JoshController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Blog $blog
+     * @param  Blog $my_question
      * @return Response
      */
-    public function destroy(Blog $blog)
+    public function destroy(Blog $my_question)
     {
-        if ($blog->delete()) {
-            return redirect('admin/blog')->with('success', trans('blog/message.success.delete'));
+        $my_question->delete();
+        if ($my_question->delete()) {
+            return redirect('my-account')->with('success', 'Question deleted successfully');
         } else {
-            return Redirect::route('user_dashboard')->withInput()->with('error', trans('blog/message.error.delete'));
+            return Redirect::route('my-account')->withInput()->with('error', 'There was a problem deleting this question');
         }
     }
 
