@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Blog
+Academia
 @parent
 @stop
 

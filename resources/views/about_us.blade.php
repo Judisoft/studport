@@ -28,15 +28,15 @@ About
 @section('content')
 <!-- Container Section Strat -->
  <!--  Intro section -->
-  <section class="w3l-intro" id="intro">
-    <div class="new-block-about top-bottom" style="border-bottom: 5px solid #ffc107;">
+  <section class="w3l-get-started-index" id="intro">
+    <div class="new-block-about top-bottom">
       <div class="container">
         <div class="middle-section text-center">
           <div class="section-width mb-5">
-            <div class="cwp23-title">
-            <h2 class="text-center text-warning">Welcome to StudPort! </h2>
+            <div class="header-section">
+            <h1 class="text-center text-warning">Welcome to StudPort! </h1>
             <br>
-            <h5 class="text-center text-gray" style="font-weight: 400;">The No. 1 Portal for Academic Excellence in Cameroon!</h5>
+            <h5 class="text-center text-light" style="font-weight: 400;">The No. 1 Portal for Academic Excellence in Cameroon!</h5>
           </div>
           </div>
         </div>

@@ -605,9 +605,9 @@ li, p{
                                 <i class="livicon" data-name="calendar" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
                                                     </span>
                                                     @if($user->dob === '')
-                                                        {!!  Form::text('dob', null, ['id' => 'datepicker','class' => 'form-control'])  !!}
+                                                        {!!  Form::date('dob', null, ['class' => 'form-control'])  !!}
                                                 @else
-                                                        {!!  Form::text('dob', old('dob',$user->dob), ['id' => 'datepicker','class' => 'form-control', 'data-date-format'=> 'YYYY-MM-DD'])  !!}
+                                                        {!!  Form::date('dob', old('dob',$user->dob), ['class' => 'form-control', 'data-date-format'=> 'YYYY-MM-DD'])  !!}
                                                 @endif
                                             </div>
                                             <span class="help-block">{{ $errors->first('dob', ':message') }}</span>

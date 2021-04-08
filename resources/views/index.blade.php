@@ -13,9 +13,16 @@
     <!--end of page level css-->
 @stop
 <style>
-    p{
-        font-weight: 300 !important;
-    }
+p{
+    font-weight: 400 !important;
+}
+.icon-circle{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: var(--warning);
+  padding: 30px;
+}
 </style>
 <!--  Main banner section -->
 @section('content')
@@ -98,50 +105,48 @@
                 </div>
             </div>          
             <div class="row">
-                            <div class="col-lg-4 col-md-6 featured-service mb-5 pb-5">
-                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
-                                    <div class="feature-16-gd-info">
-                                        <p class="mt-4 mb-4">
-                                        <h4 class="text-primary float-left"><span class="fa fa-graduation-cap fa-2x px-3"></span></h4>
-                                        Scholarships & Study Abroad Programs
-                                        </p>                                    
+                            <div class="col-lg-4 col-md-6 featured-service">
+                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-nice-green shadow" style="border-radius: 5px !important;">
+                                    <div class="feature-16-gd-info icon-circle">
+                                        <h4 class="text-light float-left"><span class="fa fa-graduation-cap fa-2x px-3"></span></h4>
+                                         <h4 class="mt-4 mb-4">Scholarships & Study Abroad Programs</h4>                                  
                                     </div>
                                 </div>
                             </div>
                              <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
+                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-nice-green shadow" style="border-radius: 5px !important;"> 
                                 <div class="feature-16-gd-info">
-                                        <p class="mt-4 mb-4">
-                                            <h4 class="text-primary float-left"><span class="fa fa-users fa-2x px-3"></span></h4>
-                                            Student Mentorship and Entrepreneurship 
-                                        </p>
+                                            <h4 class="text-light float-left"><span class="fa fa-users fa-2x px-3"></span></h4>
+                                            <h4 class="mt-4 mb-4">Student Mentorship and Entrepreneurship</h4>
                                 </div>
                             </div>
                         </div>
                          <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
+                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-nice-green shadow" style="border-radius: 5px !important;">
                                 <div class="feature-16-gd-info">
-                                        <p class="mt-4 mb-4"><h4 class="text-primary float-left"><span class="fa fa-rocket fa-2x px-3"></span></h4>Student Admissions and Staff Recruitment Manager</p>
+                                        <h4 class="text-light float-left"><span class="fa fa-rocket fa-2x px-3"></span></h4>
+                                        <h4 class="mt-4 mb-4">Student Admissions and Staff Recruitment</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
         </div>
     </div>
+    <br>
 </section>
-<br>
+
 <!-- //subscribe -->
 <section class="w3l-get-started">
     <div class="new-block top-bottom">
         <div class="container">
             <div class="middle-section">
                 <div class="section-width">
-                    <h2 class="text-primary">StudPort Library & Bookshop <span class="text-white"><br></span></h2>
+                    <h2 class="text-warning">StudPort Library & Bookshop <span class="text-white"><br></span></h2>
                 </div>
                 <div class="link-list-menu">
                     <p class="mb-5" style="font-weight: 200;">Visit our E-Library and Bookshop with over 1000+ e-books and lecture notes available for downloads
-                    <a href="{{route('register')}}">Register</a> now and get access to StudPort Library</p>
-                    <a href="#" class="btn btn-outline-primary">Learn More</a>
+                    <a href="{{route('register')}}"><u>Register</u></a> now and get access to StudPort Library</p>
+                    <a href="#" class="btn btn-outline-warning">Learn More</a>
                 </div>
             </div>
         </div>
@@ -161,11 +166,11 @@
                 </div>
             </div>          
            <div class="row">
-                            <div class="col-lg-4 col-md-6 featured-service mb-5 pb-5">
+                            <div class="col-lg-4 col-md-6 featured-service">
                                 <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
                                     <div class="feature-16-gd-info">
                                         <p class="mt-4 mb-4">
-                                        <h4 class="text-primary float-left"><span class="fa fa-graduation-cap fa-2x px-3"></span></h4>
+                                        <img src="{{asset('images/scholarship.png')}}" style="height: 50px; width: 50px;">
                                         Scholarships & Study Abroad Programs
                                         </p>                                    
                                     </div>

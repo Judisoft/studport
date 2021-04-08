@@ -85,10 +85,10 @@
                 </div>
                 <div class="features-grids">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 featured-service">
+                        <div class="col-lg-4 col-md-6 featured-service mt-5 pt-5">
                             <div class="feature-16-gd shadow">
                                 <div class="feature-16-gd-info">
-                                    <p class="text-center text-primary" style="font-size: 28px;"><b>XAF 0/year</b></p>
+                                    <p class="text-center text-danger" style="font-size: 28px;"><b>XAF 0/year</b></p>
                                     <p class="mt-4 mb-2 text-center">Trial Account</p>
                                     <hr style="width: 100%;">
                                     <p><span class="fa fa-check float-left" style="color: #00bc8c;"></span>&nbsp; StudPort Account</p>
@@ -107,7 +107,7 @@
                         <div class="col-lg-4 col-md-6 featured-service">
                             <div class="feature-16-gd shadow">
                                 <div class="feature-16-gd-info">
-                                <p class="text-center text-primary" style="font-size: 28px;"><b>XAF 5,000/year</b></p>
+                                <p class="text-center text-blue" style="font-size: 28px;"><b>XAF 5,000/year</b></p>
                                     <p class="mt-4 mb-2 text-center" text-center>Premium Account</p>
                                     <hr style="width: 100%;">
                                     <p><span class="fa fa-check float-left" style="color: #00bc8c;"></span>&nbsp; StudPort Account</p>
@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 featured-service">
+                        <div class="col-lg-4 col-md-6 featured-service mt-5 pt-5">
                             <div class="feature-16-gd shadow">
                                 <div class="feature-16-gd-info">
                                 <p class="text-center text-primary" style="font-size: 28px;"><b>XAF 10,000/year</b></p>
@@ -148,7 +148,7 @@
         </div>
     </section>
                 <div class="header-section text-center mb-5 py-5">
-                    <small class="alert alert-warning"><sup class="text-danger">*</sup> Third party fee association, Student pays for third party fees </small>
+                    <small class="alert alert-info"><sup class="text-danger">*</sup> Third party fee association, Student pays for third party fees </small>
                 </div>
 
         <div class="w3l-services1 aboutbottom py-5 mt-5" style="background-color:#090909;">

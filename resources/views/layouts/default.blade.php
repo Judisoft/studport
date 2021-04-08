@@ -32,7 +32,7 @@
 </head>
 <style>
 h1,h2,h3,h4{
-    font-family: 'Roboto Slab', serif !important;
+    font-family: 'Roboto Slab', sans-serif !important;
 }
     .btn-nav{
         border-top-left-radius: 0;
@@ -66,6 +66,67 @@ h1,h2,h3,h4{
   border-radius: 2px;
   box-shadow: 0px 1px 10px #999;
 }
+.navbar input{
+    width: 400px;
+    height: 40px;
+    margin-left: 100px;
+    border: 1px solid #151515;
+    padding: 10px;
+    margin-top: 10px;
+    background-color:#f1f1f1;
+    outline: none;
+    -webkit-appearance: none;
+    font-size: 16px;
+    line-height: 26px;
+    border: 1px solid #EAECEE;
+    border-radius: 25px;
+    
+}
+
+@media (max-width: 992px) {
+  .navbar input {
+    width: 150px;
+    margin: auto;
+    margin-top: 10px; }} 
+
+@media (max-width: 800px) {
+  .navbar input {
+    width: 150px;
+    margin: auto;
+    margin-top: 10px; }} 
+
+@media (max-width: 480px) {
+  .navbar input {
+    width: 150px;
+    margin: auto;
+    margin-top: 10px; }} 
+
+@media (max-width: 440px) {
+  .navbar input {
+    width: 150px;
+    margin: auto;
+    margin-top: 10px; }} 
+
+@media (max-width: 667px) {
+  .navbar input {
+    width: 150px;
+    margin: auto;
+    margin-top: 10px; }} 
+
+@media (max-width: 384px) {
+  .navbar input {
+    width: 150px;
+    margin: auto;
+    margin-top: 10px; }} 
+
+.navbar input::placeholder {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400;
+    color: #151515;
+    opacity: 0.3;
+    text-align:center;
+}
+
 </style>
 
 <body>
@@ -78,6 +139,11 @@ h1,h2,h3,h4{
                 <a class="navbar-brand" href="{{route('home')}}">
                         <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px;" />
                 </a> 
+                <form action="#" method="GET">
+                    <input type="text" placeholder="Search StudPort">
+                    <button type="submit" class="btn btn-default pl-3" id="searchButton"><i class="fa fa-search text-gray"></i></button>
+                </form>
+                
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-radius: 2px;">
                         <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
@@ -96,7 +162,7 @@ h1,h2,h3,h4{
                                 <a class="nav-link text-capitalize" href="{{ route('services')}}">Services</a>
                             </li>
                             <li class="nav-item {!! (Request::is('blog') ? 'active' : '') !!}">
-                                <a class="nav-link text-capitalize" href="{{ route('blog') }}">Academic Forum</a>
+                                <a class="nav-link text-capitalize" href="{{ route('blog') }}">Academia</a>
                             </li>
                             <li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
                                 <a class="nav-link text-capitalize" href="{{ URL::to('contact') }}">Contact</a>
