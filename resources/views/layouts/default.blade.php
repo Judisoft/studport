@@ -22,7 +22,9 @@
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap" rel="stylesheet">
    
 
     <!-- page level css-->
@@ -33,6 +35,9 @@
 <style>
 h1,h2,h3,h4{
     font-family: 'Roboto Slab', sans-serif !important;
+}
+p{
+    font-family: 'Raleway', sans-serif !important;
 }
     .btn-nav{
         border-top-left-radius: 0;
@@ -126,7 +131,30 @@ h1,h2,h3,h4{
     opacity: 0.3;
     text-align:center;
 }
-
+br-5{
+    border-radius: 5px !important;
+}
+.circle-icon-info {
+    background: #17a2b8;
+    padding:10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.circle-icon-danger {
+    background: #dc3545;
+    padding:10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.circle-icon-success {
+    background: #6ECFB0;
+    padding:10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
 </style>
 
 <body>
@@ -135,9 +163,9 @@ h1,h2,h3,h4{
     <div class="hero-header-11">
         <div class="hero-header-11-content">
             <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: #151515;box-shadow: inset 0px -11px 3px -10px #ddd;">
+                <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: var(--dark);box-shadow: inset 0px -11px 1px -10px #ddd;">
                 <a class="navbar-brand" href="{{route('home')}}">
-                        <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px;" />
+                        <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px; float: left;" />
                 </a> 
                 <form action="#" method="GET">
                     <input type="text" placeholder="Search StudPort">
@@ -204,9 +232,15 @@ h1,h2,h3,h4{
         <div class="container pb-lg-3">
             <div class="row footer-top-29">
                 <div class="col-lg-4 col-md-6 footer-list-29 footer-1 mt-md-5">
-                    <h6 class="footer-title-29">Our Mission</h6>
-                    <p>Creating a gateway that leads to academic excellence
-                    </p>
+                    <h6 class="footer-title-29">Subscribe to Our Newsletter</h6>
+                    <p class="text-dark">Get instant access to our free library of resources</p>
+                    <form action="{{route('my-account')}}" method="POST" class="form-group">
+                                <div class="form-group mt-3">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                    <input type="email" name="email" placeholder="Your email here" class="form-control border-dark rounded-0" required>
+                                </div>
+                                <button type="submit" class="btn btn-info theme-button rounded-0">Subscribe</button>
+                        </form>
                 </div>
                 <div class="col-lg-2 col-md-6 footer-list-29 footer-2 mt-5">
                     <h6 class="footer-title-29">Explore More</h6>
@@ -221,28 +255,15 @@ h1,h2,h3,h4{
                 </div>
                 <div class="col-lg-4 col-md-6 footer-list-29 footer-3 mt-5">
                     <div class="properties">
-                        <h6 class="footer-title-29">Quick Reads</h6>
-                        <a class="d-grid twitter-feed" href="#blog-single.html">
-                            <img src="{{asset('images/g5.jpg')}}" class="img-fluid rounded" alt="">
-                            <p>Title <br>
-                                 Description<br>
-                                Tag 
-                            </p>
-                        </a>
-                        <a class="d-grid twitter-feed" href="#blog-single.html">
-                            <img src="{{asset('images/g5.jpg')}}" class="img-fluid rounded" alt="">
-                            <p>Title <br>
-                                Description<br>
-                                Tag 
-                            </p>
-                        </a>
-                        <a class="d-grid twitter-feed" href="#blog-single.html">
-                            <img src="{{asset('images/g5.jpg')}}" class="img-fluid rounded" alt="">
-                            <p>Title <br>
-                                 Description<br>
-                                Tag 
-                            </p>
-                        </a>
+                        <h6 class="footer-title-29">StudPort Market Place</h6>
+                        <ul>
+                            <li><a href="#">Bookshop</a></li>
+                            <li><a href="#">Advertise</a></li>
+                            <li><a href="#">Student Kits</a></li>
+                            <li><a href="#">Tutoring Jobs</a></li>
+                            <li><a href="#">Preparatory Classes</a></li>
+                            <li><a href="#">Consultancy</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 footer-list-29 footer-4 mt-5">

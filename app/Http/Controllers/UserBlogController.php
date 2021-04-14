@@ -113,8 +113,11 @@ class UserBlogController extends JoshController
             $destinationPath = public_path() . '/uploads/blog/';
             $file->move($destinationPath, $picture);
             $blog->image = $picture;
+            //$blog->doc_size = $request->file('image')->getSize();
+            
         }
         $blog->user_id = Sentinel::getUser()->id;
+        $blog->institution = Sentinel::getUser()->institution;
         $blog->save();
 
         $blog->tag($request->tags?$request->tags:'');
@@ -140,24 +143,17 @@ class UserBlogController extends JoshController
         return view('user_dashboard', compact('blog', 'comments', 'tags'));
     }
 
+
     /**
      * Show the form for editing the specified resource.
+     *
      * @param  Blog $blog
      * @return view
      */
     public function edit(Blog $blog)
     {
-        //$blogcategory = BlogCategory::pluck('title', 'id');
-        //return  view('user_dashboard', compact('blog', 'blogcategory'));
-        //return Redirect::route('my-account');
-        //$blog = Blog::find($id);
-        if(Sentinel::getUser()->id !== $blog->user_id)
-        {
-            return view('questions.edit')->with('blog', $blog);
-        //return redirect('my-account')->with('error', 'You are not auhorised to Edit this Post');
-        }
-
-        return view('questions.edit')->with('blog', $blog);
+        $blogcategory = BlogCategory::pluck('title', 'id');
+        return view('blog.edit', compact('blog', 'blogcategory'));
     }
 
     /**
@@ -210,11 +206,12 @@ class UserBlogController extends JoshController
         $blog->retag($request->tags?$request->tags:'');
 
         if ($blog->update($request->except('content', 'image', 'files', '_method', 'tags'))) {
-            return redirect('my-account')->with('success', trans('blog/message.success.update'));
+            return Redirect::route('my-account')->with('success', trans('blog/message.success.update'));
         } else {
             return Redirect::route('my-account')->withInput()->with('error', trans('blog/message.error.update'));
         }
     }
+
 
     /**
      * Remove blog.
@@ -238,7 +235,7 @@ class UserBlogController extends JoshController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Blog $my_question
+     * @param  Blog $blog
      * @return Response
      */
     public function destroy(Blog $my_question)

@@ -33,8 +33,11 @@ class BlogController extends JoshController
 
         $search = request()->query('search');
         if ($search) {
-         $blogs = Blog::where('title', 'LIKE', "%{$search}%")
+            $blogsInst = Blog::where('institution', 'LIKE', "%{$search}%");
+            $blogs = Blog::where('title', 'LIKE', "%{$search}%")
                                 ->orWhere('content', 'LIKE', "%{$search}%")
+                                ->union($blogsInst)
+                                ->latest()
                                 ->simplePaginate(5);
         $numberOfItems = count($blogs);
       
@@ -63,7 +66,7 @@ class BlogController extends JoshController
         //jobs
         $jobs = NewsAlias::orderBy('id', 'DESC')->get();
         // Show the page
-        return view('blog', compact('blogs', 'numberOfItems', 'tags', 'blogscategories', 'user', 'popular_questions', 'recent_questions', 'teachers', 'jobs'));
+        return view('blog', compact('blogs', 'numberOfItems', 'tags', 'blogscategories', 'user', 'popular_questions', 'recent_questions', 'teachers', 'jobs', 'user_institutions'));
     }
 
     /**
@@ -79,6 +82,7 @@ class BlogController extends JoshController
         $tutors = User::where('user_role', 'tutor')->get();
         $institutions = User::get('institution');
         $blogscategories = BlogCategory::all();
+        $related_questions = Blog::where('blog_category_id', $blog->blog_category_id)->latest()->simplePaginate(10);
         //$related_questions = Blog::select('title')->where('', $slug)
         if ($blog) {
             $blog->increment('views');
@@ -86,7 +90,7 @@ class BlogController extends JoshController
             abort('404');
         }
         // Show the page
-        return view('blogitem', compact('blog', 'user_email', 'blogscategories', 'user', 'tutors', 'institutions'));
+        return view('blogitem', compact('blog', 'user_email', 'blogscategories', 'user', 'tutors', 'institutions', 'related_questions'));
     }
 
     /**

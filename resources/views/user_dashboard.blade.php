@@ -77,22 +77,18 @@ li, p{
     font-size: 12px;
 }
 .list-item1 a{
-    font-family: "Open Sans ", Sans-Serif;
-    font-size: 12px;
+    display: block;
+    font-size: 14px;
     color: #2D2E2E;
     padding: 10px;
 }
-.list-item1 a:hover{
-    background-color: #CCD1D1;
-    border-radius: 20px;
-    
-   
-    
+  
 }
 .list-item1 a:not[href]{
     color: #2D2E2E;
     
 }
+
 .avatar{
     border-bottom: 1px solid #D5DDE6;
     text-align: center  !important;
@@ -251,7 +247,9 @@ li, p{
     background-color: #11AF35;
     &:hover { background-color: lighten($btn_lightBlue, 8%);
   }
-
+.bg-dashboard{
+    background-color: #B8B8B8 !important;
+}
 
 </style>
 <div class="container-fluid " style="overflow-x: hidden;">
@@ -260,7 +258,7 @@ li, p{
                     <!-- Nav Nav-tabs Start -->
     <section>
                             <div class="row" style="background-color: #FBFBFB; margin-right: 5px;">
-                            <div class="col-lg-3 col-md-3 col-12"  style="border-right: 1px solid #ddd;">
+                            <div class="col-lg-3 col-md-3 col-12"  style="border-right: 2px solid #ddd; background-color: #eee;">
                                         <div class="ml-auto">     
                                             <div class="card-body">
                                                 <div class="box1 text-dark text-center mt-2">
@@ -286,7 +284,7 @@ li, p{
                                             <ul class="nav" style="font-weight: 500 !important; text-transform: !important;">
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_1" data-toggle="tab" class="nav-link">
-                                                <i class="livicon px-2" data-name="dashboard" data-size="28" data-c="#2D2E2E" data-hc="#2D2E2E" data-loop="false" data-animate="false"></i>User Dashboard</a>
+                                                <i class="icon-grid fa-2x px-2" ></i>User Dashboard</a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_2" data-toggle="tab" class="nav-link">
@@ -334,38 +332,41 @@ li, p{
                                         <!-- Tab-content Start -->
                             <div class="tab-content">
                                 <div class="tab-pane" id="tab_default_1">
-                                 <h5 class="text-dark text-left pt-3">
-                                        My Dashboard</h5>
-                                        <hr>
+                                <div class="card card-body bg-transparent border-0 mt-2">
+                                 <div class="text-right">
+                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i> Dashboard</div>
+                                </div>
                                     <div>
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body br-5  text-white text-right" style="background-color: #151515;">
+                                            <div class="card-body bg-index  text-light text-right shadow">
                                                 <span class="fa fa-users fa-3x"></span>
                                                 <h6>Study Groups</h6>
-                                                <h5>0</h5>
+                                                <h3>0</h3>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body br-5  text-white text-right" style="background-color: #151515;">
+                                            <div class="card-body bg-index  text-light text-right shadow" style="background-color: #C70039;">
                                             <span class="fa fa-trophy fa-3x"></span>
                                                 <h6>Points</h6>
-                                                <h5>0</h5>
+                                                <h3>0</h3>
                                             </div>
                                         </div>
                                           <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body br-5  text-info text-right" style="background-color: #151515;">
+                                            <div class="card-body bg-index  text-light text-right">
                                             @if(Sentinel::getUser()->account_type != 'vip')
-                                                <a href="#url" class="text-white"><span class="fa fa-cart-plus fa-2x p-3"></span>Upgrade my Account </a><br>
+                                                <a href="#url" class="text-white"><span class="fa fa-cart-plus fa-3x p-3"></span>Upgrade my Account </a><br>
                                             @endif
                                                 <h6 class="text-capitalize text-white mt-2">{{Sentinel::getUser()->account_type}} account</h6>
+                                                
                                             </div>
                                         </div>
             <div class="aboutbottom mt-5">
             <div class="container py-lg-3 text-center"  style="background-color: #FBFBFB; border-radius: 3px;">
                 <div class="bottomgrids row no-gutters">
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2 text-settings">
-                        <div class="card-body bg-secondary br-5  text-white">
+                        <div class="card-body bg-primary text-white shadow">
                         <i class="icon-question fa-3x py-3"></i>
                         <h6>Questions Asked</h6>
                         <br>
@@ -373,7 +374,7 @@ li, p{
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2 text-settings">
-                        <div class="card-body bg-info br-5  text-white">
+                        <div class="card-body bg-warning  text-white shadow">
                         <i class="icon-cloud-download fa-3x py-3"></i>
                         <h6>Downloads</h6>
                         <br>
@@ -381,7 +382,7 @@ li, p{
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
-                        <div class="card-body bg-success br-5  text-white">
+                        <div class="card-body bg-primary text-white shadow">
                         <i class="icon-speech fa-3x py-3"></i>
                         <h6>Answers Provided</h6>
                         <br>
@@ -389,7 +390,7 @@ li, p{
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
-                        <div class="card-body bg-primary br-5  text-white">
+                        <div class="card-body bg-warning text-white shadow">
                         <span class="fa fa-database fa-3x py-3"></span>
                         <h6>Disk Usage</h6>
                         <br>
@@ -397,7 +398,7 @@ li, p{
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2 mt-0">
-                        <div class="card-body bg-info br-5  text-white pt-3">
+                        <div class="card-body bg-info text-white pt-3 shadow">
                         <span class="fa fa-file-alt fa-3x py-3"></span>
                         <h6>Books & Courses Requested</h6>
                         <br>
@@ -405,7 +406,7 @@ li, p{
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
-                        <div class="card-body bg-secondary br-5  text-white">
+                        <div class="card-body bg-success text-white shadow">
                         <span class="fa fa-dollar fa-3x py-3"></span>
                         <h6>Subscriptions</h6>
                         <br>
@@ -421,9 +422,12 @@ li, p{
                                 </div>
                                 <div class="tab-pane fade" id="tab_default_2">
                             
-                                <div class=" ml-5 mr-5 pt-3">
-                                <h5>Account Settings</h5>
-                                <hr>
+                                <div class=" ml-5 mr-5">
+                                <div class="card card-body bg-transparent border-0 mt-2">
+                                  <div class="text-right">
+                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i> Account Settings</div>
+                                </div>
                                 <div class="card card-body alert-info">
                                     <b><span class="fa fa-address-card fa-2x px-3"></span>PERSONAL INFORMATION</b>
                                 </div>
@@ -738,9 +742,12 @@ li, p{
                                     <!--main content-->
                                     <div class="row">
                                         <div class="col-12">
-                                        <div class="p-3">
-                                        <h5 class="text-dark text-left">Post Question</h5>
-                                        <hr>
+                                        <div>
+                                        <div class="card card-body bg-transparent border-0 mt-2">
+                                        <div class="text-right">
+                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i>Post Question</div>
+                                        </div>
                                         <div class="card card-body">
                                                 {!! Form::open(['action' => 'UserBlogController@store', 'method' => 'post', 'class' => 'bf', 'files'=> true,])!!}
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -803,13 +810,12 @@ li, p{
                                                 {!! Form::close() !!}
                                             </div>
                                             </div>
-                                            <div class="card-body alert alert-info mt-3">
-                                            <h6 class="mt-0"><span class="fa fa-info-circle fa-2x px-2"></span>Tips on how to Post a good question</h6>
-                                            <hr>
+                                            <div class="card-body border-0 mt-3">
+                                            <h6 class="mt-0"><span class="fa fa-info-circle fa-2x px-2"></span>Tips on how to Ask a good question</h6>
                                             <ul class="list-group list-group-flush mt-3">
-                                                <li class="list-group-item-info">Be concise</li>
-                                                <li class="list-group-item-info">Add a reference if it exists</li>
-                                                <li class="list-group-item-info"></li>
+                                                <li class="list-group-item">Be concise</li>
+                                                <li class="list-group-item">Add a reference if it exists</li>
+                                                <li class="list-group-item"></li>
                                             </ul>
                                             </div>
                                         </div>
@@ -830,8 +836,11 @@ li, p{
                                     <!-- Tabbablw-line Start -->
                                     <div class="pt-3">
                                         <!-- Nav Nav-tabs Start -->
-                                        <h5>My Questions</h5>
-                                        <hr>
+                                        <div class="card card-body bg-transparent border-0 mt-2">
+                                            <div class="text-right">
+                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i> My Questions</div>
+                                        </div>
                                         <div>
                             <!-- //Nav Nav-tabs End -->
                             <!-- Tab-content Start -->
@@ -859,16 +868,9 @@ li, p{
                                                             </span>
                                                         </small>       
                                                     <p class="pt-3 text-right">
-                                                        <a href="/questions/{{$my_questions->id}}/edit"><span class="icon-note text-info px-3"></span></a>
-                                                        {!! Form::open(['action' => ['UserBlogController@destroy', $my_questions->id], 'method'=> 'POST', 'class' => 'btn']) !!}
-
-            {{Form::hidden('_method', 'DELETE')}} 
-
-        {{Form::Submit('Delete', ['class'=>'btn btn-danger']  )}}
-
-        {!! Form::close() !!} 
-                                                        <a href="#"><span class="icon-trash text-danger px-3"></span></a>
-                                                        <a href="#"><span class="icon-share text-danger px-1"></span></a>
+                                                        <a href="{{ URL::to('admin/blog/' . $my_questions->id . '/edit' ) }}"><span class="icon-note text-light circle-icon-info"></span></a>
+                                                        <a href="{{ route('admin.blog.confirm-delete', $my_questions->id) }}" data-toggle="modal" data-id="{{$my_questions->id }}" data-target="#delete_confirm"><span class="icon-trash text-light circle-icon-danger"></span></a>
+                                                        <a href="#"><span class="icon-share text-light circle-icon-success"></span></a>
                                                     </p>
                                                 </div><br>
                                     @empty
@@ -893,6 +895,11 @@ li, p{
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-12">
                                         <div>
+                                          <div class="card card-body bg-transparent border-0 mt-2">
+                                            <div class="text-right">
+                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i> Study Resources</div>
+                                        </div>
                                         <div class="card-body">
                                     <br>
                                             <h5 class="text-center text-dark" style="font-weight: 600; font-size: 48px; left: 50%; padding-top: 20px;">
@@ -902,10 +909,10 @@ li, p{
                                                                             <!-- Search bar -->
                                             <div class="form-group input-group">
                                                 <form class="input-group" action="#" method="GET">
-                                                    <input type="text" class="form-control text-gray" name="search" value="{{request()->query('search')}}" placeholder="Search Books: by title, author, subject/course,..." style="font-size: 16px !important;">
+                                                    <input type="text" class="form-control text-gray" name="searchLibrary" value="{{request()->query('searchLibrary')}}" placeholder="Search Books: by title, author, subject/course,..." style="font-size: 16px !important; width: 50% !important; height: 50px;">
                                                         <div class="input-group-append">
                                                             <span class="input-group-btn input-group-append">
-                                                                <button class="btn btn-warning input-group-text image_radius" type="submit">
+                                                                <button class="btn btn-secondary btn-block input-group-text image_radius" type="submit">
                                                                     <i class="fa fa-search"></i>
                                                                 </button>
                                                             </span>
@@ -913,52 +920,90 @@ li, p{
                                                 </form>
                                             </div>
                                             <br>
-                                        <!-- End Search bar -->
-                                            <div class="card">
-                                            <div class="card-header" style="padding: 30px;"><b>Didn't find what you're looking for? </b><button id="show" class="btn  btn-xs btn-xs float-right"><span class="fa fa-chevron-down"></span></button>
-                                                        <button id="hide" class="btn btn-xs btn-xs float-right"><span class="fa fa-chevron-up"></span></button>
+                                <div class="row">
+                                    <div class="col-sm-9 col-md-9 col-lg-9 col-12">
+                                        @if(request()->query('searchLibrary'))
+                                            <p>Showing Search results for <em class="text-blue"><b>{{request()->query('searchLibrary')}}</b></em></p>
+                                            <hr>
+                                            @forelse($books as $book)
+                                                <div class="card mt-3 mb-3 border-0">
+                                                <div class="card-header border-0">
+                                                <p>{{$book->title}}</p>
+                                                </div>
+                                                <div class="card-body bg-transparent border-0">
+                                                    <a href="#url" class="zoom d-block">
+                                                    <img src="{{asset('images/g5.jpg')}}" class="card-img-bottom d-block p-3" style="width: 200px; height: auto; float: left;">
+                                                    </a>
+                                                    <div class="course-title">
+                                                        <a href="#url">Course Title</a>
                                                     </div>
-                                                    <div class="card-body" id="p1">
-                                                    <h4 class="alert-warning p-5" style="border-radius: 5px;">Send a Request and we'll send you the resource  by e-mail @if(Sentinel::check()) to {{$user->email}} @endif </h4>
+                                                    <p>{{$book->description}}</p>
+                                                </div>
+                                                <div class="card-footer border-0 bg-transparent">
+                                                    <ul class="blog-list">
+                                                        <li>
+                                                        <a href="#url" class="text-dark"><span class="fa fa-user px-2"></span>{{$book->author}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                </div>
+                                                @empty
+                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>We're Sorry!</strong> No book found that matches {{request()->query('searchLibrary')}}
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                </div>
+                                                <div class="mt-3"><h5 class="text-dark" style="font-weight: 600; font-size: 36px; left: 50%; padding-top: 20px;">
+                                                    &nbsp; Send Book Request</h5>
+                                                </div>
+                                                <div class="card-body" id="p1">
                                                     <br>
                                                         {!! Form::open(['action' => 'BooksController@store', 'method' => 'post', 'class' => 'bf',
                                         'files'=> true]) !!}
 
                                             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                                {!! Form::text('title', null, ['class' => 'form-control input-lg', 'placeholder'=>'Book/Course title']) !!}
+                                                {!! Form::text('title', null, ['class' => 'form-control input-lg rounded-0', 'placeholder'=>'Book/Course title']) !!}
                                                 <span class="help-block">{{ $errors->first('title', ':message') }}</span>
                                             </div>
                                             <div class="form-group {{ $errors->has('author') ? 'has-error' : '' }}">
-                                                {!! Form::text('author', null, ['class' => 'form-control input-lg', 'placeholder'=>'Author/Teacher']) !!}
+                                                {!! Form::text('author', null, ['class' => 'form-control input-lg rounded-0', 'placeholder'=>'Author/Teacher']) !!}
                                                 <span class="help-block">{{ $errors->first('author', ':message') }}</span>
                                             </div>
                                               <div class="form-group {{ $errors->has('telephone') ? 'has-error' : '' }}">
-                                                {!! Form::text('telephone', null, ['class' => 'form-control input-lg', 'placeholder'=>'Telephone']) !!}
+                                                {!! Form::text('telephone', null, ['class' => 'form-control input-lg rounded-0', 'placeholder'=>'Telephone']) !!}
                                                 <span class="help-block">{{ $errors->first('telephone', ':message') }}</span>
                                             </div>
                                             <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
-                                                {!! Form::textarea('description', null, ['class' => 'form-control input-lg', 'style'=>'height: 100px', 'placeholder'=>'Brief description of what you want']) !!}
+                                                {!! Form::textarea('description', null, ['class' => 'form-control input-lg rounded-0', 'style'=>'height: 100px', 'placeholder'=>'Brief description of what you want']) !!}
                                                 <span class="help-block">{{ $errors->first('description', ':message') }}</span>
                                             </div>
                                             <div class="form-group text-center" >
-                                                <button type="submit" class="btn btn-primary theme-button" value="submit">
-                                                    Submit 
+                                                <button type="submit" class="btn btn-success theme-button" value="submit">
+                                                    Send Request 
                                                 </button>
                                             </div>
                                             {!! Form::close() !!}
                                         </div>
 
-                                        </div>
-                                                 
-                                        </div>
-                                        </div>
-                                        </div>
-                                        <!-- //Request Section End -->
+                                            @endforelse
+                                        @endif
+                                    </div>
+                                </div>      
+                                        <!-- End Search bar -->           
+                                </div>
+                            </div>
+                        </div>
+                                    <!-- //Request Section End -->
                                     </div>
                                 </div>
                                 <div class="tab-pane " id="tab_default_6">
                                     <div>
-                                    <br>
+                                    <div class="card card-body bg-transparent border-0 mt-2">
+                                            <div class="text-right">
+                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i> Tutoring Jobs</div>
+                                    </div>
                                     @forelse ($news as $job)
                                                 <div class="card-body" style="background-color:#F6F8FA; border:none;">
                                                     <h6 class="text-left text-danger">SSN{{$job->id}}: {{$job->title}}</h6> 
@@ -968,7 +1013,7 @@ li, p{
                                                     <br>
                                                         <small class="text-gray">
                                                                 <span class="additional-post px-2">
-                                                                <a> <span class="icon-calendar px-2"></span>Published on the &nbsp;{{$job->created_at->diffForHumans()}}</a>
+                                                                <a> <span class="icon-calendar px-2"></span>Published  &nbsp;{{$job->created_at->diffForHumans()}}</a>
                                                                 </span>|
                                                                 <span class="additional-post px-2">
                                                                 <a> <span class="fa fa-map-marker-alt"></span>&nbsp;{{$job->location}}</a>
@@ -981,8 +1026,8 @@ li, p{
                                                                 </span>
                                                         </small>       
                                                     <p class="pt-3 text-right">
-                                                        <a href="#" class="text-info"><span class="icon-note px-3"></span>Apply</a>&nbsp;| 
-                                                        <a href="#" class="text-info"><span class="icon-share text-info px-1"></span>share</a>
+                                                        <a href="#" class="text-light" data-toggle="tooltip" data-placement="top" title="apply"><span class="icon-note circle-icon-info"></span></a>&nbsp; 
+                                                        <a href="#" class="text-light" data-toggle="tooltip" data-placement="bottom" title="share"><span class="icon-share circle-icon-success"></span></a>
                                                     </p>
                                                 </div><br>
                                             @empty
@@ -995,6 +1040,11 @@ li, p{
                                 </div>
                                 <div class="tab-pane " id="tab_default_7">
                                     <div class="pt-3">
+                                    <div class="card card-body bg-transparent border-0 mt-2">
+                                            <div class="text-right">
+                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i> Online Tutors</div>
+                                    </div>
                                     @forelse($teachers as $teacher)
                                     @if(@count($teacher) > 0)
                                     <div class="card-body" style="background-color:#F6F8FA; border:none;">
@@ -1013,7 +1063,7 @@ li, p{
                                                                 <a> <span class="fa fa-user px-2"></span>Tutor's Profile</a>
                                                                 </span>
                                                                 <span class="additional-post">
-                                                                <a> <span class="fa fa-envelope px-2"></span>Message Tutor</a>
+                                                                <a href="{{URL::to('user_emails/compose')}}" class="text-gray"> <span class="fa fa-envelope px-2"></span>Message Tutor</a>
                                                                 </span>
                                                                 <span class="additional-post">
                                                                 <a> <span class="fa fa-book px-2"></span>{{$teacher->department}}</a>
@@ -1040,19 +1090,23 @@ li, p{
                     <div class="row">
                         <div class="col-lg-12 col-12">
                         <div>
+                        <div class="card card-body bg-transparent border-0 mt-2">
+                                            <div class="text-right">
+                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i> Examination Resources</div>
+                        </div>
                         <div class="card-body">
-                            
-                                <div class="alert alert-info text-settings">
+                                <div class="alert alert-dark text-settings border-0">
                                     <span  class="text-uppercase text-center">
                                     <b><span class="fa fa-institution px-3"></span>{{Sentinel::getUser()->institution}} <span class="fa fa-angle-double-right px-3"></span>Department of  {{Sentinel::getUser()->department}} @if(request()->search) <span class="fa fa-angle-double-right px-3"></span> {{request()->search}} @endif</b>
                                     </span>
                                 </div>
-                            <div class="mt-3">
+                            <div class="mt-5">
                             <h5 class="text-center text-dark" style="font-weight: 600; font-size: 40px; left: 50%; padding-top: 20px;">
                                             &nbsp; Past Examination Questions</h5>
                             <p style="text-align: center; padding-bottom: 20px;"><small>Select a course to get past questions for that course</small></p>
                                             <form class="input-control" action="{{route('my-account')}}" method="GET">
-                                                <select type="text" class="form-control text-capitalize" name="search" value="{{request()->query('search')}}" style="border-radius: 5px;">
+                                                <select type="text" class="form-control text-capitalize" name="search" value="{{request()->query('search')}}" style="border-radius: 10px; height: 50px;">
                                                         <option value=""> Select Course </option>
                                                     @foreach($course_title as $course)
                                                         <option value="{{$course->title}}"> {{$course->title}} </option>
@@ -1137,7 +1191,38 @@ li, p{
 <script src="{{ asset('js/pages/custom_sweetalert.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendors/sortablejs/js/Sortable.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/pages/sortable_list.js') }}" type="text/javascript"></script>
-
+<div class="modal fade" id="delete_confirm" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteLabel">Delete Question</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to delete this question? This operation is irreversible.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary theme-button" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;
+                    <a  type="button" class="btn btn-danger theme-button Remove_square">Delete</a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
+<script>
+$(function () {
+	$('body').on('hidden.bs.modal', '.modal', function () {
+		$(this).removeData('bs.modal');
+	});
+});
+var $url_path = '{!! url('/') !!}';
+$('#delete_confirm').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget)
+    var $recipient = button.data('id');
+    var modal = $(this)
+    modal.find('.modal-footer a').prop("href",$url_path+"/admin/blog/"+$recipient+"/delete");
+})
+</script>
 <script>
     $('body').on('hidden.bs.modal', '.modal', function () {
         $(this).removeData('bs.modal');

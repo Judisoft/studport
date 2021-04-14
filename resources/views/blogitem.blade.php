@@ -127,6 +127,14 @@
         text-align: center;
     }
 }
+.list-group-item a{
+    color: red;
+}
+.list-group-item a:hover{
+    color: red !important;
+    text-decoration: underline;
+}
+
 
 </style>
 
@@ -136,27 +144,19 @@
     <section class="container blogpage">
         <div class="row">
             <div class="ml-auto col-md-3 col-lg-3 col-12" style="padding: 15px;border-right: 1px solid #ddd;">
-                    <div class="list-item1">
-                        <div class="box1 text-dark mt-2"><h6><i class="fa fa-braille px-2"></i>STUDPORT</h6><hr> </div>
-                        <h6><a href="#" class="text-gray"><i class="fa fa-tag px-2"></i>Tags &nbsp;&nbsp;&nbsp;&nbsp;</a></h6><br>
-                        <h6><a href="#" class="text-gray"><i class="fa fa-university px-2"></i>Institutions</a></h6><br>
-                        <h6><a href="#" class="text-gray"><i class="fa fa-users px-2"></i>Users</a></h6><br>
-                        <h6><a href="#" class="text-gray"><i class="fa fa-file px-2"></i>Courses</a></h6><br>
-                        <h6><a href="#" class="text-gray"><i class="fa fa-comments px-2"></i>Study Groups</a></h6><br>
-                    </div>
-                      <div class="list-item1">
-                        <div class="box1 text-dark mt-2"><h6><i class="fa fa-braille px-2"></i>RELATED QUESTIONS</h6><hr> </div>
-                        <h6><a href="#" class="text-gray"><i class="fa fa-tag px-2"></i>Tags &nbsp;&nbsp;&nbsp;&nbsp;</a></h6><br>
-                        <h6><a href="#" class="text-gray"><i class="fa fa-university px-2"></i>Institutions</a></h6><br>
-                        <h6><a href="#" class="text-gray"><i class="fa fa-users px-2"></i>Users</a></h6><br>
-                        <h6><a href="#" class="text-gray"><i class="fa fa-file px-2"></i>Courses</a></h6><br>
-                        <h6><a href="#" class="text-gray"><i class="fa fa-comments px-2"></i>Study Groups</a></h6><br>
-                    </div>
+                        <div class="box1 text-dark mt-2"><h6><i class="fa fa-code-branch px-2"></i>RELATED QUESTIONS</h6><br> </div>
+                        <ul class="list-group">
+                        @foreach ($related_questions as $related_question)
+                            <li class="list-group-item bg-transparent border-0"><a href="{{ URL::to('blogitem/'.$related_question->slug) }}">{!! $related_question->content !!}</a></li>
+                        @endforeach
+                    </ul>
+
+                <div class="mt-3">{!! $related_questions->links() !!}</div>
             </div>
             <div class="col-md-9 col-lg-9 col-12">
                     <div class="pt-5 thumbnail">
                 <div>
-                        <div class="text-center"">
+                        <div class="text-center">
                              <h5 class="text-capitalize"> {!! $blog->content !!}</h5>
                         </div>
                         <div class="thumbnail" style=" padding-bottom: 50px;">
@@ -265,30 +265,27 @@
                                     </div>
                                 @endif
 
-                                <div class="form-group {{ $errors->has('comment') ? 'has-error' : '' }}">
-                                    {!! Form::textarea('comment', null, ['class' => 'text-area form-control', 'row'=>'5', 'placeholder'=>'Your Answer','id'=>'textarea', 'style'=>'min-height: 200px !important; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
+                                <div class="box-body pad form-group {{ $errors->has('comment') ? 'has-error' : '' }}">
+                                    {!! Form::textarea('comment', null, ['class' => 'text-area form-control', 'row'=>'5', 'placeholder'=>'Your Answer','id'=>'textarea', 'style'=>'height: 200px !important; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
                                     <span class="text-danger"><small>{{ $errors->first('comment', ':message') }}</small></span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group text-right">
                                 @if(Sentinel::check())
-                                    <button type="submit" class="btn btn-favorite theme-button">
+                                    <button type="submit" class="btn btn-success theme-button">
                                         Submit  Answer
                                     </button>
                                 @endif
                                   @if(Sentinel::guest())
                                     <div class="form-group">
-                                    <button type="submit" class="btn btn-info theme-button disabled not-allowed" onclick="return false;">
+                                    <button type="submit" class="btn btn-info theme-button disabled not-allowed" onclick="return false;" data-toggle="tooltip" data-placement="top" title="You have to be logged in to Post and answer" >
                                         Submit  Answer
                                     </button><br>
-                                      <h6 class="px-2 py-5">You have to be Signed in to contribute an answer. <a href="{{ URL::to('login') }}">Sign In</a><br>
-                                      <br> Don't have an account? <a href="{{ URL::to('register') }}">Sign Up here</a></h6>
-                                    </div>
                                 @endif
                                 {!! Form::close() !!}
                         </div>
                         </div>
                         <!-- //Media left section End -->
-                                <div class="alert alert-info shadow mt-3 p-2" style="margin: auto; overflow-x: hidden;">
+                                <div class="alert alert-info  mt-3 p-2" style="margin: auto; overflow-x: hidden;">
                                     <h5> Can't answer this question? </h5> 
                                     <hr>
                                     Copy this link:<a href="{{url()->current()}}" style="color: #19A0EE; text-decoration: underline;"> {{url()->current()}}</a> and <a href="{{URL::to('user_emails/compose')}}" style="text-decoration: underline;"> Send <span class="fa fa-external-link-alt"></span></a> to a teacher or someone who can answer</p>

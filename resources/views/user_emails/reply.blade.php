@@ -37,8 +37,7 @@
     <!-- Main content -->
     <section class="content pr-3 pl-3">
         <div class="row web-mail">
-            <div class="col-xl-2 col-md-3 col-sm-4 web-mail" style="background-color: #e9ecef;">
-            <div style="height: 30px;"> </div>
+            <div class="col-xl-2 col-md-3 col-sm-4 web-mail p-3" style="background-color: #e9ecef;">
                 <div class="whitebg1">
                     <ul class="web-mail1">
                         <li class="compose">
@@ -103,12 +102,12 @@
                                 </div>
                             </div>
                             <div class="col-xs-12">
-                               <button type="submit" class="btn btn-sm  btn-success btn_margin_top">
+                               <button type="submit" class="btn btn-sm  btn-secondary btn_margin_top">
                                     <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                     Send
                                 </button>
 
-                                <a href="#" class="btn btn-sm btn-primary btn_margin_top text-white">
+                                <a href="#" class="btn btn-sm btn-secondary btn_margin_top text-white">
                                     <i class="fa fa-archive" aria-hidden="true"></i>
                                     Draft
                                 </a>

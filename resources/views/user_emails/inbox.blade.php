@@ -16,10 +16,10 @@
 
 {{-- Page content --}}
 @section('content')
-    <aside class="right-aside">
+    <aside class="right-aside" style="background-color: #D5DDE6; padding: 25px;">
     <!-- Content Header (Page header) -->
         <!-- Content Header (Page header) -->
-        <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
+        <div class="container-fluid my-3">
             <h5 style="color: #2C3E50;"> <span class="fa fa-inbox" aria-hidden="true"></span>
                                  &nbsp;Inbox</h5>
             <hr>
@@ -35,8 +35,7 @@
     <!-- Main content -->
     <section class="content pl-3 pr-3">
         <div class="row web-mail">
-             <div class="col-xl-2 col-md-3 col-sm-4 web-mail" style="background-color: #e9ecef;">
-            <div style="height: 30px;"> </div>
+             <div class="col-xl-2 col-md-3 col-sm-4 web-mail p-3" style="background-color: #e9ecef;">
                 <div class="whitebg1">
                     <ul>
                         <li class="compose">

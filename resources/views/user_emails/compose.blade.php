@@ -16,7 +16,7 @@
 
 {{-- Page content --}}
 @section('content')
-    <aside class="right-aside">
+    <aside class="right-aside" style="background-color: #D5DDE6; padding: 25px;">
     <!-- Content Header (Page header) -->
         <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
             @if (isset($email_not_found))
@@ -41,8 +41,7 @@
     <!-- Main content -->
     <section class="content pr-3 pl-3" >
         <div class="row web-mail">
-            <div class="col-xl-2 col-md-3 col-sm-4 web-mail" style="background-color: #e9ecef;">
-            <div style="height: 30px;"> </div>
+            <div class="col-xl-2 col-md-3 col-sm-4 web-mail p-3" style="background-color: #e9ecef;">
                 <div class="whitebg1">
                     <ul>
                         <li class="compose">
@@ -83,7 +82,7 @@
                             <div class="compose">
                                 <div class="form-group  {{ $errors->first('email_id', 'has-error') }}">
                                     <label class="col-xs-2 control-label hidden-xs" for="email_id">To:</label>
-                                    <div class="col-xs-9">
+                                    <div class="col-xs-9" sytle="overflow-x: hidden;">
                                         <select class="form-control select_email" name="email_id" id="email_id">
                                             <option></option>
                                             @foreach($existing_emails as $existing_email)

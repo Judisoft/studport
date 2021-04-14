@@ -2,25 +2,28 @@
 
 {{-- Page title --}}
 @section('title')
-subscription
-@parent
+    Subscription |
+    @parent
 @stop
+
 {{-- page level styles --}}
 @section('header_styles')
-<!--page level css starts-->
-<!--end of page level css-->
+    <!--page level css starts-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+    <!--end of page level css-->
 @stop
 {{-- Page content --}}
 @section('content')
-<!-- contact form -->
-<section class="w3l-contacts-12" id="contact">
-    <div class="container py-5">
-        <div class="card">
-            <div class="card-header bg-black text-center p-4" style="border-bottom: 5px solid #ffc107;">
-                <h3 class="text-warning"><span class="fa fa-cart-plus fa-2x px-3"></span>SUBSCRIPTION</h3>
-            </div>
-            <div class="card-body">
-            <form action="#" method="POST" enctype="multipart/form-data">
+<section class="w3l-get-started-index" style="background-color: #F0F5F7 !important; min-height: 400px;">
+    <div class="new-block top-bottom">
+        <div class="container">
+            <div class="middle-section">
+                <div class="header-section text-center mb-4 p-5">
+                    <h5 class="text-dark text-left"><span class="icon-wallet fa-5x px-2" style="opacity: 0.1;"></span> Subscription</h5>
+                    <hr style="opacity: 0.5;">
+                    <form action="#" method="POST" enctype="multipart/form-data">
                         @csrf
                 <div class="main-input">
                 <input type="text" name="name" placeholder="Full Name" class="form-control" required="" />
@@ -47,15 +50,13 @@ subscription
                     <button class="btn theme-button btn-warning">Subscribe</button>
                 </div>
             </form>
-            </div>
+                </div>
+            </div>          
         </div>
-    </div>
+    <br>
 </section>
-@stop
-<!-- //contact form -->
-@section('footer_scripts')
-{{-- page level scripts --}}
-    <!-- page level js starts-->
 
-    <!--page level js ends-->
+
 @stop
+
+

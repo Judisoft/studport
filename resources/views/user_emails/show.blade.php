@@ -15,7 +15,7 @@
 
 {{-- Page content --}}
 @section('content')
-    <aside class="right-aside">
+    <aside class="right-aside" style="background-color: #D5DDE6; padding: 25px;">
         <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
             <h5 style="color: #2C3E50;"> <i class="fa fa-envelope" aria-hidden="true"></i>
                                  &nbsp;Message(s)</h5>
@@ -23,8 +23,7 @@
     <!-- Main content -->
     <section class="content pl-3 pr-3">
         <div class="row web-mail">
-            <div class="col-lg-3 col-xl-2 col-md-3 col-sm-4" style="background-color: #e9ecef;">
-            <div style="height: 30px;"> </div>
+            <div class="col-lg-3 col-xl-2 col-md-3 col-sm-4 p-3" style="background-color: #e9ecef;">
                 <div class="whitebg1">
                     <ul>
                         <li class="compose">
@@ -50,11 +49,10 @@
                         </li>
                     </ul>
                 </div>
-                <div style="height: 30px;"></div>
             </div>
             <div class="col-lg-9 col-xl-10 col-md-9 col-sm-8">
                 <div class="whitebg1">
-                    <table class="table table-striped table-advance table-responsive">
+                    <table class="table table-striped table-advance">
                         <thead>
                         <tr>
                             <td colspan="4" class="card-header compose border-bottom" style="background-color: #2C3E50;">
@@ -70,10 +68,10 @@
                                 <div class="row no-padding">
                                     <div class="col-md-7 col-lg-9 col-xs-12">
                                         <div class="btn-group">
-                                            <a href="#" class="btn btn-secondary btn-toolbar" data-toggle="tooltip" data-placement="top" title="Delete Message" >
+                                            <a href="#" class="btn btn-secondary btn-toolbar py-1" data-toggle="tooltip" data-placement="top" title="Delete Message" >
                                                 <span class="fa fa-trash text-danger"></span>
                                             </a>
-                                            <button type="button" class="btn btn-secondary btn-toolbar" data-toggle="tooltip" data-placement="top" title="Refresh">
+                                            <button type="button" class="btn btn-secondary btn-toolbar py-1" data-toggle="tooltip" data-placement="top" title="Refresh">
                                                 <span class="fa fa-refresh"></span>
                                             </button>
 

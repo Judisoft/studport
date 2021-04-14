@@ -383,7 +383,7 @@ Route::get('exams/{uuid}/download', 'ExamsController@download')->name('exams.dow
 //Terms and Conditions
 Route::get('terms_and_conditions', 'TermsAndConditionsController@privacy')->name('privacy');
 //Subscription
-Route::get('subscription', 'SubscriptionController@subscribe');
+Route::get('subscription', 'SubscriptionController@subscribe')->name('subscription');
 Route::post('my-account', 'FrontEndController@newsletter');
 Route::resource('questions', 'UserBlogController');
 Route::resource('questions/{my_questions->id}/edit', 'UserBlogController@edit');

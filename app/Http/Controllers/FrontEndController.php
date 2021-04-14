@@ -42,6 +42,7 @@ use App\Models\Exam;
 use App\Models\Book;
 use App\Models\Newsletter;
 use App\Models\Contact;
+use App\Models\Library;
 
 class FrontEndController extends JoshController
 {
@@ -165,6 +166,24 @@ class FrontEndController extends JoshController
             $exam_questions = Exam::where('department', Sentinel::getuser()->department)
                                     ->simplePaginate(10);
          }
+
+         $searchLibrary = request()->query('searchLibrary');
+//Booksearch
+         if ($searchLibrary) {
+            $book_title = Library::where('title', 'LIKE', "%{$searchLibrary}%");
+            $books = Library::where('description', 'LIKE', "%{$searchLibrary}%")
+                                ->orWhere('author', 'LIKE', "%{$searchLibrary}%")
+                                ->union($book_title)
+                                ->simplePaginate(5);
+         }
+        else {
+
+            $books = Library::all();
+                                    
+
+        }
+
+
         
         //$categories = BlogCategory::all();
         //get all users with session-on
@@ -197,7 +216,8 @@ class FrontEndController extends JoshController
                  'numberOfUserRequest',
                  'course_title',
                  'institutions',
-                 'userInstitutionQuestions'
+                 'userInstitutionQuestions',
+                 'books'
                 ));
     }
 

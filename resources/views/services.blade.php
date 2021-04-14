@@ -23,7 +23,7 @@
                 <div class="header-section text-center mb-4 p-5">
                     <h1 class="text-dark">StudPort Services</h1>
                     <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
-                    <p class="mt-5" style="font-weight: 200; font-size: 18px;">
+                    <p class="mt-5">
                         StudPort is committed to providing quality digital services to improve the
                         teaching and learning process for Students and Teachers.  
                         Our services are designed to empower each student to reach his or her highest potential.
@@ -81,15 +81,15 @@
                 <div class="header-section text-center">
                     <h3 class="fw-600 text-dark">Our Pricing Plan</h3>
                     <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
-                    <p style="font-weight: 200;">Choose a Payment Plan  </p>
+                    <h6>Choose a Payment Plan  </h6>
                 </div>
                 <div class="features-grids">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 featured-service mt-5 pt-5">
                             <div class="feature-16-gd shadow">
                                 <div class="feature-16-gd-info">
-                                    <p class="text-center text-danger" style="font-size: 28px;"><b>XAF 0/year</b></p>
-                                    <p class="mt-4 mb-2 text-center">Trial Account</p>
+                                    <p class="text-center text-blue" style="font-size: 28px;"><b>XAF 0/year</b></p>
+                                    <h6 class="mt-4 mb-2 text-center text-danger">Trial Account</h6>
                                     <hr style="width: 100%;">
                                     <p><span class="fa fa-check float-left" style="color: #00bc8c;"></span>&nbsp; StudPort Account</p>
                                     <p><span class="fa fa-check" style="color: #00bc8c;"></span>&nbsp; Personalised Q/A Account</p>
@@ -100,7 +100,7 @@
                                     <p><span class="fa fa-times" style="color: #dc3545;"></span>&nbsp; Tutoring Jobs Notifications</p>
                                     <p><span class="fa fa-times" style="color: #dc3545;"></span>&nbsp; Lecture Notes <sup class="text-danger">*</sup></p>
                                     <p><span class="fa fa-times" style="color: #dc3545;"></span>&nbsp; 0% Discount on StudPort Purchaces</p>
-                                    <p align="center"><a href="#" class="btn btn-primary "><span class="icon-basket fa-2x px-2"></span>Add to Cart </a></p>
+                                    <p align="center"><a href="{{route('subscription')}}" class="btn btn-primary "><span class="icon-basket fa-2x px-2"></span>Add to Cart </a></p>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                             <div class="feature-16-gd shadow">
                                 <div class="feature-16-gd-info">
                                 <p class="text-center text-blue" style="font-size: 28px;"><b>XAF 5,000/year</b></p>
-                                    <p class="mt-4 mb-2 text-center" text-center>Premium Account</p>
+                                    <p class="mt-4 mb-2 text-center text-success" text-center>Premium Account</p>
                                     <hr style="width: 100%;">
                                     <p><span class="fa fa-check float-left" style="color: #00bc8c;"></span>&nbsp; StudPort Account</p>
                                     <p><span class="fa fa-check" style="color: #00bc8c;"></span>&nbsp; Personalised Q/A Account</p>
@@ -119,15 +119,15 @@
                                     <p><span class="fa fa-check" style="color: #00bc8c;"></span>&nbsp; Internship Placements</p>
                                     <p><span class="fa fa-check" style="color: #00bc8c;"></span>&nbsp; Lecture Notes <sup class="text-danger">*</sup></p>
                                     <p><span class="fa fa-check" style="color: #00bc8c;"></span>&nbsp; 5% Discount on StudPort Purchaces</p>    
-                                    <p align="center"><a href="#" class="btn btn-theme"><span class="icon-basket fa-2x px-2"></span>Add to Cart </a></p>
+                                    <p align="center"><a href="{{route('subscription')}}" class="btn btn-theme"><span class="icon-basket fa-2x px-2"></span>Add to Cart </a></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 featured-service mt-5 pt-5">
                             <div class="feature-16-gd shadow">
                                 <div class="feature-16-gd-info">
-                                <p class="text-center text-primary" style="font-size: 28px;"><b>XAF 10,000/year</b></p>
-                                    <p class="mt-4 mb-2 text-center">VIP Account</p>
+                                <p class="text-center text-blue" style="font-size: 28px;"><b>XAF 10,000/year</b></p>
+                                    <h6 class="mt-4 mb-2 text-center text-primary">VIP Account</h6>
                                     <hr style="width: 100%;">
                                     <p><span class="fa fa-check float-left" style="color: #00bc8c;"></span>&nbsp; StudPort Account</p>
                                     <p><span class="fa fa-check" style="color: #00bc8c;"></span>&nbsp; Personalised Q/A Account</p>
@@ -138,7 +138,7 @@
                                     <p><span class="fa fa-check" style="color: #00bc8c;"></span>&nbsp; Tutoring Jobs Notifications</p>
                                     <p><span class="fa fa-check" style="color: #00bc8c;"></span>&nbsp; Lecture Notes <sup class="text-danger">*</sup></p>
                                     <p><span class="fa fa-check" style="color: #00bc8c;"></span> 10% Discount on StudPort Purchaces</p>
-                                    <p align="center"><a href="#" class="btn btn-primary"><span class="icon-basket fa-2x px-2"></span>Add to Cart </a></p>
+                                    <p align="center"><a href="{{route('subscription')}}" class="btn btn-primary"><span class="icon-basket fa-2x px-2"></span>Add to Cart </a></p>
                                 </div>
                             </div>
                         </div>
@@ -153,38 +153,32 @@
 
         <div class="w3l-services1 aboutbottom py-5 mt-5" style="background-color:#090909;">
             <div class="container py-lg-3 text-center">
-            <h5 class="text-white" style="text-align: center; padding:10px;">OUR RESOURCES </h5>
+            <h5 class="text-white" style="text-align: center; padding:10px;">KEY FACTS / OUR RESOURCES </h5>
             <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
                 <div class="bottomgrids row no-gutters">
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0">
-                        <span class="fa fa-laptop"></span>
                         <h4><a class="service-title badge badge-primary" href="#url">0</a></h4>
                         <h5><a class="service-title" href="#url">Online Courses</a></h5>
                     </div>
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-md-0 mt-5">
-                        <span class="fa fa-users"></span>
                         <h4><a class="service-title badge badge-primary" href="#url">{{$number_of_teachers}}</a></h4>
                         <h5><a class="service-title" href="#url">StudPort Teachers</a></h5>
                         
                     </div>
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-5">
-                        <span class="fa fa-book"></span>
                         <h4><a class="service-title badge badge-primary" href="#url">0</a></h4>
                         <h5><a class="service-title" href="#url">Books in Library</a></h5>
                     </div>
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-5">
-                        <span class="fa fa-tools"></span>
                          <h4><a class="service-title badge badge-primary" href="#url">{{$number_of_jobs}}</a></h4>
                          <h5><a class="service-title" href="#url">Jobs</a></h5>
                         
                     </div>
                      <div class="col-lg-4 col-md-6 bottomgrid1 mt-5">
-                        <span class="fa fa-handshake"></span>
                         <h4><a class="service-title badge badge-primary" href="#url">0</a></h4>
                         <h5><a class="service-title" href="#url">StudPort Partners</a></h5>
                     </div>
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-5">
-                        <span class="fa fa-phone"></span>
                         <h4><a class="service-title badge badge-primary" href="#url">12</a></h4>
                         <h5><a class="service-title" href="#url">Online Assistance Agents</a></h5>
                     </div>

@@ -65,6 +65,7 @@ Academia
 p{
     font-size: 14px !important;
 }
+
 </style>
 
 {{-- Page content --}}
@@ -72,32 +73,35 @@ p{
 <!-- Container Section Strat -->
 <div class="container-fluid" style="overflow-x: hidden;">
     <div class="row">
-         <div class="pl-5 col-md-3 col-lg-3 col-12" style="border-right: 1px solid #ddd;">
+         <div class="pl-5 col-md-3 col-lg-3 col-12" style="border-right: 1px solid #ddd; background-color: #eee;">
             <div class="list-item1  mt-5">
-                <div class="box1 mt-2"><h5 class="text-dark"><i class="fa fa-braille px-2"></i>STUDPORT</h5><hr> </div>
-                <h6><a href="#"><i class="fa fa-tag px-2"></i>Tags &nbsp;&nbsp;&nbsp;&nbsp;</a></h6><br>
-                <h6><a href="{{route('institutions')}}"><i class="fa fa-university px-2"></i>Institutions</a></h6><br>
-                <h6><a href="#"><i class="fa fa-users px-2"></i>Users</a></h6><br>
-                <h6><a href="#"><i class="far fa-file px-2"></i>Courses</a></h6><br>
-                <h6><a href="#"><i class="far fa-comments px-2"></i>Study Groups</a></h6><br>
+                <div class="box1 mt-2"><h6 class="text-dark">SORT QUESTIONS BY INSTITUTION</h6><br> </div>
+                    <form class="input-group" action="{{route('blog')}}" method="GET">
+                        <select type="text" class="form-control text-gray" name="search" value="{{request()->query('search')}}" placeholder="SEARCH" style="font-size: 16px !important; height: 50px; border-radius: 5px;">
+                            <option value="">Select Institution</option>
+                            @foreach($user_institutions as $user_institution)
+                            <option value="{{$user_institution->institution}}">{{$user_institution->institution}}</option>
+                            @endforeach
+                        </select>
+                            <div class="input-group-append">
+                                <span class="input-group-btn input-group-append">
+                                    <button class="btn btn-warning input-group-text image_radius" type="submit" style="border-radius: 0 5px 5px 0;">
+                                        <i class="fa fa-sort px-2"></i>sort
+                                    </button>
+                                </span>
+                            </div>
+                    </form>
+                    <input type="text" class="form-control text-gray" name="search" placeholder="Department" style="font-size: 16px !important; height: 50px; border-radius: 5px;">
+                    <br>
+                    <input type="number" class="form-control text-gray" min="1" max="7" name="search" placeholder="Level" style="font-size: 16px !important; height: 50px; border-radius: 5px;">
             </div>
-            <div class="list-item1">
-                <div class="box1  mt-2"><h5 class="text-dark" style="font-weight: 500;"><i class="fa fa-sort px-2"></i>CATEGORIES</h5><hr> </div>
-                        @foreach($blogscategories as $blogscategory)
-                            @if(@count($blogscategory) > 0)
-                                <div>
-                                <h6><a href="#"><i class="icon-notebook px-2"></i>{{$blogscategory->title}}</a></h6><br>
-                                </div>
-                            @endif
-                        @endforeach
-                </div>
-                       <div class="mt-2">
-                <div class="box1 text-dark"><h5><i class="fa fa-users px-2"></i>TUTORS</h5></div>
+            <div class="mt-5">
+                <div class="box1 text-dark"><h6>TUTORS</h6></div>
                     <hr>
                         @foreach($teachers as $teacher)
                             @if(@count($teacher) > 0)
                                 <div class="mt-2">
-                                <a  href="#" class="text-dark text-capitalize px-2 py-3">
+                                <a  href="#" class="text-dark text-capitalize px-2 py-3" data-toggle="tooltip" data-placement="top" title="{{$teacher->bio}}">
                                     @if($teacher->pic)
                                         <img src="{{$teacher->pic}}" alt="img" width="50px"  height="50px" class="rounded-circle img-responsive img_height float-left"/>
                                         @else<img src="{{asset('images/no_avatar.jpg')}}" alt="img" width="50px"  height="50px" class="rounded-circle img-responsive img_height float-left"/>
@@ -106,7 +110,18 @@ p{
                                     <br>
                                     <small class="px-2 text-gray"><i>{{$teacher->department}}</i><br><i>{{$teacher->institution}}</i></small>
                                </a>
-                               <hr>
+                               <br>
+                               @if($teacher->isOnline() && Sentinel::check())
+                               <div class="text-right">
+                                    <a href="#" class="text-light" data-toggle="tooltip" data-placement="right" title="Contact"><i class="icon-envelope  circle-icon-info"></i></a>
+                                </div>
+                                @endif
+                                @if(Sentinel::guest())
+                                <div class="text-right">
+                                    <a href="{{URL::to('user_emails/compose')}}" class="text-light" data-toggle="tooltip" data-placement="top" title="Sign In to contact this teacher"><i class="icon-envelope  circle-icon-info"></i></a>
+                                </div>
+                               @endif
+                               <hr style="padding-top: 25px;">
                                 </div>
                                 @else
                                 <div class="mt-2">
@@ -120,7 +135,7 @@ p{
         <div class="col-md-6 col-lg-6 col-12 p-5">
                  <div class="form-group input-group">
                     <form class="input-group" action="{{route('blog')}}" method="GET">
-                        <input type="text" class="form-control text-gray" name="search" value="{{request()->query('search')}}" placeholder="SEARCH" style="font-size: 16px !important; height: 50px; border-radius: 5px;">
+                        <input type="text" class="form-control text-gray" name="search" value="{{request()->query('search')}}" placeholder="Enter Keyword to search ..." style="font-size: 16px !important; height: 50px; border-radius: 5px;">
                             <div class="input-group-append">
                                 <span class="input-group-btn input-group-append">
                                     <button class="btn btn-warning input-group-text image_radius" type="submit" style="border-radius: 0 5px 5px 0;">
@@ -163,7 +178,7 @@ p{
                             <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} Answer(s)</a>
                         </span>
                         <span class="additional-post">
-                            <a>Viewed&nbsp;{{$blog->views}}  times</a>assss
+                            <a>Viewed&nbsp;{{$blog->views}}  times</a>
                         </span>
                     </small>
                     </div>
@@ -225,8 +240,9 @@ p{
                     </div>
                     <p class="py-2 px-2 text-info"> 
                         <small>
+                         Tags: 
                             @forelse($blog->tags as $tag)
-                                Tags: <small><a class="alert alert-info p-1 px-2"  href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}">{{ $tag }}</a></small>
+                               <small><a class="alert alert-info p-1 px-2"  href="{{ URL::to('blog/'.mb_strtolower($tag).'/tag') }}">{{ $tag }}</a></small>
                             @empty
                            <em> No Tags available for this question</em>
                             @endforelse
@@ -240,7 +256,7 @@ p{
             <!-- END FEATURED POST -->
             @empty
             <div class="card card-body border-0 p-3">
-                <p class="text-center text-gray" style="font-weight: 400; ">Ouuups! No item matches &nbsp;<em class="text-danger">{{request()->query('search')}}</em></p>
+                <p class="text-center text-gray">Ouuups! No item matches &nbsp;<em class="text-danger">{{request()->query('search')}}</em></p>
             </div>
             @endforelse
             @endif
@@ -250,22 +266,20 @@ p{
             
         </div>
         <!-- /.col-md-8 -->
-        <div class="ml-0col-md-3 col-lg-3 col-12 mt-5" style="padding: 5px;">
-                <div class="card card-body bg-index">
-                    <h5 class="text-center text-warning" style="font-weight: 500;">TUTORING JOBS</h5>
-                <br>
-                    <div class="card card-body" style="background-color: #FAFDFF; border: none;">
+        <div class="ml-0col-md-3 col-lg-3 col-12 mt-3">
+                <div  style="border-left: 10px solid #900C3F;">
+                    <h5 class="px-5 text-index">TUTORING JOBS</h5>
+                </div>
+                    <div class="border-left border-bottom border-danger p-3">
                         @foreach($jobs as $job)
                             @if(@count($job) > 0)
                                 <div class="mt-3 px-2 pt-3">
-                                <h6 class="text-dark" style="font-weight: 700;"><u>{{$job->title }}</u></h6><br>
-                                <div>
-                                    
+                                <div class="alert" style="background-color: #FAFAF9;">
+                                <h6 class="text-dark"><u>{{$job->title }}</u></h6><br>
                                     <small class="py-3"><b>Employer: {{$job->employer}}</b></small><br>
                                      <small class="py-3"><b>Location: {{$job->location}}</b></small><br>
                                     <small class="py-3"><b>Salary: {{$job->salary}}</b></small><br>
-                                    <p class="pt-3"><a href="{{ route('news.show',$job->id) }}" class="btn btn-sm btn-secondary"><small>Apply for this Job</small></a></p>
-                                    <hr>
+                                    <p class="pt-3"><a href="{{ route('news.show',$job->id) }}" class="btn btn-sm btn-info theme-button"><small>Apply for this Job</small></a></p>
                                  </div>
                                 </div>
                                  @else

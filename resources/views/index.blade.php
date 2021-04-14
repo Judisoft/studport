@@ -13,9 +13,6 @@
     <!--end of page level css-->
 @stop
 <style>
-p{
-    font-weight: 400 !important;
-}
 .icon-circle{
   height: 100px;
   width: 100px;
@@ -23,6 +20,7 @@ p{
   background-color: var(--warning);
   padding: 30px;
 }
+
 </style>
 <!--  Main banner section -->
 @section('content')
@@ -35,7 +33,7 @@ p{
                 <img src="{{asset('images/start2.png')}}" style="height:300px; width:300px;" />
             </div>
             <h2 class="mb-5 text-dark" style="font-weight: 600 !important;">Find the best answer to your questions</h2>
-            <h3 class="mb-5 text-success">Ask Anything, Anytime!</h3>
+            <h3 class="mb-5"><span class="text-secondary">Have Questions?</span><b><span class="text-success"> We have Answers</span></b></h3>
             <a href="{{route('register')}}" class="btn btn-dark theme-btn px-5"><img src="{{asset('images/start.png')}}" style="width: 50px; height: 50px; padding: 5px 5px;" /><span class="text-uppercase px-2">Start Asking, It's Free </span></a>
           </div>
         </div>
@@ -97,7 +95,7 @@ p{
         <div class="container">
             <div class="middle-section">
             <div class="header-section text-center mb-4 p-5">
-                    <h1 class="text-dark">For Institutions, by Technologists</h1>
+                    <h1 class="text-dark">For Institutions,by IT Specialists</h1>
                     <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
                     <p>StudPort equips learning institutions with appropriate technologies to facilitate the teaching & learning processes.
                         We offer training and Staff capacity building in Information Technologies to increase performance and success. 
@@ -106,30 +104,35 @@ p{
             </div>          
             <div class="row">
                             <div class="col-lg-4 col-md-6 featured-service">
-                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-nice-green shadow" style="border-radius: 5px !important;">
-                                    <div class="feature-16-gd-info icon-circle">
-                                        <h4 class="text-light float-left"><span class="fa fa-graduation-cap fa-2x px-3"></span></h4>
-                                         <h4 class="mt-4 mb-4">Scholarships & Study Abroad Programs</h4>                                  
+                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-light shadow" style="border-radius: 5px !important;">
+                                    <div class="feature-16-gd-info px-3 text-center">
+                                        <div class="text-center"><img src="{{asset('images/web.png')}}"  style="height: 100px; width: 100px;"></div>
+                                         <h4 class="mt-4 mb-4 px-2 text-index">StudPort Admit</h4> 
+                                         <p>We receive and  transmit admission application files to learning institutions</p>
+
                                     </div>
                                 </div>
                             </div>
                              <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-nice-green shadow" style="border-radius: 5px !important;"> 
-                                <div class="feature-16-gd-info">
-                                            <h4 class="text-light float-left"><span class="fa fa-users fa-2x px-3"></span></h4>
-                                            <h4 class="mt-4 mb-4">Student Mentorship and Entrepreneurship</h4>
+                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-light shadow" style="border-radius: 5px !important;"> 
+                                <div class="feature-16-gd-info px-3 text-center">
+                                            <div class="text-center"><img src="{{asset('images/headhunting.png')}}"  style="height: 100px; width: 100px;"></div>
+                                            <h4 class="mt-4 mb-4 text-index">StudPort Recruit</h4>
+                                            <p>We receive and  transmit job application files to learning institutions</p>
                                 </div>
                             </div>
                         </div>
-                         <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-nice-green shadow" style="border-radius: 5px !important;">
-                                <div class="feature-16-gd-info">
-                                        <h4 class="text-light float-left"><span class="fa fa-rocket fa-2x px-3"></span></h4>
-                                        <h4 class="mt-4 mb-4">Student Admissions and Staff Recruitment</h4>
+                        <div class="col-lg-4 col-md-6 featured-service">
+                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-light shadow" style="border-radius: 5px !important;">
+                                <div class="feature-16-gd-info px-3 text-center">
+                                        <div class="text-center"><img src="{{asset('images/education.png')}}"  style="height: 100px; width: 100px;"></div>
+                                        <h4 class="mt-4 mb-4 text-index">StudPort Scholarships</h4>
+                                        <p>We partner with educational institutions to help students find scholarships.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                <br>
         </div>
     </div>
     <br>
@@ -158,38 +161,45 @@ p{
         <div class="container">
             <div class="middle-section">
             <div class="header-section text-center mb-4 p-5">
-                    <h1 class="text-dark">Learn and grow with Us</h1>
+                    <h1 class="text-dark">StudPort Business</h1>
                     <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
-                    <p>StudPort equips learning institutions with appropriate technologies to facilitate the teaching & learning processes
-                        We offer training and Staff capacity building in new age technologies to increase performance and success 
+                    <p>StudPort equips students and learning institutions with books and targeted learning resources 
+
                     </p>
                 </div>
             </div>          
            <div class="row">
                             <div class="col-lg-4 col-md-6 featured-service">
-                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
+                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-index shadow" style="border-radius: 5px !important;">
                                     <div class="feature-16-gd-info">
-                                        <p class="mt-4 mb-4">
-                                        <img src="{{asset('images/scholarship.png')}}" style="height: 50px; width: 50px;">
-                                        Scholarships & Study Abroad Programs
-                                        </p>                                    
+                                        <div class="text-center"><img src="{{asset('images/discount.png')}}"  style="height: 100px; width: 100px;"></div>
+                                        <h6 class="mt-4 mb-4 text-light text-center">We sell text-books on the Curriculum at cheap and affordable prices</h6>
+                                        <div class="text-center"> 
+                                            <a class="btn btn-info theme-button text-light">Checkout our prices</a>
+                                        </div>                              
                                     </div>
                                 </div>
                             </div>
                              <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
+                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-index shadow" style="border-radius: 5px !important;"> 
                                 <div class="feature-16-gd-info">
-                                        <p class="mt-4 mb-4">
-                                        <h4 class="text-primary float-left"><span class="fa fa-users fa-2x px-3"></span></h4>
-                                            Student Mentorship and Entrepreneurship 
-                                        </p>
+                                            <div class="text-center"><img src="{{asset('images/ads.png')}}"  style="height: 100px; width: 100px;"></div>
+                                            <h6 class="mt-4 mb-4 text-light text-center">Are you a writer? Advertise on StudPort and reach out to over 1000+ {{--$users->count()--}} students</h6>
+                                            <div class="text-center"> 
+                                            <a class="btn btn-primary theme-button text-light">Start Advertising with StudPort</a>
+                                        </div>
+
                                 </div>
                             </div>
                         </div>
                          <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-5 bg-light shadow">
+                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-index shadow" style="border-radius: 5px !important;">
                                 <div class="feature-16-gd-info">
-                                        <p class="mt-4 mb-4"><h4 class="text-primary float-left"><span class="fa fa-rocket fa-2x px-3"></span></h4>Student Admissions and Staff Recruitment Manager</p>
+                                        <div class="text-center"><img src="{{asset('images/laboratory.png')}}"  style="height: 100px; width: 100px;"></div>
+                                        <h6 class="mt-4 mb-4 text-center text-light">We supply schools with science kits to facilitate the CBA teaching of science </h6>
+                                        <div class="text-center"> 
+                                            <a class="btn btn-success theme-button text-light">Contact Us</a>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +215,7 @@ p{
               <h1 class="text-dark">What Students Say About Us</h1>
                 <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
             </div>
-            <div class="row mt-4">
+            <div class="row mt-4 bg-transparent">
                 <div class="col-lg-12 mx-auto">
                     <div class="owl-one owl-carousel owl-theme">
                         <div class="item">
@@ -274,48 +284,22 @@ p{
         </div>
     </div>
 </section>
-
-<section class="w3l-subscribe">
-    <div class="subscription-infhny">
-        <div class="container"><br>
-            <div class="subscription-grids row mb-5">
-                <div class="subscription-right form-right-inf col-lg-12 p-md-5 p-4 shadow">
-                    <div class="px-lg-5 py-md-0 py-1">
-                        <div class="header-section">
-                            <img src="{{asset('images/features-icon-3.png')}}" class="float-left" />
-                            <h3 class="text-primary text-center" style="font-weight: 200;">Join us for FREE to get instant <span>email updates!</span></h3>
-                            <p class="text-center mt-3 py-2">Subscribe and get notified at first on the latest update and offers!</p>
-                             <div class="card-body">
-                                                @if(session()->has('success'))
-                                                     <div class="alert alert-success px-10 py-10 text-center">
-                                                        {{ session()->get('success') }}
-                                                    </div>
-                                                @endif
-                                                    @if(session()->has('error'))
-                                                        <div class="alert alert-danger px-10 py-10 text-center">
-                                                            {{ session()->get('error') }}
-                                                        </div>
-                                                    @endif
-                            </div>
-                        <form action="{{route('my-account')}}" method="POST" class="signin-form mt-lg-4 mt-2">
-                            <div class="forms-gds">
-                                <div class="form-input">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                    <input type="email" name="email" placeholder="Your email here" class="text-center" required>
-                                </div>
-                                <div class="form-input"><button type="submit" class="btn btn-primary theme-button">Subscribe</button></div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 @stop
 
 {{-- page level scripts --}}
 @section('footer_scripts')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+$(function () {
+  count = 0;
+  wordsArray = ["Science", "Arts", "Technology"];
+  setInterval(function () {
+    count++;
+    $("#word").fadeIn(400, function () {
+      $(this).text(wordsArray[count % wordsArray.length]).fadeIn(400);
+    });
+  }, 1000);
+});
+</script>
 @stop
 
