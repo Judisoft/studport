@@ -16,7 +16,7 @@
 
 {{-- Page content --}}
 @section('content')
-    <aside class="right-aside" style="background-color: #D5DDE6; padding: 25px;">
+    <aside class="right-aside" style="background-color: #D5DDE6; padding: 15px;">
     <!-- Content Header (Page header) -->
         <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
             @if (isset($email_not_found))
@@ -71,11 +71,6 @@
             </div>
             <div class="col-xl-10 col-md-9 col-sm-8 mt-3 mt-sm-0">
                 <div class="card">
-                    <div class="card-header compose border-bottom" style="background-color: #2C3E50;">
-                        <h4 class="mb-0">
-                            <h6 class="text-default text-white">NEW MESSAGE</h6>
-                        </h4>
-                    </div>
                     <div class="card-body">
                         <form action="{{ URL('user_emails/compose') }}" method="POST" class="form-horizontal" enctype="multipart/form-data" files="true" id="mail_compose">
                             {{ csrf_field() }}

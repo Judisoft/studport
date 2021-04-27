@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +17,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
@@ -56,7 +54,7 @@
 } 
 @media(min-width: 576px){
 .box {
-  min-width: 90%;
+  max-width: 90%;
   margin: auto;
   align-items: left;
   border-radius: 5px;
@@ -168,14 +166,14 @@ h4{
 </style>
 <body>
 <div class="container full-width">
- <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #01182F !important;">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light bg-dark">
     <a class="navbar-brand" href="{{route('home')}}">
       <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px;" />
     </a>    
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item ml-auto text-primary px-2">Don't have an Account?</li>
+        <li class="nav-item ml-auto text-gray px-2 mt-2">Don't have an Account?</li>
         <li class="nav-item ml-auto">
-            <a class="btn btn-sm btn-outline-primary my-2 my-sm-0" href="{{route('register')}}" >Sign Up</a>
+            <a class="btn btn-outline-info rounded-0 my-2 my-sm-0" href="{{route('register')}}" >Sign Up</a>
         </li>
     </ul>
   </nav>
@@ -214,7 +212,7 @@ h4{
                             </label>
 
                         </div>
-                        <input type="submit" class="btn btn-block theme-button" value="Log In">
+                        <input type="submit" class="btn btn-block btn-success theme-button" value="Log In">
                     </form>
                     <br />
                     <div class="bg-transparent animation flipInX">
@@ -228,3 +226,18 @@ h4{
       </div>
     </div>
   </section>
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/607982e9f7ce1827093b17bf/1f3daepbo';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>

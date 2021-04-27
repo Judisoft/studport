@@ -11,18 +11,9 @@ About
 <!--page level css starts-->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Playfair+Display+SC:wght@700&family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
 <!--end of page level css-->
 @stop
-<style>
-.icon-circle{
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  background-color: var(--warning);
-  padding: 30px;
-}
-</style>
 
 {{-- Page content --}}
 @section('content')
@@ -36,7 +27,7 @@ About
             <div class="header-section">
             <h1 class="text-center text-warning">Welcome to StudPort! </h1>
             <br>
-            <h5 class="text-center text-light" style="font-weight: 400;">The No. 1 Portal for Academic Excellence in Cameroon!</h5>
+            <h5 class="text-center text-light">The No. 1 Portal for Academic Excellence in Cameroon!</h5>
           </div>
           </div>
         </div>
@@ -61,16 +52,13 @@ About
                         <div class="grids5-info" >
                             <a href="#url" class="d-block zoom"><img src="{{asset('images/p4.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info">
-                              <div class="icon-circle text-center float-left">
-                                <span class="fa fa-users fa-2x text-white"></span>
-                              </div>
-                                <h3 class="p-3 text-warning text-center">&nbsp;&nbsp; Join the StudPort Community</h3>
+                                <h1 class="p-3 text-dark text-center">&nbsp;&nbsp; Join the StudPort Community</h1>
                                 <br>
                                 <p class="blog-text">StudPort is an open community for every student.
                                     We help students obtain answers to all their questions ( even the toughest ones, yeah! ) and to share knowledge with other students.
                                     You can join the StudPort Community by signing up for a StudPort account.
                                     Click the link below to Create your StudPort Account. <br>
-                                    Our <a href="#" id="btn1">privacy policies</a> apply to all StudPort users. 
+                                    Our <a href="#" id="btn1" class="text-blue">privacy policies</a> apply to all StudPort users. 
 
                                     <div style="height: 20px;"></div>
                                     <h5 style="color: #147E83;"><span class="fa fa-pencil fa-2x"></span> How to  Register:</h5>
@@ -83,7 +71,7 @@ About
                                         <li><span class="fa fa-arrow-right" style="color: #147E83"></span> Your account shall be activated automatically.</li>
                                     </ul>
                                     </p>
-                                    <div style="text-align: center !important;"><a  class="btn btn-warning theme-button mr-3 text-white" href="{{ URL::to('register') }}" >Create My StudPort Account</a></div>
+                                    <div style="text-align: center !important;"><a  class="btn btn-info theme-button mr-3 text-white" href="{{ URL::to('register') }}" >Create My StudPort Account</a></div>
 
                                 </p>
                             </div>
@@ -97,10 +85,7 @@ About
                         <div class="grids5-info">
                             <a href="#url" class="d-block zoom"><img src="{{asset('images/p1.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info">
-                               <div class="icon-circle text-center float-left">
-                                <span class="fa fa-question fa-2x text-white"></span>
-                              </div>
-                                <h3 class="p-3 text-warning text-center">&nbsp;&nbsp; Personalised Q&A Manager </h3>
+                                <h1 class="p-3 text-dark text-center">&nbsp;&nbsp; Personalised Q&A Manager </h1>
                                 <br>
                                 <p class="blog-text">Once you activate your StudPort Account, you are granted access to your Personal Portal where
                                     you can ask questions in any course/subject. If your school/institution is registered with StudPort,
@@ -129,17 +114,14 @@ About
                         <div class="grids5-info">
                             <a href="#url" class="d-block zoom"><img src="{{asset('images/pic11.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info">
-                                <div class="icon-circle text-center float-left">
-                                <span class="fa fa-laptop fa-2x text-white"></span>
-                              </div>
-                                <h3 class="p-3 text-warning text-center">&nbsp;&nbsp; Request Personalised Tutoring</h3>
+                                <h1 class="p-3 text-dark text-center">&nbsp;&nbsp; Request Personalised Tutoring</h1>
                                 <br>
                                 <p class="blog-text">Our Teachers are available to offer one-on-one tutoring to meet your individual need. You will be able to see Teachers who
                                     are online and available to tutor you, either online or arrange for an in-person tutoring session. You shall be charged a fee for one-on-one sessions.
                                     You may ask for a refund, in case your needs are not met.
                                     <a class="text-primary" href="#"> Our refund policies apply</a>
                                     <div style="height: 50px;"></div>
-                                    <div style="text-align: center !important;"><a  class="btn btn-warning theme-button mr-3 text-white" href="{{ URL::to('register') }}" >Recruit a Home Teacher</a></div>
+                                    <div style="text-align: center !important;"><a  class="btn btn-secondary theme-button mr-3 text-white" href="{{ URL::to('register') }}" >Request a Home Teacher</a></div>
                                 </p>
                             </div>
                         </div>
@@ -152,15 +134,12 @@ About
                         <div class="grids5-info">
                             <a href="#url" class="d-block zoom"><img src="{{asset('images/about.jpg')}}" alt="" class="img-fluid news-image" /></a>
                             <div class="blog-info text-center">
-                                <div class="icon-circle text-center float-left">
-                                <span class="fa fa-share-alt fa-2x text-white"></span>
-                              </div>
-                                <h3 class="p-3 text-warning text-center">&nbsp;StudPort Connect</h3>
+                                <h1 class="p-3 text-dark text-center">&nbsp;StudPort Connect</h1>
                                 <br>
-                                <p class="blog-text">With StudPort Connect, Students can join study groups within their institution as well as those of
+                                <p class="blog-text">With StudPort Connect, You can join study groups within your institution as well as those of
                                 other institutions. You can create your own study group and invite participants to join</p>
                                 <br>
-                                    <div style="text-align: center !important;"><a  class="btn btn-warning theme-button mr-3 text-white" href="#" > Find a Study Group and Connect</a></div>
+                                    <div style="text-align: center !important;"><a  class="btn btn-primary theme-button mr-3 text-white" href="#" > Find a Study Group and Connect</a></div>
                             </div>
                         </div>
                     </div>
@@ -176,7 +155,7 @@ About
     <div class="container">
       <div class="wthree-title">
         <div class="header-section text-center">
-          <h1 class="text-dark">Meet Our Team</h1>
+          <h1 class="text-dark">StudPort Team</h1>
           <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
           <p style="font-weight: 200;">We are true to ourselves, and commit to always perform at our best.</p>
         </div>
@@ -190,12 +169,12 @@ About
               <span class="post">CEO/Founder</span>
               <ul class="social">
                 <li>
-                  <a href="#" class="facebook">
+                  <a href="#" class="facebook py-2">
                 <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
                 <li>
-                  <a href="#" class="facebook">
+                  <a href="#" class="facebook py-2">
                   <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
@@ -211,12 +190,12 @@ About
               <span class="post">CTO/Managing Director</span>
               <ul class="social">
                 <li>
-                   <a href="#" class="facebook">
+                   <a href="#" class="facebook py-2">
                 <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
                 <li>
-               <a href="#" class="facebook">
+               <a href="#" class="facebook py-2">
                   <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
@@ -232,12 +211,12 @@ About
               <span class="post">Academic Director</a></span>
               <ul class="social">
                 <li>
-                    <a href="#" class="facebook">
+                    <a href="#" class="facebook py-2">
                 <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
                 <li>
-                 <a href="#" class="facebook">
+                 <a href="#" class="facebook py-2">
                   <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
@@ -253,12 +232,12 @@ About
               <span class="post">Partnerships Manager</a></span>
               <ul class="social">
                 <li>
-                    <a href="#" class="facebook">
+                    <a href="#" class="facebook py-2">
                 <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
                 <li>
-                  <a href="#" class="facebook">
+                  <a href="#" class="facebook py-2">
                   <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
@@ -274,12 +253,12 @@ About
               <span class="post">Financial Director</span>
               <ul class="social">
                 <li>
-                    <a href="#" class="facebook">
+                    <a href="#" class="facebook py-2">
                 <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
                 <li>
-                  <a href="#" class="facebook">
+                  <a href="#" class="facebook py-2">
                   <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
@@ -295,12 +274,12 @@ About
               <span class="post">Developer/Consultant</span>
               <ul class="social">
                 <li>
-                    <a href="#" class="facebook">
+                    <a href="#" class="facebook py-2">
                 <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>
                 <li>
-                <a href="#" class="facebook">
+                <a href="#" class="facebook py-2">
                   <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
                 </a>
                 </li>

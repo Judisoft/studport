@@ -72,19 +72,21 @@ p{
   box-shadow: 0px 1px 10px #999;
 }
 .navbar input{
-    width: 400px;
+    font-family: 'Raleway', sans-serif;
+    color: #F0F5F7;
+    width: 200px;
     height: 40px;
-    margin-left: 100px;
-    border: 1px solid #151515;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 2px solid var(--success);
     padding: 10px;
     margin-top: 10px;
-    background-color:#f1f1f1;
+    background-color:transparent;
     outline: none;
     -webkit-appearance: none;
     font-size: 16px;
     line-height: 26px;
-    border: 1px solid #EAECEE;
-    border-radius: 25px;
+
     
 }
 
@@ -125,11 +127,10 @@ p{
     margin-top: 10px; }} 
 
 .navbar input::placeholder {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Raleway', sans-serif !important;
     font-weight: 400;
-    color: #151515;
-    opacity: 0.3;
-    text-align:center;
+    color: #ddd;
+
 }
 br-5{
     border-radius: 5px !important;
@@ -155,6 +156,49 @@ br-5{
     height: 50px;
     width: 50px;
 }
+.circle-icon-blue {
+    background: #1465B1;
+    padding:10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.circle-icon-purple {
+    background: #7404A1;
+    padding:10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.circle-icon-red {
+    background: #C70039;
+    padding:10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.circle-icon-pink {
+    background: #AE0DA7;
+    padding:10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.circle-icon-warning {
+    background: var(--warning);
+    padding:10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.circle-icon-twitter-blue {
+    background: #40B8E9;
+    padding:10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
 </style>
 
 <body>
@@ -163,14 +207,11 @@ br-5{
     <div class="hero-header-11">
         <div class="hero-header-11-content">
             <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: var(--dark);box-shadow: inset 0px -11px 1px -10px #ddd;">
+                <nav class="navbar navbar-expand-lg  navbar-light box-shadow" style="background-color: var(--dark);">
                 <a class="navbar-brand" href="{{route('home')}}">
-                        <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px; float: left;" />
+                        <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:45px; float: left;" />
+                        <h2 class="text-warning py-2">&nbsp;StudPort</h2>
                 </a> 
-                <form action="#" method="GET">
-                    <input type="text" placeholder="Search StudPort">
-                    <button type="submit" class="btn btn-default pl-3" id="searchButton"><i class="fa fa-search text-gray"></i></button>
-                </form>
                 
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-radius: 2px;">
@@ -193,7 +234,7 @@ br-5{
                                 <a class="nav-link text-capitalize" href="{{ route('blog') }}">Academia</a>
                             </li>
                             <li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
-                                <a class="nav-link text-capitalize" href="{{ URL::to('contact') }}">Contact</a>
+                                <a class="nav-link text-capitalize" href="{{ URL::to('contact') }}">Contact Us</a>
                             </li>
 
                                 @if(Sentinel::check())
@@ -201,21 +242,25 @@ br-5{
                                 <a href="{{ URL::to('my-account') }}" class="nav-link text-capitalize">My Portal</a>
                             </li>
                              <li class=" nav-item {!! (Request::is('user_emails/inbox') ? 'active' : '') !!}">
-                                <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link text-capitalize">Messages &nbsp;<span class="badge badge-danger float-right mt-1 badge-pill">{{ $count}}</span></a>
+                                <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link text-capitalize">Messages &nbsp;<span class="badge badge-success float-right mt-1 badge-pill">{{ $count}}</span></a>
                             </li>
                             <li class=" nav-item">
-                                <a href="{{ URL::to('logout') }}" class="btn btn-sm btn-warning my-2 my-sm-0 p-2">Sign Out</a>
+                                <a href="{{ URL::to('logout') }}" class="btn btn-sm btn-danger rounded-pill my-2 my-sm-0 p-2"><span class="fa fa-power-off px-2"></span>Logout</a>
                             </li>
                                 @endif
                                 @if(Sentinel::guest())
                             <li class="nav-item text-primary px-2">
-                                <a class="btn btn-sm btn-outline-warning my-2 my-sm-0 p-2" href="{{route('login')}}" ><span class="fa fa-sign-in-alt px-2"></span>Sign In &nbsp;</a>
+                                <a class="btn btn-sm btn-outline-success rounded-pill my-2 my-sm-0 p-2" href="{{route('login')}}"><span class="fa fa-sign-in-alt px-2"></span>Sign In &nbsp;</a>
                             </li>
                             <li class="nav-item">
-                                <a class="btn btn-sm btn-warning my-2 my-sm-0 p-2" href="{{route('register')}}" ><span class="fa fa-user-plus px-2"></span>Sign Up &nbsp;</a>
+                                <a class="btn btn-sm btn-success rounded-pill my-2 my-sm-0 p-2" href="{{route('register')}}" ><span class="fa fa-user-plus px-2"></span>Sign Up &nbsp;</a>
                             </li>
                                 @endif
                         </ul>
+                        <form action="#" method="GET">
+                            <input type="search" style="display:none;" id='searchBar' name='search'  placeholder="Search ...">
+                        </form>
+                        <i id="toggle-search" class="fa fa-search text-gray px-2" style="font-size: 20px;"></i>
                     </div>
                 </nav>
         </div>
@@ -241,7 +286,26 @@ br-5{
                                 </div>
                                 <button type="submit" class="btn btn-info theme-button rounded-0">Subscribe</button>
                         </form>
-                </div>
+                        <h6 class="footer-title-29">Follow Us Social Media</h6>
+                        <div class="d-flex flex-row">
+                            <div class="p-2"> <a href="#" class="facebook">
+                                                <i class="livicon circle-icon-blue" data-name="facebook" data-size="20" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
+                                                </a>
+                            </div>
+                            <div class="p-2"> <a href="#" class="facebook">
+                                                <i class="livicon circle-icon-twitter-blue" data-name="twitter" data-size="20" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
+                                                </a>
+                            </div>
+                            <div class="p-2"> <a href="#" class="facebook">
+                                                <i class="livicon circle-icon-purple" data-name="instagram" data-size="20" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
+                                                </a>
+                            </div>
+                            <div class="p-2"> <a href="#" class="facebook">
+                                                <i class="livicon circle-icon-red" data-name="youtube" data-size="20" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
+                                                </a>
+                            </div>
+                        </div>
+                    </div>
                 <div class="col-lg-2 col-md-6 footer-list-29 footer-2 mt-5">
                     <h6 class="footer-title-29">Explore More</h6>
                     <ul>
@@ -298,9 +362,11 @@ br-5{
     </div>
 
     <!-- move top -->
-    <button onclick="topFunction()" id="movetop" title="Go to top">
-        <span class="fa fa-angle-up" aria-hidden="true"></span>
-    </button>
+    <div style="position: absolute; bottom: 50px; right: 5px;">
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+            <span class="fa fa-angle-up" aria-hidden="true"></span>
+        </button>
+    </div>
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {
@@ -327,6 +393,7 @@ br-5{
 <!-- Footer -->
 <!--global js starts-->
 <script type="text/javascript" src="{{ asset('js/frontend/lib.js') }}"></script>
+<script src="{{ asset('js/share.js') }}"></script>
 <!--global js end-->
 <!-- begin page level js -->
 @yield('footer_scripts')
@@ -459,14 +526,29 @@ br-5{
         })
     });
 </script>
+<!-- Search Bar & Toggle -->
 <script>
-$(document).ready(function(){
-  $("#showSearch").click(function(){
-    $("#search-icon").hide();
-  });
+$('#toggle-search').on('click', function() {
+  $('#searchBar').toggle('display: inline-block');
 });
 </script>
-
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/607982e9f7ce1827093b17bf/1f3daepbo';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-607ca9281aff28eb"></script>
+<!--End Go to www.addthis.com/dashboard to customize your tools -->
+<script src="http://unpkg.com/turbolinks"></script>
 </body>
 
 </html>

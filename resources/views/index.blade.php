@@ -33,8 +33,8 @@
                 <img src="{{asset('images/start2.png')}}" style="height:300px; width:300px;" />
             </div>
             <h2 class="mb-5 text-dark" style="font-weight: 600 !important;">Find the best answer to your questions</h2>
-            <h3 class="mb-5"><span class="text-secondary">Have Questions?</span><b><span class="text-success"> We have Answers</span></b></h3>
-            <a href="{{route('register')}}" class="btn btn-dark theme-btn px-5"><img src="{{asset('images/start.png')}}" style="width: 50px; height: 50px; padding: 5px 5px;" /><span class="text-uppercase px-2">Start Asking, It's Free </span></a>
+            <h2 class="mb-5 text-success" id="word"> We have Answers</h2>
+            <a href="{{route('register')}}" class="btn btn-index theme-button  px-5"><span class="text-uppercase px-2">Start Asking, It's Free </span></a>
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@
         <div class="container">
             <div class="middle-section">
             <div class="header-section text-center mb-4 p-5">
-                    <h1 class="text-dark">For Institutions,by IT Specialists</h1>
+                    <h1 class="text-dark">For Institutions, by Technologists</h1>
                     <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
                     <p>StudPort equips learning institutions with appropriate technologies to facilitate the teaching & learning processes.
                         We offer training and Staff capacity building in Information Technologies to increase performance and success. 
@@ -183,10 +183,12 @@
                              <div class="col-lg-4 col-md-6 featured-service">
                             <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 bg-index shadow" style="border-radius: 5px !important;"> 
                                 <div class="feature-16-gd-info">
-                                            <div class="text-center"><img src="{{asset('images/ads.png')}}"  style="height: 100px; width: 100px;"></div>
+                                            <div class="text-center">
+                                                <img src="{{asset('images/discount1.png')}}"  style="height: 100px; width: 100px;">
+                                            </div>
                                             <h6 class="mt-4 mb-4 text-light text-center">Are you a writer? Advertise on StudPort and reach out to over 1000+ {{--$users->count()--}} students</h6>
                                             <div class="text-center"> 
-                                            <a class="btn btn-primary theme-button text-light">Start Advertising with StudPort</a>
+                                            <a class="btn btn-primary theme-button text-light">Start Advertising</a>
                                         </div>
 
                                 </div>
@@ -212,7 +214,7 @@
     <div class="testimonials py-5" >
         <div class="container py-lg-5">
             <div class="header-section text-center">
-              <h1 class="text-dark">What Students Say About Us</h1>
+              <h1 class="text-dark">Featured Teachers</h1>
                 <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
             </div>
             <div class="row mt-4 bg-transparent">
@@ -225,10 +227,14 @@
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <p>Message</p>
                                     <div class="name mt-4">
-                                        <h4>Nji Awah</h4>
-                                        <p>Designation goes here</p>
+                                        <h3 class="text-dark">Tutor Name</h3>
+                                        <p>Academic Title</p>
+                                        <br>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                            Donec eget venenatis turpis, at tempor lectus. Nunc ultricies, nibh vel suscipit hendrerit, metus enim lobortis eros, at imperdiet nunc dui eget eros.
+                                            Praesent iaculis hendrerit quam, in congue dui elementum et.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -240,10 +246,14 @@
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <p>Message</p>
                                     <div class="name mt-4">
-                                        <h4>Jayford</h4>
-                                        <p>Designation goes here</p>
+                                        <h3 class="text-dark">Tutor Name</h3>
+                                        <p>Academic Title</p>
+                                        <br>
+                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                            Donec eget venenatis turpis, at tempor lectus. Nunc ultricies, nibh vel suscipit hendrerit, metus enim lobortis eros, at imperdiet nunc dui eget eros.
+                                            Praesent iaculis hendrerit quam, in congue dui elementum et.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -255,10 +265,14 @@
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <p>Message</p>
                                     <div class="name mt-4">
-                                        <h4>Avatar</h4>
-                                        <p>Designation goes here</p>
+                                        <h3 class="text-dark">Tutor Name</h3>
+                                        <p>Academic Title</p>
+                                        <br>
+                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                            Donec eget venenatis turpis, at tempor lectus. Nunc ultricies, nibh vel suscipit hendrerit, metus enim lobortis eros, at imperdiet nunc dui eget eros.
+                                            Praesent iaculis hendrerit quam, in congue dui elementum et.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -270,10 +284,14 @@
                                 </div>
                                 <div class="message">
                                     <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <p>Message</p>
                                     <div class="name mt-4">
-                                        <h4>Avatar</h4>
-                                        <p>Designation goes here</p>
+                                        <h3 class="text-dark">Tutor Name</h3>
+                                        <p>Academic Title</p>
+                                        <br>
+                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                            Donec eget venenatis turpis, at tempor lectus. Nunc ultricies, nibh vel suscipit hendrerit, metus enim lobortis eros, at imperdiet nunc dui eget eros.
+                                            Praesent iaculis hendrerit quam, in congue dui elementum et.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -292,11 +310,11 @@
 <script>
 $(function () {
   count = 0;
-  wordsArray = ["Science", "Arts", "Technology"];
+  wordsArray = ["Science", "Arts", "Technology", "Engineering", "Medecine", "Economics", "Journalism", "Physics", "Chemistry"];
   setInterval(function () {
     count++;
-    $("#word").fadeIn(400, function () {
-      $(this).text(wordsArray[count % wordsArray.length]).fadeIn(400);
+    $("#word").fadeIn(100, function () {
+      $(this).text(wordsArray[count % wordsArray.length]).fadeIn(100);
     });
   }, 1000);
 });

@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Http\Requests\BlogCommentRequest;
 use App\Models\News as NewsAlias;
 use App\Http\Requests\BlogRequest;
+use Illuminate\Support\Facades\Storage;
 use Response;
 use Sentinel;
 use Intervention\Image\Facades\Image;
@@ -147,23 +148,31 @@ class UserBlogController extends JoshController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Blog $blog
+     * @param  $my_questions
      * @return view
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
+        $blog = Blog::find($id);
         $blogcategory = BlogCategory::pluck('title', 'id');
-        return view('blog.edit', compact('blog', 'blogcategory'));
+        if(Sentinel::getUser()->id !== $blog->user_id)
+        {
+
+        return redirect('user_dashboard')->with('error', 'You are not auhorised to Edit this Question');
+        }
+
+        return view('questions.edit', compact('blog', 'blogcategory'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Blog $blog
+     * @param  int  $id
      * @return Response
      */
-    public function update(BlogRequest $request, Blog $blog)
+    public function update(BlogRequest $request, $id)
     {
+        $blog = Blog::Find($id);
         $message=$request->get('content');
         libxml_use_internal_errors(true);
         $dom = new DomDocument();
@@ -201,15 +210,14 @@ class UserBlogController extends JoshController
             $file->move($destinationPath, $picture);
             $blog->image = $picture;
         }
+        $blog->user_id = Sentinel::getUser()->id;
+        $blog->institution = Sentinel::getUser()->institution;
+        $blog->title = $request->input('title');
+        $blog->save();
+        $blog->tag($request->tags?$request->tags:'');
 
+            return Redirect::route('my-account')->with('success', 'Question updated successfully');
 
-        $blog->retag($request->tags?$request->tags:'');
-
-        if ($blog->update($request->except('content', 'image', 'files', '_method', 'tags'))) {
-            return Redirect::route('my-account')->with('success', trans('blog/message.success.update'));
-        } else {
-            return Redirect::route('my-account')->withInput()->with('error', trans('blog/message.error.update'));
-        }
     }
 
 
@@ -224,7 +232,7 @@ class UserBlogController extends JoshController
         $model = 'blog';
         $confirm_route = $error = null;
         try {
-            $confirm_route = route('admin.blog.delete', ['id' => $blog->id]);
+            $confirm_route = route('questions.delete', ['id' => $blog->id]);
             return view('admin.layouts.modal_confirmation', compact('error', 'model', 'confirm_route'));
         } catch (RoleNotFoundException $e) {
             $error = trans('blog/message.error.destroy', compact('id'));
@@ -235,13 +243,25 @@ class UserBlogController extends JoshController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Blog $blog
+     * @param int $id
      * @return Response
      */
-    public function destroy(Blog $my_question)
+    public function destroy($id)
     {
-        $my_question->delete();
-        if ($my_question->delete()) {
+        $blog = Blog::Find($id);
+        //Check for correct user 
+        
+        $blog = Blog::find($id);
+        if(Sentinel::getUser()->id !== $blog->user_id)
+        {
+
+        return redirect('user_dashboard')->with('error', 'You are not auhorised to delete this Question');
+        }
+        Storage::delete('/storage/app/public/uploads/'.$blog->image);
+
+        $blog->delete();
+        
+        if ($blog->delete()) {
             return redirect('my-account')->with('success', 'Question deleted successfully');
         } else {
             return Redirect::route('my-account')->withInput()->with('error', 'There was a problem deleting this question');

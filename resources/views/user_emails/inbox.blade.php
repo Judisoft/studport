@@ -16,7 +16,7 @@
 
 {{-- Page content --}}
 @section('content')
-    <aside class="right-aside" style="background-color: #D5DDE6; padding: 25px;">
+    <aside class="right-aside" style="background-color: #D5DDE6; padding: 15px;">
     <!-- Content Header (Page header) -->
         <!-- Content Header (Page header) -->
         <div class="container-fluid my-3">
@@ -67,15 +67,7 @@
                 <div class="whitebg1 mail_inbox_all">
                     <table class="table table-striped table-advance table-hover table-responsive" id="inbox-check">
                         <thead>
-                        <tr>
-                            <td colspan="6" class="card-header compose border-bottom" style="background-color: #2C3E50;">
-                                <div class="col-md-8">
-                                    <h4 class="mb-0">
-                                        <h6 class="text-default text-white"> MESSAGE(S)</h6>
-                                    </h4>
-                                </div>
-                            </td>
-                        </tr>
+                        
                         <tr>
                             <th colspan="6">
                                 <div class="row">

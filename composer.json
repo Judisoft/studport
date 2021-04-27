@@ -39,6 +39,7 @@
         "infyomlabs/laravel-generator": "^1.0",
         "infyomlabs/swagger-generator": "dev-master",
         "intervention/image": "^2.5.1",
+        "jorenvanhocht/laravel-share": "^4.0",
         "larasocket/larasocket-driver": "^1.0",
         "laravel/framework": "^8.0",
         "laravel/helpers": "^v1.3.0",

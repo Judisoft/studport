@@ -187,9 +187,10 @@
                                     <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image" style="max-width:80%;">
                                 @endif
                                 <br>
-                                <p class="text-left text-gray px-2 pt-2">
-                                    <span class="icon-bubbles fa-2x px-2"></span>{{$blog->comments->count()}} answer(s)
-                                </p>
+                                <div class="d-flex flex-row mt-3">
+                                    <div class="p-2"><span class="icon-bubbles fa-2x px-2 text-info"></span>{{$blog->comments->count()}} answer(s)</div>
+                                    <div class="p-2"><span class="icon-check fa-2x px-2 text-success"></span>reviews</div>
+                                </div>
                                 <hr style="opacity: 0.3;">
                                 <!-- /.blog-detail-image -->
                                 <div class="p-2 mb-3 blog-detail-content">
@@ -201,23 +202,79 @@
                             @if($comment->count() > 0)
                             <tbody>
                                         <tr>
-                                         <td>
-                                            <h5 class="text-center text-gray"><a  href="#url"><span class="ion ion-md-arrow-dropup fa-3x text-gray px-3"></span></a><br>0<br><a href="#url"><span class="ion ion-md-arrow-dropdown fa-3x text-gray px-3"></span></a></h5>
-                                        </td>
                                         <td>
-                                            <div class=" card-body" style="background-color:#F6F8FA; border:none;">
-                                                    <small>{!! $comment->comment !!} </small>
+                                            <div class="card-body rounded-0" style="background-color: #F5F7F7;">
+                                                <div class="d-flex flex-column">
+                                                    <div class="p-2"><p>{!! $comment->comment !!} </p></div>
+                                                    <div class="p-2">
+                                                    <div class="d-flex flex-row alert-gray">
+                                                        @if($comment->remark == '1') 
+                                                            <div class="p-2 "><i class="icon-check fa-2x text-success"></i></div>
+                                                            <div class="p-2 alert  border-0 rounded-0 mt-2"><small>{{$comment->explanation}}</small></div>
+                                                            <div class="p-2 alert  border-0 rounded-0 mt-2"><small><i class="icon-pencil  circle-icon-info text-white"></i>&nbsp;Reviewed by &nbsp;<em class="text-info">{{$comment->reviewed_by}}</em></small></div>
+                                                        @elseif($comment->remark == '0')
+                                                            <div class="p-2 "><i class="icon-close fa-2x text-danger"></i></div>
+                                                            <div class="p-2 alert  border-0 rounded-0 mt-2"><small>{{$comment->explanation}}</small></div><br>
+                                                            <div class="p-2 alert  border-0 rounded-0 mt-2"><small><i class="icon-pencil  circle-icon-info text-white"></i>&nbsp;Reviewed by &nbsp;<em class="text-info">{{$comment->reviewed_by}}</em></small></div>
+                                                        @elseif($comment->remark == '0')
+                                                        @elseif(!$comment->remark) 
+                                                            <div class="p-2 "><i class="icon-info fa-2x text-info"></i></div>
+                                                            <div class="p-2 alert  border-0 rounded-0 mt-2"><small>No review yet!</small></div>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                                     <div class="mt-auto pt-5">
-                                                        @if($comment->picture)
-                                                            <img src="{{$comment->picture}}" class="rounded-circle" alt="img" style="height: 35px; width: 35px;"/>
-                                                            <small class="text-gray">{{$comment->name}} answered on {!! date('M d, Y', strtotime($comment->created_at)) !!} at {!! date('G:i', strtotime($comment->created_at)) !!}</small>
-                                                        @else
-                                                        <span class="fa fa-user-circle fa-2x" style="color: #B8B7B7;"></span><br>
-                                                        @endif
-                                                        @if(Sentinel::check() && Sentinel::getUser()->email === $comment->email)
-                                                            <a href="#url" class="text-info"><span class="fa fa-edit  text-info px-2"></span><small>edit answer</small></a>&nbsp;
-                                                            <a href="#url" class="text-danger"><span class="fa fa-trash text-danger px-2"></span><small>delete answer </small></a>
-                                                        @endif
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="p-2">
+                                                                @if($comment->picture)
+                                                                        <img src="{{$comment->picture}}" class="rounded-circle" alt="img" style="height: 35px; width: 35px;"/>
+                                                                        <small>{{$comment->name}} answered on {!! date('M d, Y', strtotime($comment->created_at)) !!} at {!! date('G:i', strtotime($comment->created_at)) !!}</small>
+                                                                    @else
+                                                                    <img src="{{asset('images/no_avatar.jpg')}}" class="rounded-circle" alt="img" style="height: 35px; width: 35px;"/>
+                                                                    <small>{{$comment->name}} answered on {!! date('M d, Y', strtotime($comment->created_at)) !!} at {!! date('G:i', strtotime($comment->created_at)) !!}</small>
+                                                                @endif
+                                                            </div>
+                                                                <div class="p-2">
+                                                                    @if((Sentinel::check() && Sentinel::getUser()->email === $comment->email) || Sentinel::getUser()->user_role === 'tutor')
+                                                                        <p class="mt-3 text-right">
+                                                                            <a href="{{URL::to('blogitem/' . $comment->id . '/edit' ) }}" class="text-info">Edit</a>&nbsp;|
+                                                                            <a href="#url" class="text-danger">delete</a>
+                                                                        </p>
+                                                                    @endif
+                                                                </div>
+                                                        </div>
+                                                        @if((Sentinel::check() && Sentinel::getUser()->user_role === 'tutor') && !$comment->remark)
+                                                        <hr>
+                                                        <i>Review this answer</i>
+                                                        <div class="d-flex flex-row mt-3 pl-5">
+                                                            <div class="p-2"><img src="{{Sentinel::getUser()->pic}}" class="rounded-circle" alt="img" style="height: 35px; width: 35px;"/></div>
+                                                            <div class="p-2 mb-2" style=" width: 100% !important;">
+                                                            
+                                <div  id="reviewForm">
+                                                                  <!--review -->
+                                {!! Form::open(['url' => URL::to('blogitem/'.$comment->id.'/review'), 'method' => 'post', 'class' => 'bf',
+                                'files'=> true]) !!}
+                                    <div class="form-group {{ $errors->has('review') ? 'has-error' : '' }}">
+                                    {!! Form::select('remark', ['1' => 'Answer is correct', '0' => 'Answer is NOT correct'], null, ['placeholder' => 'remark', 'class' => 'form-control input-lg' ]) !!}
+                                    <span class="text-danger"><small>{{ $errors->first('review', ':message') }}</small></span>
+                                </div>
+                                <div class="form-group {{ $errors->has('explanation') ? 'has-error' : '' }}">
+                                    {!! Form::textarea('explanation', null, ['class' => 'form-control input-lg',
+                                    'placeholder'=>'Comment', 'style'=>'font-size: 14px; height:100px;']) !!}
+                                    <span class="text-danger"><small>{{ $errors->first('explanation', ':message') }}</small></span>
+                                </div>
+                                    <button type="submit" name="review_form" class="btn btn-secondary theme-button">
+                                        Submit Review
+                                    </button>
+                                {!! Form::close() !!}
+                                </div>
+                                <div class="px-2 ml-auto mr-auto"  id='reviewForm'>
+                                <!--    <i id="toggle-review">Review this answer</i>   -->  
+                                </div>
+                                                                  <!--end review -->
+                                                            </div>
+                                                            @endif
+                                                        </div>
                                                     </div>
                                             </div>
                                         </td>
@@ -233,51 +290,51 @@
                         <!-- Comment Section Start -->
                         <div>
                             <div style="padding-top: 25px; ">
-                            <h5 class="px-3 mt-3" style="opacity: 0.5; text-align: left;">Answer this question<span class="icon-bubbles fa-2x px-2"></span></h5>
-                            <div class="card card-body mt-5">
+                            <h5 class="px-3 mt-3 text-left">Answer this question<span class="icon-bubbles fa-2x px-2"></span></h5>
+                            <div class="card card-body mt-5 border-0" style="background-color: #F5F7F7;">
                                 {!! Form::open(['url' => URL::to('blogitem/'.$blog->id.'/comment'), 'method' => 'post', 'class' => 'bf',
                                 'files'=> true]) !!}
 
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                                     @if(Sentinel::check())
-                                    {!! Form::text('name', Sentinel::getUser()->first_name  . '&nbsp;' . Sentinel::getUser()->last_name, ['class' => 'form-control input-lg','required' => 'required',
+                                    {!! Form::text('name', Sentinel::getUser()->first_name  . '&nbsp;' . Sentinel::getUser()->last_name, ['class' => 'form-control input-lg rounded-0','required' => 'required',
                                     'placeholder'=>'Name', 'style'=>'font-size: 14px;']) !!}
                                     @else
-                                    {!! Form::text('name', null, ['class' => 'form-control input-lg','readonly' => 'true',
+                                    {!! Form::text('name', null, ['class' => 'form-control input-lg rounded-0','readonly' => 'true',
                                     'placeholder'=>'Name', 'style'=>'font-size: 14px;']) !!}
                                     @endif
                                     <span class="text-danger"><small>{{ $errors->first('name', ':message') }}</small></span>
                                 </div>
                                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                                     @if(Sentinel::check())
-                                    {!! Form::text('email', Sentinel::getUser()->email, ['class' => 'form-control input-lg','required' => 'required',
+                                    {!! Form::text('email', Sentinel::getUser()->email, ['class' => 'form-control input-lg rounded-0','required' => 'required',
                                     'placeholder'=>'Email', 'style'=>'font-size: 14px;']) !!}
                                     @else
-                                    {!! Form::text('email', null, ['class' => 'form-control input-lg','readonly' => 'true',
+                                    {!! Form::text('email', null, ['class' => 'form-control input-lg rounded-0','readonly' => 'true',
                                     'placeholder'=>'Email', 'style'=>'font-size: 14px;']) !!}
                                     @endif
                                     <span class="text-danger"><small>{{ $errors->first('email', ':message') }}</small></span>
                                 </div>
                                 @if(Sentinel::check() && Sentinel::getUser()->user_role === 'student')
                                     <div class="form-group {{ $errors->has('website') ? 'has-error' : '' }}">
-                                        {!! Form::number('website', null, ['class' => 'form-control input-lg', 'min' => '1', 'max' =>'5', 'placeholder'=>'Level', 'style'=>'font-size: 14px;']) !!}
+                                        {!! Form::number('website', null, ['class' => 'form-control input-lg rounded-0', 'min' => '1', 'max' =>'5', 'placeholder'=>'Level', 'style'=>'font-size: 14px;']) !!}
                                         <span class="text-danger"><small>{{ $errors->first('website', ':message') }}</small></span>
                                     </div>
                                 @endif
 
                                 <div class="box-body pad form-group {{ $errors->has('comment') ? 'has-error' : '' }}">
-                                    {!! Form::textarea('comment', null, ['class' => 'text-area form-control', 'row'=>'5', 'placeholder'=>'Your Answer','id'=>'textarea', 'style'=>'height: 200px !important; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
+                                    {!! Form::textarea('comment', 'This is my answer', ['class' => 'text-area form-control rounded-0', 'id'=>'textarea', 'style'=>'min-height: 250px !important; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
                                     <span class="text-danger"><small>{{ $errors->first('comment', ':message') }}</small></span>
                                 </div>
                                 <div class="form-group text-right">
                                 @if(Sentinel::check())
-                                    <button type="submit" class="btn btn-success theme-button">
+                                    <button type="submit" name="comment_form" class="btn btn-info theme-button rounded-0">
                                         Submit  Answer
                                     </button>
                                 @endif
                                   @if(Sentinel::guest())
                                     <div class="form-group">
-                                    <button type="submit" class="btn btn-info theme-button disabled not-allowed" onclick="return false;" data-toggle="tooltip" data-placement="top" title="You have to be logged in to Post and answer" >
+                                    <button type="submit" class="btn btn-info theme-button rounded-0 disabled not-allowed" onclick="return false;" data-toggle="tooltip" data-placement="top" title="You have to be logged in to Post and answer" >
                                         Submit  Answer
                                     </button><br>
                                 @endif
@@ -285,10 +342,10 @@
                         </div>
                         </div>
                         <!-- //Media left section End -->
-                                <div class="alert alert-info  mt-3 p-2" style="margin: auto; overflow-x: hidden;">
+                                <div class="alert alert-warning border-0  mt-3 p-2" style="margin: auto; overflow-x: hidden;">
                                     <h5> Can't answer this question? </h5> 
                                     <hr>
-                                    Copy this link:<a href="{{url()->current()}}" style="color: #19A0EE; text-decoration: underline;"> {{url()->current()}}</a> and <a href="{{URL::to('user_emails/compose')}}" style="text-decoration: underline;"> Send <span class="fa fa-external-link-alt"></span></a> to a teacher or someone who can answer</p>
+                                    Copy this link:<a href="{{url()->current()}}" style="color: #19A0EE; text-decoration: underline;"> {{url()->current()}}</a> to <a href="{{URL::to('user_emails/compose')}}" style="text-decoration: underline;"> share </a> with a tutor or other users who can provide helpful answers</p>
                                     <br>
                                     <small>Thanks for contributing an answer to StudPort. We appreciate your contribution!</small>
                                 </div>
@@ -299,8 +356,6 @@
         </div>
     </section>
 @stop
-
-
 
 <!-- //contact form -->
 {{-- page level scripts --}}
@@ -315,7 +370,13 @@
         $('#textarea').summernote();
         });
     </script>
-
+ <script>
+$('#toggle-review').on('click', function() {
+  $('#reviewForm').toggle('display: inline-block');
+});
+</script>
 @stop
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-607ca9281aff28eb"></script>
 
 

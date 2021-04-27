@@ -31,11 +31,10 @@
 <!--end of page level css-->
 </head>
 <style>
-.full-width{
-  min-width: 100%;
-  max-width: 100%;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  .full-width {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
 }
     .btn-nav{
         border-top-left-radius: 0;
@@ -55,33 +54,13 @@
   .card-1 {
   box-shadow: 0 10px 20px #D5DDE6, 0 5px 5px #D5DDE6;
 } 
-.theme-button {
-  transition: 0.3s ease-out;
-  display: inline-block;
-  line-height: 42px;
-  font-weight: 700;
-  font-size: 14px;
-  margin: 0px;
-  padding: 0px 30px;
-  background-color: #063755;
-  color: #fff;
-  text-transform: uppercase; }
-    
-.theme-button a:hover{
-    color: #fff !important;
-}
-
-@media screen and (max-width: 384px) {
-  .theme-button {
-    line-height: 44px;
-    padding: 0px 20px; } }
-
 @media(min-width: 576px){
 .box {
-  min-width: 90%;
+  max-width: 90%;
   margin: auto;
   align-items: left;
   border-radius: 5px;
+  
     
 }
 }
@@ -112,7 +91,24 @@
     
 }
 }
-
+.theme-button {
+  transition: 0.3s ease-out;
+  display: inline-block;
+  line-height: 42px;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px 30px;
+  background-color: #063755;
+  color: #fff;
+  text-transform: uppercase; }
+.theme-button a:hover{
+    color: #fff !important;
+}
+@media screen and (max-width: 384px) {
+  .theme-button {
+    line-height: 44px;
+    padding: 0px 20px; } }
 
 .box1 {
   padding: 20px 20px;
@@ -162,11 +158,18 @@
 h4{
   font-weight: 400 !important;
 }
+.full-width{
+  min-width: 100%;
+  max-width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 
 </style>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #01182F !important;">
-    <a class="navbar-brand ml-5" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="" /></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light bg-dark">
+    <a class="navbar-brand ml-5" href="{{route('home')}}"><img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px;" />
+    </a>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item ml-auto text-primary px-2">Tips to Secure Password?</li>
     </ul>
@@ -194,7 +197,8 @@ h4{
                         <label class="sr-only">Confirm Password</label>
                         <input type="password" class="form-control mt-15" name="password_confirm" placeholder="Confirm New Password">
                         <span class="help-block">{{ $errors->first('password_confirm', ':message') }}</span>
-                        <input type="submit" class="btn btn-block theme-button" value="Submit to Reset Password" style="margin-top:10px;">
+                        <br>
+                        <input type="submit" class="btn btn-block btn-success theme-button" value="Reset Password">
                     </form>
                             <br />
                                 <span class="text-dark pt-2">Back to login page?</span> <a href="{{ route('login') }}">click here</a>

@@ -23,7 +23,5 @@ class BlogComment extends Model
     /**
 * Get votes associated with an answer
 */
-public function votes() {
-    return $this->hasMany( 'App\Vote' );
-  }
+
 }

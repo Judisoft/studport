@@ -36,6 +36,9 @@ class UserRequest extends FormRequest
                     'email' => 'required|email|unique:users,email',
                     'password' => 'required|between:3,32',
                     'password_confirm' => 'required|same:password',
+                    'institution' => 'required|min:3',
+                    'department' => 'required|min:3',
+                    'level' => 'required|max:2',
                     'pic_file' => 'mimes:jpg,jpeg,bmp,png,gif|max:10000'
                 ];
 

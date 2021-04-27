@@ -16,6 +16,21 @@
 @stop
 {{-- Page content --}}
 @section('content')
+  <section class="w3l-get-started-index" id="intro">
+    <div class="new-block-about top-bottom">
+      <div class="container">
+        <div class="middle-section text-center">
+          <div class="section-width mb-5">
+            <div class="header-section">
+            <h1 class="text-center text-warning">We are here to help you succeed you!</h1>
+            <br>
+            <h5 class="text-center text-light">The No. 1 Portal for Academic Excellence in Cameroon!</h5>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 <section class="w3l-get-started-index" style="background-color: #F0F5F7 !important; min-height: 400px;">
     <div class="new-block top-bottom">
         <div class="container">
@@ -24,14 +39,14 @@
                     <h1 class="text-dark">StudPort Services</h1>
                     <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
                     <p class="mt-5">
-                        StudPort is committed to providing quality digital services to improve the
-                        teaching and learning process for Students and Teachers.  
-                        Our services are designed to empower each student to reach his or her highest potential.
+                        StudPort provides digital services that are easy to use. We improve the
+                        teaching and learning process for Students and Teachers through the use of Technologies.  
+                        Our services are designed to equip students and teachers reach their highest potential.
                     </p>
                 </div>
             </div> 
-            <div class="py-5">
-                <h1 class="text-center text-dark" style="font-weight: 100;"><span class="icon-puzzle fa-5x px-2" style="color: #E4D7D6;"></span> We are here to give you the Support you need. Just let us know how</h1>
+            <div class="py-3">
+                <h1 class="text-center text-dark"><span class="icon-puzzle fa-5x px-2 text-gray"></span> We are here to give you the Support you need. Just let us know how</h1>
             </div>         
         </div>
 </section>
@@ -41,8 +56,8 @@
             <div class="aboutgrids row">
                 <div class="col-lg-6 col-12 aboutgrid2">
                     <div class="mt-5">
-                        <h5 class="text-left text-secondary"> For Students</h5>
-                        <hr>
+                        <h1 class="text-left text-secondary"> For Students</h1>
+                        <br>
                     </div>
                         <ul class="services-list mt-1">
                             <p style="font-weight: 200; ">Our Student-focused services include:</p>
@@ -59,11 +74,12 @@
 
                 </div>
                         <div class="col-lg-6 col-12 mt-5">
-                            <h5 class="text-left text-secondary">For Teachers and Institutions</h5>
-                            <hr>
+                            <h1 class="text-left text-secondary">For Teachers and Institutions</h1>
+                            <br>
                             <ul class="services-list mt-1">
                                 <p style="font-weight: 200;">Our Teacher-focused services include:</p>
                                 <li>E-book Library and Teaching Resources</li>
+                                <li>We offer customised learning platform for Institutions</li>
                                 <li>Tutoring Job Finder</li>
                                 <li>Capacity-building seminar placements </li>
                                 <li>Training Programs in Educational Technologies</li>
@@ -79,7 +95,7 @@
         <div class="feature-16-main py-2 mt-4">
             <div class="container py-lg-3">
                 <div class="header-section text-center">
-                    <h3 class="fw-600 text-dark">Our Pricing Plan</h3>
+                    <h1 class="text-dark">Our Pricing Plan</h1>
                     <hr style="width: 10%; border:3px solid #ff8f07; border-radius: 5px;">
                     <h6>Choose a Payment Plan  </h6>
                 </div>

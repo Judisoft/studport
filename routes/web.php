@@ -178,6 +178,7 @@ Route::group(
                 Route::get('{blog}/confirm-delete', 'BlogController@getModalDelete')->name('blog.confirm-delete');
                 Route::get('{blog}/restore', 'BlogController@restore')->name('blog.restore');
                 Route::post('{blog}/storecomment', 'BlogController@storeComment')->name('storeComment');
+                Route::get('reply/{id}', 'BlogController@like')->name('like');
             }
         );
         Route::resource('blog', 'BlogController');
@@ -336,7 +337,7 @@ Route::get('logout', 'FrontEndController@getLogout')->name('logout');
 // contact 
 Route::get('contact', 'ContactController@index')->name('contact');
 //contact form
-Route::post('contact', 'ContactController@store');
+Route::post('contact', 'ContactController@store')->name('store');
 // about
 Route::get('about_us', 'FrontEndController@about')->name('about');
 // services
@@ -364,6 +365,11 @@ Route::get('blog', 'BlogController@index')->name('blog');
 Route::get('blog/{slug}/{tag}', 'BlogController@getBlogTag');
 Route::get('blogitem/{slug?}', 'BlogController@getBlog');
 Route::post('blogitem/{blog}/comment', 'BlogController@storeComment');
+Route::post('blogitem/{comment}/review', 'BlogController@review');
+//Route::get('comments/{comment}/edit', 'BlogController@edit');
+//Route::get('blogitem/{comment}/delete', 'BlogController@destroy')->name('comment.delete');
+//Route::get('{comment}/confirm-delete', 'BlogController@getModalDelete')->name('comment.confirm-delete');
+
 
 //news
 Route::get('news', 'NewsController@index')->name('news');
@@ -373,22 +379,29 @@ Route::get('{name?}', 'FrontEndController@showFrontEndView');
 // Book request route
 Route::post('user_dashboard', 'BooksController@store');
 // Library Book Search
-Route::get('user_dashboard', 'LibraryController@search');
+//Route::get('user_dashboard', 'LibraryController@search');
 // Newsletter Route
 Route::post('/', 'FrontEndController@newsletter');
 //Exams
 Route::resource('exams','ExamsController');
 //Route::get('exams/index', 'ExamsController@index');
 Route::get('exams/{uuid}/download', 'ExamsController@download')->name('exams.download');
+//Library
+Route::resource('library', 'LibraryController');
+Route::get('library/{uuid}/download', 'LibraryController@download')->name('library.download');
 //Terms and Conditions
 Route::get('terms_and_conditions', 'TermsAndConditionsController@privacy')->name('privacy');
 //Subscription
 Route::get('subscription', 'SubscriptionController@subscribe')->name('subscription');
 Route::post('my-account', 'FrontEndController@newsletter');
 Route::resource('questions', 'UserBlogController');
-Route::resource('questions/{my_questions->id}/edit', 'UserBlogController@edit');
+Route::resource('questions/{my_questions}/edit', 'UserBlogController@edit');
+Route::get('questions/{my_questions}/delete', 'UserBlogController@destroy')->name('questions.delete');
+Route::get('{my_questions}/confirm-delete', 'UserBlogController@getModalDelete')->name('questions.confirm-delete');
+//Route::resource('questions/{my_questions->id}/edit', 'UserBlogController@edit');
 Route::get('download', 'ExamsController@download')->middleware('download')->name('download');
 //institutions
 Route::get('institutions', 'FrontEndController@institutions')->name('institutions');
+
 
 

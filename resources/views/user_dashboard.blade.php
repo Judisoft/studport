@@ -64,7 +64,7 @@ h5{
     font-size: 48 !important;
 }
 li, p{
-    font-family:"Open Sans", Sans-Serif;
+    font-family:'Raleway', sans-serif;
     font-weight: 500;
 }
 .list-item1{
@@ -250,7 +250,13 @@ li, p{
 .bg-dashboard{
     background-color: #B8B8B8 !important;
 }
-
+#leftCol {
+    position: fixed;
+    width: 150px;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
+}
 </style>
 <div class="container-fluid " style="overflow-x: hidden;">
 
@@ -258,7 +264,7 @@ li, p{
                     <!-- Nav Nav-tabs Start -->
     <section>
                             <div class="row" style="background-color: #FBFBFB; margin-right: 5px;">
-                            <div class="col-lg-3 col-md-3 col-12"  style="border-right: 2px solid #ddd; background-color: #eee;">
+                            <div class="col-lg-3 col-md-3 col-12" id="leftCol"  style="border-right: 2px solid #ddd; background-color: #eee; border-left: 2px solid #ddd; background-color: #eee;">
                                         <div class="ml-auto">     
                                             <div class="card-body">
                                                 <div class="box1 text-dark text-center mt-2">
@@ -284,45 +290,65 @@ li, p{
                                             <ul class="nav" style="font-weight: 500 !important; text-transform: !important;">
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_1" data-toggle="tab" class="nav-link">
-                                                <i class="icon-grid fa-2x px-2" ></i>User Dashboard</a>
+                                                    <i class="icon-grid circle-icon-blue text-white"></i>&nbsp;&nbsp;&nbsp;User Dashboard
+                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_2" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-settings fa-2x px-2"></i>Account Settings</a>
+                                                    <i class="icon-settings circle-icon-pink text-white"></i>&nbsp;&nbsp;&nbsp;Account Settings
+                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                    </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_3" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-question fa-2x px-2"></i>Post Question</a>
+                                                    <i class="icon-question circle-icon-purple text-white"></i>&nbsp;&nbsp;&nbsp;Post Question
+                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                    </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_4" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-layers fa-2x px-2"></i>Questions Manager</a>
+                                                    <i class="icon-layers circle-icon-red text-white"></i>&nbsp;&nbsp;&nbsp;Questions Manager
+                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                    </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_5" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-folder-alt fa-2x px-2"></i>Study Resources</a>
+                                                    <i class="icon-folder-alt circle-icon-success text-white"></i>&nbsp;&nbsp;&nbsp;Study Resources
+                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                    </a>
                                             </li>
 
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_6" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-wrench fa-2x px-2"></i>Tutoring Jobs</a>
+                                                    <i class="icon-wrench circle-icon-red text-white"></i>&nbsp;&nbsp;&nbsp;Tutoring Jobs
+                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                </a>
                                             </li>
                                             
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_7" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-screen-desktop fa-2x px-2"></i>Online Tutors</a>
+                                                    <i class="icon-screen-desktop circle-icon-blue text-white"></i>&nbsp;&nbsp;&nbsp;Online Tutors
+                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                    </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="#tab_default_8" data-toggle="tab" class="nav-link">
-                                                   <i class="icon-docs fa-2x px-2"></i>Exams Resources</a>
+                                                   <i class="icon-docs circle-icon-success text-white"></i>&nbsp;&nbsp;&nbsp;Exams Resources
+                                                   <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                   </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link">
-                                                   <i class="icon-drawer fa-2x px-2"></i>Inbox</a>
+                                                   <i class="icon-drawer circle-icon-pink text-white"></i>&nbsp;&nbsp;&nbsp;Inbox
+                                                   <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                   </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
                                                 <a href="{{ URL::to('logout') }}" class="nav-link">
-                                                    <i class="icon-power fa-2x px-2"></i>Sign Out</a>
+                                                    <i class="icon-power circle-icon-red text-white"></i>&nbsp;&nbsp;&nbsp;Sign Out
+                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                    </a>
                                             </li>
                                         </ul>
                                         </div>
@@ -340,21 +366,21 @@ li, p{
                                     <div>
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body bg-index  text-light text-right shadow">
+                                            <div class="card-body bg-success  text-light text-right shadow">
                                                 <span class="fa fa-users fa-3x"></span>
                                                 <h6>Study Groups</h6>
                                                 <h3>0</h3>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body bg-index  text-light text-right shadow" style="background-color: #C70039;">
+                                            <div class="card-body bg-nice-green  text-light text-right shadow" style="background-color: #C70039;">
                                             <span class="fa fa-trophy fa-3x"></span>
                                                 <h6>Points</h6>
                                                 <h3>0</h3>
                                             </div>
                                         </div>
                                           <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body bg-index  text-light text-right">
+                                            <div class="card-body bg-info  text-light text-right">
                                             @if(Sentinel::getUser()->account_type != 'vip')
                                                 <a href="#url" class="text-white"><span class="fa fa-cart-plus fa-3x p-3"></span>Upgrade my Account </a><br>
                                             @endif
@@ -428,11 +454,10 @@ li, p{
                                        My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
                                                     data-c="#000" data-hc="#000"></i> Account Settings</div>
                                 </div>
-                                <div class="card card-body alert-info">
+                                <div class="card card-body rounded-0">
+                                 <div class="card card-body alert-info bg- mt-3 mb-5">
                                     <b><span class="fa fa-address-card fa-2x px-3"></span>PERSONAL INFORMATION</b>
                                 </div>
-                                <br>
-                                <div class="card card-body bg-settings">
                                 {!! Form::model($user, ['url' => URL::to('my-account'), 'method' => 'put', 'class' => 'form-horizontal','enctype'=>"multipart/form-data"]) !!}
 
                                     {{ csrf_field() }}
@@ -536,7 +561,7 @@ li, p{
                                     </div>
 
                                     <div class="form-group {{ $errors->first('password', 'has-error') }}">
-                                        <h6 class="text-warning col-md-offset-2 text-danger text-center  alert-danger br-5"><small><span class="fa fa-exclamation-triangle px-1 py-3"></span>If you don't want to change password... please leave them empty</small></h6><br>
+                                        <h6 class="text-warning col-md-offset-2 text-danger"><small><span class="fa fa-exclamation-triangle px-1 py-3"></span>If you don't want to change password... please leave the password field empty</small></h6><br>
                                             <div class="row">
                                                 <div class="col-lg-2 col-12">
                                                 <label class="control-label">
@@ -724,7 +749,7 @@ li, p{
                                     <br>
                                     <div class="form-group">
                                         <div class="col-lg-10 col-12 ml-auto">
-                                            <button class="btn btn-favorite btn-block theme-button" type="submit">Update Profile</button>
+                                            <button class="btn btn-secondary btn-block theme-button" type="submit">Update Profile</button>
                                         </div>
                                     </div>
 
@@ -754,30 +779,30 @@ li, p{
                                                 <div class="row">
                                                     <div class="col-sm-8">
                                                         <div class="form-group {{ $errors->first('title', 'has-error') }} ">
-                                                            {!! Form::text('title', null, ['class' => 'form-control input-lg','placeholder'=>
-                                                            'Enter Course/Subject/Topic', 'style'=>'font-size: 14px;']) !!}
-                                                            <small class="text-danger">{{ $errors->first('title', ':message') }}</small>
+                                                            {!! Form::text('title', null, ['class' => 'form-control input-lg rounded-0','placeholder'=>
+                                                            'Enter Course/Subject', 'style'=>'font-size: 14px;']) !!}
+                                                            <small class="text-danger">{{ $errors->first('title', 'course/subject required') }}</small>
                                                         </div>
                                                         <div class="form-group {{ $errors->first('blog_category_id', 'has-error') }}">
                                                             {!! Form::select('blog_category_id',$blogcategory ,null, ['class' => 'form-control
-                                                            select2', 'id'=>'blog_category' ,'placeholder'=>'Select Category', 'style'=>'font-size: 14px;']) !!}
+                                                            select2 rounded-0', 'id'=>'blog_category' ,'placeholder'=>'Select Category', 'style'=>'font-size: 14px;']) !!}
                                                             <small class="text-danger">{{ $errors->first('blog_category_id', 'Question category required') }}</small>
                                                         </div>
                                                         <div class='box-body pad form-group {{ $errors->first('content', 'has-error') }}'>
-                                                            {!! Form::textarea('content', NULL,
-                                                            ['placeholder'=>'Enter the content of your question here','rows'=>'5','class'=>'textarea
-                                                            form-control','style'=>'style="width: 100%; height: 200px !important; font-size: 14px !important;
+                                                            {!! Form::textarea('content','Type the content of your question here',
+                                                            ['rows'=>'5','class'=>'textarea
+                                                            form-control rounded-0','style'=>'style="width: 100%; height: 200px !important; font-size: 14px !important;
                                                             line-height: 1.5; border: 1px solid #dddddd; padding: 10px;"']) !!}
-                                                            <small class="text-danger">{{ $errors->first('content', ':message') }}</small>
+                                                            <small class="text-danger">{{ $errors->first('content', 'Question content required') }}</small>
                                                         </div>
                                                     </div>
                                                     <!-- /.col-sm-4 -->
                                                     <div class="col-sm-4">
-                                                        <div class="form-group" style="font-size: 14px;">
-                                                            {!! Form::text('tags', null, ['class' => 'form-control input-lg input-group input-group-append',
-                                                            'data-role'=>"tagsinput", 'placeholder'=>'Tags/Keywords', 'style'=>'font-size: 14px;']) !!}
+                                                        <div class="form-group">
+                                                            {!! Form::text('tags', null, ['class' => 'form-control input-lg rounded-0',
+                                                            'data-role'=>"tagsinput", 'placeholder'=>'Tags/Keywords', 'style'=>'font-size: 14px !important; height: 50px !important;']) !!}
                                                             <br>
-                                                            <p  class="alert-info p-2 mt-3"><small>To enter multiple tags/keywords,
+                                                            <p  class="text-info p-2 mt-3"><small>To enter multiple tags/keywords,
                                                             press the return/enter button and type the next and so on.</small></p>
                                                         </div>
                                                         <label></label>
@@ -811,12 +836,7 @@ li, p{
                                             </div>
                                             </div>
                                             <div class="card-body border-0 mt-3">
-                                            <h6 class="mt-0"><span class="fa fa-info-circle fa-2x px-2"></span>Tips on how to Ask a good question</h6>
-                                            <ul class="list-group list-group-flush mt-3">
-                                                <li class="list-group-item">Be concise</li>
-                                                <li class="list-group-item">Add a reference if it exists</li>
-                                                <li class="list-group-item"></li>
-                                            </ul>
+                                            Tips on how to Ask a good question
                                             </div>
                                         </div>
                                     </div>
@@ -845,6 +865,26 @@ li, p{
                             <!-- //Nav Nav-tabs End -->
                             <!-- Tab-content Start -->
                             <div class="card-body" id="p3">
+                            <h3> Sort Questions</h3>
+                            <br>
+                            <!-- sort questions -->
+                    <form class="input-group" action="{{route('my-account')}}" method="GET">
+                        <select type="text" class="form-control text-gray rounded-0" name="search" value="{{request()->query('search')}}"  style="font-size: 16px !important; height: 50px; width: 75% !important;">
+                            <option value="">Select Course Title</option>
+                            @foreach($course_titles as $item)
+                            <option value="{!! $item->title !!}">{!! $item->title !!}</option>
+                            @endforeach
+                        </select>
+                            <div class="input-group-append">
+                                <span class="input-group-btn input-group-append">
+                                    <button class="btn btn-warning input-group-text" type="submit" style="border-radius: 0 !important;">
+                                        <i class="fa fa-sort px-2"></i>search
+                                    </button>
+                                </span>
+                            </div>
+                    </form>
+                    <br>
+                            <!-- end sort -->
                                     @forelse ($user_questions as $my_questions)
                                                 <div class="card-body" style="background-color:#F6F8FA; border:none;">
                                                     @foreach($blogscategories as $category)
@@ -868,9 +908,9 @@ li, p{
                                                             </span>
                                                         </small>       
                                                     <p class="pt-3 text-right">
-                                                        <a href="{{ URL::to('admin/blog/' . $my_questions->id . '/edit' ) }}"><span class="icon-note text-light circle-icon-info"></span></a>
-                                                        <a href="{{ route('admin.blog.confirm-delete', $my_questions->id) }}" data-toggle="modal" data-id="{{$my_questions->id }}" data-target="#delete_confirm"><span class="icon-trash text-light circle-icon-danger"></span></a>
-                                                        <a href="#"><span class="icon-share text-light circle-icon-success"></span></a>
+                                                        <a href="{{ URL::to('questions/' . $my_questions->id . '/edit' ) }}" ><span class="icon-note text-light circle-icon-info"></span></a>
+                                                        <a href="{{ route('questions.confirm-delete', $my_questions->id) }}" data-toggle="modal" data-id="{{$my_questions->id }}" data-target="#delete_confirm"><span class="icon-trash text-light circle-icon-danger"></span></a>
+                                                        
                                                     </p>
                                                 </div><br>
                                     @empty
@@ -898,66 +938,77 @@ li, p{
                                           <div class="card card-body bg-transparent border-0 mt-2">
                                             <div class="text-right">
                                        My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> Study Resources</div>
+                                                    data-c="#000" data-hc="#000"></i> Study Resources @if(request()->searchLibrary) <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i> {{request()->query('searchLibrary')}} @endif</div>
                                         </div>
                                         <div class="card-body">
-                                    <br>
+                                        <br>
                                             <h5 class="text-center text-dark" style="font-weight: 600; font-size: 48px; left: 50%; padding-top: 20px;">
                                             &nbsp; Book Search</h5>
                                             <p style="text-align: center; padding-bottom: 20px;"><small>Electronic Book Search Engine</small></p>
                                             
                                                                             <!-- Search bar -->
-                                            <div class="form-group input-group">
+                                            <div class="form-group input-group w-75 m-auto">
                                                 <form class="input-group" action="#" method="GET">
-                                                    <input type="text" class="form-control text-gray" name="searchLibrary" value="{{request()->query('searchLibrary')}}" placeholder="Search Books: by title, author, subject/course,..." style="font-size: 16px !important; width: 50% !important; height: 50px;">
+                                                    <input type="text" class="form-control text-gray rounded-0" name="searchLibrary" value="{{request()->query('searchLibrary')}}" placeholder="Search Books by title, author, subject/course,..." style="font-size: 16px !important; width: 50% !important; height: 50px;">
                                                         <div class="input-group-append">
                                                             <span class="input-group-btn input-group-append">
-                                                                <button class="btn btn-secondary btn-block input-group-text image_radius" type="submit">
-                                                                    <i class="fa fa-search"></i>
+                                                                <button class="btn btn-warning input-group-text" type="submit" style="border-radius: 0 !important;">
+                                                                    Search
                                                                 </button>
                                                             </span>
                                                         </div>
                                                 </form>
+                                                
                                             </div>
                                             <br>
                                 <div class="row">
-                                    <div class="col-sm-9 col-md-9 col-lg-9 col-12">
+                                    <div class="col-sm-9 col-md-9 col-lg-9 col-12 m-auto">
                                         @if(request()->query('searchLibrary'))
                                             <p>Showing Search results for <em class="text-blue"><b>{{request()->query('searchLibrary')}}</b></em></p>
                                             <hr>
                                             @forelse($books as $book)
                                                 <div class="card mt-3 mb-3 border-0">
-                                                <div class="card-header border-0">
-                                                <p>{{$book->title}}</p>
+                                                <div class="card-header bg-transparent border-0">
+                                                <p class="text-info">{{$book->title}}</p>
+                                                <hr>
                                                 </div>
                                                 <div class="card-body bg-transparent border-0">
                                                     <a href="#url" class="zoom d-block">
+                                                    @if($book->cover_image)
+                                                    <img src="{{asset('uploads/cover_images/'.$book->cover_image)}}" class="card-img-bottom d-block p-3 border-blue" style="width: 200px; height: auto; float: left;">
+                                                    @else
                                                     <img src="{{asset('images/g5.jpg')}}" class="card-img-bottom d-block p-3" style="width: 200px; height: auto; float: left;">
+                                                    @endif
                                                     </a>
                                                     <div class="course-title">
                                                         <a href="#url">Course Title</a>
                                                     </div>
                                                     <p>{{$book->description}}</p>
+                                                    <p></p>
+                                                    <div class="d-flex flex-row">
+                                                        <div class="p-2"><a href="{{ route('library.download', $book->uuid) }}" class="btn btn-success theme-button rounded-0"><i class="fa fa-file-download px-2"></i>Free Download</a></div>
+                                                        <div class="p-2"><a href="#" class="btn btn-info theme-button rounded-0"><i class="fa fa-eye px-2"></i>Preview</a></div>
+                                                    </div>
                                                 </div>
+                                                
                                                 <div class="card-footer border-0 bg-transparent">
-                                                    <ul class="blog-list">
-                                                        <li>
-                                                        <a href="#url" class="text-dark"><span class="fa fa-user px-2"></span>{{$book->author}}</a>
-                                                        </li>
-                                                    </ul>
+                                                   <div class="d-flex flex-row">
+                                                        <div class="p-2"><span class="icon-user circle-icon-info text-white"></span>&nbsp;{{$book->author}}</div>
+                                                    </div>
                                                 </div>
                                                 </div>
                                                 @empty
-                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                                <strong>We're Sorry!</strong> No book found that matches {{request()->query('searchLibrary')}}
+                                                <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                                                <strong>We're Sorry!</strong> No book found that matches <strong>{{request()->query('searchLibrary')}}</strong>
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                                 </div>
-                                                <div class="mt-3"><h5 class="text-dark" style="font-weight: 600; font-size: 36px; left: 50%; padding-top: 20px;">
+                                                <div class="mt-3 mb-3"><h5 class="text-dark" style="font-weight: 600; font-size: 36px; left: 50%; padding-top: 20px;">
                                                     &nbsp; Send Book Request</h5>
                                                 </div>
-                                                <div class="card-body" id="p1">
+                                                <div class=" card card-body bg-transparent" id="p1">
                                                     <br>
                                                         {!! Form::open(['action' => 'BooksController@store', 'method' => 'post', 'class' => 'bf',
                                         'files'=> true]) !!}
@@ -1090,23 +1141,20 @@ li, p{
                     <div class="row">
                         <div class="col-lg-12 col-12">
                         <div>
-                        <div class="card card-body bg-transparent border-0 mt-2">
+                        <div class="card card-body bg-transparent border-0 mt-2 mb-5">
                                             <div class="text-right">
-                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> Examination Resources</div>
+                                                    My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i> Examination Resources<i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i>Department of  {{Sentinel::getUser()->department}} @if(request()->search) <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000"></i> {{request()->search}} @endif
+                                            </div>
                         </div>
-                        <div class="card-body">
-                                <div class="alert alert-dark text-settings border-0">
-                                    <span  class="text-uppercase text-center">
-                                    <b><span class="fa fa-institution px-3"></span>{{Sentinel::getUser()->institution}} <span class="fa fa-angle-double-right px-3"></span>Department of  {{Sentinel::getUser()->department}} @if(request()->search) <span class="fa fa-angle-double-right px-3"></span> {{request()->search}} @endif</b>
-                                    </span>
-                                </div>
-                            <div class="mt-5">
+                            <div class="mt-5  w-75 m-auto">
                             <h5 class="text-center text-dark" style="font-weight: 600; font-size: 40px; left: 50%; padding-top: 20px;">
                                             &nbsp; Past Examination Questions</h5>
                             <p style="text-align: center; padding-bottom: 20px;"><small>Select a course to get past questions for that course</small></p>
                                             <form class="input-control" action="{{route('my-account')}}" method="GET">
-                                                <select type="text" class="form-control text-capitalize" name="search" value="{{request()->query('search')}}" style="border-radius: 10px; height: 50px;">
+                                                <select type="text" class="form-control text-capitalize rounded-0" name="search" value="{{request()->query('search')}}" style="height: 50px;">
                                                         <option value=""> Select Course </option>
                                                     @foreach($course_title as $course)
                                                         <option value="{{$course->title}}"> {{$course->title}} </option>
@@ -1114,7 +1162,7 @@ li, p{
                                                 <select>
                                                 <br>
                                                 <div class="form-group text-center ">
-                                                    <button type="submit" class="btn btn-info theme-button text-white" value="submit">
+                                                    <button type="submit" class="btn btn-info theme-button rounded-0" value="submit">
                                                     Search
                                                     </button><br><br>
                                                 </div>
@@ -1122,7 +1170,7 @@ li, p{
                 <div class="card-body">
                     @if(request()->search)
                     <div style="margin-top: 30px !important;">
-                        <p>Showing Examination resources for <i class="text-blue">{{request()->search}}</i></p>
+                        <p>Examination resources for <i class="text-blue">{{request()->search}}</i></p>
                     </div>
                     <br>
                         @forelse ($exam_questions as $item)
@@ -1220,7 +1268,7 @@ $('#delete_confirm').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
     var $recipient = button.data('id');
     var modal = $(this)
-    modal.find('.modal-footer a').prop("href",$url_path+"/admin/blog/"+$recipient+"/delete");
+    modal.find('.modal-footer a').prop("href",$url_path+"/questions/"+$recipient+"/delete");
 })
 </script>
 <script>

@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
-use DB;
+use Webpatser\Uuid\Uuid;
+use App\Models\Library;
+use App\Models\Exam;
+use App\Models\User;
+use \Illuminate\Support\Facades\Redirect;
 
 class LibraryController extends Controller
 {
@@ -14,7 +19,8 @@ class LibraryController extends Controller
      */
     public function index()
     {
-        //
+       $libraryBooks = Library::all();
+        return view('library.index', compact('libraryBooks'));
     }
 
     /**
@@ -24,7 +30,9 @@ class LibraryController extends Controller
      */
     public function create()
     {
-        //
+        $courses = Exam::select('title')->whereNotNull('title')->distinct()->orderBy('title')->get();
+        $categories = BlogCategory::select('title')->whereNotNull('title')->distinct()->orderBy('title')->get();
+        return view('library.create', compact('categories', 'courses'));
     }
 
     /**
@@ -32,10 +40,38 @@ class LibraryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     *  * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        //
+        $library = $request->all();
+        
+        if($request->hasFile('cover_image') && $request->hasFile('cover')) {
+
+                $file = $request->file('cover_image');
+                $extension = $file->extension()?: 'png';
+                $picture = str_random(10) . '.' . $extension;
+                $destinationPath = public_path() . '/uploads/cover_images/';
+                $file->move($destinationPath, $picture);
+                //$library->cover_image = $file;
+            
+            $library = new Library;
+            $library->uuid = (string)Uuid::generate();
+            $library->cover_image = $picture; //$request->cover_image->getClientOriginalName();
+            $library->cover = $request->cover->getClientOriginalName();
+            $request->cover->storeAs('library', $library['cover']);
+            $library->title = $request->input('title');
+            $library->description = $request->input('description');
+            $library->author = $request->input('author');
+            $library->isbn = $request->input('isbn');
+            $library->category = $request->input('category');
+            $library->course = $request->input('course');
+            $library->save();
+        }
+        
+        //$user_departments = User::orderBy('department')->distinct()->get();
+       $success = "File Upload successful";
+        return  $success;
     }
 
     /**
@@ -84,34 +120,15 @@ class LibraryController extends Controller
     }
 
      /**
-     * Store a newly created resource in storage.
+     * Remove the specified resource from storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  uuid $uuid
+     * @return \Illuminate\Http\Response
      */
-
-     public function search(Request $request)
-
-     {
-        if($request->ajax())
-        {
-        $output="";
-        $libBooks=DB::table('library')->where('title','LIKE','%'.$request->search."%")->get();
-        if($libBook)
-        {
-        foreach ($libBook as $key => $libBook) {
-        $output.='<tr>'.
-        '<td>'.$libBook->id.'</td>'.
-        '<td>'.$libBook->title.'</td>'.
-        '<td>'.$libBook->description.'</td>'.
-        '<td>'.$libBook->author.'</td>'.
-        '<td>'.$libBook->isbn.'</td>'.
-        '<td>'.$libBook->category.'</td>'.
-        '</tr>';
-        }
-        return Response($output);
-           }
-           }
-        }
-        
+    public function download($uuid)
+{
+    $library = Library::where('uuid', $uuid)->firstOrFail();
+    $pathToFile = storage_path('app/library/' . $library->cover);
+    return response()->download($pathToFile);
+}
 }

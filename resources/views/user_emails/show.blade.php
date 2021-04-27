@@ -15,7 +15,7 @@
 
 {{-- Page content --}}
 @section('content')
-    <aside class="right-aside" style="background-color: #D5DDE6; padding: 25px;">
+    <aside class="right-aside" style="background-color: #D5DDE6; padding: 15px;">
         <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
             <h5 style="color: #2C3E50;"> <i class="fa fa-envelope" aria-hidden="true"></i>
                                  &nbsp;Message(s)</h5>
@@ -55,24 +55,15 @@
                     <table class="table table-striped table-advance">
                         <thead>
                         <tr>
-                            <td colspan="4" class="card-header compose border-bottom" style="background-color: #2C3E50;">
-                                <div class="col-md-8">
-                                    <h4 class="mb-0">
-                                        <h6 class="text-default text-white">MESSAGE</h6>
-                                    </h4>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
                             <th colspan="4">
                                 <div class="row no-padding">
                                     <div class="col-md-7 col-lg-9 col-xs-12">
                                         <div class="btn-group">
                                             <a href="#" class="btn btn-secondary btn-toolbar py-1" data-toggle="tooltip" data-placement="top" title="Delete Message" >
-                                                <span class="fa fa-trash text-danger"></span>
+                                                <span class="fa fa-trash text-danger p-2"></span>
                                             </a>
                                             <button type="button" class="btn btn-secondary btn-toolbar py-1" data-toggle="tooltip" data-placement="top" title="Refresh">
-                                                <span class="fa fa-refresh"></span>
+                                                <span class="fa fa-refresh p-2"></span>
                                             </button>
 
                                         </div>

@@ -131,15 +131,14 @@ class FrontEndController extends JoshController
         $blogs = Blog::latest()->simplePaginate(10);
         $blog = Blog::where('slug', $slug)->first();
         //$docSize = filesize($blog->image);
-        $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->latest()->simplePaginate(5); //DB::table('blogs')->where('user_id', Sentinel::getUser()->id)->get();
         $school_mates = User::where('institution', Sentinel::getUser()->institution)->get();
         $blogscategories = BlogCategory::all();
-       // $user_categories = Blog::where('blog_category_id', Sentinel::getUser()->id)->get();
+        $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->latest()->simplePaginate(5); //DB::table('blogs')->where('user_id', Sentinel::getUser()->id)->get();
+        // $user_categories = Blog::where('blog_category_id', Sentinel::getUser()->id)->get();
         $tags = $this->tags;
         $news = NewsAlias::orderBy('id', 'DESC')->get();
         // Get distinct departments
         $user_departments =  User::select('department')->whereNotNull('department')->distinct()->orderBy('department')->get();
-         // search funcionality
          //Number of users' questions asked
          $numberOfUserQuestions = count($user_questions);
          //number of questions user answered
@@ -154,7 +153,8 @@ class FrontEndController extends JoshController
          $institutions = User::select('institution')->whereNotNull('institution')->distinct()->orderBy('institution')->get();
          //questions from user's institution. We grab all questions from authenticated user's institution
          $userInstitutionQuestions = Blog::where('institution', Sentinel::getUser()->institution)->get();
-        
+         //$facebook = Share::page('http://jorenvanhocht.be')->facebook();
+         $course_titles = Blog::select('title')->where('user_id', Sentinel::getUser()->id)->distinct()->orderBy('title')->get();
         
 
          $search = request()->query('search');
@@ -166,6 +166,8 @@ class FrontEndController extends JoshController
             $exam_questions = Exam::where('department', Sentinel::getuser()->department)
                                     ->simplePaginate(10);
          }
+
+         // search books in library
 
          $searchLibrary = request()->query('searchLibrary');
 //Booksearch
@@ -180,6 +182,19 @@ class FrontEndController extends JoshController
 
             $books = Library::all();
                                     
+
+        }
+        //sort questions by course title
+
+        $userQuestions = request()->query('search');
+        if ($userQuestions) {
+            $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->where('title', 'LIKE', "%{$userQuestions}%")
+                            ->latest()
+                            ->simplePaginate(5);
+      
+        }
+        else {
+            $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->latest()->simplePaginate(5); //DB::table('blogs')->where('user_id', Sentinel::getUser()->id)->get();
 
         }
 
@@ -217,7 +232,8 @@ class FrontEndController extends JoshController
                  'course_title',
                  'institutions',
                  'userInstitutionQuestions',
-                 'books'
+                 'books',
+                 'course_titles'
                 ));
     }
 
