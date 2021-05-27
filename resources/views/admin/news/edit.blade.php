@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    @lang('news/title.edit')
+    Edit job
     @parent
 @stop
 
@@ -24,7 +24,7 @@
 @section('content')
     <section class="content-header">
         <!--section starts-->
-        <h1>@lang('news/title.edit')</h1>
+        <h1>Edit job</h1>
         <ol class="breadcrumb">
             <li>
                 <a href="{{ route('admin.dashboard') }}"> <i class="livicon" data-name="home" data-size="14"
@@ -33,9 +33,9 @@
                 </a>
             </li>
             <li>
-                <a href="#">@lang('news/title.news')</a>
+                <a href="#">jobs</a>
             </li>
-            <li class="active">@lang('news/title.edit')</li>
+            <li class="active">edit-job</li>
         </ol>
     </section>
     <!--section ends-->
@@ -61,7 +61,7 @@
                     <div class="col-sm-4">
                         <div class="form-group {{ $errors->first('category', 'has-error') }}">
                             <label for="blog_category" class="">News Category</label>
-                            {!! Form::select('category',['popular'=>'popular','hotnews'=>'Hot News','world'=>'Wolrd News','lifestyle'=>'Life Style','business'=>'Business','sports'=>'Sports'], null, ['class' => 'form-control select2', 'id'=>'blog_category' ,'placeholder'=>trans('blog/form.select-category')]) !!}
+                            {!! Form::select('category',['day school teaching'=>'Classroom Teaching (day school)','night school teaching '=>'Classroom Teaching (evening school)', 'home teaching'=>'Home Teaching'], null, ['class' => 'form-control select2', 'id'=>'blog_category' ,'placeholder'=>trans('blog/form.select-category')]) !!}
                             <span class="help-block">{{ $errors->first('category', ':message') }}</span>
                         </div>
 

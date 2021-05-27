@@ -52,6 +52,8 @@ class UsersEmailController extends Controller
     }
     public function inbox()
     {
+    if(Sentinel::check())
+    {
         $inbox_emails = Email::where('email_id', Sentinel::getUser()->email)->get();
         $ids=[];
         foreach ($inbox_emails as $email) {
@@ -59,8 +61,13 @@ class UsersEmailController extends Controller
                 $ids[]=$email->id;
             }
         }
+    
         $emails = Email::whereIn('id', $ids)->latest()->paginate(10);
         return view('user_emails/inbox', compact('emails'));
+    }
+    else{
+        return "session expired";
+    }
     }
     public function sent()
     {

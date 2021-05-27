@@ -20,9 +20,17 @@
     <!-- Content Header (Page header) -->
         <!-- Content Header (Page header) -->
         <div class="container-fluid my-3">
-            <h5 style="color: #2C3E50;"> <span class="fa fa-inbox" aria-hidden="true"></span>
-                                 &nbsp;Inbox</h5>
-            <hr>
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-12 p-2 pl-3"><img src="{{asset('images/inbox.png')}}" style="height: 35px; width: 35px;"> Inbox</div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-12 p-2"> 
+            <form class="input-group" action="{{route('blog')}}" method="GET">
+                <input type="text" class="form-control text-gray rounded shadow-fav2  text-center" name="search" value="{{request()->query('search')}}" placeholder="Search Mail ..." style="font-size: 16px !important; height: 50px;font-weight: 500; background-color: #eee;">
+                <div class="input-group-append">
+                </div>
+            </form></div>
+            <div class="col-sm-3 col-md-3 col-lg-3 col-12 pp-2">Flex item 3</div>
+        </div>
+        <hr>
     @if (isset($success))
         <div id="notific">
             <div class="alert alert-success alert-dismissable margin5">
@@ -35,46 +43,47 @@
     <!-- Main content -->
     <section class="content pl-3 pr-3">
         <div class="row web-mail">
-             <div class="col-xl-2 col-md-3 col-sm-4 web-mail p-3" style="background-color: #e9ecef;">
-                <div class="whitebg1">
-                    <ul>
-                        <li class="compose">
-                            <a href="{{ URL::to('user_emails/compose') }}">
-                                <i class="fa fa-fw fa-edit"></i>
+             <div class="col-xl-2 col-md-3 col-sm-4 web-mail p-3 rounded shadow-fav2" style="background-color: #fff;">
+                    <div class="d-flex flex-column">
+                        <div class="p-2">
+                            <a href="{{ URL::to('user_emails/compose') }}" class="text-index">
+                                <img src="{{asset('images/edit.png')}}" style="height: 35px; width: 35px;">
                                 &nbsp; &nbsp;Compose
                             </a>
-                        </li>
-                        <li class="active">
-                            <a href="{{ URL::to('user_emails/inbox') }}">
-                                <i class="fa fa-inbox" aria-hidden="true"></i>
+                            <hr>
+                        </div>
+                        <div class="p-2">
+                            <a href="{{ URL::to('user_emails/inbox') }}" class="text-index">
+                                <img src="{{asset('images/mail.png')}}" style="height: 35px; width: 35px;">
                                 &nbsp; &nbsp;Inbox
                                 @if($count>0)
-                                    <span class="badge badge-success float-right mt-1 badge-pill">{{ $count}}</span>
+                                    <span class="badge badge-danger float-right mt-1 badge-pill">{{ $count}}</span>
                                 @endif
                             </a>
-                        </li>
-                        <li>
-                            <a href="{{ URL::to('user_emails/sent') }}">
-                                <span class="fa fa-paper-plane" aria-hidden="true"></span>
+                            <hr>
+                        </div>
+                        <div class="p-2">
+                            <a href="{{ URL::to('user_emails/sent') }}" class="text-index">
+                                <img src="{{asset('images/airplane.png')}}" style="height: 35px; width: 35px;">
                                 &nbsp; &nbsp; Sent
                             </a>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
+                    </div>
+                    <hr>
                 <div style="height: 30px;"></div>
             </div>
             <div class="col-lg-10 col-md-9 col-sm-8">
                 <div class="whitebg1 mail_inbox_all">
-                    <table class="table table-striped table-advance table-hover table-responsive" id="inbox-check">
+                    <table class="table table-striped table-advance table-hover table-responsive border-info" id="inbox-check">
                         <thead>
                         
                         <tr>
                             <th colspan="6">
                                 <div class="row">
                                     <div class="col-md-8 col-lg-6 col-xs-12">
-                                        <div class="btn-group float-left table-bordered paddingrightleft_10 paddingtopbottom_5px">
+                                        <div class="btn-group float-left table-bordered paddingrightleft_10 paddingtopbottom_5px rounded">
                                             <input type="checkbox" id="checkall" class="icheck select_all_mail">
-                                            <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                                            <a class="dropdown-toggle rounded" id="dropdownMenuButton" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
                                             </a>
                                             <ul class="dropdown-menu ul" aria-labelledby="dropdownMenuButton">
                                                 <!-- dropdown menu links -->
@@ -118,7 +127,7 @@
                                         </span>
                                     </div>
                                 </td>
-                                <td class="read_td"><input type="hidden" value="{{ $email->status }}" @if($email->status == 0)class="read" @else class="unread"@endif ></td>
+                                <td class="read_td"><input type="hidden" value="{{ $email->status }}" @if($email->status == 0)class="read" @else class="unread" @endif ></td>
                                 <td style="width:2%;" class="inbox-small-cells">
                                     <div class="rating">
                                         <i class="fa fa-star starred"></i>

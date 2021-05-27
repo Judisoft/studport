@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    @lang('news/title.newslist')
+    Jobs
     @parent
 @stop
 
@@ -16,7 +16,7 @@
 {{-- Page content --}}
 @section('content')
     <section class="content-header">
-        <h1>@lang('news/title.newslist')</h1>
+        <h1>Jobs</h1>
         <ol class="breadcrumb">
             <li>
                 <a href="{{ route('admin.dashboard') }}"> <i class="livicon" data-name="home" data-size="16"
@@ -24,8 +24,8 @@
                     @lang('general.dashboard')
                 </a>
             </li>
-            <li><a href="#">@lang('news/title.news')</a></li>
-            <li class="active">@lang('news/title.newslist')</li>
+            <li><a href="#">jobs</a></li>
+            <li class="active">jobs list</li>
         </ol>
     </section>
 
@@ -37,7 +37,7 @@
                 <div class="card-header clearfix bg-primary text-white">
                     <span class="float-left"><i class="livicon" data-name="users" data-size="16"
                                                          data-loop="true" data-c="#fff" data-hc="white"></i>
-                        @lang('news/title.newslist')
+                        Jobs List
                     </span>
                     <div class="float-right">
                         <a href="{{ URL::to('admin/news/create') }}" class="btn btn-sm btn-secondary"><span
@@ -96,11 +96,11 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="deleteLabel">Delete News</h4>
+                    <h4 class="modal-title" id="deleteLabel">Delete Job</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    Are you sure to delete this news category? This operation is irreversible.
+                    Are you sure to delete this Job? This operation is irreversible.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

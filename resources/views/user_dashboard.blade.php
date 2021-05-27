@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Home
+My Account
 @parent
 @stop
 
@@ -65,7 +65,7 @@ h5{
 }
 li, p{
     font-family:'Raleway', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
 }
 .list-item1{
     display: inline-block;
@@ -248,7 +248,7 @@ li, p{
     &:hover { background-color: lighten($btn_lightBlue, 8%);
   }
 .bg-dashboard{
-    background-color: #B8B8B8 !important;
+    background-color: #fff !important;
 }
 #leftCol {
     position: fixed;
@@ -257,186 +257,184 @@ li, p{
     top: 0;
     bottom: 0;
 }
-</style>
-<div class="container-fluid " style="overflow-x: hidden;">
+.bg-white{
+    background-color: #fff !important;
+}
 
+</style>
+<div class="container-fluid" style="overflow-x: hidden;">
+    <div class="bg-index p-3">
+        <i id="toggle-menu" class="fa fa-bars fa-2x text-white list-item1 ml-3"  style="cursor: pointer; "></i>
+    </div>
    <!--item desciption start-->
                     <!-- Nav Nav-tabs Start -->
-    <section>
-                            <div class="row" style="background-color: #FBFBFB; margin-right: 5px;">
-                            <div class="col-lg-3 col-md-3 col-12" id="leftCol"  style="border-right: 2px solid #ddd; background-color: #eee; border-left: 2px solid #ddd; background-color: #eee;">
-                                        <div class="ml-auto">     
+                            <div class="row" style="border-top: 1px solid #01182F;">
+                            <div class="col-sm-1 col-md-1 col-lg-1 col-12">
+                                        <div class="menu bg-index" id='Menu' style="margin-bottom: 0px;">     
                                             <div class="card-body">
                                                 <div class="box1 text-dark text-center mt-2">
-                                                    <div class="tile__list">
-                                                              @if($user->pic)
-                                                                <img src="{{ $user->pic }}" alt="img s"
-                                                                    style="height: 100px; width: 100px;"/>
-                                                            @elseif($user->gender === "male")
-                                                            <img src="{{ asset('images/authors/avatar3.png') }}" alt="..."
-                                                                    style="height: 100px; width: 100px;"/>
-                                                            @elseif($user->gender === "female")
-                                                                <img src="{{ asset('images/authors/avatar5.png') }}" alt="..."
-                                                                    style="height: 100px; width: 100px;"/>
-                                                            @else
-                                                                <img src="{{ asset('images/authors/no_avatar.jpg') }}" alt="..."
-                                                                    style="height: 100px; width: 100px;"/>
-                                                            @endif
-                                                    </div>
-                                                    <h6 class="text-uppercase">{{$user->first_name. ' ' .$user->last_name}}</h6><br>
-                                                     <h6><small>{{$user->institution}} &nbsp; ({{$user->user_role}}) </small></h6>
-                                                    <hr> 
-                                                </div>
-                                            <ul class="nav" style="font-weight: 500 !important; text-transform: !important;">
+                                            </div> 
+                                            <ul class="nav">
                                             <li class="nav-item list-item1 py-1">
-                                                <a href="#tab_default_1" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-grid circle-icon-blue text-white"></i>&nbsp;&nbsp;&nbsp;User Dashboard
-                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                <a href="{{route('home')}}" class="nav-link text-white px-1">
+                                                    <span class="fa fa-home fa-2x"></span>
                                                 </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
-                                                <a href="#tab_default_2" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-settings circle-icon-pink text-white"></i>&nbsp;&nbsp;&nbsp;Account Settings
-                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
-                                                    </a>
+                                                <a href="#tab_default_1" data-toggle="tab" class="nav-link text-white px-1">
+                                                    <span class="fa fa-tachometer-alt fa-2x"></span>
+                                                </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
-                                                <a href="#tab_default_3" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-question circle-icon-purple text-white"></i>&nbsp;&nbsp;&nbsp;Post Question
-                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
-                                                    </a>
+                                                <a href="#tab_default_2" data-toggle="tab" class="nav-link text-white px-1">
+                                                    <span class="fa fa-user-cog fa-2x"></span>
+                                                </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
-                                                <a href="#tab_default_4" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-layers circle-icon-red text-white"></i>&nbsp;&nbsp;&nbsp;Questions Manager
-                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
-                                                    </a>
+                                                <a href="#tab_default_3" data-toggle="tab" class="nav-link text-white px-1">
+                                                    <span class="fa fa-question-circle fa-2x"></span>
+                                                </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
-                                                <a href="#tab_default_5" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-folder-alt circle-icon-success text-white"></i>&nbsp;&nbsp;&nbsp;Study Resources
-                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
-                                                    </a>
+                                                <a href="#tab_default_4" data-toggle="tab" class="nav-link text-white px-1">
+                                                   <span class="fa fa-database fa-2x"></span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item list-item1 py-1">
+                                                <a href="#tab_default_5" data-toggle="tab" class="nav-link text-white px-1">
+                                                    <span class="fa fa-folder-open fa-2x"></span>
+                                                </a>
                                             </li>
 
                                             <li class="nav-item list-item1 py-1">
-                                                <a href="#tab_default_6" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-wrench circle-icon-red text-white"></i>&nbsp;&nbsp;&nbsp;Tutoring Jobs
-                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                <a href="#tab_default_6" data-toggle="tab" class="nav-link text-white px-1">
+                                                    <span class="fa fa-chalkboard-teacher fa-2x"></span>
                                                 </a>
                                             </li>
                                             
                                             <li class="nav-item list-item1 py-1">
-                                                <a href="#tab_default_7" data-toggle="tab" class="nav-link">
-                                                    <i class="icon-screen-desktop circle-icon-blue text-white"></i>&nbsp;&nbsp;&nbsp;Online Tutors
-                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
-                                                    </a>
+                                                <a href="#tab_default_7" data-toggle="tab" class="nav-link text-white px-1">
+                                                    <span class="fa fa-laptop fa-2x"></span>
+                                                </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
-                                                <a href="#tab_default_8" data-toggle="tab" class="nav-link">
-                                                   <i class="icon-docs circle-icon-success text-white"></i>&nbsp;&nbsp;&nbsp;Exams Resources
-                                                   <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                <a href="#tab_default_8" data-toggle="tab" class="nav-link text-white px-1">
+                                                   <span class="fa fa-file-pdf fa-2x"></span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item list-item1 py-1">
+                                                <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link text-white px-1">
+                                                   <span class="fa fa-envelope-open-text fa-2x"></span>
                                                    </a>
                                             </li>
                                             <li class="nav-item list-item1 py-1">
-                                                <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link">
-                                                   <i class="icon-drawer circle-icon-pink text-white"></i>&nbsp;&nbsp;&nbsp;Inbox
-                                                   <span class="fa fa-chevron-right text-gray float-right"></span>
-                                                   </a>
-                                            </li>
-                                            <li class="nav-item list-item1 py-1">
-                                                <a href="{{ URL::to('logout') }}" class="nav-link">
-                                                    <i class="icon-power circle-icon-red text-white"></i>&nbsp;&nbsp;&nbsp;Sign Out
-                                                    <span class="fa fa-chevron-right text-gray float-right"></span>
+                                                <a href="{{ URL::to('logout') }}" class="nav-link text-white px-1">
+                                                    <span class="fa fa-sign-out-alt fa-2x"></span>
                                                     </a>
                                             </li>
                                         </ul>
-                                        </div>
+                                    </div>
                                         </div><br>
                                         </div>
-                                        <div class="col-lg-9 col-md-9 col-12" style="background-color: #FBFBFB;">
+                                <div class="col-sm-9 col-lg-9 col-md-9 col-12">
                                         <!-- Tab-content Start -->
                             <div class="tab-content">
                                 <div class="tab-pane" id="tab_default_1">
-                                <div class="card card-body bg-transparent border-0 mt-2">
-                                 <div class="text-right">
-                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> Dashboard</div>
+                                <div class="card card-body bg-transparent  border-0 mt-2">
+                                 <div class="mt-2 text-right">
+                                       <small>My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="14" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i> Dashboard
+                                        </small>
                                 </div>
-                                    <div>
+                                </div>
+                                    <div style="padding-left: 50px;">
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body bg-success  text-light text-right shadow">
-                                                <span class="fa fa-users fa-3x"></span>
-                                                <h6>Study Groups</h6>
-                                                <h3>0</h3>
+                                            <div class="card-body  text-dark text-right shadow-fav rounded">
+                                            <div class="d-flex justify-content-between">
+                                            <div class="p-2"><img src="{{asset('images/group.png')}}" style="height: 50px; width: 50px;"></div>
+                                            <div class="p-2 pt-3"><h6 class="text-gray">Study Groups</h6></div>
+                                            </div>
+                                            <div class="p-2 text-right"><h1 class="text-dark">0</h1></div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body bg-nice-green  text-light text-right shadow" style="background-color: #C70039;">
-                                            <span class="fa fa-trophy fa-3x"></span>
-                                                <h6>Points</h6>
-                                                <h3>0</h3>
+                                            <div class="card-body  text-dark text-right shadow-fav rounded">
+                                            <div class="d-flex justify-content-between">
+                                            <div class="p-2"><img src="{{asset('images/podium.png')}}" style="height: 50px; width: 50px;"></div>
+                                            <div class="p-2 pt-3"><h6 class="text-gray">Points</h6></div>
+                                            </div>
+                                            <div class="p-2 text-right"><h1 class="text-dark">0</h1></div>
                                             </div>
                                         </div>
                                           <div class="col-lg-4 col-md-4  mt-lg-0 pt-3">
-                                            <div class="card-body bg-info  text-light text-right">
-                                            @if(Sentinel::getUser()->account_type != 'vip')
-                                                <a href="#url" class="text-white"><span class="fa fa-cart-plus fa-3x p-3"></span>Upgrade my Account </a><br>
-                                            @endif
-                                                <h6 class="text-capitalize text-white mt-2">{{Sentinel::getUser()->account_type}} account</h6>
-                                                
+                                            <div class="card-body text-right shadow-fav rounded">
+                                             <div class="d-flex justify-content-between">
+                                            <div class="p-2"><img src="{{asset('images/browser.png')}}" style="height: 50px; width: 50px;"></div>
+                                            <div class="p-2">
+                                                @if(Sentinel::getUser()->account_type != 'vip')
+                                                    <a href="{{route('subscription')}}" >Upgrade my Account </a>
+                                                @endif
+                                            </div>
+                                            </div>
+                                            <div class="p-2 pt-2 text-right"><h1 class="text-dark">{{Sentinel::getUser()->account_type}} account</h1></div>
                                             </div>
                                         </div>
             <div class="aboutbottom mt-5">
-            <div class="container py-lg-3 text-center"  style="background-color: #FBFBFB; border-radius: 3px;">
+            <div class="container py-lg-3 text-center">
                 <div class="bottomgrids row no-gutters">
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2 text-settings">
-                        <div class="card-body bg-primary text-white shadow">
-                        <i class="icon-question fa-3x py-3"></i>
-                        <h6>Questions Asked</h6>
-                        <br>
-                        <h5 class="text-white">{{$numberOfUserQuestions}}</h5>
+                        <div class="card-body text-dark shadow-fav rounded">
+                            <div class="d-flex justify-content-between">
+                            <div class="p-2"><img src="{{asset('images/questions_asked.png')}}" style="height: 50px; width: 50px;"></div>
+                            <div class="p-2 pt-3"><h6 class="text-gray">Questions Asked</h6></div>
+                            </div>
+                            <div class="p-2 text-right"><h1 class="text-dark">{{$numberOfUserQuestions}}</h1></div>
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2 text-settings">
-                        <div class="card-body bg-warning  text-white shadow">
-                        <i class="icon-cloud-download fa-3x py-3"></i>
-                        <h6>Downloads</h6>
-                        <br>
-                        <h5 class="text-white">0</h5>
+                        <div class="card-body text-dark shadow-fav rounded">
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2"><img src="{{asset('images/file.png')}}" style="height: 50px; width: 50px;"></div>
+                            <div class="p-2 pt-3"><h6 class="text-gray">Downloads</h6></div>
+                        </div>
+                        <div class="p-2 text-right"><h1 class="text-dark">0</h1></div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
-                        <div class="card-body bg-primary text-white shadow">
-                        <i class="icon-speech fa-3x py-3"></i>
-                        <h6>Answers Provided</h6>
-                        <br>
-                        <h5 class="text-white">{{$numberOfUserAnswers}}</h5>
+                        <div class="card-body text-dark shadow-fav rounded">
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2"><img src="{{asset('images/answer.png')}}" style="height: 50px; width: 50px;"></div>
+                            <div class="p-2 pt-3"><h6 class="text-gray">Answers</h6></div>
+                        </div>
+                        <div class="p-2 text-right"><h1 class="text-dark">{{$numberOfUserAnswers}}</h1></div>
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
-                        <div class="card-body bg-warning text-white shadow">
-                        <span class="fa fa-database fa-3x py-3"></span>
-                        <h6>Disk Usage</h6>
-                        <br>
-                        <h5 class="white">0</h5>
+                        <div class="card-body text-dark shadow-fav rounded">
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2"><img src="{{asset('images/servers.png')}}" style="height: 50px; width: 50px;"></div>
+                            <div class="p-2 pt-3"><h6 class="text-gray">Disk Usage</h6></div>
+                        </div>
+                        <div class="p-2 text-right"><h1 class="text-dark">0</h1></div>
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 mt-0 py-3 px-2 mt-0">
-                        <div class="card-body bg-info text-white pt-3 shadow">
-                        <span class="fa fa-file-alt fa-3x py-3"></span>
-                        <h6>Books & Courses Requested</h6>
-                        <br>
-                        <h5 class="text-white">{{$numberOfUserRequest}}</h5>
+                        <div class="card-body text-dark shadow-fav rounded">
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2"><img src="{{asset('images/folder.png')}}" style="height: 50px; width: 50px;"></div>
+                            <div class="p-2 pt-3"><h6 class="text-gray">Resources Requested</h6></div>
+                        </div>
+                        <div class="p-2 text-right"><h1 class="text-dark">{{$numberOfUserRequest}}</h1></div>
                         </div>
                     </div>
                    <div class="col-lg-4 col-md-6 bottomgrid1 mt-lg-0 py-3 px-2 mt-0">
-                        <div class="card-body bg-success text-white shadow">
-                        <span class="fa fa-dollar fa-3x py-3"></span>
-                        <h6>Subscriptions</h6>
-                        <br>
-                        <h5 class="text-white"> 0</h5>
+                        <div class="card-body text-dark shadow-fav rounded">
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2"><img src="{{asset('images/dollar-symbol.png')}}" style="height: 50px; width: 50px;"></div>
+                            <div class="p-2 pt-3"><h6 class="text-gray">Subscriptions</h6></div>
+                        </div>
+                        <div class="p-2 text-right"><h1 class="text-dark">0</h1></div>
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -446,27 +444,33 @@ li, p{
                                 </div>
                                 </div>
                                 </div>
-                                <div class="tab-pane fade" id="tab_default_2">
-                            
-                                <div class=" ml-5 mr-5">
+                                <div class="tab-pane" id="tab_default_2">
+                                <div class="ml-3 mr-3">
                                 <div class="card card-body bg-transparent border-0 mt-2">
-                                  <div class="text-right">
-                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> Account Settings</div>
+                                <div class="text-right">
+                                    <small>My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="14" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i>Settings
+                                    </small>
                                 </div>
-                                <div class="card card-body rounded-0">
-                                 <div class="card card-body alert-info bg- mt-3 mb-5">
-                                    <b><span class="fa fa-address-card fa-2x px-3"></span>PERSONAL INFORMATION</b>
                                 </div>
-                                {!! Form::model($user, ['url' => URL::to('my-account'), 'method' => 'put', 'class' => 'form-horizontal','enctype'=>"multipart/form-data"]) !!}
+                                <!--Account settings -->
+                                <!--End account settings -->
+                                <div class="p-3">
+                                 {!! Form::model($user, ['url' => URL::to('my-account'), 'method' => 'put', 'class' => 'form-horizontal','enctype'=>"multipart/form-data"]) !!}
 
                                     {{ csrf_field() }}
+                                 <div class="card-body rounded shadow-fav2 mt-3 mb-5">
+                                    <div class="d-flex flex-row">
+                                        <div class="p-2"><img src="{{asset('images/user.png')}}" style="height: 50px; width: 50px;"></div>
+                                        <div class="p-2 mt-3" style="font-weight: 600;">PERSONAL INFORMATION</div>
+                                    </div>
+                                    <br>
                                 <div class="form-group {{ $errors->first('pic', 'has-error') }}">
                                 <div class="row">
-                                    <div class="col-lg-2">
-                                        <h6>Profile Picture</h6>
+                                    <div class="col-lg-2 col-12">
+                                        <h6 class="mt-5">Profile Picture</h6>
                                     </div>
-                                <div class="col-lg-9">
+                                <div class="col-lg-4">
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <div class="fileinput-new thumbnail rounded-circle" style="max-width: 200px; max-height: 200px;">
                                             @if($user->pic)
@@ -485,12 +489,12 @@ li, p{
                                         </div>
                                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                         <div>
-                                            <span class="btn btn-secondary btn-file">
+                                            <span class="btn btn-sm btn-info rounded-0 btn-file">
                                                 <span class="fileinput-new">Update profile picture</span>
                                                 <span class="fileinput-exists">Change</span>
                                                 <input type="file" name="pic" id="pic" />
                                             </span>
-                                            <span class="btn btn-danger fileinput-exists" data-dismiss="fileinput"><span class="fa fa-times"></span></span>
+                                            <span class="btn btn-sm btn-danger rounded-0 fileinput-exists" data-dismiss="fileinput"><span class="fa fa-times"></span></span>
                                         </div>
                                     </div>
                                     <span class="help-block">{{ $errors->first('pic', ':message') }}</span>
@@ -499,60 +503,43 @@ li, p{
                                 </div>
                                     <div class="form-group {{ $errors->first('first_name', 'has-error') }}">
                                         <div class="row">
-                                            <div class="col-lg-2 col-12">
+                                        <div class="col-lg-1 col-12">
                                         <label class="control-label">
-                                            <h6>First Name</h6>
+                                        First Name
                                         </label>
                                         </div>
-                                            <div class="col-lg-10 col-12">
+                                        <div class="col-lg-4 col-12">
                                             <div class="input-group input-group-append">
-                                            <span class="input-group-text">
-                                            <i class="livicon" data-name="user" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
-                                            </span>
                                                 <input type="text" placeholder=" " name="first_name" id="first_name"
-                                                    class="form-control" value="{!! old('first_name',$user->first_name) !!}">
+                                                    class="form-control rounded-0" value="{!! old('first_name',$user->first_name) !!}">
                                             </div>
                                             <span class="help-block">{{ $errors->first('first_name', ':message') }}</span>
                                         </div>
-
-                                    </div>
-                                    </div>
-
-                                    <div class="form-group {{ $errors->first('last_name', 'has-error') }}">
-                                        <div class="row">
-                                            <div class="col-lg-2 col-12">
+                                         <div class="col-lg-1 col-12">
                                                 <label class="control-label">
                                                     <h6>Last Name</h6>
                                                 </label>
-                                            </div>
-
-
-                                            <div class="col-lg-10 col-12">
+                                        </div>
+                                         <div class="col-lg-4 col-12">
                                             <div class="input-group input-group-append">
-                                                    <span class="input-group-text">
-                                                <i class="livicon" data-name="user" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
-                                                    </span>
                                                 <input type="text" placeholder=" " name="last_name" id="last_name"
-                                                    class="form-control"
+                                                    class="form-control rounded-0"
                                                     value="{!! old('last_name',$user->last_name) !!}"></div>
                                             <span class="help-block">{{ $errors->first('last_name', ':message') }}</span>
                                         </div>
-                                    </div>
-                                    </div>
 
+                                    </div>
+                                    </div>
                                     <div class="form-group {{ $errors->first('email', 'has-error') }}">
                                         <div class="row">
-                                            <div class="col-lg-2 col-12">
+                                            <div class="col-lg-1 col-12">
                                                 <label class="control-label">
                                             <h6>Email</h6>
                                                 </label>
                                             </div>
-                                            <div class="col-lg-10 col-12">
+                                            <div class="col-lg-9 col-12">
                                             <div class="input-group input-group-append">
-                                                                        <span class="input-group-text">
-                                                <i class="livicon" data-name="mail" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
-                                                                        </span>
-                                                <input type="text" placeholder=" " id="email" name="email" class="form-control"
+                                                <input type="text" placeholder=" " id="email" name="email" class="form-control rounded-0"
                                                     value="{!! old('email',$user->email) !!}"></div>
                                             <span class="help-block">{{ $errors->first('email', ':message') }}</span>
                                         </div>
@@ -563,61 +550,59 @@ li, p{
                                     <div class="form-group {{ $errors->first('password', 'has-error') }}">
                                         <h6 class="text-warning col-md-offset-2 text-danger"><small><span class="fa fa-exclamation-triangle px-1 py-3"></span>If you don't want to change password... please leave the password field empty</small></h6><br>
                                             <div class="row">
-                                                <div class="col-lg-2 col-12">
+                                                <div class="col-lg-1 col-12">
                                                 <label class="control-label">
                                                 <h6>Password<small class="text-danger"></small></h6>
                                                 </label>
                                             </div>
 
-                                                <div class="col-lg-10 col-12">
+                                        <div class="col-lg-4 col-12">
                                             <div class="input-group input-group-append">
-                                                    <span class="input-group-text">
-                                <i class="livicon" data-name="key" data-size="20" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
-                                                    </span>
-                                                <input type="password" name="password" placeholder=" " id="pwd" class="form-control"></div>
+                                                <input type="password" name="password" placeholder=" " id="pwd" class="form-control rounded-0">
+                                            </div>
                                             <span class="help-block">{{ $errors->first('password', ':message') }}</span>
                                         </div>
-                                    </div>
-                                    </div>
-
-                                    <div class="form-group {{ $errors->first('password_confirm', 'has-error') }}">
-                                        <div class="row">
-                                        <label class="col-lg-2  col-12 control-label">
+                                        <div class="col-lg-1 col-12">
+                                        <label class="control-label">
                                         <h6>Confirm Password<small class="text-danger"></small></h6>
                                         </label>
-                                            <div class="col-lg-10 col-12">
+                                        </div>
+                                         <div class="col-lg-4 col-12">
+                                         <div class="form-group {{ $errors->first('password_confirm', 'has-error') }}">
                                             <div class="input-group input-group-addon">
-                                                    <span class="input-group-text">
-                                <i class="livicon" data-name="key" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
-                                                    </span>
-                                                <input type="password" name="password_confirm" placeholder=" " id="cpwd" class="form-control"></div>
+                                                <input type="password" name="password_confirm" placeholder=" " id="cpwd" class="form-control rounded-0"></div>
                                             <span class="help-block">{{ $errors->first('password_confirm', ':message') }}</span>
                                         </div>
+                                    </div>
                                     </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-lg-2 col-12">
-                                            <h6>Gender:</h6>
+                                            <div class="col-lg-1 col-12">
+                                            <h6>Gender</h6>
                                         </div>
-                                            <div class="col-lg-10 col-12">
+                                            <div class="col-lg-3 col-12">
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" name="gender" value="male" @if($user->gender === "male") checked="checked" @endif />
-                                                <h6> Male </h6>
+                                                 Male 
                                                 </label>
                                             </div>
+                                            </div>
+                                            <div class="col-lg-3 col-12">
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" name="gender" value="female" @if($user->gender === "female") checked="checked" @endif />
-                                                    <h6>Female</h6>
+                                                    Female
                                                 </label>
                                             </div>
+                                            </div>
+                                            <div class="col-lg-3 col-12">
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" name="gender" value="other" @if($user->gender === "other") checked="checked" @endif />
-                                                    <h6>Other</h6>
+                                                    Other
                                                 </label>
                                             </div>
                                         </div>
@@ -625,18 +610,15 @@ li, p{
                                     </div>
                                     <div class="form-group {{ $errors->first('dob', 'has-error') }}">
                                         <div class="row">
-                                            <div class="col-lg-2 col-12">
+                                            <div class="col-lg-1 col-12">
                                         <h6>Date of Birth<span class='require text-danger'></span>:</h6>
                                             </div>
-                                            <div class="col-lg-10 col-12">
+                                            <div class="col-lg-9 col-12">
                                             <div class="input-group input-group-append">
-                                                    <span class="input-group-text">
-                                <i class="livicon" data-name="calendar" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
-                                                    </span>
                                                     @if($user->dob === '')
-                                                        {!!  Form::date('dob', null, ['class' => 'form-control'])  !!}
+                                                        {!!  Form::date('dob', null, ['class' => 'form-control rounded-0'])  !!}
                                                 @else
-                                                        {!!  Form::date('dob', old('dob',$user->dob), ['class' => 'form-control', 'data-date-format'=> 'YYYY-MM-DD'])  !!}
+                                                        {!!  Form::date('dob', old('dob',$user->dob), ['class' => 'form-control rounded-0', 'data-date-format'=> 'YYYY-MM-DD'])  !!}
                                                 @endif
                                             </div>
                                             <span class="help-block">{{ $errors->first('dob', ':message') }}</span>
@@ -645,36 +627,35 @@ li, p{
                                         </div>
                                     <div class="form-group  {{ $errors->first('bio', 'has-error') }}">
                                         <div class="row">
-                                            <div class="col-lg-2 col-12">
+                                            <div class="col-lg-1 col-12">
                                             <h6>Bio</h6> <small>(brief intro)</small></label>
                                             </div>
 
-                                            <div class="col-lg-10 col-12">
-                                                    <textarea name="bio" id="bio" class="form-control resize_vertical"
+                                            <div class="col-lg-9 col-12">
+                                                    <textarea name="bio" id="bio" class="form-control resize_vertical rounded-0"
                                                             rows="4">{!! old('bio', $user->bio) !!}</textarea>
                                             </div>
                                             {!! $errors->first('bio', '<span class="help-block">:message</span>') !!}
                                         </div>
                                         </div>
-
-                                        <div class="card card-body alert-info">
-                                        <b><span class="fa fa-user-graduate fa-2x px-3"></span>ACADEMIC INFORMATION</b>
+                                </div>
+                                    <div class="card-body rounded shadow-fav2">
+                                    <div class="d-flex flex-row">
+                                        <div class="p-2"><img src="{{asset('images/internship.png')}}" style="height: 50px; width: 50px;"></div>
+                                        <div class="mt-3" style="font-weight: 600;">ACADEMIC INFORMATION</div>
                                     </div>
                                     <br>
                                     <div class="form-group {{ $errors->first('institution', 'has-error') }}">
                                         <div class="row">
-                                            <div class="col-lg-2 col-12">
+                                            <div class="col-lg-1 col-12">
                                                 <label class="control-label">
                                                     <h6>Institution</h6> 
                                                 </label>
                                             </div>
-                                                <div class="col-lg-10 col-12">
+                                                <div class="col-lg-9 col-12">
                                             <div class="input-group input-group-append">
-                                            <span class="input-group-text">
-                                <i class="fa fa-institution" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
-                                                    </span>
                                                 <input  type="text" name="institution" id="institution"
-                                                    class="form-control" value="{!! old('institution',$user->institution) !!}">
+                                                    class="form-control rounded-0" value="{!! old('institution',$user->institution) !!}">
 
                                                 </div>
                                             <span class="help-block">{{ $errors->first('institution', ':message') }}</span>
@@ -684,20 +665,17 @@ li, p{
 
                                         <div class="form-group {{ $errors->first('department', 'has-error') }}">
                                         <div class="row">
-                                            <div class="col-lg-2 col-12">
+                                            <div class="col-lg-1 col-12">
                                                 <label class="control-label">
                                                     <h6>Department</h6> 
                                                 </label>
                                             </div>
 
 
-                                            <div class="col-lg-10 col-12">
+                                            <div class="col-lg-9 col-12">
                                             <div class="input-group input-group-append">
-                                            <span class="input-group-text">
-                                            <i class="fa fa-file-alt" data-size="18" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
-                                                    </span>
                                                 <input  type="text" name="department" id="department"
-                                                    class="form-control" value="{!! old('department',$user->department) !!}">
+                                                    class="form-control rounded-0" value="{!! old('department',$user->department) !!}">
 
                                                 </div>
                                             <span class="help-block">{{ $errors->first('department', ':message') }}</span>
@@ -707,49 +685,49 @@ li, p{
 
                                     <div class="form-group {{ $errors->first('level', 'has-error') }}">
                                         <div class="row">
-                                            <div class="col-lg-2 col-12">
+                                            <div class="col-lg-1 col-12">
                                                 <label class="control-label">
                                                 <h6>Level</h6> 
                                                 </label>
                                             </div>
-                                            <div class="col-lg-10 col-12">
+                                            <div class="col-lg-9 col-12">
                                             <div class="input-group input-group-append">
-                                            <span class="input-group-text">
-                                <i class="fa fa-pencil-alt" data-size="20" data-loop="true" data-c="#2C504F" data-hc="#2C504F"></i>
-                                                    </span>
                                                 <input type="text" placeholder=" " name="level" id="level"
-                                                    class="form-control"
+                                                    class="form-control rounded-0"
                                                     value="{!! old('level',$user->level) !!}"></div>
                                             <span class="help-block">{{ $errors->first('level', ':message') }}</span>
                                         </div>
                                     </div>
                                     </div>
-
-
-                                    <div class="card card-body alert-info">
-                                        <b><span class="fa fa-address-card fa-2x px-3"></span>CONTACT INFORMATION</b>
                                     </div>
                                     <br>
-
-                                    <div class="form-group {{ $errors->first('address', 'has-error') }}">
+                                    <br>
+                                    <div class="card-body rounded shadow-fav2">
+                                    <div class="d-flex flex-row">
+                                        <div class="p-2"><img src="{{asset('images/identification.png')}}" style="height: 50px; width: 50px;"></div>
+                                        <div class="p-2 mt-3" style="font-weight: 600;">CONTACT INFORMATION</div>
+                                    </div>
+                                    <br>
+                                      <div class="form-group {{ $errors->first('address', 'has-error') }}">
                                         <div class="row">
-
-                                            <div class="col-lg-2 col-12">
+                                        <div class="col-lg-1 col-12">
                                         <label class="control-label">
-                                            <h6>Address:</h6> 
+                                        <h6>Address:</h6> 
                                         </label>
                                     </div>
-                                            <div class="col-lg-10 col-12">
-                                                    <textarea rows="3" cols="30" class="form-control resize_vertical" id="add1"
+                                    <div class="col-lg-9 col-12">
+                                        <textarea rows="3" cols="30" class="form-control rounded-0 resize_vertical" id="add1"
                                                             name="address">{!! old('address',$user->address) !!}</textarea>
-                                        </div>
+                                    </div>
                                         <span class="help-block">{{ $errors->first('address', ':message') }}</span>
                                     </div>
                                     </div>
+                                    </div>
+                                    <br>
                                     <br>
                                     <div class="form-group">
-                                        <div class="col-lg-10 col-12 ml-auto">
-                                            <button class="btn btn-secondary btn-block theme-button" type="submit">Update Profile</button>
+                                        <div class="col-lg-8 col-12 m-auto">
+                                            <button class="btn btn-danger btn-block theme-button rounded-0" type="submit">Update Profile</button>
                                         </div>
                                     </div>
 
@@ -768,12 +746,14 @@ li, p{
                                     <div class="row">
                                         <div class="col-12">
                                         <div>
-                                        <div class="card card-body bg-transparent border-0 mt-2">
+                                        <div class="card-body bg-transparent border-0 mt-2">
                                         <div class="text-right">
-                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i>Post Question</div>
+                                            <small>My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="14" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i>Post Question
+                                            </small>
                                         </div>
-                                        <div class="card card-body">
+                                        </div>
+                                        <div class="card-body rounded shadow-fav2">
                                                 {!! Form::open(['action' => 'UserBlogController@store', 'method' => 'post', 'class' => 'bf', 'files'=> true,])!!}
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                                 <div class="row">
@@ -790,8 +770,8 @@ li, p{
                                                         </div>
                                                         <div class='box-body pad form-group {{ $errors->first('content', 'has-error') }}'>
                                                             {!! Form::textarea('content','Type the content of your question here',
-                                                            ['rows'=>'5','class'=>'textarea
-                                                            form-control rounded-0','style'=>'style="width: 100%; height: 200px !important; font-size: 14px !important;
+                                                            ['class'=>'textarea
+                                                            form-control rounded-0','style'=>'style="width: 100%; font-size: 14px !important;
                                                             line-height: 1.5; border: 1px solid #dddddd; padding: 10px;"']) !!}
                                                             <small class="text-danger">{{ $errors->first('content', 'Question content required') }}</small>
                                                         </div>
@@ -802,7 +782,7 @@ li, p{
                                                             {!! Form::text('tags', null, ['class' => 'form-control input-lg rounded-0',
                                                             'data-role'=>"tagsinput", 'placeholder'=>'Tags/Keywords', 'style'=>'font-size: 14px !important; height: 50px !important;']) !!}
                                                             <br>
-                                                            <p  class="text-info p-2 mt-3"><small>To enter multiple tags/keywords,
+                                                            <p  class="text-dark p-2 mt-3"><small>To enter multiple tags/keywords,
                                                             press the return/enter button and type the next and so on.</small></p>
                                                         </div>
                                                         <label></label>
@@ -813,12 +793,12 @@ li, p{
                                                             <div class="fileinput-preview fileinput-exists thumbnail"
                                                                 style="max-width: 200px; max-height: 150px;"></div>
                                                             <div>
-                                                                <span class="btn  btn-secondary btn-file">
+                                                                <span class="btn btn-sm  btn-info btn-file">
                                                                     <span class="fileinput-new">Select image</span>
                                                                     <span class="fileinput-exists">Change</span>
                                                                     <input type="file" name="image" id="pic" accept="image/*" />
                                                                 </span>
-                                                                <span class="btn btn-danger fileinput-exists"
+                                                                <span class="btn btn-sm btn-danger fileinput-exists"
                                                                     data-dismiss="fileinput">Remove</span>
                                                             </div>
                                                             <span class="help-block">{{ $errors->first('image', ':message') }}</span>
@@ -857,36 +837,34 @@ li, p{
                                     <div class="pt-3">
                                         <!-- Nav Nav-tabs Start -->
                                         <div class="card card-body bg-transparent border-0 mt-2">
-                                            <div class="text-right">
-                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> My Questions</div>
+                                        <div class="text-right">
+                                        <small>My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="14" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i> My Questions
+                                            </small>
+                                        </div>
                                         </div>
                                         <div>
                             <!-- //Nav Nav-tabs End -->
                             <!-- Tab-content Start -->
                             <div class="card-body" id="p3">
-                            <h3> Sort Questions</h3>
-                            <br>
-                            <!-- sort questions -->
-                    <form class="input-group" action="{{route('my-account')}}" method="GET">
-                        <select type="text" class="form-control text-gray rounded-0" name="search" value="{{request()->query('search')}}"  style="font-size: 16px !important; height: 50px; width: 75% !important;">
-                            <option value="">Select Course Title</option>
-                            @foreach($course_titles as $item)
-                            <option value="{!! $item->title !!}">{!! $item->title !!}</option>
-                            @endforeach
-                        </select>
-                            <div class="input-group-append">
-                                <span class="input-group-btn input-group-append">
-                                    <button class="btn btn-warning input-group-text" type="submit" style="border-radius: 0 !important;">
-                                        <i class="fa fa-sort px-2"></i>search
-                                    </button>
-                                </span>
+                            <div class="d-flex flex-row-reverse">
+                                <div class="p-2">
+                                       <!-- sort questions -->
+                                    <form class="input-group" action="{{route('my-account')}}" method="GET">
+                                        <select type="text" class="form-control text-gray rounded" name="search" value="{{request()->query('search')}}"  style="font-size: 16px !important; height: 40px; width: 75% !important;">
+                                            <option value="">Select Course Title</option>
+                                            @foreach($course_titles as $item)
+                                            <option value="{!! $item->title !!}">{!! $item->title !!}</option>
+                                            @endforeach
+                                        </select>
+                                    <br>
+                                            <!-- end sort -->
+                                </div>
+                                <div class="p-2 mt-2"><h4 class="text-blue"> Sort Questions</h4></div>
                             </div>
-                    </form>
-                    <br>
-                            <!-- end sort -->
+                            <br>
                                     @forelse ($user_questions as $my_questions)
-                                                <div class="card-body" style="background-color:#F6F8FA; border:none;">
+                                                <div class="card-body shadow-fav2 rounded" style="background-color:#FDFDFE;">
                                                     @foreach($blogscategories as $category)
                                                             @if($my_questions->blog_category_id === $category->id)
                                                                 <h6 class="text-left text-gray">Category: {{$category->title}}</h6> <br>
@@ -899,17 +877,17 @@ li, p{
                                                         <small class="text-gray">
                                                                 <span class="additional-post px-2">
                                                                 <a> <span class="icon-calendar px-2"></span>Asked &nbsp;{{$my_questions->created_at->diffForHumans()}}</a>
-                                                                </span>|
+                                                                </span>
                                                                 <span class="additional-post px-2">
                                                                 <a> <span class="icon-speech"></span>&nbsp;{{$my_questions->comments->count()}} Answer/Comment(s)</a>
-                                                                </span>|
+                                                                </span>
                                                                 <span class="additional-post">
                                                                 <a>Viewed&nbsp;{{$my_questions->views}}  times</a>
                                                             </span>
                                                         </small>       
                                                     <p class="pt-3 text-right">
-                                                        <a href="{{ URL::to('questions/' . $my_questions->id . '/edit' ) }}" ><span class="icon-note text-light circle-icon-info"></span></a>
-                                                        <a href="{{ route('questions.confirm-delete', $my_questions->id) }}" data-toggle="modal" data-id="{{$my_questions->id }}" data-target="#delete_confirm"><span class="icon-trash text-light circle-icon-danger"></span></a>
+                                                        <a href="{{ URL::to('questions/' . $my_questions->id . '/edit' ) }}" ><img src="{{asset('images/edit.png')}}" style="height: 25px; width: 25px;"></a>
+                                                        <a href="{{ route('questions.confirm-delete', $my_questions->id) }}" data-toggle="modal" data-id="{{$my_questions->id }}" data-target="#delete_confirm"><img src="{{asset('images/delete.png')}}" style="height: 25px; width: 25px;"></a>
                                                         
                                                     </p>
                                                 </div><br>
@@ -937,20 +915,22 @@ li, p{
                                         <div>
                                           <div class="card card-body bg-transparent border-0 mt-2">
                                             <div class="text-right">
-                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> Study Resources @if(request()->searchLibrary) <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> {{request()->query('searchLibrary')}} @endif</div>
+                                                <small>My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="14" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i> Study Resources @if(request()->searchLibrary) <i class="livicon icon3" data-name="angle-double-right" data-size="14" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i> {{request()->query('searchLibrary')}} @endif
+                                                </small>
+                                            </div>
                                         </div>
                                         <div class="card-body">
                                         <br>
+                                        <div class="card-body p-5 shadow-fav2 rounded" style="background-color: #FDFDFE;">
                                             <h5 class="text-center text-dark" style="font-weight: 600; font-size: 48px; left: 50%; padding-top: 20px;">
                                             &nbsp; Book Search</h5>
                                             <p style="text-align: center; padding-bottom: 20px;"><small>Electronic Book Search Engine</small></p>
-                                            
-                                                                            <!-- Search bar -->
+                                            <!-- Search bar -->
                                             <div class="form-group input-group w-75 m-auto">
                                                 <form class="input-group" action="#" method="GET">
-                                                    <input type="text" class="form-control text-gray rounded-0" name="searchLibrary" value="{{request()->query('searchLibrary')}}" placeholder="Search Books by title, author, subject/course,..." style="font-size: 16px !important; width: 50% !important; height: 50px;">
+                                                    <input type="text" class="form-control text-gray rounded-0" name="searchLibrary" value="{{request()->query('searchLibrary')}}" placeholder="Search Books by title, author, subject/course,..." style="font-size: 16px !important; font-weight:300; width: 60% !important; height: 50px;">
                                                         <div class="input-group-append">
                                                             <span class="input-group-btn input-group-append">
                                                                 <button class="btn btn-warning input-group-text" type="submit" style="border-radius: 0 !important;">
@@ -959,56 +939,49 @@ li, p{
                                                             </span>
                                                         </div>
                                                 </form>
-                                                
+                                            </div>
                                             </div>
                                             <br>
                                 <div class="row">
                                     <div class="col-sm-9 col-md-9 col-lg-9 col-12 m-auto">
                                         @if(request()->query('searchLibrary'))
-                                            <p>Showing Search results for <em class="text-blue"><b>{{request()->query('searchLibrary')}}</b></em></p>
-                                            <hr>
+                                            <p>Showing Search results for <em class="text-danger"><b>{{request()->query('searchLibrary')}}</b></em></p>
+                                            <br>
                                             @forelse($books as $book)
                                                 <div class="card mt-3 mb-3 border-0">
                                                 <div class="card-header bg-transparent border-0">
-                                                <p class="text-info">{{$book->title}}</p>
-                                                <hr>
                                                 </div>
-                                                <div class="card-body bg-transparent border-0">
+                                                <div class="card-body rounded shadow-fav">
+                                                <div class="d-flex">
+                                                <div class="mr-auto p-2 "><a href="#url">{{$book->title}}</a></div>
+                                                <div class="p-2"><img src="{{asset('images/user.png')}}" style="height: 20px; width: 20px;">&nbsp;<a href="#url">{{$book->author}}</a></div>
+                                                </div>
                                                     <a href="#url" class="zoom d-block">
                                                     @if($book->cover_image)
-                                                    <img src="{{asset('uploads/cover_images/'.$book->cover_image)}}" class="card-img-bottom d-block p-3 border-blue" style="width: 200px; height: auto; float: left;">
+                                                    <img src="{{asset('uploads/cover_images/'.$book->cover_image)}}" class="card-img-bottom d-block p-3 rounded" style="width: 200px; height: auto; float: left;">
                                                     @else
-                                                    <img src="{{asset('images/g5.jpg')}}" class="card-img-bottom d-block p-3" style="width: 200px; height: auto; float: left;">
+                                                    <img src="{{asset('images/g5.jpg')}}" class="card-img-bottom d-block p-3 rounded" style="width: 200px; height: auto; float: left;">
                                                     @endif
                                                     </a>
-                                                    <div class="course-title">
-                                                        <a href="#url">Course Title</a>
-                                                    </div>
-                                                    <p>{{$book->description}}</p>
+                                                    <p class="mt-2">{{$book->description}}</p>
                                                     <p></p>
                                                     <div class="d-flex flex-row">
-                                                        <div class="p-2"><a href="{{ route('library.download', $book->uuid) }}" class="btn btn-success theme-button rounded-0"><i class="fa fa-file-download px-2"></i>Free Download</a></div>
-                                                        <div class="p-2"><a href="#" class="btn btn-info theme-button rounded-0"><i class="fa fa-eye px-2"></i>Preview</a></div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="card-footer border-0 bg-transparent">
-                                                   <div class="d-flex flex-row">
-                                                        <div class="p-2"><span class="icon-user circle-icon-info text-white"></span>&nbsp;{{$book->author}}</div>
+                                                        <div class="p-2"><a href="{{ route('library.download', $book->uuid) }}" class="btn btn-sm btn-success rounded-5"><i class="fa fa-file-download px-2"></i>Free Download</a></div>
+                                                        <div class="p-2"><a href="#" class="btn btn-sm btn-info  rounded-5"><i class="fa fa-eye px-2"></i>Preview</a></div>
                                                     </div>
                                                 </div>
                                                 </div>
                                                 @empty
                                                 <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                                                <strong>We're Sorry!</strong> No book found that matches <strong>{{request()->query('searchLibrary')}}</strong>
+                                                <strong>We're Sorry!</strong> No book found found for <strong>{{request()->query('searchLibrary')}}</strong>
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                                 </div>
-                                                <div class="mt-3 mb-3"><h5 class="text-dark" style="font-weight: 600; font-size: 36px; left: 50%; padding-top: 20px;">
+                                                <div class="mt-3 mb-3"><h5 class="text-dark" style="font-weight: 500; font-size: 36px; left: 50%; padding-top: 20px;">
                                                     &nbsp; Send Book Request</h5>
                                                 </div>
-                                                <div class=" card card-body bg-transparent" id="p1">
+                                                <div class=" card card-body shadow-fav rounded" id="p1">
                                                     <br>
                                                         {!! Form::open(['action' => 'BooksController@store', 'method' => 'post', 'class' => 'bf',
                                         'files'=> true]) !!}
@@ -1051,34 +1024,38 @@ li, p{
                                 <div class="tab-pane " id="tab_default_6">
                                     <div>
                                     <div class="card card-body bg-transparent border-0 mt-2">
-                                            <div class="text-right">
-                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> Tutoring Jobs</div>
+                                        <div class="text-right">
+                                            <small>My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="14" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i> Tutoring Jobs
+                                            </small>
+                                                    
+                                        </div>
                                     </div>
                                     @forelse ($news as $job)
-                                                <div class="card-body" style="background-color:#F6F8FA; border:none;">
-                                                    <h6 class="text-left text-danger">SSN{{$job->id}}: {{$job->title}}</h6> 
-                                                    <h6 class="text-right text-gray">Category:&nbsp; {{$job->category}}</h6> 
+                                                <div class="card card-body rounded shadow-fav2 ml-3 mr-3" style="border:none;">
+                                                <div class="d-flex flex-row">
+                                                    <div class="mr-auto p-2 text-danger">SSN{{$job->id}}: {{$job->title}}</div> 
+                                                    <div class="p-2 text-gray">Category:&nbsp; {{$job->category}}</div> 
+                                                    </div>
                                                     <hr>
                                                     <h6>{!! $job->content !!}</h6>
                                                     <br>
                                                         <small class="text-gray">
                                                                 <span class="additional-post px-2">
                                                                 <a> <span class="icon-calendar px-2"></span>Published  &nbsp;{{$job->created_at->diffForHumans()}}</a>
-                                                                </span>|
+                                                                </span>
                                                                 <span class="additional-post px-2">
                                                                 <a> <span class="fa fa-map-marker-alt"></span>&nbsp;{{$job->location}}</a>
-                                                                </span>|
+                                                                </span>
                                                                 <span class="additional-post">
-                                                                <a>Salary&nbsp;{{$job->salary}}</a>
-                                                                </span>|
+                                                                <a>Salary:&nbsp;{{$job->salary}}</a>
+                                                                </span>
                                                                 <span class="additional-post">
                                                                 <a>Employer:&nbsp;{{$job->employer}}</a>
                                                                 </span>
                                                         </small>       
                                                     <p class="pt-3 text-right">
                                                         <a href="#" class="text-light" data-toggle="tooltip" data-placement="top" title="apply"><span class="icon-note circle-icon-info"></span></a>&nbsp; 
-                                                        <a href="#" class="text-light" data-toggle="tooltip" data-placement="bottom" title="share"><span class="icon-share circle-icon-success"></span></a>
                                                     </p>
                                                 </div><br>
                                             @empty
@@ -1092,24 +1069,28 @@ li, p{
                                 <div class="tab-pane " id="tab_default_7">
                                     <div class="pt-3">
                                     <div class="card card-body bg-transparent border-0 mt-2">
-                                            <div class="text-right">
-                                       My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> Online Tutors</div>
+                                        <div class="text-right">
+                                            <small>My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="14" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i> Online Tutors
+                                            </small>
+                                        </div>
                                     </div>
                                     @forelse($teachers as $teacher)
                                     @if(@count($teacher) > 0)
-                                    <div class="card-body" style="background-color:#F6F8FA; border:none;">
+                                    
                                         <div class="mt-2">
                                         <a  href="#" class="text-dark text-uppercase px-3 py-3">
                                             @if($teacher->pic)
-                                                <img src="{{$teacher->pic}}" alt="img" width="50px"  height="50px" class="rounded-circle img-responsive img_height float-left"/>
-                                                @else<img src="{{asset('images/no_avatar.jpg')}}" alt="img" width="50px"  height="50px" class="rounded-circle img-responsive img_height float-left"/>
+                                                <img src="{{$teacher->pic}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
+                                                @else<img src="{{asset('images/no_avatar.jpg')}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
                                             @endif
-                                            <small><b>{{$teacher->first_name. ' '.$teacher->last_name }}</b> @if($teacher->isOnline()) <span class="fa fa-circle px-2 text-success float-right"></span> @else <span class="fa fa-circle px-2 text-danger float-right"></span>@endif</small>
+                                            <small class="float-left"> @if($teacher->isOnline()) <div style="margin-left:-10px;"><span class="fa fa-circle text-success mt-3 p-1"></span></div> @else <div style="margin-left:-10px;"><span class="fa fa-circle text-danger p-1 mt-3"></span></div>@endif</small>
+                                            <small><b>{{$teacher->first_name. ' '.$teacher->last_name }}</b></small>
+                                            <span class="fa fa-ellipsis-v px-2 text-danger float-right" id="tutor-toggle"></span>
                                             <br>
                                         </a>
                                          <br>
-                                            <small class="text-gray">
+                                            <div class="text-gray" id="Tutor" style="display: none;">
                                                                 <span class="additional-post">
                                                                 <a> <span class="fa fa-user px-2"></span>Tutor's Profile</a>
                                                                 </span>
@@ -1123,9 +1104,9 @@ li, p{
                                                                 <a> <span class="fa fa-institution px-2"></span>{{$teacher->institution}}</a>
                                                                 </span>
                                                                 
-                                            </small>  
+                                            </div>  
                                         </div>
-                                    </div><br>
+                                    <hr>
                                     @endif
                                     @empty
                                         <div class="mt-2">
@@ -1143,14 +1124,17 @@ li, p{
                         <div>
                         <div class="card card-body bg-transparent border-0 mt-2 mb-5">
                                             <div class="text-right">
-                                                    My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> Examination Resources<i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i>Department of  {{Sentinel::getUser()->department}} @if(request()->search) <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
-                                                    data-c="#000" data-hc="#000"></i> {{request()->search}} @endif
+                                                <small>
+                                                    My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="14" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i> Examination Resources<i class="livicon icon3" data-name="angle-double-right" data-size="14" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i>Department of  {{Sentinel::getUser()->department}} @if(request()->search) <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
+                                                    data-c="#000" data-hc="#000" data-animate="false"></i> {{request()->search}} @endif
+                                                </small>
                                             </div>
                         </div>
-                            <div class="mt-5  w-75 m-auto">
-                            <h5 class="text-center text-dark" style="font-weight: 600; font-size: 40px; left: 50%; padding-top: 20px;">
+                            <div class="mt-5 w-75 m-auto">
+                            <div class="card-body p-5 shadow-fav2 rounded" style="background-color: #FDFDFE; width: 100% !important;">
+                            <h5 class="text-center text-dark " style="font-weight: 600; font-size: 40px; left: 50%; padding-top: 20px;">
                                             &nbsp; Past Examination Questions</h5>
                             <p style="text-align: center; padding-bottom: 20px;"><small>Select a course to get past questions for that course</small></p>
                                             <form class="input-control" action="{{route('my-account')}}" method="GET">
@@ -1167,6 +1151,7 @@ li, p{
                                                     </button><br><br>
                                                 </div>
                                             </form>
+                                        </div>
                 <div class="card-body">
                     @if(request()->search)
                     <div style="margin-top: 30px !important;">
@@ -1174,17 +1159,18 @@ li, p{
                     </div>
                     <br>
                         @forelse ($exam_questions as $item)
-                            <div class="card-body  p-3" style="background-color:#F6F8FA; border:none;">
+                            <div class="card-body rounded shadow-fav2  p-3">
                                 <h5 class="text-capitalize text-left text-danger py-4"><a href="{{ route('exams.download', $item->uuid) }}" class="text-secondary"><i class="far fa-file-pdf px-2"></i>{{ $item->title }} <i class="ion ion-md-arrow-dropright px-3"></i><small>{{ $item->type }}</small></a></h5>
                                 <br>
-                                <small class="text-capitalize text-gray">Course Instructor:&nbsp;{{ $item->instructor }} | &nbsp; {{ $item->type }} {{ $item->year }} <br>
-                                <div class="mt-4 text-right">
-                                <a href="#url" class="btn alert-success"><i class="ion ion-md-download fa-2x p-2"></i>Download Solution</a>
+                                <div class="d-flex flex-row">
+                                    <div class="p-2"><small class="text-capitalize text-gray">Course Instructor:&nbsp;{{ $item->instructor }}</small></div>
+                                    <div class="mr-auto p-2"><small class="text-capitalize text-gray">year:  {{ $item->type }} {{ $item->year }}</small></div>
+                                    <div class="p-2"><a href="#url" class="btn btn-sm btn-success"><i class="ion ion-md-download px-2"></i>Download Solution</a></div>
                                 </div>
                             </div>
                             </div><br>
                         @empty
-                                <div class="alert-warning text-center br-5 p-5"><h4><i class="icon-speech  fa-3x px-2" style="opacity: 0.1;"></i>No Past Question Available Yet.</h4></div>
+                            <div class="alert-warning text-center br-5 p-5"><h4><i class="icon-speech "></i>No Past Question Available Yet.</h4></div>
                         @endforelse
                     </tbody>
                     </table>
@@ -1327,7 +1313,16 @@ $(document).ready(function(){
   });
 });
 </script>
-
+<script>
+$('#toggle-menu').on('click', function() {
+  $('#Menu').toggle('display: inline-block');
+});
+</script>
+<script>
+$('#tutor-toggle').on('click', function() {
+  $('#Tutor').toggle('display: inline-block');
+});
+</script>
 @stop
 
 

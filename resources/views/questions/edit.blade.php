@@ -264,15 +264,15 @@ li, p{
                                     <!--main content-->
                                     <div class="row">
                                         <div class="col-12">
-                                        <div>
-                                        <div class="card card-body bg-transparent border-0 mt-2">
+                                        <div class="mr-5 ml-5 p-3">
+                                        <div class="card-body bg-transparent border-0 mt-2">
                                         <div class="text-right">
                                                     My Portal <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
                                                     data-c="#000" data-hc="#000"></i>Post Question<i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="false"
                                                     data-c="#000" data-hc="#000"></i>Edit
                                         </div>
                                         </div>
-                                        <div class="card card-body">
+                                        <div class="card-body rounded shadow-fav2">
                                             {!! Form::model($blog, ['action' => ['UserBlogController@update', $blog], 'method'=> 'PUT', 'class' => 'bf', 'files'=> true]) !!}
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                                 <div class="row">
@@ -318,12 +318,12 @@ li, p{
                                                             <div class="fileinput-preview fileinput-exists thumbnail"
                                                                 style="max-width: 200px; max-height: 150px;"></div>
                                                             <div>
-                                                                <span class="btn  btn-secondary btn-file">
+                                                                <span class="btn btn-sm  btn-info btn-file">
                                                                     <span class="fileinput-new">Select image</span>
                                                                     <span class="fileinput-exists">Change</span>
                                                                     <input type="file" name="image" id="pic" accept="image/*" />
                                                                 </span>
-                                                                <span class="btn btn-danger fileinput-exists"
+                                                                <span class="btn btn-sm btn-danger fileinput-exists"
                                                                     data-dismiss="fileinput">Remove</span>
                                                             </div>
                                                             <span class="help-block">{{ $errors->first('image', ':message') }}</span>

@@ -109,9 +109,9 @@
 
 .box1 {
   padding: 20px 20px;
-  background-color: #D5DDE6;
+  background-color: #fff;
   border-radius: 5px;
-  border: 1px solid #CCD1D1;
+  border: 1px solid var(--gray);
 }
 
 .help-block {
@@ -163,16 +163,13 @@ h4{
 }
 </style>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light bg-dark">
-    <a class="navbar-brand" href="{{route('home')}}">
-      <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px;" />
-    </a> 
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item ml-auto text-gray px-2 mt-2">Already have an Account?</li>
-        <li class="nav-item ml-auto">
-            <a class="btn btn-outline-info rounded-0 my-2 my-sm-0" href="{{route('login')}}" >Sign In</a>
-        </li>
-    </ul>
+ <nav class="navbar navbar-expand-lg navbar-light">
+   
+<div class="d-flex flex-row">
+  <div class="p-2"> <a class="navbar-brand" href="{{route('home')}}">
+<img src="{{asset('images/studport.png')}}" title="StudPort"/>    </a>
+  </div>
+</div>  
 </nav>
 <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
     <div class="new-block top-bottom">
@@ -184,10 +181,10 @@ h4{
                     </div>
           <div class="section-width">
             <div class="box">
-                <div class="box1 br-5 shadow">
+                <div class="box1 rounded-0">
                     <div class="text-center mb-3">
                          <span class="icon-user-follow fa-4x px-2 py-2 float-right" style="opacity: 0.1;"></span>
-                        <h4 class="pt-3 text-favorite float-left"><b>SIGN UP</b></h4>
+                        <h4 class="pt-3 text-favorite float-left"><b>Sign Up - Create My StudPort Account</b></h4>
                     </div>
                    <form action="{{ route('register') }}" method="POST" id="reg_form">
                     <!-- CSRF Token -->
@@ -195,49 +192,49 @@ h4{
 
                     <div class="form-group {{ $errors->first('first_name', 'has-error') }}">
                         <label class="sr-only"> First Name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name"
+                        <input type="text" class="form-control rounded-0" id="first_name" name="first_name"
                             placeholder="First Name" value="{!! old('first_name') !!}">
                         {!! $errors->first('first_name', '<span class="help-block">:message</span>') !!}
                     </div>
                     <div class="form-group {{ $errors->first('last_name', 'has-error') }}">
                         <label class="sr-only"> Last Name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"
+                        <input type="text" class="form-control rounded-0" id="last_name" name="last_name" placeholder="Last Name"
                             value="{!! old('last_name') !!}">
                         {!! $errors->first('last_name', '<span class="help-block">:message</span>') !!}
                     </div>
                     <div class="form-group {{ $errors->first('email', 'has-error') }}">
                         <label class="sr-only"> Email</label>
-                        <input type="email" class="form-control" id="Email" name="email" placeholder="Email"
+                        <input type="email" class="form-control rounded-0" id="Email" name="email" placeholder="Email"
                             value="{!! old('Email') !!}">
                         {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
                     </div>
                     <div class="form-group {{ $errors->first('password', 'has-error') }}">
                         <label class="sr-only"> Password</label>
-                        <input type="password" class="form-control" id="Password1" name="password"
+                        <input type="password" class="form-control rounded-0" id="Password1" name="password"
                             placeholder="Password">
                         {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
                     </div>
                     <div class="form-group {{ $errors->first('password_confirm', 'has-error') }}">
                         <label class="sr-only"> Confirm Password</label>
-                        <input type="password" class="form-control" id="Password2" name="password_confirm"
+                        <input type="password" class="form-control rounded-0" id="Password2" name="password_confirm"
                             placeholder="Confirm Password">
                         {!! $errors->first('password_confirm', '<span class="help-block">:message</span>') !!}
                     </div>
                      <div class="form-group {{ $errors->first('institution', 'has-error') }}">
                         <label class="sr-only"> Institution</label>
-                        <input type="text" class="form-control" id="institution" name="institution" placeholder="Institution"
+                        <input type="text" class="form-control rounded-0" id="institution" name="institution" placeholder="Institution"
                             value="{!! old('institution') !!}">
                         {!! $errors->first('institution', '<span class="help-block">:message</span>') !!}
                     </div>
                      <div class="form-group {{ $errors->first('department', 'has-error') }}">
                         <label class="sr-only"> Department</label>
-                        <input type="text" class="form-control" id="department" name="department" placeholder="Department"
+                        <input type="text" class="form-control rounded-0" id="department" name="department" placeholder="Department"
                             value="{!! old('department') !!}">
                         {!! $errors->first('department', '<span class="help-block">:message</span>') !!}
                     </div>
                      <div class="form-group {{ $errors->first('level', 'has-error') }}">
                         <label class="sr-only"> Level</label>
-                        <input type="text" class="form-control" id="level" name="level" placeholder="Level"
+                        <input type="text" class="form-control rounded-0" id="level" name="level" placeholder="Level"
                             value="{!! old('level') !!}">
                         {!! $errors->first('level', '<span class="help-block">:message</span>') !!}
                     </div>
@@ -258,12 +255,17 @@ h4{
                         </label>
                     </div>
                     <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
-                    <button type="submit" class="btn btn-block theme-button btn-success" style="border: none !important;">Sign Up</button>
+                    <div class="d-flex flex-row">
+                      <div class="p-2"><button type="submit" class="btn btn-block btn-success theme-button rounded-0" style="border: none !important;">Sign Up</button></div>
+                    </div>
                 </form>
                     <br />
+                  <div class="d-flex flex-row">
+                      <div class="p-2"><small>Already have an Account? </small></div>
+                      <div class="p-2"><a  href="{{route('login')}}" ><small>Sign In</small></a></div>
+                  </div>
                 </div>
-                <div class="text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
-            </div>
+              <div class="mt-5 text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
         </div>
         </div>
       </div>

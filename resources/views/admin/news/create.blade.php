@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    @lang('news/title.add-news') :: @parent
+    @lang('job') @parent
 @stop
 
 {{-- page level styles --}}
@@ -23,7 +23,7 @@
 @section('content')
     <section class="content-header">
         <!--section starts-->
-        <h1>@lang('news/title.add-news')</h1>
+        <h1>Add Jobs</h1>
         <ol class="breadcrumb">
             <li>
                 <a href="{{ route('admin.dashboard') }}"> <i class="livicon" data-name="home" data-size="14"
@@ -32,9 +32,9 @@
                 </a>
             </li>
             <li>
-                <a href="#">@lang('news/title.news')</a>
+                <a href="#">jobs</a>
             </li>
-            <li class="active">@lang('news/title.add-news')</li>
+            <li class="active">add-jobs</li>
         </ol>
     </section>
     <!--section ends-->
@@ -48,7 +48,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                 <div class="row">
                     <div class="col-sm-8">
-                        <label>Job Title (Subject/Course)</label>
+                        <label>Job Title - Subject/Course Area</label>
                         <div class="form-group {{ $errors->first('title', 'has-error') }}">
                             {!! Form::text('title', null, ['class' => 'form-control input-lg','placeholder'=> 'Subject/Course Area']) !!}
                             <span class="help-block">{{ $errors->first('title', ':message') }}</span>

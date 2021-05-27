@@ -1,3 +1,5 @@
+
+
 @extends('emails/layouts/emailTemplate')
 
 @section('content')

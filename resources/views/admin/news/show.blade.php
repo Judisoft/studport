@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    @lang('news/title.newsdetail')
+    Job details
     @parent
 @stop
 
@@ -24,8 +24,8 @@
                     @lang('general.dashboard')
                 </a>
             </li>
-            <li> @lang('news/title.news')</li>
-            <li class="active">@lang('news/title.newsdetail')</li>
+            <li> jobs</li>
+            <li class="active">job details</li>
         </ol>
     </section>
     <!--section ends-->
@@ -33,14 +33,6 @@
         <!--main content-->
         <div class="row">
             <div class="col-sm-11 col-md-12 col-full-width-right">
-                <div class="blog-detail-image mrg_btm15">
-                    @if(!empty($news->image))
-                        <img src="{{URL::to('uploads/news/'.$news->image)}}" class="img-responsive" alt="Image">
-                    @else
-                        <img data-src="holder.js/791x380/#6cc66c:#fff" class="img-responsive" alt="Image">
-                    @endif
-                </div>
-                <!-- /.news-detail-image -->
                 <div class="the-box no-border blog-detail-content">
                     <p>
                         <span class="label label-danger square">{!! $news->created_at!!}</span>

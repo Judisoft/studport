@@ -1,4 +1,4 @@
-<ul id="menu" class="page-sidebar-menu">
+<ul id="menu" class="page-sidebar-menu mt-4">
 
     <li {!! (Request::is('admin') ? 'class="active"' : '' ) !!}>
         <a href="{{ route('admin.dashboard') }}">
@@ -147,7 +147,7 @@
             <li {!! (Request::is('admin/news') ? 'class="active"' : '' ) !!}>
                 <a href="{{ URL::to('admin/news') }}">
                     <i class="fa fa-angle-double-right"></i>
-                    News
+                    Jobs
                 </a>
             </li>
         </ul>

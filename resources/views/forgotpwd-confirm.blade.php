@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         @section('title')
-            Sign Up | Welcome to StudPort
+            Reset Password - StudPort
         @show
     </title>
     <!--global css starts-->
@@ -19,9 +17,8 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
     <!-- Google fonts -->
-    <link href="//fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -112,9 +109,9 @@
 
 .box1 {
   padding: 20px 20px;
-  background-color: #D5DDE6;
+  background-color: #fff;
   border-radius: 5px;
-  border: 1px solid #CCD1D1;
+  border: 1px solid var(--gray);
 }
 
 .help-block {
@@ -167,47 +164,69 @@ h4{
 
 </style>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light bg-dark">
-    <a class="navbar-brand ml-5" href="{{route('home')}}"><img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px;" />
-    </a>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item ml-auto text-primary px-2">Tips to Secure Password?</li>
-    </ul>
+<div class="container full-width">
+ <nav class="navbar navbar-expand-lg navbar-light">
+   
+<div class="d-flex flex-row">
+  <div class="p-2"> <a class="navbar-brand" href="{{route('home')}}">
+<img src="{{asset('images/studport.png')}}" title="StudPort"/>    
+</a>
+  </div>
+</div>    
 </nav>
-  <section class="w3l-intro" id="intro" style="margin-top: 0 !important">
+</div>
+  <section class="w3l-intro" id="intro">
     <div class="new-block top-bottom">
-      <div class="container full-width">
+      <div class="container">
         <div class="middle-section">
-                    <!-- Notifications -->
+         <!-- Notifications -->
                     <div id="notific">
                         @include('notifications')
                     </div>
           <div class="section-width">
             <div class="box">
-                <div class="box1 br-5 shadow">
-                    <div class="text-center mb-3">
-                         <span class="fa fa-key fa-3x px-2 py-2 float-right" style="opacity: 0.1;"></span>
-                        <h4 class="pt-3 text-favorite float-left"><b>FORGOT PASSWORD</b></h4>
-                    </div>
+                <div class="box1 rounded-0">
+                     <div class="d-flex">
+                  <div class="mr-auto p-2"><h4 class="pt-3 text-favorite float-left"><b>Reset Password</b></h4></div>
+                  <div class="p-2"><span class="icon-lock fa-3x px-2" style="opacity: 0.1;"></span></div>
+                </div>
                     <form action="{{ route('forgot-password-confirm',compact(['userId','passwordResetCode'])) }}" class="omb_loginForm pwd_validation"  autocomplete="off" method="POST">
                         {!! Form::token() !!}
                         <label class="sr-only"> New Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="New Password">
+                        <input type="password" class="form-control rounded-0" name="password" placeholder="New Password">
                         <span class="help-block">{{ $errors->first('password', ':message') }}</span><br>
                         <label class="sr-only">Confirm Password</label>
-                        <input type="password" class="form-control mt-15" name="password_confirm" placeholder="Confirm New Password">
+                        <input type="password" class="form-control rounded-0" name="password_confirm" placeholder="Confirm New Password">
                         <span class="help-block">{{ $errors->first('password_confirm', ':message') }}</span>
                         <br>
-                        <input type="submit" class="btn btn-block btn-success theme-button" value="Reset Password">
+                        <input type="submit" class="btn btn-block btn-success theme-button rounded-0" value="Reset Password">
                     </form>
-                            <br />
-                                <span class="text-dark pt-2">Back to login page?</span> <a href="{{ route('login') }}">click here</a>
                     <br />
+                    <div class="d-flex flex-row">
+                      <div class="p-2"><a href="{{ route('forgot-password') }}"><small>Forgot Password?</small></a></div>
+                      <div class="p-2"><small>Don't have an Account? </small></div>
+                      <div class="p-2"><a  href="{{route('register')}}" ><small>Sign Up</small></a></div>
+                    </div>
                 </div>
-              <div class="text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
+              <div class="mt-5 text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
             </div>
         </div>
         </div>
       </div>
     </div>
   </section>
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/607982e9f7ce1827093b17bf/1f3daepbo';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>

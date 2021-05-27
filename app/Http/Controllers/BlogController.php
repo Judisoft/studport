@@ -33,10 +33,11 @@ class BlogController extends JoshController
         $blogCategoryId = BlogCategory::get('id');
         //$blog_id = Blog::pluck('id');
         //$comment_id = BlogComment::pluck('id');
-        $reviews = BlogComment::all();
+        $reviews = BlogComment::pluck('remark');
+        //$arr_reviews = (array)$reviews;
+        //$reviews_item = BlogComment::whereIn('', $arr_reviews)->get();
         //$reviews = BlogComment::pluck('remark');
-        $arr_reviews = (array)$reviews;
-        
+        //return $reviews_item;
         //return print_r($arr_reviews);
 
         $numberOfReviews = $reviews->count();
@@ -61,6 +62,34 @@ class BlogController extends JoshController
 
         }
 
+        $searchTeacher = request()->query('searchTeacher');
+        if($searchTeacher) {
+            $teacher = User::where('first_name', 'LIKE', "%{$searchTeacher}%")
+                            ->orWhere('last_name', 'LIKE', "%{$searchTeacher}%");
+            $teachers = User::where('user_role', 'tutor')
+                              ->where('institution', 'LIKE', "%{$searchTeacher}%")
+                              ->orWhere('department', 'LIKE', "%{$searchTeacher}%")
+                              ->union($teacher)
+                              ->simplePaginate(10);
+            
+
+        } else {
+            $teachers = User::where('user_role', 'tutor')->get();
+            $numberOfTeachers = count($teachers);
+        }
+
+        $searchJobs = request()->query('searchJob');
+        if($searchJobs) {
+            $jobs = NewsAlias::where('category', 'LIKE', "%{$searchJobs}%")
+                            ->orWhere('content', 'LIKE', "%{$searchJobs}%")
+                            ->simplePaginate(10);
+            
+
+        } else {
+            $jobs = NewsAlias::orderBy('id', 'DESC')->simplePaginate(10);
+            //$numberOfJobs = count($job_postings);
+        }
+
         //Gett autheticated user
         $user = Sentinel::getUser();
         //grab all institutions of users
@@ -74,12 +103,14 @@ class BlogController extends JoshController
         $popular_questions = Blog::orderBy('views', 'desc')->get();
         //recent questions
         $recent_questions = Blog::latest()->get();
-        // teachers
-        $teachers = User::where('user_role', 'tutor')->get();
-        //jobs
-        $jobs = NewsAlias::orderBy('id', 'DESC')->get();
+        $job_postings = NewsAlias::select('category')->distinct()->get();
+        //$teachers = User::where('user_role', 'tutor')->get();
+        $questions = Blog::get('id');
+        $totalQuestions = count($questions);
+        //$jobs = NewsAlias::orderBy('id', 'DESC')->get();
         // Show the page
-        return view('blog', compact('blogs', 'numberOfItems', 'tags', 'blogscategories', 'user', 'popular_questions', 'recent_questions', 'teachers', 'jobs', 'user_institutions', 'reviews', 'numberOfReviews', 'arr_reviews'));
+        
+        return view('blog', compact('blogs', 'numberOfItems', 'tags', 'blogscategories', 'user', 'popular_questions', 'recent_questions', 'teachers', 'jobs', 'job_postings', 'user_institutions', 'reviews', 'numberOfReviews', 'totalQuestions'));
     }
 
     /**
@@ -91,7 +122,7 @@ class BlogController extends JoshController
 
         $blog = Blog::where('slug', $slug)->first();
         $user_email = User::get('email');
-        $user = Sentinel::getUser();
+        $user = User::all(); //Sentinel::getUser();
         $tutors = User::where('user_role', 'tutor')->get();
         $institutions = User::get('institution');
         $blogscategories = BlogCategory::all();
@@ -102,6 +133,7 @@ class BlogController extends JoshController
         } else {
             abort('404');
         }
+      
         // Show the page
         return view('blogitem', compact('blog', 'user_email', 'blogscategories', 'user', 'tutors', 'institutions', 'related_questions'));
     }
@@ -128,6 +160,7 @@ class BlogController extends JoshController
         $blogcooment = new BlogComment($request->all());
         $blogcooment->blog_id = $blog->id;
         $blogcooment->picture = Sentinel::getUser()->pic;
+        $blogcooment->website = Sentinel::getUser()->level;
         $blogcooment->save();
         return redirect('blogitem/' . $blog->slug)->with('success', 'Answer published');
 
@@ -148,6 +181,7 @@ class BlogController extends JoshController
         $commentToReview->remark = $request->input('remark');
         $commentToReview->explanation = $request->input('explanation');
         $commentToReview->reviewed_by = Sentinel::getUser()->first_name . ' '. Sentinel::getUser()->last_name;
+        $commentToReview->reviewer_pic = Sentinel::getUser()->pic;
         $commentToReview->save();
        
         return back()->with('success', 'Review published');

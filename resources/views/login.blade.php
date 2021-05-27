@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         @section('title')
-            Sign In | Welcome to StudPort
+            Sign In - StudPort
         @show
     </title>
     <!--global css starts-->
@@ -19,7 +19,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
     <!-- Google fonts -->
-    <link href="//fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -110,9 +109,9 @@
 
 .box1 {
   padding: 20px 20px;
-  background-color: #D5DDE6;
+  background-color: #fff;
   border-radius: 5px;
-  border: 1px solid #CCD1D1;
+  border: 1px solid var(--gray);
 }
 
 .help-block {
@@ -166,17 +165,15 @@ h4{
 </style>
 <body>
 <div class="container full-width">
- <nav class="navbar navbar-expand-lg navbar-light bg-light bg-dark">
-    <a class="navbar-brand" href="{{route('home')}}">
-      <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:35px;" />
-    </a>    
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item ml-auto text-gray px-2 mt-2">Don't have an Account?</li>
-        <li class="nav-item ml-auto">
-            <a class="btn btn-outline-info rounded-0 my-2 my-sm-0" href="{{route('register')}}" >Sign Up</a>
-        </li>
-    </ul>
-  </nav>
+ <nav class="navbar navbar-expand-lg navbar-light">
+   
+<div class="d-flex flex-row">
+  <div class="p-2"> <a class="navbar-brand" href="{{route('home')}}">
+      <img src="{{asset('images/studport.png')}}" title="StudPort"/>
+      </a>
+</div>
+</div>    
+</nav>
 </div>
   <section class="w3l-intro" id="intro">
     <div class="new-block top-bottom">
@@ -188,22 +185,22 @@ h4{
                     </div>
           <div class="section-width">
             <div class="box">
-                <div class="box1 br-5 shadow">
+                <div class="box1 rounded-0">
                     <div class="mt-auto">
                         <span class="fa fa-user-lock fa-4x px-2 py-2 float-right" style="opacity: 0.1;"></span>
-                        <h4 class="pt-3 text-favorite float-left"><b>SIGN IN</b></h4>
+                        <h4 class="pt-3 text-favorite float-left"><b>Sign In</b></h4>
                     </div>
                     <form action="{{ route('login') }}" class="omb_loginForm" autocomplete="off" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group {{ $errors->first('email', 'has-error') }}">
                             <label class="sr-only">Email</label>
-                            <input type="email" class="form-control" name="email" placeholder="Email"
+                            <input type="email" class="form-control rounded-0" name="email" placeholder="Email"
                                 value="{!! old('email') !!}">
                             <span class="help-block">{{ $errors->first('email', ':message') }}</span>
                         </div>
                         <div class="form-group {{ $errors->first('password', 'has-error') }}">
                             <label class="sr-only">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="Password">
+                            <input type="password" class="form-control rounded-0" name="password" placeholder="Password">
                         </div>
                         <span class="help-block">{{ $errors->first('password', ':message') }}</span>
                         <div class="checkbox">
@@ -212,14 +209,17 @@ h4{
                             </label>
 
                         </div>
-                        <input type="submit" class="btn btn-block btn-success theme-button" value="Log In">
+                        <div class="d-flex mt-3"></div>
+                        <input type="submit" class="btn btn-block btn-success theme-button rounded-0" value="Log In">
                     </form>
                     <br />
-                    <div class="bg-transparent animation flipInX">
-                        <a href="{{ route('forgot-password') }}">Forgot Password?</a>
+                    <div class="d-flex flex-row">
+                      <div class="p-2"><a href="{{ route('forgot-password') }}"><small>Forgot Password?</small></a></div>
+                      <div class="p-2"><small>Don't have an Account? </small></div>
+                      <div class="p-2"><a  href="{{route('register')}}" ><small>Sign Up</small></a></div>
                     </div>
                 </div>
-              <div class="text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
+              <div class="mt-5 text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
             </div>
         </div>
         </div>

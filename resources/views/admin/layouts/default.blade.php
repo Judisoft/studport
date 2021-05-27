@@ -24,7 +24,7 @@
 <body class="skin-josh">
 <header class="header">
     <a href="{{ route('admin.dashboard') }}" class="logo">
-        <img src="{{asset('images/logo.png')}}">
+        <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:45px; float: left;" />
     </a>
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->

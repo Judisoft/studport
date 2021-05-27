@@ -13,18 +13,14 @@
     <!--global css starts-->
     <link rel="stylesheet" href="{{asset('css/style-starter.css')}}">
     <link rel="stylesheet" href="{{ asset('vendors/simple-line-icons/css/simple-line-icons.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"/>
+ 
     <!--end of global css-->
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
    
     <!-- Google fonts -->
-    <link href="//fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap" rel="stylesheet">
    
 
     <!-- page level css-->
@@ -33,18 +29,12 @@
 <!--end of page level css-->
 </head>
 <style>
-h1,h2,h3,h4{
-    font-family: 'Roboto Slab', sans-serif !important;
-}
-p{
-    font-family: 'Raleway', sans-serif !important;
-}
     .btn-nav{
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         border:none !important;
     }
-     .btn-outline-primary-nav:hover {
+    .btn-outline-primary-nav:hover {
     color: #fff;
     background-color: #2C504F;
     border-color: #28a745; }
@@ -61,7 +51,7 @@ p{
   position: fixed;
   width: 100vw;
   height: 50px;
-  background-color: #DEDEDE;
+  background-color: #fff;
   transition: 0.2s;
   display: flex;
 }
@@ -73,12 +63,12 @@ p{
 }
 .navbar input{
     font-family: 'Raleway', sans-serif;
-    color: #F0F5F7;
+    color: var(--dark);
     width: 200px;
     height: 40px;
     margin-left: 10px;
     border: none;
-    border-bottom: 2px solid var(--success);
+    border-bottom: 1px solid var(--dark);
     padding: 10px;
     margin-top: 10px;
     background-color:transparent;
@@ -132,7 +122,24 @@ p{
     color: #ddd;
 
 }
-br-5{
+
+@media (max-width: 480px) {
+ .menu {
+    display: none;
+    }} 
+
+@media (max-width: 440px) {
+  .menu {
+    display: none; }} 
+
+@media (max-width: 667px) {
+  .menu {
+   display: none; }} 
+
+@media (max-width: 384px) {
+  .menu {
+    display: none; }} 
+.br-5{
     border-radius: 5px !important;
 }
 .circle-icon-info {
@@ -198,7 +205,13 @@ br-5{
     height: 50px;
     width: 50px;
 }
+.shadow-fav{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
 
+.shadow-fav2{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
 </style>
 
 <body>
@@ -207,69 +220,113 @@ br-5{
     <div class="hero-header-11">
         <div class="hero-header-11-content">
             <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg  navbar-light box-shadow" style="background-color: var(--dark);">
-                <a class="navbar-brand" href="{{route('home')}}">
-                        <img src="{{asset('images/community.png')}}" alt="Your logo" title="StudPort" style="height:45px; float: left;" />
-                        <h2 class="text-warning py-2">&nbsp;StudPort</h2>
-                </a> 
-                
-                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-radius: 2px;">
-                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
-                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-                    </button>
-                        
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item {!! (Request::is('/') ? 'active' : '') !!}">
-                                <a class="nav-link text-capitalize" href="{{ route('home') }}">Home</a>
-                            </li>
-                            <li class="nav-item {!! (Request::is('about_us') ? 'active' : '') !!}">
-                                <a class="nav-link text-capitalize" href="{{route('about')}}">About</a>
-                            </li>
-                            <li class="nav-item {!! (Request::is('services') ? 'active' : '') !!}">
-                                <a class="nav-link text-capitalize" href="{{ route('services')}}">Services</a>
-                            </li>
-                            <li class="nav-item {!! (Request::is('blog') ? 'active' : '') !!}">
-                                <a class="nav-link text-capitalize" href="{{ route('blog') }}">Academia</a>
-                            </li>
-                            <li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
-                                <a class="nav-link text-capitalize" href="{{ URL::to('contact') }}">Contact Us</a>
-                            </li>
-
-                                @if(Sentinel::check())
-                            <li class=" nav-item {!! (Request::is('my-account') ? 'active' : '') !!}">
-                                <a href="{{ URL::to('my-account') }}" class="nav-link text-capitalize">My Portal</a>
-                            </li>
-                             <li class=" nav-item {!! (Request::is('user_emails/inbox') ? 'active' : '') !!}">
-                                <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link text-capitalize">Messages &nbsp;<span class="badge badge-success float-right mt-1 badge-pill">{{ $count}}</span></a>
-                            </li>
-                            <li class=" nav-item">
-                                <a href="{{ URL::to('logout') }}" class="btn btn-sm btn-danger rounded-pill my-2 my-sm-0 p-2"><span class="fa fa-power-off px-2"></span>Logout</a>
-                            </li>
-                                @endif
-                                @if(Sentinel::guest())
-                            <li class="nav-item text-primary px-2">
-                                <a class="btn btn-sm btn-outline-success rounded-pill my-2 my-sm-0 p-2" href="{{route('login')}}"><span class="fa fa-sign-in-alt px-2"></span>Sign In &nbsp;</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-sm btn-success rounded-pill my-2 my-sm-0 p-2" href="{{route('register')}}" ><span class="fa fa-user-plus px-2"></span>Sign Up &nbsp;</a>
-                            </li>
-                                @endif
-                        </ul>
-                        <form action="#" method="GET">
-                            <input type="search" style="display:none;" id='searchBar' name='search'  placeholder="Search ...">
-                        </form>
-                        <i id="toggle-search" class="fa fa-search text-gray px-2" style="font-size: 20px;"></i>
+                <nav class="navbar navbar-expand-lg fixed-top  navbar-light" style="background-color: #FDFDFE; height: 75px;">
+                    <div class="d-flex flex-row">
+                    <div class="p-2"> <a class="navbar-brand" href="{{route('home')}}">
+                        <img src="{{asset('images/studport.png')}}" title="StudPort"/>
+                        </a>
                     </div>
+                    </div> 
+                    
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border:none !important;">
+                            <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                            <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </button>
+                            
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item {!! (Request::is('/') ? 'active' : '') !!}">
+                                    <a class="nav-link text-capitalize" href="{{ route('home') }}">Home</a>
+                                </li>
+                                <li class="nav-item {!! (Request::is('about_us') ? 'active' : '') !!}">
+                                    <a class="nav-link text-capitalize" href="{{route('about')}}">About Us</a>
+                                </li>
+                                <li class="nav-item {!! (Request::is('services') ? 'active' : '') !!}">
+                                    <a class="nav-link text-capitalize" href="{{ route('services')}}">Our Services</a>
+                                </li>
+                                <li class="nav-item {!! (Request::is('blog') ? 'active' : '') !!}">
+                                    <a class="nav-link text-capitalize" href="{{ route('blog') }}">Q&A Blog</a>
+                                </li>
+                                <li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
+                                    <a class="nav-link text-capitalize" href="{{ URL::to('contact') }}">Contact Us</a>
+                                </li>
+
+                                    @if(Sentinel::check())
+                                <li class=" nav-item {!! (Request::is('my-account') ? 'active' : '') !!}">
+                                    <a href="{{ URL::to('my-account') }}" class="nav-link text-capitalize">My Portal</a>
+                                </li>
+                                <li class=" nav-item {!! (Request::is('user_emails/inbox') ? 'active' : '') !!}">
+                                    <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link text-capitalize">Messages &nbsp;<span class="badge badge-success p-1">{{$count}}&nbsp;new</span></a>
+                                </li>
+                                <li class=" nav-item">
+                                    <a href="{{ URL::to('logout') }}" class="nav-link text-capitalize">Logout</a>
+                                </li>
+                                    @endif
+                                    @if(Sentinel::guest())
+                                <li class="nav-item text-primary px-2">
+                                    <a class="btn btn-sm border-dark " href="{{route('login')}}">Sign In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="btn btn-sm btn-success" href="{{route('register')}}" >Sign Up</a>
+                                </li>
+                                @endif
+
+                            </ul>
+                            <form action="#" method="GET">
+                                <input type="search" style="display:none;" id='searchBar' name='search'  placeholder="Search Studport ...">
+                            </form>
+                            <i id="toggle-search" class="icon-magnifier px-2" style="font-size: 14px; font-weight: 400; "></i>
+                        </div>
                 </nav>
         </div>
     </div>
 </header>
 @yield('top')
-<!-- <div style="margin-top: 80px;"></div> -->
+<div style="height: 100px; background-color: #FDFDFE;"></div>
 <!-- Content -->
 @yield('content')
+
+                                     @if(session()->has('success'))
+                                               <script type="text/javascript">
+                                                    $(document).ready(function() {
+                                                        $('#popupmodal').modal();
+                                                    });
+                                                </script>
+                                                
+                                            <div class="modal fade" id="popupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-body">
+                                                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <div class="d-flex justify-content-center">
+                                                                    <div class="p-3 ">{{Session::get('success')}}</div>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+
+                                        @if(session()->has('error'))
+                                            <script type="text/javascript">
+                                                    $(document).ready(function() {
+                                                        $('#popupmodal').modal();
+                                                    });
+                                                </script>
+                                                
+                                            <div class="modal fade" id="popupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-body">
+                                                        <div class="d-flex justify-content-center">
+                                                            <div class="p-3">{{Session::get('error')}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
 <!-- Footer Section Start -->
 
 <footer class="w3l-footer-29-main" id="footer">
@@ -424,23 +481,14 @@ br-5{
 <!-- stats number counter-->
 <script src="{{('js/jquery.waypoints.min.js')}}"></script>
 <script src="{{asset('js/jquery.countup.js')}}"></script>
-<script src="{{asset('js/toastr.min.js')}}"></script>
+
 
 <script>
     $('.counter').countUp();
 </script>
 <!-- //stats number counter -->
 <!-- Session notifications -->
-    <script>
-        @if(session()->has('success'))
-            toastr.success("{{Session::get('success')}}")
-        @endif
-    </script>
-    <script>
-        @if(session()->has('error'))
-            toastr.error("{{Session::get('error')}}")
-        @endif
-    </script>
+
         
 <!-- End Session notifications -->
 
@@ -517,7 +565,17 @@ br-5{
     })
 </script>
 <!-- //script for courses -->
+<script>
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
 
+    if (scroll >= 40) {
+        $("nav").addClass("shadow-fav");
+    } else {
+        $("nav").removeClass("shadow-fav");
+    }
+});
+</script>
 <!-- disable body scroll which navbar is in active -->
 <script>
     $(function () {
@@ -543,6 +601,11 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
+</script>
+<script>
+$(function(){
+    $('.selectpicker').selectpicker();
+});
 </script>
 <!--End of Tawk.to Script-->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->

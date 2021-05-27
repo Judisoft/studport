@@ -32,6 +32,7 @@ use Sentinel;
 use URL;
 use View;
 use stdClass;
+use Illuminate\Support\Facades\Storage;
 //use App\Mail\Contact;
 use App\Mail\ContactUser;
 use App\Mail\ForgotPassword;
@@ -91,7 +92,7 @@ class FrontEndController extends JoshController
                     ->causedBy($user)
                     ->log('LoggedIn');
 
-                return Redirect::route("my-account")->with('success', trans('auth/message.login.success'));
+                return Redirect::route("my-account");//->with('success', trans('auth/message.login.success'));
             } else {
                 return redirect('login')->with('error', 'Email or password is incorrect.');
             }
@@ -155,7 +156,6 @@ class FrontEndController extends JoshController
          $userInstitutionQuestions = Blog::where('institution', Sentinel::getUser()->institution)->get();
          //$facebook = Share::page('http://jorenvanhocht.be')->facebook();
          $course_titles = Blog::select('title')->where('user_id', Sentinel::getUser()->id)->distinct()->orderBy('title')->get();
-        
 
          $search = request()->query('search');
          if ($search) {
@@ -569,7 +569,9 @@ class FrontEndController extends JoshController
         $experience = date('Y') - 2020;
         $students = User::where('user_role', 'student')->get();
         $number_of_students = count($students);
-        return view('about_us', compact('news', 'number_of_teachers', 'number_of_students', 'number_of_jobs', 'experience'));
+        $institutions = User::select('institution')->distinct()->get();
+        $number_of_institutions = count($institutions);
+        return view('about_us', compact('news', 'number_of_teachers', 'number_of_students', 'number_of_jobs', 'experience', 'number_of_institutions'));
     }
 
     public function services() {

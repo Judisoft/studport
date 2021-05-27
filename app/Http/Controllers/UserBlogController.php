@@ -17,7 +17,7 @@ use Response;
 use Sentinel;
 use Intervention\Image\Facades\Image;
 use DOMDocument;
-
+use App\Http\Controllers\File;
 
 
 class UserBlogController extends JoshController
@@ -115,7 +115,6 @@ class UserBlogController extends JoshController
             $file->move($destinationPath, $picture);
             $blog->image = $picture;
             //$blog->doc_size = $request->file('image')->getSize();
-            
         }
         $blog->user_id = Sentinel::getUser()->id;
         $blog->institution = Sentinel::getUser()->institution;

@@ -15,25 +15,45 @@ Contact
 @stop
 {{-- Page content --}}
 @section('content')
+ <section class="w3l-get-started-index" id="intro">
+    <div class="new-block-about top-bottom"  style="max-height:calc(20vh - 0px) !important;">
+      <div class="container">
+        <div class="middle-section text-center">
+          <div class="section-width mb-5">
+            <div class="header-section">
+            <h1 class="text-left text-white">Contact Us </h1>
+            <br>
+            <h6 class="text-left"><a href="{{route('home')}}">Home</a>&nbsp;/&nbsp;<a class="text-white">Contact Us</a></h6>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <!-- contact form -->
-<section class="w3l-contacts-12" id="contact">
+<section class="w3l-contacts-12" id="contact" style="background-color: #fff;">
    <!-- contact form -->
     <div class="row m-auto">
                 <div class="col-lg-6 col-12">
-                    <div class="mt-5 p-5">
-                        <h1>Ask a StudPort Expert how we can help:</h1><hr>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <hr>
-                            Aenean et felis ut augue facilisis suscipit sed id diam. Cras blandit sit<hr>
-                             amet felis ac ultrices. Donec semper varius eros a pharetra. Integer tincidunt, <hr>
-                             arcu quis molestie accumsan, nulla ligula mattis nisi, sed facilisis libero urna a dolor.<hr> 
-                             Maecenas sollicitudin leo at ante egestas, sit amet consequat lectus pharetra. Mauris dapibus scelerisque sapien, <hr>
-                            commodo. Curabitur posuere venenatis ante quis dapibus. Vivamus nec augue risus.</p>
+                    <div class="mt-3 p-5">
+                    <h2 class="text-dark"> Want to know more?</h2><hr>
+                            <p class="text-danger">
+                                <p class="text-danger">Q&A Manager</p><hr>
+                                <p class="text-danger">Digital Library</p><hr>
+                                <p class="text-danger">Internship Placements </p><hr>
+                                <p class="text-danger">One-on-One Tutoring</p><hr> 
+                                <p class="text-danger">Academic and Professional mentorship</p><hr>
+                                <p class="text-danger">StudPort LinkUp </p><hr>
+                                <p class="text-danger">Admissions Manager</p><hr>
+                                <p class="text-danger">Staff Recruitment</p><hr>
+                                <p class="text-danger">IT training</p><hr>
+                            </p>
 
                     </div>
                 </div>
                         <div class="col-lg-6 col-12 mt-5">
-                            <h1 class="text-dark">Get in touch with us</h1>
+                            <h1 class="text-dark p-3">Get in touch with us</h1>
                             <br>
                             <form class="contact" id="contact" action="{{route('store')}}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -44,7 +64,7 @@ Contact
                                 <textarea class="contact-textarea contact-input" name="contact_msg" placeholder="Enter your message" required></textarea>
                             </div>
                             <div class="text-center mb-5">
-                                <button type="submit" class="btn btn-info btn-lg theme-button rounded-0">Send</button>
+                                <button type="submit" class="btn btn-success btn-lg theme-button rounded-0">Send</button>
                             </div>
                         </form>
                         </div>
