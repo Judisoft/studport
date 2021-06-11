@@ -126,7 +126,8 @@ class BlogController extends JoshController
         $tutors = User::where('user_role', 'tutor')->get();
         $institutions = User::get('institution');
         $blogscategories = BlogCategory::all();
-        $related_questions = Blog::where('blog_category_id', $blog->blog_category_id)->latest()->simplePaginate(10);
+        $related_questions = Blog::where('blog_category_id', $blog->blog_category_id)->latest()->simplePaginate(20);
+        $answers = BlogComment::where('blog_id', $blog->id)->get();
         //$related_questions = Blog::select('title')->where('', $slug)
         if ($blog) {
             $blog->increment('views');
@@ -135,7 +136,7 @@ class BlogController extends JoshController
         }
       
         // Show the page
-        return view('blogitem', compact('blog', 'user_email', 'blogscategories', 'user', 'tutors', 'institutions', 'related_questions'));
+        return view('blogitem', compact('blog', 'user_email', 'blogscategories', 'user', 'tutors', 'institutions', 'related_questions', 'answers'));
     }
 
     /**

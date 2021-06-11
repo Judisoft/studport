@@ -89,6 +89,19 @@
 	-ms-transform: rotate(4deg);
 	transform: rotate(4deg);
 }
+.text-link{
+    color: #486685;
+}
+.feature-16-gd:hover{
+    background-color: var(--lighten);
+    box-shadow: 0 10px 10px #ddd;
+    -webkit-box-shadow: 0 10px 10px #ddd;
+	-moz-box-shadow: 0 10px 10px #ddd;
+    transition: 0.8s ease-out;
+}
+.feature-16-gd  .text-link:hover{
+    text-decoration: underline;
+}
 </style>
     <!--end of page level css-->
 @stop
@@ -109,22 +122,22 @@
       </div>
     </div>
   </section>
-<section class="w3l-get-started-index" style="background-color: #fff !important; min-height: 400px;">
+<section class="w3l-get-started-index" style="min-height: 400px;">
     <div class="new-block top-bottom">
         <div class="container">
             <div class="middle-section">
                 <div class="header-section text-center mb-4 p-5">
-                    <h1 class="text-dark">Our Services</h1>
+                    <h1 class="text-dark">What we Do</h1>
                     <p class="mt-5">
-                        StudPort provides digital services that are easy to use. We improve the
-                        teaching and learning process for Students and Teachers through the use of Technologies.  
+                        StudPort provides digital services that improve the
+                        teaching and learning processes for Students and Teachers. Our solutions are effecient and easy to use.  
                         Our services are designed to equip students and teachers reach their highest potential.
                     </p>
                 </div>
             </div>   
             </div>
 </section>
-<section class="w3l-get-started-index" style="background-color: #fff !important; min-height: 400px;">
+<section class="w3l-get-started-index" style="min-height: 400px;">
     <div class="new-block top-bottom">
         <div class="container">
             <div class="middle-section">
@@ -137,8 +150,8 @@
                             <div class="col-lg-4 col-md-6 featured-service">
                                 <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;">
                                     <div class="feature-16-gd-info px-3 text-center">
-                                        <div class="text-center"><img src="{{asset('images/q_and_a.png')}}"  style="height: 100px; width: 100px;"></div>
-                                         <h4 class="mt-4 mb-4 px-2 text-index">Q&A Manager</h4> 
+                                        <div class="text-center"><img src="{{asset('images/q_and_a.png')}}"  style="height: 50px; width: 50px;"></div>
+                                         <h4 class="mt-4 mb-4 px-2 text-link fw-600">Q&A Manager</h4> 
                                          <p>We receive and  transmit admission application files to learning institutions</p>
 
                                     </div>
@@ -147,8 +160,8 @@
                              <div class="col-lg-4 col-md-6 featured-service">
                             <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;"> 
                                 <div class="feature-16-gd-info px-3 text-center">
-                                            <div class="text-center"><img src="{{asset('images/online-library.png')}}"  style="height: 100px; width: 100px;"></div>
-                                            <h4 class="mt-4 mb-4 text-index">Digital Library </h4>
+                                            <div class="text-center"><img src="{{asset('images/online-library.png')}}"  style="height: 50px; width: 50px;"></div>
+                                            <h4 class="mt-4 mb-4 text-link fw-600">Digital Library </h4>
                                             <p>We provide access to thousands of books and instructional materials.</p>
                                 </div>
                             </div>
@@ -156,8 +169,8 @@
                         <div class="col-lg-4 col-md-6 featured-service">
                             <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;">
                                 <div class="feature-16-gd-info px-3 text-center">
-                                        <div class="text-center"><img src="{{asset('images/internship.png')}}"  style="height: 100px; width: 100px;"></div>
-                                        <h4 class="mt-4 mb-4 text-index">Insternship Placements</h4>
+                                        <div class="text-center"><img src="{{asset('images/internship.png')}}"  style="height: 50px; width: 50px;"></div>
+                                        <h4 class="mt-4 mb-4 text-link fw-600">Insternship Placements</h4>
                                         <p>We assist students land internships through our company partnership programs</p>
                                 </div>
                             </div>
@@ -165,8 +178,8 @@
                         <div class="col-lg-4 col-md-6 featured-service">
                                 <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;">
                                     <div class="feature-16-gd-info px-3 text-center">
-                                        <div class="text-center"><img src="{{asset('images/one-on-one.png')}}"  style="height: 100px; width: 100px;"></div>
-                                         <h4 class="mt-4 mb-4 px-2 text-index">One-on-One Tutoring</h4> 
+                                        <div class="text-center"><img src="{{asset('images/one-on-one.png')}}"  style="height: 50px; width: 50px;"></div>
+                                         <h4 class="mt-4 mb-4 px-2 text-link fw-600">One-on-One Tutoring</h4> 
                                          <p>We help students get access to highly qualified tutors</p>
 
                                     </div>
@@ -175,8 +188,8 @@
                              <div class="col-lg-4 col-md-6 featured-service">
                             <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;"> 
                                 <div class="feature-16-gd-info px-3 text-center">
-                                            <div class="text-center"><img src="{{asset('images/mentorship.png')}}"  style="height: 100px; width: 100px;"></div>
-                                            <h4 class="mt-4 mb-4 text-index">Academic Mentorship</h4>
+                                            <div class="text-center"><img src="{{asset('images/mentorship.png')}}"  style="height: 50px; width: 50px;"></div>
+                                            <h4 class="mt-4 mb-4 text-link fw-600">Academic Mentorship</h4>
                                             <p>We orientate students on academic and career paths</p>
                                 </div>
                             </div>
@@ -184,8 +197,8 @@
                         <div class="col-lg-4 col-md-6 featured-service">
                             <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;">
                                 <div class="feature-16-gd-info px-3 text-center">
-                                        <div class="text-center"><img src="{{asset('images/linkup.png')}}"  style="height: 100px; width: 100px;"></div>
-                                        <h4 class="mt-4 mb-4 text-index">StudPort LinkUp</h4>
+                                        <div class="text-center"><img src="{{asset('images/linkup.png')}}"  style="height: 50px; width: 50px;"></div>
+                                        <h4 class="mt-4 mb-4 text-link fw-600">StudPort Connect</h4>
                                         <p>We assist students link up with students of other institutions</p>
                                 </div>
                             </div>
@@ -208,8 +221,8 @@
                             <div class="col-lg-4 col-md-6 featured-service">
                                 <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;">
                                     <div class="feature-16-gd-info px-3 text-center">
-                                        <div class="text-center"><img src="{{asset('images/resume.png')}}"  style="height: 100px; width: 100px;"></div>
-                                         <h4 class="mt-4 mb-4 px-2 text-index">Admissions Manager</h4> 
+                                        <div class="text-center"><img src="{{asset('images/resume.png')}}"  style="height: 50px; width: 50px;"></div>
+                                         <h4 class="mt-4 mb-4 px-2 text-link fw-600">Admissions Manager</h4> 
                                          <p>We receive and  transmit admission application files to learning institutions</p>
 
                                     </div>
@@ -218,8 +231,8 @@
                              <div class="col-lg-4 col-md-6 featured-service">
                             <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;"> 
                                 <div class="feature-16-gd-info px-3 text-center">
-                                            <div class="text-center"><img src="{{asset('images/businessman.png')}}"  style="height: 100px; width: 100px;"></div>
-                                            <h4 class="mt-4 mb-4 text-index">Staff Recruitment</h4>
+                                            <div class="text-center"><img src="{{asset('images/businessman.png')}}"  style="height: 50px; width: 50px;"></div>
+                                            <h4 class="mt-4 mb-4 text-link fw-600">Staff Recruitment</h4>
                                             <p>We build online admissions platforms for learning institutions to facilitate applications</p>
                                 </div>
                             </div>
@@ -227,8 +240,8 @@
                         <div class="col-lg-4 col-md-6 featured-service">
                             <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;">
                                 <div class="feature-16-gd-info px-3 text-center">
-                                        <div class="text-center"><img src="{{asset('images/itsupport.png')}}"  style="height: 100px; width: 100px;"></div>
-                                        <h4 class="mt-4 mb-4 text-index">IT Training</h4>
+                                        <div class="text-center"><img src="{{asset('images/itsupport.png')}}"  style="height: 50px; width: 50px;"></div>
+                                        <h4 class="mt-4 mb-4 text-link fw-600">IT Training</h4>
                                         <p>We train staff of institutions on Information Technologies</p>
                                 </div>
                             </div>
@@ -313,7 +326,7 @@
         </div>
     </section>
                 <div class="header-section text-center mb-5 py-5">
-                    <h3><sup class="text-danger">*</sup> Third party fee association, Student pays for third party fees </h3>
+                    <h5 class="text-danger"> Student pays for associated third party fees </h5>
                 </div>
 
         <div class="w3l-services1 aboutbottom py-5 mt-5" style="background-color:#090909;">

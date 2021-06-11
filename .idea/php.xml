@@ -165,6 +165,7 @@
       <path value="$PROJECT_DIR$/vendor/larasocket/larasocket-driver" />
       <path value="$PROJECT_DIR$/vendor/webpatser/laravel-uuid" />
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/vendor/jorenvanhocht/laravel-share" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

@@ -143,17 +143,27 @@
         <!-- container section start-->
     <section class="container blogpage">
         <div class="row">
-            <div class="ml-auto col-md-3 col-lg-3 col-12" style="padding: 15px;border-right: 1px solid #ddd;">
+            <div class="ml-auto col-md-4 col-lg-4 col-12" style="padding: 15px;border-right: 1px solid #ddd;">
                         <div class="box1 text-dark mt-2"><h6><i class="fa fa-code-branch px-2"></i>RELATED QUESTIONS</h6><br> </div>
-                        <ul class="list-group">
                         @foreach ($related_questions as $related_question)
-                            <li class="list-group-item bg-transparent border-0"><a href="{{ URL::to('blogitem/'.$related_question->slug) }}">{!! $related_question->content !!}</a></li>
+                        <div class="d-flex justify-content-between">
+                            <div class="p-2">
+                                <ul class="list-group">
+                                    
+                                        <li class="list-group-item bg-transparent border-0"><a href="{{ URL::to('blogitem/'.$related_question->slug) }}">{!! $related_question->content !!}</a></li>
+                                    
+                                </ul>
+                            </div>
+                             <div class="p-2 mt-3">
+                             <span class="badge badge-success p-1">{{$answers->count()}}&nbsp;answers</span>
+                            
+                            </div>
+                        </div>
                         @endforeach
-                    </ul>
 
                 <div class="mt-3">{!! $related_questions->links() !!}</div>
             </div>
-            <div class="col-md-9 col-lg-9 col-12">
+            <div class="col-md-8 col-lg-8 col-12">
                     <div class="pt-5 thumbnail">
                 <div>
                         <div class="text-center">

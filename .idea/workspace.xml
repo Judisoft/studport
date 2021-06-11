@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fadf153-b947-4409-94dc-fc6541812bb6" name="Default Changelist" comment="second backup">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/portal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/portal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserBlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserBlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about_us.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about_us.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blogitem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogitem.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/questions/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/services.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,6 +192,7 @@
       <path value="$PROJECT_DIR$/vendor/larasocket/larasocket-driver" />
       <path value="$PROJECT_DIR$/vendor/webpatser/laravel-uuid" />
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/vendor/jorenvanhocht/laravel-share" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jyRH4OA78S9T1o9ZFpiSKn6XnW" />
@@ -293,6 +294,7 @@
       <workItem from="1611970530866" duration="114000" />
       <workItem from="1616413896299" duration="887000" />
       <workItem from="1617578803646" duration="1803000" />
+      <workItem from="1623244517814" duration="1017000" />
     </task>
     <task id="LOCAL-00001" summary="second backup">
       <created>1609621737742</created>

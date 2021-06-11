@@ -19,9 +19,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
    
-    <!-- Google fonts -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
-   
+    <!-- Google fonts -->   
 
     <!-- page level css-->
     
@@ -212,6 +210,9 @@
 .shadow-fav2{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
+.navbar-shadow{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
 </style>
 
 <body>
@@ -221,10 +222,20 @@
         <div class="hero-header-11-content">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg fixed-top  navbar-light" style="background-color: #FDFDFE; height: 75px;">
-                    <div class="d-flex flex-row">
-                    <div class="p-2"> <a class="navbar-brand" href="{{route('home')}}">
-                        <img src="{{asset('images/studport.png')}}" title="StudPort"/>
+                    <div class="d-flex justify-content-between">
+                    <div class="p-2 mt-1"> <a class="navbar-brand" href="{{route('home')}}">
+                        <img src="{{asset('images/my-logo.png')}}" title="StudPort"/>
                         </a>
+                    </div>
+                    <div class="px-2 pt-3">
+                        @if(Sentinel::guest()) 
+                            <a class="navbar-brand" href="{{route('login')}}">
+                                <img src="{{asset('images/user.png')}}" title="StudPort" style="height: 20px; width: 20px;"/>
+                            </a>
+                            <a href="{{route('login')}}">Sign In</a>&nbsp;|&nbsp;<a href="{{route('register')}}"> Sign Up</a>
+                        @else
+                            <a><i id="toggle-search" class="icon-magnifier px-2" style="font-wight: 600;"></i></a>
+                        @endif
                     </div>
                     </div> 
                     
@@ -252,7 +263,7 @@
                                     <a class="nav-link text-capitalize" href="{{ URL::to('contact') }}">Contact Us</a>
                                 </li>
 
-                                    @if(Sentinel::check())
+                                @if(Sentinel::check())
                                 <li class=" nav-item {!! (Request::is('my-account') ? 'active' : '') !!}">
                                     <a href="{{ URL::to('my-account') }}" class="nav-link text-capitalize">My Portal</a>
                                 </li>
@@ -262,28 +273,41 @@
                                 <li class=" nav-item">
                                     <a href="{{ URL::to('logout') }}" class="nav-link text-capitalize">Logout</a>
                                 </li>
-                                    @endif
-                                    @if(Sentinel::guest())
-                                <li class="nav-item text-primary px-2">
-                                    <a class="btn btn-sm border-dark " href="{{route('login')}}">Sign In</a>
-                                </li>
+                                @endif
+                              
+                                @if(Sentinel::check())
                                 <li class="nav-item">
-                                    <a class="btn btn-sm btn-success" href="{{route('register')}}" >Sign Up</a>
+                                <div class="fileinput-new thumbnail">
+                                    @if(Sentinel::getUser()->pic)
+                                            <img src="{{ Sentinel::getUser()->pic }}" alt="img"
+                                                class="img-fluid" style="width: 30px; height: 30px; border-radius: 50%;" />
+                                    @elseif($user->gender === "male")
+                                            <img src="{{ asset('images/authors/avatar3.png') }}" alt="..."
+                                                 class="img-fluid" style="width: 30px; height: 30px; border-radius: 50%;"/>
+                                    @elseif($user->gender === "female")
+                                            <img src="{{ asset('images/authors/avatar5.png') }}" alt="..."
+                                                class="img-fluid" style="width: 30px; height: 30px; border-radius: 50%;"/>
+                                    @else
+                                            <img src="{{ asset('images/authors/no_avatar.jpg') }}" alt="..."
+                                                class="img-fluid" style="width: 30px; height: 30px; border-radius: 50%;"/>
+                                    @endif
+                                </div>
                                 </li>
                                 @endif
-
                             </ul>
-                            <form action="#" method="GET">
-                                <input type="search" style="display:none;" id='searchBar' name='search'  placeholder="Search Studport ...">
-                            </form>
-                            <i id="toggle-search" class="icon-magnifier px-2" style="font-size: 14px; font-weight: 400; "></i>
                         </div>
                 </nav>
         </div>
     </div>
 </header>
+                        
 @yield('top')
 <div style="height: 100px; background-color: #FDFDFE;"></div>
+    <div class="p-3 mt-1"style="display:none; background-color: #EEF4FA;" id="searchBar" >
+        <form action="#"  method="GET">
+            <input type="search" class="form-control m-auto" name='search'  placeholder="Search Studport ..." style="width: 75%;">
+        </form>
+    </div>
 <!-- Content -->
 @yield('content')
 
@@ -570,9 +594,9 @@ $(window).scroll(function() {
     var scroll = $(window).scrollTop();
 
     if (scroll >= 40) {
-        $("nav").addClass("shadow-fav");
+        $("nav").addClass("navbar-shadow");
     } else {
-        $("nav").removeClass("shadow-fav");
+        $("nav").removeClass("navbar-shadow");
     }
 });
 </script>
@@ -610,6 +634,7 @@ $(function(){
 <!--End of Tawk.to Script-->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-607ca9281aff28eb"></script>
+
 <!--End Go to www.addthis.com/dashboard to customize your tools -->
 <script src="http://unpkg.com/turbolinks"></script>
 </body>

@@ -100,6 +100,9 @@ h2{
 	-ms-transform: rotate(4deg);
 	transform: rotate(4deg);
 }
+.index-icon-shadow{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
 </style>
 <!--  Main banner section -->
 @section('content')
@@ -109,12 +112,13 @@ h2{
         <div class="middle-section text-center">
           <div class="section-width mb-5">
             <div class="d-flex justify-content-center justify-content-sm-center justify-content-md-center">
-                <div class="p-2" >
+                <div class="p-2">
                     <img src="{{asset('images/smartphone.png')}}" class="img-fluid"  />
                 </div>
                 <div class="p-2">
                     <h2 class="mb-5 text-dark">Get quick answers to your questions</h2>
-                    <a href="{{route('register')}}" class="btn btn-index theme-button">Start Asking</a>
+                    <a href="{{route('register')}}" class="btn btn-outline-index theme-button">Register</a>&nbsp;
+                    <a href="{{route('login')}}" class="btn btn-index theme-button">Sign In</a>
                 </div>
             </div>
           </div>
@@ -186,31 +190,31 @@ h2{
                 </div>
             </div>          
             <div class="row">
-                            <div class="col-lg-4 col-md-6 featured-service">
+                            <div class="col-lg-4 col-md-6 featured-service bg-success shadow">
                                 <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;">
                                     <div class="feature-16-gd-info px-3 text-center">
-                                        <div class="text-center"><img src="{{asset('images/web.png')}}"  style="height: 100px; width: 100px;"></div>
-                                         <h4 class="mt-4 mb-4 px-2 text-index">StudPort Admit</h4>
+                                        <div class="text-center"><span class="fa fa-file-alt fa-3x text-white"></span></div>
+                                         <h2 class="mt-4 mb-4 text-white">Students Admission</h2>
                                          <p>We receive and  transmit admission application files to learning institutions</p>
 
                                     </div>
                                 </div>
                             </div>
-                             <div class="col-lg-4 col-md-6 featured-service">
+                             <div class="col-lg-4 col-md-6 featured-service bg-info shadow">
                             <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3  border-0" style="border-radius: 5px !important;"> 
                                 <div class="feature-16-gd-info px-3 text-center">
-                                            <div class="text-center"><img src="{{asset('images/headhunting.png')}}"  style="height: 100px; width: 100px;"></div>
-                                            <h4 class="mt-4 mb-4 text-index">StudPort Recruit</h4>
+                                            <div class="text-center"><span class="fa fa-wrench fa-3x text-white"></span></div>
+                                            <h2 class="mt-4 mb-4 text-white">Staff Recruitment</h2>
                                             <p>We receive and  transmit job application files to learning institutions</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 featured-service">
+                        <div class="col-lg-4 col-md-6 featured-service bg-warning shadow">
                             <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;">
                                 <div class="feature-16-gd-info px-3 text-center">
-                                        <div class="text-center"><img src="{{asset('images/education.png')}}"  style="height: 100px; width: 100px;"></div>
-                                        <h4 class="mt-4 mb-4 text-index">StudPort Scholarships</h4>
-                                        <p>We partner with educational institutions to help students find scholarships.</p>
+                                        <div class="text-center"><span class="fa fa-laptop-code fa-3x text-white"></span></div>
+                                        <h2 class="mt-4 mb-4 text-white">IT Infrastructure</h2>
+                                        <p>We assist educational institutions set up Information Technology Infrastructures</p>
                                 </div>
                             </div>
                         </div>
@@ -239,7 +243,7 @@ h2{
     </div>
 </section>
 
-<section class="w3l-get-started-index" style="background-color: #F0F5F7 !important; min-height: 400px;">
+<section class="w3l-get-started-index" style="background-color: info !important; min-height: 400px;">
     <div class="new-block top-bottom">
         <div class="container">
             <div class="middle-section">
@@ -252,37 +256,47 @@ h2{
             </div>          
            <div class="row">
                             <div class="col-lg-4 col-md-6 featured-service">
-                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 shadow-fav" style="border-radius: 5px !important;">
-                                    <div class="feature-16-gd-info">
-                                        <div class="text-center"><img src="{{asset('images/book-sale.png')}}"  style="height: 100px; width: 100px;"></div>
+                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3">
+                                    <div class="feature-16-gd-info p-3 bg-success br-5 shadow">
+                                        <div class="text-center">
+                                        <h2>StudPort Ads</h2>
+                                        <br>
+                                        <img src="{{asset('images/shopping-cart.png')}}"  style="height: 50px; width: 50px;"></div>
                                         <h6 class="mt-4 mb-4 text-dark text-center">We sell text-books on the Curriculum at cheap and affordable prices</h6>
                                         <div class="text-center"> 
-                                            <a class="btn btn-index btn-index text-white">Checkout our prices</a>
+                                        <br>
+                                            <a class="btn btn-outline-success text-dark">Checkout our prices</a>
                                         </div>                              
                                     </div>
                                 </div>
                             </div>
                              <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 shadow-fav" style="border-radius: 5px !important;"> 
-                                <div class="feature-16-gd-info">
+                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3"> 
+                                <div class="feature-16-gd-info p-3 bg-warning br-5 shadow">
                                             <div class="text-center">
-                                                <img src="{{asset('images/discount2.png')}}"  style="height: 100px; width: 100px;">
+                                            <h2>StudPort Ads</h2>
+                                            <br>
+                                                <img src="{{asset('images/discount2.png')}}"  style="height: 50px; width: 50px;">
                                             </div>
                                             <h6 class="mt-4 mb-4 text-dark text-center">Are you a writer? Advertise on StudPort and reach out to over 1000+ {{--$users->count()--}} students</h6>
                                             <div class="text-center"> 
-                                            <a class="btn btn-index text-white">Start Advertising</a>
+                                            <br>
+                                            <h4><a class="btn btn-ouline-primary text-dark">Start Advertising</a></h4>
                                         </div>
-
+                                    
                                 </div>
                             </div>
                         </div>
                          <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 shadow-fav" style="border-radius: 5px !important;">
-                                <div class="feature-16-gd-info">
-                                        <div class="text-center"><img src="{{asset('images/web-programming.png')}}"  style="height: 100px; width: 100px;"></div>
+                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3">
+                                <div class="feature-16-gd-info p-3 bg-success br-5 shadow">
+                                        <div class="text-center">
+                                        <h2>StudPort Tech</h2>
+                                            <br>
+                                        <img src="{{asset('images/web-programming.png')}}"  style="height: 50px; width: 50px;"></div>
                                         <h6 class="mt-4 mb-4 text-center text-dark">We build soft solutions for academic institutions to enhance management and admininistration  </h6>
                                         <div class="text-center"> 
-                                            <a class="btn btn-index text-white">Contact Us</a>
+                                            <a class="btn  btn-outline-success text-dark">Contact Us</a>
                                         </div>
                                 </div>
                             </div>
