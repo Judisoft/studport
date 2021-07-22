@@ -1,419 +1,376 @@
-@extends('layouts/default')
+@extends('layouts/starter')
 
 {{-- Page title --}}
 @section('title')
-    Home -
-    @parent
+Home
+@parent
 @stop
-{{-- page level styles --}}
-@section('header_styles')
-    <!--page level css starts-->
-   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;500&display=swap" rel="stylesheet">
-    <!--end of page level css-->
-@stop
-<style>
-h2{
-    font-weight: 700 !important;
-}
-.icon-circle{
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  background-color: var(--warning);
-  padding: 30px;
-}
-#demo1{
-	position: relative;
-}
-#demo1:before{
-	position: absolute;
-	content: "";
-	z-index: -1;
-	bottom: 15px;
-	left: 8px;
-	top: 80%;
-	width: 50%;
-	background: #777;
-	-webkit-box-shadow: 0 18px 15px #486685;
-	-moz-box-shadow: 0 18px 15px #486685;
-	box-shadow: 0 18px 15px #486685;
-	-webkit-transform: rotate(-4deg);
-	-moz-transform: rotate(-4deg);
-	-o-transform: rotate(-4deg);
-	-ms-transform: rotate(-4deg);
-	transform: rotate(-4deg);
-}
-#demo2{
-	position: relative;
-}
-#demo2:before{
-	position: absolute;
-	content: "";
-	z-index: -1;
-	bottom: 20px;
-	left: 8px;
-	right: 8px;
-	top: 20px;
-	background: #777;
-	-webkit-box-shadow: 0 0 30px 10px #486685;
-	-moz-box-shadow: 0 0 30px 10px #486685;
-	box-shadow: 0 0 30px 10px #486685;
-	border-radius: 10px/40px; 
-}
-#demo3{
-	position: relative;
-}
-#demo3:before{
-	position: absolute;
-	content: "";
-	z-index: -1;
-	bottom: 15px;
-	left: 8px;
-	top: 80%;
-	width: 50%;
-	background: #777;
-	-webkit-box-shadow: 0 18px 15px #486685;
-	-moz-box-shadow: 0 18px 15px #486685;
-	box-shadow: 0 18px 15px #486685;
-	-webkit-transform: rotate(-4deg);
-	-moz-transform: rotate(-4deg);
-	-o-transform: rotate(-4deg);
-	-ms-transform: rotate(-4deg);
-	transform: rotate(-4deg);
-}
-#demo3:after{
-	position: absolute;
-	content: "";
-	z-index: -1;
-	bottom: 15px;
-	right: 8px;
-	top: 80%;
-	width: 50%;
-	background: #777;
-	-webkit-box-shadow: 0 18px 15px #486685;
-	-moz-box-shadow: 0 18px 15px #486685;
-	box-shadow: 0 18px 15px #486685;
-	-webkit-transform: rotate(4deg);
-	-moz-transform: rotate(4deg);
-	-o-transform: rotate(4deg);
-	-ms-transform: rotate(4deg);
-	transform: rotate(4deg);
-}
-.index-icon-shadow{
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-</style>
-<!--  Main banner section -->
+
+{{-- Page content --}}
 @section('content')
-  <section class="w3l-intro" id="intro">
-    <div class="new-block top-bottom" style="min-height:calc(60vh - 0px) !important;">
-      <div class="container-fluid">
-        <div class="middle-section text-center">
-          <div class="section-width mb-5">
-            <div class="d-flex justify-content-center justify-content-sm-center justify-content-md-center">
-                <div class="p-2">
-                    <img src="{{asset('images/smartphone.png')}}" class="img-fluid"  />
-                </div>
-                <div class="p-2">
-                    <h2 class="mb-5 text-dark">Get quick answers to your questions</h2>
-                    <a href="{{route('register')}}" class="btn btn-outline-index theme-button">Register</a>&nbsp;
-                    <a href="{{route('login')}}" class="btn btn-index theme-button">Sign In</a>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!--====================================
+=            Hero Section            =
+=====================================-->
+<section class="section gradient-banner">
+	<div class="shapes-container">
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="1500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+		<div class="shape" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
+		<div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="500"></div>
+		<div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0"></div>
+		<div class="shape" data-aos="fade-down" data-aos-duration="500" data-aos-delay="0"></div>
+		<div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="0"></div>
+	</div>
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-6 order-2 order-md-1 text-center text-md-left">
+				<h1 class="text-white font-weight-bold mb-4">The number one portal for learners</h1>
+				<p class="text-white mb-5">We have all the resources you need. Get everything you need as a student in one place!</p>
+				<a href="{{route('register')}}" class="btn btn-main-md"><b>Get Started Now</b></a>
+			</div>
+			<div class="col-md-6 text-center order-1 order-md-2">
+				<img class="img-fluid" src="images/mobile.png" alt="screenshot">
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Hero Section  ====-->
 
-       <!--  //servcies section -->
-    <section class="w3l-services2" style="min-height: 400px;">
-        <div class="feature-16-main py-3">
-            <div class="container py-lg-3">
-                <div class="header-section text-center mb-4 mt-4">
-                    <h1 class="text-dark">For Students, by Teachers</h1>
-                    <br>
-                    <p>StudPort is a digital platform developed to facilitate teacher-student interaction. 
-                    It is a student-focused community with teacher-assistance.
+<section class="section pt-0 position-relative pull-top">
+	<div class="container">
+		<div class="rounded shadow p-5 bg-white">
+			<div class="row">
+				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
+					<i class="ti-settings text-primary h1"></i>
+					<h3 class="mt-4 text-capitalize h5 ">Customizable</h3>
+					<p class="regular text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
+						tempore ipsam dignissimos molestias.</p>
+				</div>
+				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
+					<i class="ti-bar-chart text-primary h1"></i>
+					<h3 class="mt-4 text-capitalize h5 ">Efficient</h3>
+					<p class="regular text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
+						tempore ipsam dignissimos molestias.</p>
+				</div>
+				<div class="col-lg-4 col-md-12 mt-5 mt-lg-0 text-center">
+					<i class="ti-light-bulb text-primary h1"></i>
+					<h3 class="mt-4 text-capitalize h5 ">Easy to Use</h3>
+					<p class="regular text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
+						tempore ipsam dignissimos molestias.</p>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--==================================
+=            Feature Grid            =
+===================================-->
+<section class="feature section pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 ml-auto justify-content-center">
+				<!-- Feature Mockup -->
+				<div class="image-content" data-aos="fade-right">
+					<img class="img-fluid" src="images/feature/feature-new-01.jpg" alt="iphone">
+				</div>
+			</div>
+			<div class="col-lg-6 mr-auto align-self-center">
+				<div class="feature-content">
+					<!-- Feature Title -->
+					<h2><b>Improve your academic performance with <a
+							href="{{route('blog')}}">StudPort Q&A</a></b></h2>
+					<!-- Feature Description -->
+					<p class="desc">Examinations, they say isn't the true test of knowledge but that's the best there is.
+                     Prior to any good career is a good acadmic background. Ask your questions here and have them answered. You 
+                     can also explore our wide variety of study materials, books, course handouts, examination past questions, etc.
                     </p>
-                </div>
-                <div class="features-grids">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-5" id="demo3">
-                                <div class="feature-16-gd-info">
-                                    <div class="text-center"><img src="{{asset('images/public_question.png')}}"  style="height: 100px; width: 100px;"></div>
-                                    <h4 class="mt-4 mb-4 text-center text-dark">Public Q&A</h4>
-                                    <p class="text-center">StudPort allows students to ask questions in an open community where every studport user can view, answer or Comment</p>
-                                    <p align="center"><a class="btn  btn-success" href="{{route('blog')}}">Browse Questions</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd" id="demo2">
-                                <div class="feature-16-gd-info">
-                                <div class="text-center"><img src="{{asset('images/private_question.png')}}"  style="height: 100px; width: 100px;"></div>
-                                    <h4 class="mt-4 mb-4 text-center" text-center>Private Q&A</h4>
-                                    <p class="text-center">StudPort allows students to ask questions privately to specific teachers or users. Here, Questions and Answers are kept from public view</p>
-                                    <p align="center"><a class="btn  btn-success" href="#url">Learn More</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-5 " id="demo3">
-                                <div class="feature-16-gd-info">
-                                <div class="text-center"><img src="{{asset('images/elearning.png')}}"  style="height: 75px; width: 75px;"></div>
-                                    <h4 class="mt-4 mb-4 text-center">Tutoring Jobs</h4>
-                                    <p>Tutoring Jobs are published on our Job Portal. Users can view and  apply for jobs that match their competence directly from their portal</p>
-                                    <br>
-                                    <p align="center"><a class="btn  btn-success" href="{{route('news')}}">Browse Jobs</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<br>
-<section class="w3l-get-started-index" style="min-height: 400px;">
-    <div class="new-block top-bottom">
-        <div class="container">
-            <div class="middle-section">
-            <div class="header-section text-center mb-4 p-5">
-                    <h1 class="text-dark">For Institutions, by Technologists</h1>
-                    <br>
-                    <p>StudPort equips learning institutions with appropriate technologies to facilitate the teaching & learning processes.
-                        We offer training and Staff capacity building in Information Technologies to increase performance and success. 
+				</div>
+				<!-- Testimonial Quote -->
+				<div class="testimonial">
+					<p>
+						"I think that we already have a really good system in town, but I have a vision that it could be even better.
+                         My vision is that academic excellence is the area that we should pursue more, coupled with fiscal discipline."
+					</p>
+					<ul class="list-inline meta">
+						<li class="list-inline-item">
+							<img src="{{asset('images/ceo.jpg')}}" alt="">
+						</li>
+						<li class="list-inline-item">Kum Jude, CEO & Founder - StudPort</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="feature section pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 ml-auto align-self-center">
+				<div class="feature-content">
+					<!-- Feature Title -->
+					<h2><b>Save Time and stress with our<a
+							href="#">Admission Portal</a></b></h2>
+					<!-- Feature Description -->
+					<p>With StudPort Admit, Students can now register to any academic institution of their choice from the StudPort Admission Portal
                     </p>
-                </div>
-            </div>          
-            <div class="row">
-                            <div class="col-lg-4 col-md-6 featured-service bg-success shadow">
-                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;">
-                                    <div class="feature-16-gd-info px-3 text-center">
-                                        <div class="text-center"><span class="fa fa-file-alt fa-3x text-white"></span></div>
-                                         <h2 class="mt-4 mb-4 text-white">Students Admission</h2>
-                                         <p>We receive and  transmit admission application files to learning institutions</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="col-lg-4 col-md-6 featured-service bg-info shadow">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3  border-0" style="border-radius: 5px !important;"> 
-                                <div class="feature-16-gd-info px-3 text-center">
-                                            <div class="text-center"><span class="fa fa-wrench fa-3x text-white"></span></div>
-                                            <h2 class="mt-4 mb-4 text-white">Staff Recruitment</h2>
-                                            <p>We receive and  transmit job application files to learning institutions</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 featured-service bg-warning shadow">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3 border-0" style="border-radius: 5px !important;">
-                                <div class="feature-16-gd-info px-3 text-center">
-                                        <div class="text-center"><span class="fa fa-laptop-code fa-3x text-white"></span></div>
-                                        <h2 class="mt-4 mb-4 text-white">IT Infrastructure</h2>
-                                        <p>We assist educational institutions set up Information Technology Infrastructures</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <br>
-        </div>
-    </div>
-    <br>
+				</div>
+				<!-- Testimonial Quote -->
+				<div class="testimonial">
+					<p>
+						"Time is more valuable than money. You can get more money, but you cannot get more time."
+					</p>
+					<ul class="list-inline meta">
+						<li class="list-inline-item">
+							<img src="{{asset('images/no_avatar.jpg')}}" alt="">
+						</li>
+						<li class="list-inline-item">Jim Rohn</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-6 mr-auto justify-content-center">
+				<!-- Feature mockup -->
+				<div class="image-content" data-aos="fade-left">
+					<img class="img-fluid" src="images/feature/feature-new-02.jpg" alt="ipad">
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
+<!--====  End of Feature Grid  ====-->
 
-<!-- //subscribe -->
-<section class="w3l-get-started">
-    <div class="new-block top-bottom">
-        <div class="container">
-            <div class="middle-section">
-                <div class="section-width">
-                    <h2 class="text-warning">StudPort Library & Bookshop <span class="text-white"><br></span></h2>
-                </div>
-                <div class="link-list-menu">
-                    <p class="mb-5" style="font-weight: 200;">Visit our E-Library and Bookshop with over 1000+ e-books and lecture notes available for downloads
-                    <a href="{{route('register')}}"><u>Register</u></a> now and get access to StudPort Library</p>
-                    <a href="#" class="btn btn-outline-warning">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="w3l-get-started-index" style="background-color: info !important; min-height: 400px;">
-    <div class="new-block top-bottom">
-        <div class="container">
-            <div class="middle-section">
-            <div class="header-section text-center mb-4 p-5">
-                    <h1 class="text-dark">StudPort Business</h1>
-                    <br>
-                    <p>StudPort equips students and learning institutions with books and targeted learning resources
+<!--==============================
+=            Services            =
+===============================-->
+<section class="service section bg-gray">
+	<div class="container-fluid p-0">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="section-title">
+					<h2>For Students, by Teachers</h2>
+					<p><a href="{{route('home')}}">StudPort</a> makes
+						it easy to stay on top of your education. No late task, no unanswered questions
+                        StudPort is a digital platform developed to facilitate teacher-student interaction. 
+                        It is a student-focused community with teacher-assistance.
                     </p>
-                </div>
-            </div>          
-           <div class="row">
-                            <div class="col-lg-4 col-md-6 featured-service">
-                                <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3">
-                                    <div class="feature-16-gd-info p-3 bg-success br-5 shadow">
-                                        <div class="text-center">
-                                        <h2>StudPort Ads</h2>
-                                        <br>
-                                        <img src="{{asset('images/shopping-cart.png')}}"  style="height: 50px; width: 50px;"></div>
-                                        <h6 class="mt-4 mb-4 text-dark text-center">We sell text-books on the Curriculum at cheap and affordable prices</h6>
-                                        <div class="text-center"> 
-                                        <br>
-                                            <a class="btn btn-outline-success text-dark">Checkout our prices</a>
-                                        </div>                              
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3"> 
-                                <div class="feature-16-gd-info p-3 bg-warning br-5 shadow">
-                                            <div class="text-center">
-                                            <h2>StudPort Ads</h2>
-                                            <br>
-                                                <img src="{{asset('images/discount2.png')}}"  style="height: 50px; width: 50px;">
-                                            </div>
-                                            <h6 class="mt-4 mb-4 text-dark text-center">Are you a writer? Advertise on StudPort and reach out to over 1000+ {{--$users->count()--}} students</h6>
-                                            <div class="text-center"> 
-                                            <br>
-                                            <h4><a class="btn btn-ouline-primary text-dark">Start Advertising</a></h4>
-                                        </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                         <div class="col-lg-4 col-md-6 featured-service">
-                            <div class="feature-16-gd mt-3 pt-3 pl-3 pb-3">
-                                <div class="feature-16-gd-info p-3 bg-success br-5 shadow">
-                                        <div class="text-center">
-                                        <h2>StudPort Tech</h2>
-                                            <br>
-                                        <img src="{{asset('images/web-programming.png')}}"  style="height: 50px; width: 50px;"></div>
-                                        <h6 class="mt-4 mb-4 text-center text-dark">We build soft solutions for academic institutions to enhance management and admininistration  </h6>
-                                        <div class="text-center"> 
-                                            <a class="btn  btn-outline-success text-dark">Contact Us</a>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			<div class="col-lg-6 align-self-center">
+				<!-- Feature Image -->
+				<div class="service-thumb left" data-aos="fade-right">
+					<img class="img-fluid" src="images/feature/iphone-ipad.jpg" alt="iphone-ipad">
+				</div>
+			</div>
+			<div class="col-lg-5 mr-auto align-self-center">
+				<div class="service-box">
+					<div class="row align-items-center">
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item">
+								<!-- Icon -->
+								<i class="ti-help-alt"></i>
+								<!-- Heading -->
+								<h3><a href="#">Q&A Manager</a></h3>
+								<!-- Description -->
+								<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item">
+								<!-- Icon -->
+								<i class="ti-layers-alt"></i>
+								<!-- Heading -->
+								<h3><a href="#">Digital Library</a></h3>
+								<!-- Description -->
+								<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item">
+								<!-- Icon -->
+								<i class="ti-blackboard"></i>
+								<!-- Heading -->
+								<h3><a href="#">One-on-One Tutoring</a></h3>
+								<!-- Description -->
+								<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item">
+								<!-- Icon -->
+								<i class="ti-link"></i>
+								<!-- Heading -->
+								<h3><a href="#">Student Connect</a></h3>
+								<!-- Description -->
+								<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
+<!--====  End of Services  ====-->
 
-<section class="w3l-testimonials" id="testimonials">
-    <div class="testimonials py-5" >
-        <div class="container py-lg-5">
-            <div class="header-section text-center">
-              <h1 class="text-dark">Featured Teachers</h1>
-                <br>
-            </div>
-            <div class="row mt-4 bg-transparent">
-                <div class="col-lg-12 mx-auto">
-                    <div class="owl-one owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="slider-info mt-lg-4 mt-3">
-                                <div class="img-circle">
-                                    <img src="{{asset('images/student1.jpg')}}" class="img-fluid testimonial-img shadow" alt="client image">
-                                </div>
-                                <div class="message">
-                                    <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <div class="name mt-4">
-                                        <h3 class="text-dark">Tutor Name</h3>
-                                        <p>Academic Title</p>
-                                        <br>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                            Donec eget venenatis turpis, at tempor lectus. Nunc ultricies, nibh vel suscipit hendrerit, metus enim lobortis eros, at imperdiet nunc dui eget eros.
-                                            Praesent iaculis hendrerit quam, in congue dui elementum et.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider-info mt-lg-4 mt-3">
-                                <div class="img-circle">
-                                    <img src="{{asset('images/student2.jpg')}}" class="img-fluid testimonial-img shadow" alt="client image">
-                                </div>
-                                <div class="message">
-                                    <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <div class="name mt-4">
-                                        <h3 class="text-dark">Tutor Name</h3>
-                                        <p>Academic Title</p>
-                                        <br>
-                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                            Donec eget venenatis turpis, at tempor lectus. Nunc ultricies, nibh vel suscipit hendrerit, metus enim lobortis eros, at imperdiet nunc dui eget eros.
-                                            Praesent iaculis hendrerit quam, in congue dui elementum et.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider-info mt-lg-4 mt-3">
-                                <div class="img-circle">
-                                    <img src="{{asset('images/avatar3.png')}}" class="img-fluid testimonial-img shadow" alt="client image">
-                                </div>
-                                <div class="message">
-                                    <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <div class="name mt-4">
-                                        <h3 class="text-dark">Tutor Name</h3>
-                                        <p>Academic Title</p>
-                                        <br>
-                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                            Donec eget venenatis turpis, at tempor lectus. Nunc ultricies, nibh vel suscipit hendrerit, metus enim lobortis eros, at imperdiet nunc dui eget eros.
-                                            Praesent iaculis hendrerit quam, in congue dui elementum et.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider-info mt-lg-4 mt-3">
-                                <div class="img-circle">
-                                    <img src="{{asset('images/avatar3.png')}}" class="img-fluid testimonial-img shadow" alt="client image">
-                                </div>
-                                <div class="message">
-                                    <span class="fa fa-quote-left" aria-hidden="true"></span>
-                                    <div class="name mt-4">
-                                        <h3 class="text-dark">Tutor Name</h3>
-                                        <p>Academic Title</p>
-                                        <br>
-                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                            Donec eget venenatis turpis, at tempor lectus. Nunc ultricies, nibh vel suscipit hendrerit, metus enim lobortis eros, at imperdiet nunc dui eget eros.
-                                            Praesent iaculis hendrerit quam, in congue dui elementum et.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<!--=================================
+=            Video Promo            =
+==================================-->
+<section class="video-promo section bg-1">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="content-block">
+					<!-- Heading -->
+					<h2>Watch Our Promo Video</h2>
+					<!-- Promotional Speech -->
+					<p>Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et,
+						porttitor at sem. Vivamus </p>
+					<!-- Popup Video -->
+					<a data-fancybox href="#">
+						<i class="ti-control-play video"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
+<!--====  End of Video Promo  ====-->
+
+<!--=================================
+=            Testimonial            =
+==================================-->
+<section class="section testimonial" id="testimonial">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<!-- Testimonial Slider -->
+				<div class="testimonial-slider owl-carousel owl-theme">
+					<!-- Testimonial 01 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+							<p>
+								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
+								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
+								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
+								pretium ut lacinia in, elementum id enim.
+							</p>
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="{{asset('images/ceo.jpg')}}" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Abraham Linkon , Studport.cm</cite>
+						</div>
+					</div>
+					<!-- Testimonial 01 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+							<p>
+								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
+								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
+								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
+								pretium ut lacinia in, elementum id enim.
+							</p>
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="{{asset('images/ceo.jpg')}}" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Abraham Linkon , Themefisher.com</cite>
+						</div>
+					</div>
+					<!-- Testimonial 01 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+							<p>
+								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
+								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
+								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
+								pretium ut lacinia in, elementum id enim.
+							</p>
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="{{asset('images/ceo.jpg')}}" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Abraham Linkon , Themefisher.com</cite>
+						</div>
+					</div>
+					<!-- Testimonial 01 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+							<p>
+								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
+								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
+								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
+								pretium ut lacinia in, elementum id enim.
+							</p>
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="{{asset('images/ceo.jpg')}}" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Abraham Linkon , Themefisher.com</cite>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Testimonial  ====-->
+
+<section class="call-to-action-app section bg-blue">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2>Mobile App comming soon ...</h2>
+				<p>Download over 2 million humans .Get <a href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">StudPort App</a> free forever!
+					<br>We say you won’t look back.</p>
+				<ul class="list-inline">
+					<li class="list-inline-item">
+						<a href="" class="btn btn-rounded-icon">
+							<i class="ti-apple"></i>
+							iOS
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a href="" class="btn btn-rounded-icon">
+							<i class="ti-android"></i>
+							Android
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+    
 @stop
 
 {{-- page level scripts --}}
 @section('footer_scripts')
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-$(function () {
-  count = 0;
-  wordsArray = ["Sciences", "Arts", "Technology", "Engineering", "Medecine", "Economics", "Journalism", "Architecture", "Geography"];
-  setInterval(function () {
-    count++;
-    $("#word").fadeIn(100, function () {
-      $(this).text(wordsArray[count % wordsArray.length]).fadeIn(100);
-    });
-  }, 1000);
-});
-</script>
-@stop
 
+@stop

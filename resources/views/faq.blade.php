@@ -1,229 +1,308 @@
-@extends('layouts/default')
+@extends('layouts/starter')
 
 {{-- Page title --}}
 @section('title')
-FAQ
+Home
 @parent
 @stop
 
 {{-- page level styles --}}
 @section('header_styles')
-<!--start of page level css-->
-<link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/faq.css') }}">
-<!--end of page level css-->
 @stop
+{{-- breadcrumb --}}
+@section('top')
+
+@stop
+
 
 {{-- Page content --}}
 @section('content')
-<!-- Container Section Start -->
-<div class="container">
-    <div class="row my-3">
-        <div class="col-md-12 col-12 col-lg-12 col-sm-12">
-            <div class="w3l-faq-block py-5">
-    <div class="container py-lg-5">
-        <div class="header-section mb-4">
-            <div style="height: 50px;"></div>
-            <h3 class="text-secondary">FAQ</h3>
-            <hr>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action px-5" id="list-home-list" data-toggle="list" href="#list-home" role="tab"
-                       aria-controls="home">Teaching</a>
-                       <hr>
-                    <a class="list-group-item list-group-item-action px-5" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab"
-                       aria-controls="profile">Courses</a>
-                       <hr>
-                    <a class="list-group-item list-group-item-action px-5" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab"
-                       aria-controls="messages">Programs</a>
-                </div>
-            </div>
-            <div class="col-md-8 mt-md-0 mt-5">
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                        <section class="w3l-faq" id="faq">
-                            <div class="faq-page">
-                                <ul>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                        <section class="w3l-faq" id="faq">
-                            <div class="faq-page">
-                                <ul>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Ttitle</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                        <section class="w3l-faq" id="faq">
-                            <div class="faq-page">
-                                <ul>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" checked>
-                                        <i></i>
-                                        <h2>Title</h2>
-                                        <p>Content</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <!--================================
+=            Page Title            =
+=================================-->
 
-</div>
-        </div>
-    </div>
-</div>
+<section class="section page-title">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 m-auto">
+				<!-- Page Title -->
+				<h1>Frequently Asked Questions</h1>
+				<!-- Page Description -->
+				<p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--====  End of Page Title  ====-->
+
+
+<!--=================================
+=            FAQ Section            =
+==================================-->
+<section class="faq section pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 m-auto">
+				<div class="block shadow">
+					<!-- Getting Started -->
+					<div class="faq-item">
+						<!-- Title -->
+						<div class="faq-item-title">
+							<h2>
+								Getting Started
+							</h2>
+						</div>
+						<!-- Get Started Accordion -->
+						<div id="gstAccordion" data-children=".item">
+						  <!-- Accordion Item 01 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#gstAccordion" href="#gstAccordion1">
+							      What should I do if I want to see how a prototype created with ProtoPie runs on a mobile device?
+							    </a>
+						  	</div>
+						    <div id="gstAccordion1" class="collapse show accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 02 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#gstAccordion" href="#gstAccordion2">
+							      What devices are supported for Android Instant Apps?
+							    </a>
+						  	</div>
+						    <div id="gstAccordion2" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 03 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#gstAccordion" href="#gstAccordion3">
+
+							      What countries are Android Instant Apps supported in?
+							    </a>
+						  	</div>
+						    <div id="gstAccordion3" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 04 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#gstAccordion" href="#gstAccordion4">
+							      Do developers need to build two different Android apps now?
+							    </a>
+						  	</div>
+						    <div id="gstAccordion4" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 05 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#gstAccordion" href="#gstAccordion5">
+							      What Android APIs and functionality can instant apps use?
+							    </a>
+						  	</div>
+						    <div id="gstAccordion5" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 06 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#gstAccordion" href="#gstAccordion6">
+							      Can users choose to install the app permanently?
+							    </a>
+						  	</div>
+						    <div id="gstAccordion6" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						</div>
+					</div>
+					<!-- Account Accordion -->
+					<div class="faq-item">
+						<!-- Title -->
+						<div class="faq-item-title">
+							<h2>
+								Account
+							</h2>
+						</div>
+						<!-- Account Accordion -->
+						<div id="accountAccordion" data-children=".item">
+						  <!-- Accordion Item 01 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#accountAccordion" href="#accountAccordion1">
+							      What devices are supported for Android Instant Apps?
+							    </a>
+						  	</div>
+						    <div id="accountAccordion1" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 02 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#accountAccordion" href="#accountAccordion2">
+							      What countries are Android Instant Apps supported in?
+							    </a>
+						  	</div>
+						    <div id="accountAccordion2" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 03 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#accountAccordion" href="#accountAccordion3">
+							      Do developers need to build two different Android apps now?
+							    </a>
+						  	</div>
+						    <div id="accountAccordion3" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 04 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#accountAccordion" href="#accountAccordion4">
+							      What Android APIs and functionality can instant apps use?
+							    </a>
+						  	</div>
+						    <div id="accountAccordion4" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 05 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#accountAccordion" href="#accountAccordion5">
+							      Can users choose to install the app permanently?
+							    </a>
+						  	</div>
+						    <div id="accountAccordion5" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						</div>
+					</div>
+					<!-- Pricing & License Accordion -->
+					<div class="faq-item">
+						<!-- Title -->
+						<div class="faq-item-title">
+							<h2>
+								Pricing & License
+							</h2>
+						</div>
+						<!-- Account Accordion -->
+						<div id="plAccordion" data-children=".item">
+						  <!-- Accordion Item 01 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#plAccordion" href="#plAccordion1">
+							      Where can I see the licenses that I bought?
+							    </a>
+						  	</div>
+						    <div id="plAccordion1" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 02 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#plAccordion" href="#plAccordion2">
+							      Am I unable to continue using if my license expires?
+							    </a>
+						  	</div>
+						    <div id="plAccordion2" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 03 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#plAccordion" href="#plAccordion3">
+							      How many websites can I tie to one license?
+							    </a>
+						  	</div>
+						    <div id="plAccordion3" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 04 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#plAccordion" href="#plAccordion4">
+							      Do you have volume purchase programs?
+							    </a>
+						  	</div>
+						    <div id="plAccordion4" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						  <!-- Accordion Item 05 -->
+						  <div class="item">
+						  	<div class="item-link">
+							    <a data-toggle="collapse" data-parent="#plAccordion" href="#plAccordion5">
+							      Are there any educational pricing or discounts?
+							    </a>
+						  	</div>
+						    <div id="plAccordion5" class="collapse accordion-block">
+						      <p>
+						        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+						      </p>
+						    </div>
+						  </div>
+						</div>
+					</div>
+					<!-- Getting Started Accordion -->
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of FAQ Section  ====-->
+
+<!--============================
+    
 @stop
 
 {{-- page level scripts --}}
 @section('footer_scripts')
-<script type="text/javascript" src="{{ asset('js/frontend/faq.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/jquery.mixitup.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('vendors/mixitup/mixitup.js') }}"></script>
 @stop

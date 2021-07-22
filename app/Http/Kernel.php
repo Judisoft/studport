@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\SentinelAdmin::class,
         'user' => \App\Http\Middleware\SentinelUser::class,
         'download' => \App\Http\Middleware\LastUserActivity::class,
+        'subscription' => \App\Http\Middleware\Subscription::class,
     ];
 }

@@ -33,7 +33,7 @@ class BlogController extends JoshController
         $blogCategoryId = BlogCategory::get('id');
         //$blog_id = Blog::pluck('id');
         //$comment_id = BlogComment::pluck('id');
-        $reviews = BlogComment::pluck('remark');
+        $reviews = BlogComment::pluck('review');
         //$arr_reviews = (array)$reviews;
         //$reviews_item = BlogComment::whereIn('', $arr_reviews)->get();
         //$reviews = BlogComment::pluck('remark');
@@ -162,6 +162,7 @@ class BlogController extends JoshController
         $blogcooment->blog_id = $blog->id;
         $blogcooment->picture = Sentinel::getUser()->pic;
         $blogcooment->website = Sentinel::getUser()->level;
+        $blogcooment->replied_by = Sentinel::getUser()->first_name . ' '. Sentinel::getUser()->last_name;
         $blogcooment->save();
         return redirect('blogitem/' . $blog->slug)->with('success', 'Answer published');
 
@@ -175,14 +176,15 @@ class BlogController extends JoshController
     public function review(Request $request, Blogcomment $comment)
     {
         $this -> validate($request, [
-            'remark' => 'required',
+            'review' => 'required',
             'explanation' => 'required'
     ]);
         $commentToReview = BlogComment::where('id', $comment->id)->first();
-        $commentToReview->remark = $request->input('remark');
+        $commentToReview->review = $request->input('review');
         $commentToReview->explanation = $request->input('explanation');
         $commentToReview->reviewed_by = Sentinel::getUser()->first_name . ' '. Sentinel::getUser()->last_name;
         $commentToReview->reviewer_pic = Sentinel::getUser()->pic;
+       // $commentToReview->reviewer_at = BlogComment::created_at() ;
         $commentToReview->save();
        
         return back()->with('success', 'Review published');

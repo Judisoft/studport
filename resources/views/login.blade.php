@@ -111,7 +111,7 @@
   padding: 20px 20px;
   background-color: #fff;
   border-radius: 5px;
-  border: 1px solid var(--gray);
+  border: 3px solid #eee;
 }
 
 .help-block {
@@ -185,7 +185,7 @@ h4{
                     </div>
           <div class="section-width">
             <div class="box">
-                <div class="box1 rounded-0">
+                <div class="box1 rounded-5">
                     <div class="mt-auto">
                         <span class="fa fa-user-lock fa-4x px-2 py-2 float-right" style="opacity: 0.1;"></span>
                         <h4 class="pt-3 text-favorite float-left"><b>Sign In</b></h4>
@@ -210,7 +210,7 @@ h4{
 
                         </div>
                         <div class="d-flex mt-3"></div>
-                        <input type="submit" class="btn btn-block btn-success theme-button rounded-0" value="Log In">
+                        <input type="submit" class="btn btn-block btn-success theme-button rounded-5" value="Log Me In">
                     </form>
                     <br />
                     <div class="d-flex flex-row">

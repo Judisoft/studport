@@ -1,180 +1,216 @@
-@extends('layouts/default')
+@extends('layouts/default1')
 
 {{-- Page title --}}
 @section('title')
     Inbox
     @parent
 @stop
-
 {{-- page level styles --}}
 @section('header_styles')
     <link href="{{ asset('vendors/iCheck/css/all.css')}}" rel="stylesheet">
     <link href="{{ asset('css/pages/mail_box.css') }}" rel="stylesheet" type="text/css" />
-
     <!-- page level css ends-->
 @stop
-
-{{-- Page content --}}
+ <!-- Ekko Lightbox -->
+  <link rel="stylesheet" href="{{asset('plugins/ekko-lightbox/ekko-lightbox.css')}}">
+{{-- content --}}
 @section('content')
-    <aside class="right-aside" style="background-color: #D5DDE6; padding: 15px;">
-    <!-- Content Header (Page header) -->
-        <!-- Content Header (Page header) -->
-        <div class="container-fluid my-3">
-        <div class="row">
-            <div class="col-sm-3 col-md-3 col-lg-3 col-12 p-2 pl-3"><img src="{{asset('images/inbox.png')}}" style="height: 35px; width: 35px;"> Inbox</div>
-            <div class="col-sm-6 col-md-6 col-lg-6 col-12 p-2"> 
-            <form class="input-group" action="{{route('blog')}}" method="GET">
-                <input type="text" class="form-control text-gray rounded shadow-fav2  text-center" name="search" value="{{request()->query('search')}}" placeholder="Search Mail ..." style="font-size: 16px !important; height: 50px;font-weight: 500; background-color: #eee;">
-                <div class="input-group-append">
-                </div>
-            </form></div>
-            <div class="col-sm-3 col-md-3 col-lg-3 col-12 pp-2">Flex item 3</div>
-        </div>
-        <hr>
-    @if (isset($success))
-        <div id="notific">
-            <div class="alert alert-success alert-dismissable margin5">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Success:</strong> {{ $success }}
+        <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="compose.html" class="btn btn-primary btn-block mb-3">Compose</a>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Folders</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+              </div>
             </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item active">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-inbox"></i> Inbox
+                    <span class="badge bg-primary float-right">12</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-envelope"></i> Sent
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-file-alt"></i> Drafts
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-filter"></i> Junk
+                    <span class="badge bg-warning float-right">65</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-trash-alt"></i> Trash
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Labels</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-danger"></i>
+                    Important
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-warning"></i> Promotions
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-primary"></i>
+                    Social
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
         </div>
-    @endif
-    <!-- Main content -->
-    <!-- Main content -->
-    <section class="content pl-3 pr-3">
-        <div class="row web-mail">
-             <div class="col-xl-2 col-md-3 col-sm-4 web-mail p-3 rounded shadow-fav2" style="background-color: #fff;">
-                    <div class="d-flex flex-column">
-                        <div class="p-2">
-                            <a href="{{ URL::to('user_emails/compose') }}" class="text-index">
-                                <img src="{{asset('images/edit.png')}}" style="height: 35px; width: 35px;">
-                                &nbsp; &nbsp;Compose
-                            </a>
-                            <hr>
-                        </div>
-                        <div class="p-2">
-                            <a href="{{ URL::to('user_emails/inbox') }}" class="text-index">
-                                <img src="{{asset('images/mail.png')}}" style="height: 35px; width: 35px;">
-                                &nbsp; &nbsp;Inbox
-                                @if($count>0)
-                                    <span class="badge badge-danger float-right mt-1 badge-pill">{{ $count}}</span>
-                                @endif
-                            </a>
-                            <hr>
-                        </div>
-                        <div class="p-2">
-                            <a href="{{ URL::to('user_emails/sent') }}" class="text-index">
-                                <img src="{{asset('images/airplane.png')}}" style="height: 35px; width: 35px;">
-                                &nbsp; &nbsp; Sent
-                            </a>
-                        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title">Inbox</h3>
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" placeholder="Search Mail">
+                  <div class="input-group-append">
+                    <div class="btn btn-primary">
+                      <i class="fas fa-search"></i>
                     </div>
-                    <hr>
-                <div style="height: 30px;"></div>
-            </div>
-            <div class="col-lg-10 col-md-9 col-sm-8">
-                <div class="whitebg1 mail_inbox_all">
-                    <table class="table table-striped table-advance table-hover table-responsive border-info" id="inbox-check">
-                        <thead>
-                        
-                        <tr>
-                            <th colspan="6">
-                                <div class="row">
-                                    <div class="col-md-8 col-lg-6 col-xs-12">
-                                        <div class="btn-group float-left table-bordered paddingrightleft_10 paddingtopbottom_5px rounded">
-                                            <input type="checkbox" id="checkall" class="icheck select_all_mail">
-                                            <a class="dropdown-toggle rounded" id="dropdownMenuButton" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
-                                            </a>
-                                            <ul class="dropdown-menu ul" aria-labelledby="dropdownMenuButton">
-                                                <!-- dropdown menu links -->
-                                                <li>
-                                                    <a href="#" class="all dropdown-item">All</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="mark_as_read dropdown-item">Read</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="mark_as_unread dropdown-item">UnRead</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="mark_as_star dropdown-item">Starred</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"  class="mark_as_unstar dropdown-item">Unstarred</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="btn-group float-left table-bordered refresh_padding paddingrightleft_10 paddingtopbottom_5px margin_left">
-                                            <i class="fa fa-redo" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-lg-6 col-xs-12">
-                                        <div class="float-right">
-                                            {{ $emails->links() }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody class="tr_read">
-                        @foreach($emails as $email)
-                            <tr data-messageid="{{ $email->id }}">
-                                <td style="width:7%;" class="inbox-small-cells">
-                                    <div class="checker">
-                                        <span>
-                                            <input type="checkbox" name="inbox_checkbox" class="mail-checkbox" value="{{ $email->id }}">
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="read_td"><input type="hidden" value="{{ $email->status }}" @if($email->status == 0)class="read" @else class="unread" @endif ></td>
-                                <td style="width:2%;" class="inbox-small-cells">
-                                    <div class="rating">
-                                        <i class="fa fa-star starred"></i>
-                                    </div>
-                                </td>
-                                <td style="width:22%;" class="view-message hidden-xs">
-                                    <a href="{{ URL::to('user_emails/'.$email->id ) }}">
-                                        @if($email->senderName->pic)
-                                            <img src="{!! $email->senderName->pic !!}" alt="img" width="35"  height="35"
-                                                 class="rounded-circle img-responsive img_height float-left"/>
-                                        @elseif(Sentinel::getUser()->gender === "male")
-                                            <img src="{{ asset('images/authors/avatar3.png') }}" alt="img" height="35px" width="35px"
-                                                 class="rounded-circle img-fluid float-left"/>
-
-                                        @elseif(Sentinel::getUser()->gender === "female")
-                                            <img src="{{ asset('images/authors/avatar5.png') }}" alt="img" height="35px" width="35px"
-                                                 class="rounded-circle img-fluid float-left"/>
-
-                                        @else
-                                            <img src="{{ asset('images/authors/no_avatar.jpg') }}" alt="img" height="35px" width="35px"
-                                                 class="rounded-circle img-fluid float-left"/>
-                                        @endif
-                                        {{ $email->senderName->first_name }} {{ $email->senderName->last_name }}</a>
-                                </td>
-                                <td style="width:40%;" class="view-message ">
-                                    <a href="{{ URL::to('user_emails/'.$email->id ) }}">{{ $email->subject }}</a>
-                                </td>
-
-                                <td style="width:23%;" class="view-message text-right">
-                                    <a href="{{ URL::to('user_emails/'.$email->id ) }}">{{ $email->created_at->diffForHumans() }}</a>
-                                </td>
-                            </tr>
-                        @endforeach
-
-                        </tbody>
-                    </table>
+                  </div>
                 </div>
+              </div>
+              <!-- /.card-tools -->
             </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <div class="mailbox-controls">
+                <!-- Check all button -->
+                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i>
+                </button>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                  <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                  <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                <div class="float-right">
+                  1-50/200
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                  </div>
+                  <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+              </div>
+              <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped" id="inbox-check">
+                  <tbody>
+                  @foreach($emails as $email)
+                        <tr data-messageid="{{ $email->id }}">
+                            <td style="width:7%;" class="inbox-small-cells">
+                                <div class="checker">
+                                    <span>
+                                        <input type="checkbox" name="inbox_checkbox" class="mail-checkbox" value="{{ $email->id }}">
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="inbox-small-cells"><input type="hidden" value="{{ $email->status }}" @if($email->status == 0)class="read" @else class="unread" @endif ></td>
+                           <td style="width:2%;" class="inbox-small-cells">
+                                <div class="rating">
+                                    <i class="fa fa-star starred"></i>
+                                </div>
+                            </td>
+                            <td class="mailbox-subject">
+                                <div class="d-flex flex-row">
+                                    <div><a href="{{ URL::to('user_emails/'.$email->id ) }}">{{ $email->subject }} -</div> 
+                                    <div> {!! substr($email->email_message, 0, 100) !!}</a></div>
+                                </div>
+                            </td>
+                            <td class="mailbox-attachment"><i class="fas fa-paperclip"></i></td>
+                            <td class="mailbox-date">{{ $email->created_at->diffForHumans() }}</td>
+                        </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+                <!-- /.table -->
+              </div>
+              <!-- /.mail-box-messages -->
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer p-0">
+              <div class="mailbox-controls">
+                <!-- Check all button -->
+                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i>
+                </button>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                  <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                  <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                <div class="float-right">
+                  1-50/200
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                  </div>
+                  <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
         </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
-    <!-- content -->
-        </div>
-    </aside>
+    <!-- /.content -->
+@stop
+@section('footer_scripts')
+<script src="{{ asset('vendors/iCheck/js/icheck.js')}}"></script>
+<script src="{{ asset('js/pages/mail_box.js') }}"></script>
+
 @stop
 
-{{-- page level scripts --}}
-@section('footer_scripts')
-    <script src="{{ asset('vendors/iCheck/js/icheck.js')}}"></script>
-    <script src="{{ asset('js/pages/mail_box.js') }}"></script>
-@stop
+
+

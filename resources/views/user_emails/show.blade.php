@@ -1,153 +1,193 @@
-@extends('layouts/default')
+@extends('layouts/default1')
 
 {{-- Page title --}}
 @section('title')
-    View Message
+    read-mail
     @parent
 @stop
-
 {{-- page level styles --}}
 @section('header_styles')
-    <!--page level css starts here-->
+    <link href="{{ asset('vendors/iCheck/css/all.css')}}" rel="stylesheet">
     <link href="{{ asset('css/pages/mail_box.css') }}" rel="stylesheet" type="text/css" />
-
+    <!-- page level css ends-->
 @stop
-
-{{-- Page content --}}
+ <!-- Ekko Lightbox -->
+  <link rel="stylesheet" href="{{asset('plugins/ekko-lightbox/ekko-lightbox.css')}}">
+{{-- content --}}
 @section('content')
-    <aside class="right-aside" style="background-color: #D5DDE6; padding: 15px;">
-        <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
-            <h5 style="color: #2C3E50;"> <i class="fa fa-envelope" aria-hidden="true"></i>
-                                 &nbsp;Message(s)</h5>
-        <hr>
-    <!-- Main content -->
-    <section class="content pl-3 pr-3">
-        <div class="row web-mail">
-            <div class="col-lg-3 col-xl-2 col-md-3 col-sm-4 p-3" style="background-color: #e9ecef;">
-                <div class="whitebg1">
-                    <ul>
-                        <li class="compose">
-                            <a href="{{ URL::to('user_emails/compose') }}">
-                                <i class="fa fa-fw fa-edit"></i>
-                                &nbsp; &nbsp;Compose
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="{{ URL::to('user_emails/inbox') }}">
-                                <i class="fa fa-inbox" aria-hidden="true"></i>
-                                &nbsp; &nbsp;Inbox
-                                @if($count>0)
-                                    <span class="badge badge-success float-right badge-pill mt-1">{{ $count}}</span>
-                                @endif
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ URL::to('user_emails/sent') }}">
-                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                &nbsp; &nbsp; Sent
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+        <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="{{ URL::to('user_emails/compose') }}" class="btn btn-primary btn-block mb-3">Compose</a>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Folders</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+              </div>
             </div>
-            <div class="col-lg-9 col-xl-10 col-md-9 col-sm-8">
-                <div class="whitebg1">
-                    <table class="table table-striped table-advance">
-                        <thead>
-                        <tr>
-                            <th colspan="4">
-                                <div class="row no-padding">
-                                    <div class="col-md-7 col-lg-9 col-xs-12">
-                                        <div class="btn-group">
-                                            <a href="#" class="btn btn-secondary btn-toolbar py-1" data-toggle="tooltip" data-placement="top" title="Delete Message" >
-                                                <span class="fa fa-trash text-danger p-2"></span>
-                                            </a>
-                                            <button type="button" class="btn btn-secondary btn-toolbar py-1" data-toggle="tooltip" data-placement="top" title="Refresh">
-                                                <span class="fa fa-refresh p-2"></span>
-                                            </button>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5 col-lg-3 col-xs-12">
-                                        <div class="float-right">
-                                        </div>
-                                    </div>
-                                </div>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td colspan="4">
-                                <div class="row">
-                                    <div class="col-md-2 col-xl-1 m-auto col-lg-2 col-sm-2 col-3">
-                                        <a href="#" class="text-center">
-                                            @if($email->senderName->pic)
-                                                <img src="{!! $email->senderName->pic !!}" alt="img"
-                                                     class="rounded-circle img-responsive img_height1"/>
-                                            @elseif(Sentinel::getUser()->gender === "male")
-                                                <img src="{{ asset('images/authors/avatar3.png') }}" alt="img" height="35px" width="35px"
-                                                     class="rounded-circle img-fluid float-left"/>
-
-                                            @elseif(Sentinel::getUser()->gender === "female")
-                                                <img src="{{ asset('images/authors/avatar5.png') }}" alt="img" height="35px" width="35px"
-                                                     class="rounded-circle img-fluid float-left"/>
-
-                                            @else
-                                                <img src="{{ asset('images/authors/no_avatar.jpg') }}" alt="img" height="35px" width="35px"
-                                                     class="rounded-circle img-fluid float-left"/>
-                                            @endif
-                                        </a>
-                                    </div>
-                                    <div class="col-9 col-xl-11 col-md-10 col-lg-10">
-                                        <a href="#" class="graytext">
-                                            <strong>{{ $email->senderName->first_name }} {{  $email->senderName->last_name }}</strong>
-                                            <br>&lt;{{ $email->senderName->email }}&gt;</a>
-                                        <div>{{ $email->created_at->diffForHumans() }}</div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <div class="row">
-                                    <div class="col-md-12 email_message">
-                                        {!!  $email->email_message  !!}
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="row nopadmar">
-                                    {{--<div class="nopadmar">--}}
-                                    <div class="col-6 col-sm-4 no-padding col-md-3 mt-3 col-lg-3 col-xl-2">
-                                        <a href="{{ URL::to('user_emails/'.$email->id.'/reply') }}" class="btn btn-sm btn-secondary  text-white">
-                                            &nbsp;&nbsp;Reply
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-sm-4 no-padding col-md-3 mt-3 col-lg-3 col-xl-2">
-                                        <a href="{{ URL::to('user_emails/'.$email->id.'/forward') }}" class="btn btn-sm btn-secondary  text-white">
-                                            &nbsp;&nbsp;Forward
-                                        </a>
-                                    </div>
-                                </div>
-                                {{--</div>--}}
-                            </td>
-                            <td width="3%"></td>
-                            <td width="13%" class="view-message text-right">&nbsp;</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item active">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-inbox"></i> Inbox
+                    <span class="badge bg-primary float-right">12</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-envelope"></i> Sent
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-file-alt"></i> Drafts
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-filter"></i> Junk
+                    <span class="badge bg-warning float-right">65</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-trash-alt"></i> Trash
+                  </a>
+                </li>
+              </ul>
             </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Labels</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-danger"></i>
+                    Important
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-warning"></i> Promotions
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-primary"></i>
+                    Social
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
         </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title">Subject: {{$email->subject}}</h3>
+
+              <div class="card-tools">
+                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <div class="mailbox-read-info">
+                <h6><a href="#" class="graytext">
+                    <strong>{{ $email->senderName->first_name }} {{  $email->senderName->last_name }}</strong>
+                    <br>&lt;{{ $email->senderName->email }}&gt;</a>
+                  <span class="mailbox-read-time float-right">{{ $email->created_at->diffForHumans() }}</span></h6>
+              </div>
+              <!-- /.mailbox-read-info -->
+              <div class="mailbox-controls with-border text-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Delete">
+                    <i class="far fa-trash-alt"></i></button>
+                  <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
+                    <i class="fas fa-reply"></i></button>
+                  <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
+                    <i class="fas fa-share"></i></button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
+                  <i class="fas fa-print"></i></button>
+              </div>
+              <!-- /.mailbox-controls -->
+              <div class="mailbox-read-message">
+                <p>{!! $email->email_message !!}</p>
+              </div>
+              <!-- /.mailbox-read-message -->
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer bg-white">
+              <ul class="mailbox-attachments d-flex align-items-stretch clearfix">
+                <li>
+                  <span class="mailbox-attachment-icon"><i class="far fa-file-pdf"></i></span>
+
+                  <div class="mailbox-attachment-info">
+                    <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i> Sep2014-report.pdf</a>
+                        <span class="mailbox-attachment-size clearfix mt-1">
+                          <span>1,245 KB</span>
+                          <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
+                        </span>
+                  </div>
+                </li>
+                <li>
+                  <span class="mailbox-attachment-icon"><i class="far fa-file-word"></i></span>
+
+                  <div class="mailbox-attachment-info">
+                    <a href="#" class="mailbox-attachment-name"><i class="fas fa-paperclip"></i> App Description.docx</a>
+                        <span class="mailbox-attachment-size clearfix mt-1">
+                          <span>1,245 KB</span>
+                          <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
+                        </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- /.card-footer -->
+            <div class="card-footer">
+              <div class="float-right">
+                <a class="btn btn-default" href="{{ URL::to('user_emails/'.$email->id.'/reply') }}"><i class="fas fa-reply"></i> Reply</a>
+                <a class="btn btn-default" href="{{ URL::to('user_emails/'.$email->id.'/forward') }}"><i class="fas fa-share"></i> Forward </a>
+              </div>
+              <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</button>
+              <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Print</button>
+            </div>
+            <!-- /.card-footer -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
-    <!-- content -->
-        </div>
-    </aside>
+    <!-- /.content -->
+@stop
+@section('footer_scripts')
+<script src="{{ asset('vendors/iCheck/js/icheck.js')}}"></script>
+<script src="{{ asset('js/pages/mail_box.js') }}"></script>
+
 @stop
 
-{{-- page level scripts --}}
-@section('footer_scripts')
-@stop
+
+

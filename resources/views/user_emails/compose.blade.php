@@ -1,140 +1,170 @@
-@extends('layouts/default')
+@extends('layouts/default1')
 
 {{-- Page title --}}
 @section('title')
-    Compose New Message
+    read-email
     @parent
 @stop
-
 {{-- page level styles --}}
 @section('header_styles')
-    <link href="{{ asset('vendors/select2/css/select2.min.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('vendors/select2/css/select2-bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendors/summernote/css/summernote-bs4.css') }}" rel="stylesheet" media="screen" />
+    <link href="{{ asset('vendors/iCheck/css/all.css')}}" rel="stylesheet">
     <link href="{{ asset('css/pages/mail_box.css') }}" rel="stylesheet" type="text/css" />
+     <!-- summernote -->
+    <link rel="stylesheet" href="{{asset('user_dashboard/plugins/summernote/summernote-bs4.css')}}">
+    <!-- page level css ends-->
 @stop
-
-{{-- Page content --}}
+ <!-- Ekko Lightbox -->
+  <link rel="stylesheet" href="{{asset('plugins/ekko-lightbox/ekko-lightbox.css')}}">
+{{-- content --}}
 @section('content')
-    <aside class="right-aside" style="background-color: #D5DDE6; padding: 15px;">
-    <!-- Content Header (Page header) -->
-        <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
-            @if (isset($email_not_found))
-                <div id="notific">
-                    <div class="alert alert-danger alert-dismissable margin5">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <strong>Error:</strong> {{ $email_not_found }}
-                    </div>
-                </div>
-            @endif
-            @if (isset($success))
-                <div id="notific">
-                    <div class="alert alert-success alert-dismissable margin5">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <strong>Success:</strong> {{ $success }}
-                    </div>
-                </div>
-            @endif
-            <h5 style="color: #2C3E50;"> <span class="fa fa-edit" aria-hidden="true"></span>
-                                 &nbsp;Compose</h5>
-            <hr>
-    <!-- Main content -->
-    <section class="content pr-3 pl-3" >
-        <div class="row web-mail">
-            <div class="col-xl-2 col-md-3 col-sm-4 web-mail p-3" style="background-color: #e9ecef;">
-                <div class="whitebg1">
-                    <ul>
-                        <li class="compose">
-                            <a href="{{ URL::to('user_emails/compose') }}">
-                                <i class="fa fa-fw fa-edit"></i>
-                                &nbsp; &nbsp;Compose
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ URL::to('user_emails/inbox') }}">
-                                <i class="fa fa-inbox" aria-hidden="true"></i>
-                                &nbsp; &nbsp;Inbox
-                                @if($count>0)
-                                    <span class="badge badge-success float-right badge-pill mt-1">{{ $count}}</span>
-                                @endif
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ URL::to('user_emails/sent') }}">
-                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                &nbsp; &nbsp;Sent
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div style="height: 30px;"></div>
+        <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="{{ URL::to('user_emails/compose') }}" class="btn btn-primary btn-block mb-3">Compose</a>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Folders</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+              </div>
             </div>
-            <div class="col-xl-10 col-md-9 col-sm-8 mt-3 mt-sm-0">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="{{ URL('user_emails/compose') }}" method="POST" class="form-horizontal" enctype="multipart/form-data" files="true" id="mail_compose">
-                            {{ csrf_field() }}
-                            <div class="compose">
-                                <div class="form-group  {{ $errors->first('email_id', 'has-error') }}">
-                                    <label class="col-xs-2 control-label hidden-xs" for="email_id">To:</label>
-                                    <div class="col-xs-9" sytle="overflow-x: hidden;">
-                                        <select class="form-control select_email" name="email_id" id="email_id">
-                                            <option></option>
-                                            @foreach($existing_emails as $existing_email)
-                                                <option value="{{ $existing_email->email }}">{{ $existing_email->email }}</option>
-                                            @endforeach
-                                        </select>
-                                        <small>{!! $errors->first('email_id', '<span class="help-block">:message</span>') !!} </small>
-                                    </div>
-                                </div>
-                                <div class="clear"></div>
-                                <div class="form-group  {{ $errors->first('subject', 'has-error') }}">
-                                    <label class="col-xs-2 control-label hidden-xs" for="subject">Subject:</label>
-                                    <div class="col-xs-9">
-                                        <input type="text" name="subject" class="form-control required" id="subject" tabindex="1"
-                                               placeholder="Subject">
-                                        {!! $errors->first('subject', '<span class="help-block">:message</span>') !!}
-                                    </div>
-                                </div>
-                                <div class="clear"></div>
-                                <div class='box-body pad'>
-                                    <div class="form-group {{ $errors->first('email_message', 'has-error') }}">
-                                        <textarea id="summernote" class="form-control" style="height: 400px;" name="email_message"></textarea>
-                                        {!! $errors->first('email_message', '<span class="help-block">:message</span>') !!}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <button type="submit" class="btn btn-sm  btn-secondary  btn_margin_top">
-                                    <span class="fa fa-paper-plane" aria-hidden="true"></span>
-                                    Send
-                                </button>
-
-                                <a href="#" class="btn btn-sm btn-secondary  btn_margin_top text-white">
-                                    <span class="fa fa-archive" aria-hidden="true"></span>
-                                    Draft
-                                </a>
-                            </div>
-
-                        </form>
-                    </div>
-
-                </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item active">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-inbox"></i> Inbox
+                    <span class="badge bg-primary float-right">12</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-envelope"></i> Sent
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-file-alt"></i> Drafts
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-filter"></i> Junk
+                    <span class="badge bg-warning float-right">65</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-trash-alt"></i> Trash
+                  </a>
+                </li>
+              </ul>
             </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Labels</h3>
 
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-danger"></i>
+                    Important
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-warning"></i> Promotions
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-primary"></i>
+                    Social
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
         </div>
+        <!-- /.col -->
+                  <div class="col-md-9">
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h3 class="card-title">Compose New Message</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+            <form action="{{ URL('user_emails/compose') }}" method="POST" class="form-horizontal" enctype="multipart/form-data" files="true" id="mail_compose">
+              {{ csrf_field() }}
+                <div class="form-group {{ $errors->first('email_id', 'has-error') }}">
+                  <input class="form-control" name="email_id" id="email_id" placeholder="To:">
+                  <small>{!! $errors->first('email_id', '<span class="help-block">:message</span>') !!} </small>
+                </div>
+                <div class="form-group {{ $errors->first('subject', 'has-error') }}">
+                  <input class="form-control required" name="subject" placeholder="Subject:">
+                  <small>{!! $errors->first('subject', '<span class="help-block">:message</span>') !!}</small>
+                </div>
+                <div class="form-group {{ $errors->first('email_message', 'has-error') }}">
+                    <textarea id="text-area" name="email_message" class="form-control" style="height: 300px">
+                    </textarea>
+                    {!! $errors->first('email_message', '<span class="help-block">:message</span>') !!}
+                </div>
+                <div class="form-group">
+                  <div class="btn btn-default btn-file">
+                    <i class="fas fa-paperclip"></i> Attachment
+                    <input type="file" name="attachment">
+                  </div>
+                  <p class="help-block">Max. 10MB</p>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <div class="float-right">
+                  <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Draft</button>
+                  <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Send</button>
+                </div>
+                <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> Discard</button>
+              </div>
+            </form>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
-        </div>
-    <!-- content -->
-    </aside>
+    <!-- /.content -->
 @stop
-
-{{-- page level scripts --}}
 @section('footer_scripts')
-    <script src="{{ asset('vendors/select2/js/select2.js') }}" type="text/javascript"></script>
-    <script  src="{{ asset('vendors/summernote/js/summernote-bs4.min.js') }}"  type="text/javascript"></script>
-
-    <script type="text/javascript">
+<!-- jQuery -->
+<script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{ asset('vendors/iCheck/js/icheck.js')}}"></script>
+<script src="{{ asset('js/pages/mail_box.js') }}"></script>
+<!-- Summernote -->
+<script  src="{{ asset('vendors/summernote/js/summernote-bs4.min.js') }}"  type="text/javascript"></script>
+<!-- Page Script -->
+<script>
+  $(function () {
+    //Add text editor
+    $('#text-area').summernote()
+  })
+</script>
+<script type="text/javascript">
         $(document).ready(function() {
 
             $('.select_email').select2({
@@ -220,3 +250,6 @@
     </script>
 
 @stop
+
+
+

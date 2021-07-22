@@ -20,6 +20,13 @@ class DummyUsersSeeder extends DatabaseSeeder
                 'first_name' => $faker->unique()->firstName,
                 'last_name' => $faker->unique()->lastName,
                 'country'     => $faker->countryCode,
+                'department' => 'software engineering',
+                'level' => '2',
+                'institution' => 'studport',
+                'user_role' => 'user',
+                'account_type' => 'trial',
+                'download' => '0',
+                'user_role_id' => 3,
                 'created_at' => $faker->dateTimeThisYear(),
             ]);
 

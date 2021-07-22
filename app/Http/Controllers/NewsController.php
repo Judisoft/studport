@@ -18,10 +18,10 @@ class NewsController extends Controller
         $hotnews = News::where('category', 'hotnews')->orderBy('id', 'desc')->take(3)->get();
         $lifestyle = News::where('category', 'lifestyle')->orderBy('id', 'desc')->take(4)->get();
         $world = News::where('category', 'world')->orderBy('id', 'desc')->take(4)->get();
-
+        $jobs = News::latest()->simplePaginate(10);
         return view(
             'news',
-            compact('business', 'popular', 'hotnews', 'lifestyle', 'world', 'sports')
+            compact('business', 'popular', 'hotnews', 'lifestyle', 'world', 'sports', 'jobs')
         );
     }
 

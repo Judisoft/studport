@@ -1,93 +1,150 @@
-@extends('layouts/default')
+@extends('layouts/default1')
 
 {{-- Page title --}}
 @section('title')
-    Sent
+    Inbox
     @parent
 @stop
-
 {{-- page level styles --}}
 @section('header_styles')
-    <!-- page level css -->
     <link href="{{ asset('vendors/iCheck/css/all.css')}}" rel="stylesheet">
     <link href="{{ asset('css/pages/mail_box.css') }}" rel="stylesheet" type="text/css" />
-
+    <!-- page level css ends-->
 @stop
-{{-- Page content --}}
+ <!-- Ekko Lightbox -->
+  <link rel="stylesheet" href="{{asset('plugins/ekko-lightbox/ekko-lightbox.css')}}">
+{{-- content --}}
 @section('content')
-    <aside class="right-aside" style="background-color: #D5DDE6; padding: 15px;">
-    <!-- Content Header (Page header) -->
-        <div class="container-fluid my-3"  style="background-color: #D5DDE6; padding: 25px;">
-            <h5 style="color: #2C3E50;"> <span class="fa fa-paper-plane" aria-hidden="true"></span>
-                                 &nbsp;Sent</h5>
-            <hr>
-    <!-- Main content -->
-    <section class="content pr-3 pl-3">
-        <div class="row web-mail">
-            <div class="col-xl-2 col-md-3 col-sm-4 web-mail p-3" style="background-color: #e9ecef;">
-                <div class="whitebg1">
-                    <ul>
-                        <li class="compose">
-                            <a href="{{ URL::to('user_emails/compose') }}">
-                                <i class="fa fa-fw fa-edit"></i>
-                                &nbsp; &nbsp;Compose
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ URL::to('user_emails/inbox') }}">
-                                <i class="fa fa-inbox" aria-hidden="true"></i>
-                                &nbsp; &nbsp;Inbox
-                                @if($count>0)
-                                    <span class="badge badge-success float-right mt-1 badge-pill">{{ $count}}</span>
-                                @endif
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="{{ URL::to('user_emails/sent') }}">
-                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                &nbsp; &nbsp; Sent
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div style="height: 30px;"></div>
+        <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="compose.html" class="btn btn-primary btn-block mb-3">Compose</a>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Folders</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+              </div>
             </div>
-            <div class="col-lg-10 col-md-9 col-sm-8">
-                <div class="whitebg1 mail_inbox_all">
-                    <table class="table table-striped table-advance table-hover table-responsive" id="inbox-check">
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item active">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-inbox"></i> Inbox
+                    <span class="badge bg-primary float-right">12</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-envelope"></i> Sent
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-file-alt"></i> Drafts
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-filter"></i> Junk
+                    <span class="badge bg-warning float-right">65</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-trash-alt"></i> Trash
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Labels</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-danger"></i>
+                    Important
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-warning"></i> Promotions
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle text-primary"></i>
+                    Social
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title">Sent</h3>
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" placeholder="Search Mail">
+                  <div class="input-group-append">
+                    <div class="btn btn-primary">
+                      <i class="fas fa-search mt-1"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <div class="mailbox-controls">
+                <!-- Check all button -->
+                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i>
+                </button>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                  <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                  <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                <div class="float-right">
+                  1-50/200
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                  </div>
+                  <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+              </div>
+              <div class="table-responsive mailbox-messages">
+                <table class="table table-striped table-advance table-hover table-responsive" id="inbox-check">
                         <thead>
                         <tr>
                             <th colspan="6">
                                 <div class="row">
-                                    <div class="col-md-9 col-lg-9 col-xs-12">
-                                        <div class="btn-group float-left table-bordered paddingrightleft_10 paddingtopbottom_5px">
-                                            <input type="checkbox" id="checkall" class="icheck">
-                                            <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" href="#">
-                                            </a>
-                                            <ul class="dropdown-menu ul" aria-labelledby="dropdownMenuButton" l>
-                                                <!-- dropdown menu links -->
-                                                <li>
-                                                    <a href="#" class="all dropdown-item">All</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="mark_as_read dropdown-item">Read</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="mark_as_unread dropdown-item">UnRead</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="mark_as_star dropdown-item">Starred</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"  class="mark_as_unstar dropdown-item">Unstarred</a>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                        <div class="btn-group float-left table-bordered refresh_padding paddingrightleft_10 paddingtopbottom_5px margin_left">
-                                            <i class="fa fa-redo" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
                                     <div class="col-md-3 col-lg-3 col-xs-12">
                                         <div class="float-right">
                                             {{ $emails->links() }}
@@ -115,22 +172,8 @@
                                 </td>
                                 <td style="width:22%;" class="view-message hidden-xs">
                                     <a href="{{ URL::to('user_emails/'.$email->id ) }}">
-                                        @if($email->receiverName->pic)
-                                            <img src="{!! $email->receiverName->pic !!}" alt="img" width="35"  height="35"
-                                                 class="rounded-circle img-responsive img_height float-left"/>
-                                        @elseif(Sentinel::getUser()->gender === "male")
-                                            <img src="{{ asset('images/authors/avatar3.png') }}" alt="img" height="35px" width="35px"
-                                                 class="rounded-circle img-fluid float-left"/>
-
-                                        @elseif(Sentinel::getUser()->gender === "female")
-                                            <img src="{{ asset('images/authors/avatar5.png') }}" alt="img" height="35px" width="35px"
-                                                 class="rounded-circle img-fluid float-left"/>
-
-                                        @else
-                                            <img src="{{ asset('images/authors/no_avatar.jpg') }}" alt="img" height="35px" width="35px"
-                                                 class="rounded-circle img-fluid float-left"/>
-                                        @endif
-                                        {{ $email->receiverName->first_name }} {{ $email->receiverName->last_name }}</a>
+                                        {{ $email->receiverName->first_name }} {{ $email->receiverName->last_name }}
+                                    </a>
                                 </td>
                                 <td style="width:40%;" class="view-message ">
                                     <a href="{{ URL::to('user_emails/'.$email->id ) }}">{{ $email->subject }}</a>
@@ -143,20 +186,48 @@
                         @endforeach
                         </tbody>
                     </table>
-                </div>
+                <!-- /.table -->
+              </div>
+              <!-- /.mail-box-messages -->
             </div>
+            <!-- /.card-body -->
+            <div class="card-footer p-0">
+              <div class="mailbox-controls">
+                <!-- Check all button -->
+                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i>
+                </button>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                  <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                  <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                <div class="float-right">
+                  1-50/200
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                  </div>
+                  <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
         </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
-        </div>
-    </aside>
-
-    <!-- content -->
-
+    <!-- /.content -->
 @stop
-
-{{-- page level scripts --}}
 @section('footer_scripts')
-    <script src="{{ asset('vendors/iCheck/js/icheck.js')}}"></script>
-    <script src="{{ asset('js/pages/mail_box.js') }}"></script>
+<script src="{{ asset('vendors/iCheck/js/icheck.js')}}"></script>
+<script src="{{ asset('js/pages/mail_box.js') }}"></script>
 
 @stop
+
+
+

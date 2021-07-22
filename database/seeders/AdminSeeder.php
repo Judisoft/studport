@@ -25,12 +25,28 @@ class AdminSeeder extends DatabaseSeeder
             'password'    => "admin",
             'first_name'  => 'John',
             'last_name'   => 'Doe',
+            'department' => 'software engineering',
+            'level' => '3',
+            'institution' => 'StudPort',
+            'user_role' => 'admin',
+            'download' => '2',
+            'user_role_id' => '1',
+
         ]);
         $user = Sentinel::registerAndActivate([
             'email'       => 'user@user.com',
             'password'    => "user",
             'first_name'  => 'John',
             'last_name'   => 'Doe',
+            'department' => 'software engineering',
+            'level' => '3',
+            'institution' => 'ENSTP Yaounde',
+            'user_role' => 'user',
+            'download' => '2',
+            'user_role_id' => '2',
+
+
+
         ]);
 
         // create 2 roles

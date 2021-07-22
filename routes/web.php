@@ -311,14 +311,49 @@ Route::group(
     function () {
         Route::put('my-account', 'FrontEndController@update');
         Route::get('my-account', 'FrontEndController@myAccount')->name('my-account');
-        Route::post('my-account', 'FrontEndController@question');
-        Route::get('subscription', 'SubscriptionController@subscribe');
+        //Route::post('my-account', 'FrontEndController@question');
 
         //Newsletter 
        // Route::post('index', 'FrontEndController@newsletter')->name('newsletter');
 
     }
 );
+
+//Account Settings -- profile
+
+Route::group(
+    ['middleware' => 'user'],
+    function () {
+        Route::put('users/profile', 'AccountController@update');
+        Route::get('users/profile', 'AccountController@index')->name('profile');
+
+    }
+);
+//Questions 
+Route::group(
+    ['middleware' => 'user'],
+    function () {
+        Route::get('questions/index', 'QuestionsController@index')->name('questions');
+        Route::post('questions/create', 'QuestionsController@create');
+    }
+);
+// Subscription
+Route::group(
+    ['middleware' => 'subscription'],
+    function () {
+       
+        Route::get('subscription', 'SubscriptionController@subscribe')->name('subscription');
+    }
+);
+//Tutors
+Route::group(
+    ['middleware' => 'user'],
+    function () {
+        Route::get('tutors/index', 'TutorsController@index')->name('tutors');
+
+    }
+);
+
 // Email System
 Route::group(
     ['prefix' => 'user_emails'],
@@ -402,6 +437,10 @@ Route::get('{my_questions}/confirm-delete', 'UserBlogController@getModalDelete')
 Route::get('download', 'ExamsController@download')->middleware('download')->name('download');
 //institutions
 Route::get('institutions', 'FrontEndController@institutions')->name('institutions');
+//application routes
+Route::get('application/institutions', 'InstitutionsController@index')->name('applications');
+//Jobs
+//Route::post('jobs', 'JobsController@job')->name('jobs') ;
 
 
 

@@ -65,8 +65,9 @@ Academia
 p{
     font-size: 14px !important;
 }
-
-
+input[type="text"]{
+    border: 5px solid #000 !important;
+}
 </style>
 {{-- Page content --}}
 @section('content')
@@ -77,7 +78,7 @@ p{
           <div class="section-width mb-5">
             <div class="header-section">
                 <div class="d-flex justify-content-between">
-                    <div class="p-2 mb-2">
+                    <div class="p-2 mb-3">
                         <h1 class="text-left text-white">@if(request()->search) {{request()->search}} @else StudPort Q&A @endif</h1>
                         <div class="d-flex flex-row">
                             <div class="p-2 mt-3">
@@ -196,7 +197,8 @@ p{
     </div>
         <div class="col-md-6 col-lg-6 col-12 p-4">
                     <form class="input-group" action="{{route('blog')}}" method="GET">
-                        <select type="text" class="form-control text-dark rounded-5" name="search" value="{{request()->query('search')}}"  style="font-size: 14px !important; height: 50px; font-weight: 400; background-color:#fff;">
+                        <select type="text" class="form-control select2 text-dark rounded-5" name="search" value="{{request()->query('search')}}"  
+                        style="font-size: 14px !important; height: 50px; font-weight: 400; background-color:#fff;">
                             <option value="">Select Institution</option>
                             @foreach($user_institutions as $user_institution)
                             <option value="{{$user_institution->institution}}">{{$user_institution->institution}}</option>
@@ -220,9 +222,9 @@ p{
                     <div class="card card-body p-2" style="border: 1px solid #EAECEE;">
                     <div class="d-flex justify-content-between">
                         <div class="p-2">
-                            <a href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-danger text-capitalize"> 
+                            <a href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-danger"> 
                                 <h3>{{$blog->title}}</h3>
-                            </a>
+                            </a>   
                         </div>
                         <div class="p-2">
                             <a href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-dark"> 
@@ -232,7 +234,7 @@ p{
                     </div>
                     <div class="d-flex flex-row">
                         <div class="p-1">
-                            <h6><a href="{{ URL::to('blogitem/'.$blog->slug) }}">{!! $blog->content !!}</a></h6><br>
+                            <a href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-dark"><small>{!! $blog->content !!}</small></a><br>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -266,8 +268,8 @@ p{
                     </div>
                     <hr>
                       <div class="d-flex flex-row">
-                        <div class="p-2"><span class="fa fa-share-alt text-dark px-3"></span></div>
-                        <div class="addthis_inline_share_toolbox "></div>
+                        <div class="p-2">Share On</div>
+                        <div class="p-2 addthis_inline_share_toolbox "></div>
                     </div>
                     </div>
                 </div>
@@ -301,7 +303,7 @@ p{
                     </div>
                     <div class="d-flex flex-row">
                         <div class="p-1">
-                            <h6><a href="{{ URL::to('blogitem/'.$blog->slug) }}">{!! $blog->content !!}</a></h6><br>
+                            <small><a href="{{ URL::to('blogitem/'.$blog->slug) }}" class="text-dark">{!! $blog->content !!}</a></small><br>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -330,13 +332,13 @@ p{
                                 <img src="{{$blog->author->pic}}" alt="img" width="50px"  height="50px" class="br-5" /><br>
                             @else<img src="{{asset('images/avatar3.png')}}" alt="img" width="50px"  height="50px" class="br-5"/><br>
                             @endif
-                        <small class="text-right"><b>{{$blog->author->first_name}}</b> @if ($blog->author->account_type != 'trial') <br><span class="badge badge-primary text-white"><span class="fa fa-check-circle px-1"></span>verified</span> @endif</small>
+                        <small class="text-right"><b>{{$blog->author->first_name. ' '.$blog->author->last_name }}</b> @if ($blog->author->account_type != 'trial') <br><span class="badge badge-primary text-white"><span class="fa fa-check-circle px-1"></span>verified</span> @endif</small>
                         </div>
                     </div>
                     <hr>
                     <div class="d-flex flex-row">
-                        <div class="p-2"><span class="fa fa-share-alt text-dark px-3"></span></div>
-                        <div class="addthis_inline_share_toolbox "></div>
+                        <div class="p-2">Share This</div>
+                        <div class="p-2 addthis_inline_share_toolbox "></div>
                     </div>
                     </div>
                 </div>
@@ -358,24 +360,20 @@ p{
         <!-- /.col-md-8 -->
         <div class="col-md-3 col-lg-3 col-12">
             <div class="card-body rounded-0" style="top: -10px;">
-                <div class="d-flex justify-content-end">
-                    <div class="p-1 mt-3">
-                        <img src="{{asset('images/elearning.png')}}" style="height: 75px; width: 75px;">
-                    </div>
+                <div class="d-flex justify-content-center">
                     <div class="p-1">
-                        <h1 class="p-2 text-center text-dark">Tutoring Jobs</h1>
+                        <h4 class="p-2 text-center text-dark">Jobs</h4>
                     </div>
-
                 </div>
                     <div class="p-2">
                         @forelse($jobs as $job)
                                 <div class="mt-3">
                                 <div class="card card-body">
-                                <small class="text-settings"><b>{{$job->title }}</b></small><hr>
+                                <small class="text-settings"><h6>{{$job->title }}</h6></small><hr>
                                 <div class="d-flex flex-column">
                                     <div class="p-1"><small class="py-2"><b>Employer</b>: {{$job->employer}}</small></div>
                                     <div class="p-1"><small class="py-2"><b>Location</b>: {{$job->location}}</small></div>
-                                    <div class="p-1"><small class="py-2"><b>Salary</b>: {{$job->salary}}</small></div>
+                                    <div class="p-1"><small class="py-2"><b>Salary</b>: {{$job->salary}} &nbsp; FCFA</small></div>
                                 </div>
                                 <a href="{{ route('news.show',$job->id) }}" class="btn btn-sm btn-index"><small>Apply for this Job</small></a>
                                  </div>

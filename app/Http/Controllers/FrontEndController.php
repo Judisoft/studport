@@ -44,6 +44,7 @@ use App\Models\Book;
 use App\Models\Newsletter;
 use App\Models\Contact;
 use App\Models\Library;
+use App\Models\Institution;
 
 class FrontEndController extends JoshController
 {
@@ -298,8 +299,9 @@ class FrontEndController extends JoshController
      */
     public function getRegister()
     {
+        $institutions = Institution::all();
         // Show the page
-        return view('register');
+        return view('register', compact('institutions'));
     }
 
     /**

@@ -16,8 +16,9 @@
  
     <!--end of global css-->
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
    
     <!-- Google fonts -->   
 
@@ -27,6 +28,9 @@
 <!--end of page level css-->
 </head>
 <style>
+body{
+    font-family: 'Nunito Sans', sans-serif !important;
+}
     .btn-nav{
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
@@ -211,7 +215,9 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 .navbar-shadow{
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    /*box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+    /*box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 </style>
 
@@ -221,21 +227,11 @@
     <div class="hero-header-11">
         <div class="hero-header-11-content">
             <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg fixed-top  navbar-light" style="background-color: #FDFDFE; height: 75px;">
+                <nav class="navbar navbar-expand-lg fixed-top  navbar-light" style="background-color: #FDFDFE; height: 75px; border-bottom: 1px solid #eee;">
                     <div class="d-flex justify-content-between">
                     <div class="p-2 mt-1"> <a class="navbar-brand" href="{{route('home')}}">
-                        <img src="{{asset('images/my-logo.png')}}" title="StudPort"/>
+                        <small>StudP</small><img src="{{asset('images/my-logo.png')}}" title="StudPort"/></small>rt</small>
                         </a>
-                    </div>
-                    <div class="px-2 pt-3">
-                        @if(Sentinel::guest()) 
-                            <a class="navbar-brand" href="{{route('login')}}">
-                                <img src="{{asset('images/user.png')}}" title="StudPort" style="height: 20px; width: 20px;"/>
-                            </a>
-                            <a href="{{route('login')}}">Sign In</a>&nbsp;|&nbsp;<a href="{{route('register')}}"> Sign Up</a>
-                        @else
-                            <a><i id="toggle-search" class="icon-magnifier px-2" style="font-wight: 600;"></i></a>
-                        @endif
                     </div>
                     </div> 
                     
@@ -248,30 +244,30 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item {!! (Request::is('/') ? 'active' : '') !!}">
-                                    <a class="nav-link text-capitalize" href="{{ route('home') }}">Home</a>
+                                    <a class="nav-link " href="{{ route('home') }}">Home</a>
                                 </li>
                                 <li class="nav-item {!! (Request::is('about_us') ? 'active' : '') !!}">
-                                    <a class="nav-link text-capitalize" href="{{route('about')}}">About Us</a>
+                                    <a class="nav-link" href="{{route('about')}}">About Us</a>
                                 </li>
                                 <li class="nav-item {!! (Request::is('services') ? 'active' : '') !!}">
-                                    <a class="nav-link text-capitalize" href="{{ route('services')}}">Our Services</a>
+                                    <a class="nav-link" href="{{ route('services')}}">Our Services</a>
                                 </li>
                                 <li class="nav-item {!! (Request::is('blog') ? 'active' : '') !!}">
-                                    <a class="nav-link text-capitalize" href="{{ route('blog') }}">Q&A Blog</a>
+                                    <a class="nav-link" href="{{ route('blog') }}">Q&A Blog</a>
                                 </li>
                                 <li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
-                                    <a class="nav-link text-capitalize" href="{{ URL::to('contact') }}">Contact Us</a>
+                                    <a class="nav-link" href="{{ URL::to('contact') }}">Contact Us</a>
                                 </li>
 
                                 @if(Sentinel::check())
                                 <li class=" nav-item {!! (Request::is('my-account') ? 'active' : '') !!}">
-                                    <a href="{{ URL::to('my-account') }}" class="nav-link text-capitalize">My Portal</a>
+                                    <a href="{{ URL::to('my-account') }}" class="nav-link">My Portal</a>
                                 </li>
                                 <li class=" nav-item {!! (Request::is('user_emails/inbox') ? 'active' : '') !!}">
-                                    <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link text-capitalize">Messages &nbsp;<span class="badge badge-success p-1">{{$count}}&nbsp;new</span></a>
+                                    <a href="{{ URL::to('user_emails/inbox') }}" class="nav-link">Messages &nbsp;<span class="badge badge-danger p-1">{{$count}}&nbsp;new</span></a>
                                 </li>
                                 <li class=" nav-item">
-                                    <a href="{{ URL::to('logout') }}" class="nav-link text-capitalize">Logout</a>
+                                    <a href="{{ URL::to('logout') }}" class="nav-link">Logout</a>
                                 </li>
                                 @endif
                               
@@ -281,10 +277,10 @@
                                     @if(Sentinel::getUser()->pic)
                                             <img src="{{ Sentinel::getUser()->pic }}" alt="img"
                                                 class="img-fluid" style="width: 30px; height: 30px; border-radius: 50%;" />
-                                    @elseif($user->gender === "male")
+                                    @elseif(Sentinel::getUser()->gender === "male")
                                             <img src="{{ asset('images/authors/avatar3.png') }}" alt="..."
                                                  class="img-fluid" style="width: 30px; height: 30px; border-radius: 50%;"/>
-                                    @elseif($user->gender === "female")
+                                    @elseif(Sentinel::getUser()->gender === "female")
                                             <img src="{{ asset('images/authors/avatar5.png') }}" alt="..."
                                                 class="img-fluid" style="width: 30px; height: 30px; border-radius: 50%;"/>
                                     @else
@@ -302,55 +298,14 @@
 </header>
                         
 @yield('top')
-<div style="height: 100px; background-color: #FDFDFE;"></div>
-    <div class="p-3 mt-1"style="display:none; background-color: #EEF4FA;" id="searchBar" >
+
+    <div class="p-3 mt-1" style="display:none; background-color: #EEF4FA;" id="searchBar" >
         <form action="#"  method="GET">
             <input type="search" class="form-control m-auto" name='search'  placeholder="Search Studport ..." style="width: 75%;">
         </form>
     </div>
 <!-- Content -->
 @yield('content')
-
-                                     @if(session()->has('success'))
-                                               <script type="text/javascript">
-                                                    $(document).ready(function() {
-                                                        $('#popupmodal').modal();
-                                                    });
-                                                </script>
-                                                
-                                            <div class="modal fade" id="popupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-body">
-                                                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                                <div class="d-flex justify-content-center">
-                                                                    <div class="p-3 ">{{Session::get('success')}}</div>
-                                                                </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-
-                                        @if(session()->has('error'))
-                                            <script type="text/javascript">
-                                                    $(document).ready(function() {
-                                                        $('#popupmodal').modal();
-                                                    });
-                                                </script>
-                                                
-                                            <div class="modal fade" id="popupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-body">
-                                                        <div class="d-flex justify-content-center">
-                                                            <div class="p-3">{{Session::get('error')}}</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
 <!-- Footer Section Start -->
 
 <footer class="w3l-footer-29-main" id="footer">
@@ -363,29 +318,10 @@
                     <form action="{{route('my-account')}}" method="POST" class="form-group">
                                 <div class="form-group mt-3">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                    <input type="email" name="email" placeholder="Your email here" class="form-control border-dark rounded-0" required>
+                                    <input type="email" name="email" placeholder="Your email here" class="form-control border-dark" required>
                                 </div>
-                                <button type="submit" class="btn btn-info theme-button rounded-0">Subscribe</button>
+                                <button type="submit" class="btn btn-sm btn-index">Subscribe</button>
                         </form>
-                        <h6 class="footer-title-29">Follow Us Social Media</h6>
-                        <div class="d-flex flex-row">
-                            <div class="p-2"> <a href="#" class="facebook">
-                                                <i class="livicon circle-icon-blue" data-name="facebook" data-size="20" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                                                </a>
-                            </div>
-                            <div class="p-2"> <a href="#" class="facebook">
-                                                <i class="livicon circle-icon-twitter-blue" data-name="twitter" data-size="20" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                                                </a>
-                            </div>
-                            <div class="p-2"> <a href="#" class="facebook">
-                                                <i class="livicon circle-icon-purple" data-name="instagram" data-size="20" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                                                </a>
-                            </div>
-                            <div class="p-2"> <a href="#" class="facebook">
-                                                <i class="livicon circle-icon-red" data-name="youtube" data-size="20" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                                                </a>
-                            </div>
-                        </div>
                     </div>
                 <div class="col-lg-2 col-md-6 footer-list-29 footer-2 mt-5">
                     <h6 class="footer-title-29">Explore More</h6>

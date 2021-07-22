@@ -9,8 +9,9 @@ use App\Models\BlogCategory;
 use App\Models\BlogComment;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Sentinel;
 
-class QuestionsController extends Controller
+class QuestionsController extends JoshController
 {
 
     /**
@@ -20,10 +21,8 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        // Grab all the blogs
-        $blogs = Blog::all();
-        // Show the page
-        return view('admin.blog.index', compact('blogs'));
+        $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->latest()->simplePaginate(25);
+       return view('questions/index', compact('user_questions'));
     }
 
     /**
@@ -34,7 +33,7 @@ class QuestionsController extends Controller
     public function create()
     {
         $blogcategory = BlogCategory::pluck('title', 'id');
-        return view('admin.blog.create', compact('blogcategory'));
+        return view('questions.create', compact('blogcategory'));
     }
 
     /**

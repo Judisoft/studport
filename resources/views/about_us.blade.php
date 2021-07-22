@@ -1,282 +1,372 @@
-@extends('layouts/default')
+@extends('layouts/starter')
 
 {{-- Page title --}}
 @section('title')
-About
+Home
 @parent
 @stop
 
 {{-- page level styles --}}
 @section('header_styles')
-<!--page level css starts-->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
-<!--end of page level css-->
 @stop
+{{-- breadcrumb --}}
+@section('top')
+
+@stop
+
 
 {{-- Page content --}}
 @section('content')
-<!-- Container Section Strat -->
- <!--  Intro section -->
- <section class="w3l-get-started-index" id="intro">
-    <div class="new-block-about top-bottom"  style="max-height:calc(20vh - 0px) !important;">
-      <div class="container">
-        <div class="middle-section text-center">
-          <div class="section-width mb-5">
-            <div class="header-section">
-            <h1 class="text-left text-white">About Us </h1>
-            <br>
-            <h6 class="text-left"><a href="{{route('home')}}">Home</a>&nbsp;/&nbsp;<a class="text-white">About Us</a></h6>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!--  //Main banner section -->
-<section class="w3l-index5" id="about" style="background-color: #fff !important;">
-    <div class="new-block py-5">
-        <div class="container py-lg-3">
-        <div class="header-section text-center mt-5">
-            <h1 class="text-dark text-center">Who We Are</h1>
-                <img src="{{asset('images/who_we_are.jpg')}}" class="img-fluid">
-                  <p>We are a team of software engineers, university professors, certified secondary and high school teachers.
-                  </p>
-            </div>
-            <div class="header-section text-center">
-            <h1 class="text-dark text-center mt-5">What We seek to Accomplish - <b class="text-success">Digital Communities</b></h1>
-                <img src="{{asset('images/background6.jpg')}}" class="img-fluid">
-                  <p>Our goal is to build virtual communities where students and teachers connect. 
-                    We equally seek to empower learners with academic resources and connect them to solutions
-                    that enable academic growth, discovery, and success.
-                  </p>
-            </div>
-            <div class="header-section text-center mt-5">
-            <h1 class="text-dark text-center">How to Join the StudPort Community </h1>
-            <img src="{{asset('images/register2.jpg')}}" class="img-fluid">
-            <p class="blog-text mt-3">StudPort is an open community for every student.
-            Create your account, It's free, It only takes three simple steps </p>
-              <div class="d-flex flex-column justify-content-center mt-3">
-                <div class="p-3">
-                    <div class="d-flex flex-row justify-content-center">
-                      <div class="p-2"><img src="{{asset('images/one.png')}}" style="height: 50px; width: 50px;"></div>
-                      <div class="p-2 mt-2"><h4>Fill the registration <a href="{{ URL::to('register') }}" >form</a></h4></div>
-                    </div>
-                </div>
-                <div class="p-3">
-                    <div class="d-flex flex-row justify-content-center">
-                      <div class="p-2"><img src="{{asset('images/two.png')}}" style="height: 50px; width: 50px;"></div>
-                      <div class="p-2 mt-2">
-                      <h4>Verify your email address</h4>
-                      </div>
-                    </div>
-                </div>
-                <div class="p-3">
-                  <div class="d-flex flex-row justify-content-center">
-                      <div class="p-2"><img src="{{asset('images/three.png')}}" style="height: 50px; width: 50px;"></div>
-                      <div class="p-2 mt-2"><h4>Your account is now set.</h4></div>
-                    </div>
-                </div>
-            </div>
-                  
-            </div>
-        </div>
-    </div>
-</section>
-  <!--  //about section -->
-<!-- team -->
-<section class="w3l-team" id="team">
-  <div class="team-block">
-    <div class="container">
-      <div class="wthree-title">
-        <div class="header-section text-center mt-5">
-          <h1 class="text-dark">Our Team</h1>
-          <p>We are true to ourselves, and commit to always perform at our best.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-sm-6 mt-5">
-          <div class="box16">
-            <a href="#url"><img src="{{asset('images/student1.jpg')}}" alt="" class="img-fluid" /></a>
-            <div class="box-content">
-              <h3 class="title"><a href="#url">StudPort</a></h3>
-              <span class="post">CEO/Founder</span>
-              <ul class="social">
-                <li>
-                  <p class="text-white">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </li>
-                <li>
-                  <a href="#" class="facebook py-2">
-                <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-                <li>
-                  <a href="#" class="facebook py-2">
-                  <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mt-5">
-          <div class="box16">
-            <a href="#url"><img src="{{asset('images/student1.jpg')}}" alt="" class="img-fluid" /></a>
-            <div class="box-content">
-              <h3 class="title"><a href="#url">StudPort</a></h3>
-              <span class="post">CTO/Managing Director</span>
-              <ul class="social">
-                <li>
-                  <p class="text-white">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </li>
-                <li>
-                   <a href="#" class="facebook py-2">
-                <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-                <li>
-               <a href="#" class="facebook py-2">
-                  <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mt-5">
-          <div class="box16">
-            <a href="#url"><img src="{{asset('images/student1.jpg')}}" alt="" class="img-fluid" /></a>
-            <div class="box-content">
-              <h3 class="title"><a href="#url">StudPort</a></h3>
-              <span class="post">Academic Director</a></span>
-              <ul class="social">
-               <li>
-                  <p class="text-white">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </li>
-                <li>
-                    <a href="#" class="facebook py-2">
-                <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-                <li>
-                 <a href="#" class="facebook py-2">
-                  <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mt-5">
-          <div class="box16">
-            <a href="#url"><img src="{{asset('images/student1.jpg')}}" alt="" class="img-fluid" /></a>
-            <div class="box-content">
-              <h3 class="title"><a href="#url">StudPort</a></h3>
-              <span class="post">Partnerships Manager</a></span>
-              <ul class="social">
-               <li>
-                  <p class="text-white">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </li>
-                <li>
-                    <a href="#" class="facebook py-2">
-                <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-                <li>
-                  <a href="#" class="facebook py-2">
-                  <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mt-5">
-          <div class="box16">
-            <a href="#url"><img src="{{asset('images/student1.jpg')}}" alt="" class="img-fluid" /></a>
-            <div class="box-content">
-              <h3 class="title"><a href="#url">StudPort</a></h3>
-              <span class="post">Financial Director</span>
-              <ul class="social">
-              <li>
-                  <p class="text-white">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </li>
-                <li>
-                    <a href="#" class="facebook py-2">
-                <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-                <li>
-                  <a href="#" class="facebook py-2">
-                  <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 mt-5">
-          <div class="box16">
-            <a href="#url"><img src="{{asset('images/student1.jpg')}}" alt="" class="img-fluid" /></a>
-            <div class="box-content">
-              <h3 class="title"><a href="#url">StudPort</a></h3>
-              <span class="post">Developer/Consultant</span>
-              <ul class="social">
-               <li>
-                  <p class="text-white">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </li>
-                <li>
-                    <a href="#" class="facebook py-2">
-                <i class="livicon" data-name="facebook" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-                <li>
-                <a href="#" class="facebook py-2">
-                  <i class="livicon" data-name="twitter" data-size="30" data-c="#fff" data-hc="#fff" data-loop="false" data-animate="false"></i>
-                </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- stats -->
-<section class="w3l-stats py-lg-5 mt-4" id="stats">
-  <div class="gallery-inner container py-md-5 py-4">
-    <div class="row stats-con text-white">
-      <div class="col-md-3 col-6 stats_info counter_grid">
-        <span class="fa fa-institution"></span>
-        <p class="counter">{{$number_of_institutions}}</p>
-        <h4>Institutions</h4>
-      </div>
-      <div class="col-md-3 col-6 stats_info counter_grid1">
-        <span class="fa fa-users"></span>
-        <p class="counter">{{$number_of_teachers}}</p>
-        <h4>Certified Teachers</h4>
-      </div>
-      <div class="col-md-3 col-6 stats_info counter_grid mt-md-0 mt-5">
-        <span class="fa fa-history"></span>
-        <p class="counter">{{$experience}}</p>
-        <h4>Years of Experience</h4>
-      </div>
-      <div class="col-md-3 col-6 stats_info counter_grid2 mt-md-0 mt-5">
-        <span class="fa fa-graduation-cap"></span>
-        <p class="counter">{{$number_of_students}}</p>
-        <h4>Students Enrolled</h4>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- //stats -->
-<!-- //team -->
+  
+<!--================================
+=            Page Title            =
+=================================-->
 
+<section class="section page-title">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 m-auto">
+				<!-- Page Title -->
+				<h1>About StudPort</h1>
+				<!-- Page Description -->
+				<p>StudPort is a digital platform developed to facilitate teacher-student-institution interactions. 
+                    It is a student-focused community with teacher-assistance where students can ask questions in an open community and 
+                    recieve answers.
+                   equips learning institutions with appropriate technologies to facilitate the teaching & learning processes.
+                  We offer training and Staff capacity building in Information Technologies to increase performance and success.
+        </p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--====  End of Page Title  ====-->
+
+
+<!--===============================
+=            Our Story            =
+================================-->
+<section class="section about p-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 align-self-center">
+				<div class="content text-center text-lg-left">
+					<!-- Headline -->
+					<h2>This is our story.</h2>
+					<!-- Story -->
+					<p>We’re here for those who refuse to settle. Who never stop moving forwards. Who continue to search for new ideas and better experiences in everything they do.
+					Because today’s hyper-connected world deserves a financial partner just as progressive.One that adapts to your needs, gives you control and constantly pushes you into new exciting spaces.</p>
+				</div>
+			</div>
+			<div class="col-lg-6 mt-4 mt-lg-0">
+				<!-- Story Image Slider -->
+				<div class="about-slider">
+					<!-- Story Image -->
+					<div class="item">
+						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
+					</div>
+					<!-- Story Image -->
+					<div class="item">
+						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
+					</div>
+					<!-- Story Image -->
+					<div class="item">
+						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Our Story  ====-->
+
+<!--================================
+=            Behind Story          =
+=================================-->
+<section class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-title mb-0">
+					<h2>Why we created <a href="{{route('home')}}">Small Apps</a></h2>
+					<p>Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Proin eget tortor risus. Proin eget tortor risus. Proin eget tortor risus. Nulla quis lorem ut libero malesuada feugiat. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Behind Story  ====-->
+
+<!--==================================
+=            Create Story            =
+===================================-->
+<section class="section create-stories pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="block">
+					<!-- Image -->
+					<img class="img-fluid" src="images/blog/post-01.jpg" alt="Story-Image">
+					<!-- Heading -->
+					<h3>Our Story</h3>
+					<!-- Story -->
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+				</div>
+			</div>
+			<div class="col-lg-6 mt-5 mt-lg-0">
+				<div class="block">
+					<!-- Image -->
+					<img class="img-fluid" src="images/blog/post-03.jpg" alt="Story-Image">
+					<!-- Heading -->
+					<h3>What we do</h3>
+					<!-- Story -->
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Create Story  ====-->
+
+
+<!--=====================================
+=            Quotes Slider              =
+======================================-->
+<section class="section quotes pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-10 m-auto text-center">
+				<div class="quote-slider">
+					<div class="item mb-4">
+						<!-- Quote -->
+						<h2>Behind every great product, there is a great mind.</h2>
+						<!-- Company -->
+						<cite class="ml-0">-TechCrunch</cite>
+					</div>
+					<div class="item mb-4">
+						<!-- Quote -->
+						<h2>Behind every great product, there is a great mind.</h2>
+						<!-- Company -->
+						<cite class="ml-0">-TechCrunch</cite>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Quotes Slider  ====-->
+
+<!--=====================================
+=            Client Slider              =
+======================================-->
+<section class="section clients bg-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-10 m-auto text-center">
+				<h3>Featured In</h3>
+				<div class="client-slider">
+					<div class="item mb-4">
+						<img class="m-auto" src="images/clients/business-finder.png" alt="business-finder">
+					</div>
+					<div class="item mb-4">
+						<img class="m-auto" src="images/clients/forbes.png" alt="forbes">
+					</div>
+					<div class="item mb-4">
+						<img class="m-auto" src="images/clients/venture-beat.png" alt="venture-beat">
+					</div>
+					<div class="item mb-4">
+						<img class="m-auto" src="images/clients/tech-crunch-new.png" alt="TechCrunch">
+					</div>
+					<div class="item mb-4">
+						<img class="m-auto" src="images/clients/forbes.png" alt="forbes">
+					</div>
+					<div class="item mb-4">
+						<img class="m-auto" src="images/clients/venture-beat.png" alt="venture-beat">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Client Slider  ====-->
+
+<!--==============================
+=            Investors           =
+===============================-->
+<section class="section investors">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-title">
+					<h2>Our Angel Investors</h2>
+					<p>Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo, lacinia
+					eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. </p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-sm-6">
+				<div class="block text-center">
+					<!-- Investor Image -->
+					<div class="image shadow hover-zoom">
+						<img class="img-fluid" src="images/team/marketing-team-01.jpg" alt="investor">
+					</div>
+					<!-- Company -->
+					<h3>Spider Web</h3>
+					<!--  -->
+					<p>Investor</p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-sm-6">
+				<div class="block text-center">
+					<!-- Investor Image -->
+					<div class="image shadow hover-zoom">
+						<img class="img-fluid" src="images/team/marketing-team-02.jpg" alt="investor">
+					</div>
+					<!-- Company -->
+					<h3>Spider Web</h3>
+					<!--  -->
+					<p>Investor</p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-sm-6">
+				<div class="block text-center">
+					<!-- Investor Image -->
+					<div class="image shadow hover-zoom">
+						<img class="img-fluid" src="images/team/marketing-team-03.jpg" alt="investor">
+					</div>
+					<!-- Company -->
+					<h3>Spider Web</h3>
+					<!--  -->
+					<p>Investor</p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-sm-6">
+				<div class="block text-center">
+					<!-- Investor Image -->
+					<div class="image shadow hover-zoom">
+						<img class="img-fluid" src="images/team/design-team-01.jpg" alt="investor">
+					</div>
+					<!-- Company -->
+					<h3>Spider Web</h3>
+					<!--  -->
+					<p>Investor</p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-sm-6">
+				<div class="block text-center">
+					<!-- Investor Image -->
+					<div class="image shadow hover-zoom">
+						<img class="img-fluid" src="images/team/design-team-02.jpg" alt="investor">
+					</div>
+					<!-- Company -->
+					<h3>Spider Web</h3>
+					<!--  -->
+					<p>Investor</p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-sm-6">
+				<div class="block text-center">
+					<!-- Investor Image -->
+					<div class="image shadow hover-zoom">
+						<img class="img-fluid" src="images/team/design-team-03.jpg" alt="investor">
+					</div>
+					<!-- Company -->
+					<h3>Spider Web</h3>
+					<!--  -->
+					<p>Investor</p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-sm-6">
+				<div class="block text-center">
+					<!-- Investor Image -->
+					<div class="image shadow hover-zoom">
+						<img class="img-fluid" src="images/team/design-team-01.jpg" alt="investor">
+					</div>
+					<!-- Company -->
+					<h3>Spider Web</h3>
+					<!--  -->
+					<p>Investor</p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-4 col-sm-6">
+				<div class="block text-center">
+					<!-- Investor Image -->
+					<div class="image shadow hover-zoom">
+						<img class="img-fluid" src="images/team/marketing-team-02.jpg" alt="investor">
+					</div>
+					<!-- Company -->
+					<h3>Spider Web</h3>
+					<!--  -->
+					<p>Investor</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--===============================
+=            Our Story            =
+================================-->
+<section class="section about pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 align-self-center">
+				<div class="content text-center text-lg-left">
+					<!-- Headline -->
+					<h2>This is our story.</h2>
+					<!-- Story -->
+					<p>We’re here for those who refuse to settle. Who never stop moving forwards. Who continue to search for new ideas and better experiences in everything they do.
+					Because today’s hyper-connected world deserves a financial partner just as progressive.One that adapts to your needs, gives you control and constantly pushes you into new exciting spaces.</p>
+				</div>
+			</div>
+			<div class="col-lg-6 mt-5 mt-lg-0">
+				<!-- Story Image Slider -->
+				<div class="about-slider">
+					<!-- Story Image -->
+					<div class="item">
+						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
+					</div>
+					<!-- Story Image -->
+					<div class="item">
+						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
+					</div>
+					<!-- Story Image -->
+					<div class="item">
+						<img class="w-100" src="images/about/story-slider-01.jpg" alt="slider-image">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Our Story  ====-->
+
+<!--=====================================
+=            Section comment            =
+======================================-->
+
+<section class="section cta-hire bg-gary">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<!-- Hire Title -->
+				<h2>We are hunting Genius Developers</h2>
+				<!-- Job Description -->
+				<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque
+					in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
+				<!-- Action Button -->
+				<a href="contact.html" class="mt-3 btn btn-main-md">Join the team</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--====  End of Section comment  ====-->
+
+    
 @stop
 
 {{-- page level scripts --}}
 @section('footer_scripts')
 
 @stop
+

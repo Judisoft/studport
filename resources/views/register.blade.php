@@ -222,8 +222,12 @@ h4{
                     </div>
                      <div class="form-group {{ $errors->first('institution', 'has-error') }}">
                         <label class="sr-only"> Institution</label>
-                        <input type="text" class="form-control rounded-0" id="institution" name="institution" placeholder="Institution"
-                            value="{!! old('institution') !!}">
+                        <select type="text" class="form-control rounded-0" id="institution" name="institution">
+                          <option value="">Select Institution</option>
+                          @foreach ($institutions as $institution)
+                              <option value="{{$institution->institution_name}}">{{$institution->institution_name}}</option>
+                          @endforeach
+                        </select>
                         {!! $errors->first('institution', '<span class="help-block">:message</span>') !!}
                     </div>
                      <div class="form-group {{ $errors->first('department', 'has-error') }}">
