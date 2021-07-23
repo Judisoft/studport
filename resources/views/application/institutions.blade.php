@@ -560,8 +560,9 @@ textarea{
             theme:"bootstrap"
         });
     </script>
-     <script>
 
+     <script>
+/*
         $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
             localStorage.setItem('activeTab', $(e.target).attr('href'));
         });
@@ -571,8 +572,9 @@ textarea{
         if (activeTab) {
             $('a[href="' + activeTab + '"]').tab('show');
         }
+        */
     </script>
-   
+
 @stop
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-607ca9281aff28eb"></script>
