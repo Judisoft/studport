@@ -36,7 +36,6 @@ Home
 				<h1 class="text-white font-weight-bold mb-4">The number one portal for learners</h1>
 				<p class="text-white mb-5">We have all the resources you need. Get everything you need as a student in one place!</p>
 				<a href="{{route('register')}}" class="btn btn-main-md"><b>Get Started Now</b></a>
-				<h1>Didean</h1>
 			</div>
 			<div class="col-md-6 text-center order-1 order-md-2">
 				<img class="img-fluid" src="images/mobile.png" alt="screenshot">
