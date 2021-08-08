@@ -418,7 +418,7 @@ Route::post('user_dashboard', 'BooksController@store');
 // Newsletter Route
 Route::post('/', 'FrontEndController@newsletter');
 //Exams
-Route::resource('exams','ExamsController');
+Route::resource('exams', 'ExamsController');
 //Route::get('exams/index', 'ExamsController@index');
 Route::get('exams/{uuid}/download', 'ExamsController@download')->name('exams.download');
 //Library
@@ -439,8 +439,9 @@ Route::get('download', 'ExamsController@download')->middleware('download')->name
 Route::get('institutions', 'FrontEndController@institutions')->name('institutions');
 //application routes
 Route::get('application/institutions', 'InstitutionsController@index')->name('applications');
-//Jobs
-//Route::post('jobs', 'JobsController@job')->name('jobs') ;
+//Statistika routes
+Route::get('statistika/index', 'StatistikaController@index')->name('statistika');
+
 
 
 

@@ -24,21 +24,10 @@
     @yield('header_styles')
 <!--end of page level css-->
 </head>
-<style>
-.btn-sell{
-    color: #fff;
-    background-color: var(--primary);
-    padding: 0;
-    border-radius:1.5em;
-    font-weight: 700;
 
-}
-
-</style>
 <body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
 
-
-<nav class="navbar main-nav fixed-top navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0" style="overflow-x: hidden;">
+<nav class="navbar main-nav fixed-top navbar-expand-lg border-bottom px-2 px-sm-0 py-2 py-lg-0">
   <div class="container">
     <a class="navbar-brand" href="index.html">logo here</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -47,40 +36,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-       <li class="nav-item {!! (Request::is('/') ? 'active' : '') !!}">
+        <li class="nav-item @@contact active">
           <a class="nav-link" href="{{route('home')}}">Home</a>
         </li>
-        <li class="nav-item dropdown {!! (Request::is('services') ? 'active' : '') !!}">
-          <a class="nav-link dropdown-toggle" href="{{ route('home') }}" data-toggle="dropdown">Services
-            <span><i class="ti-angle-down"></i></span>
-          </a>
-        
-          <!-- Dropdown list -->
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="index.html">Q&A Managemet</a></li>
-            <li><a class="dropdown-item" href="homepage-2.html">General IT Support</a></li>
-            <li><a class="dropdown-item active3" href="homepage-3.html">Jobs</a></li>
-            <li><a class="dropdown-item active3" href="homepage-3.html">Internship Placements</a></li>
-            <li><a class="dropdown-item active3" href="homepage-3.html">Online Application</a></li>
-
-          </ul>
-        </li>
-        <li class="nav-item dropdown @@pages">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Academics
-            <span><i class="ti-angle-down"></i></span>
-          </a>
-          <!-- Dropdown list -->
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item @@team" href="team.html">Questions and answer</a></li>
-            <li><a class="dropdown-item @@career" href="career.html">Online Courses</a></li>
-            <li><a class="dropdown-item @@blog" href="blog.html">Digital Library</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {!! (Request::is('about_us') ? 'active' : '') !!}" href="{{route('about')}}">Admissions</a>
-        </li>
-            <li class="nav-item dropdown {!! (Request::is('about_us') ? 'active' : '') !!}">
-          <a class="nav-link dropdown-toggle" href="{{route('about')}}" data-toggle="dropdown">About
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">About Us
             <span><i class="ti-angle-down"></i></span>
           </a>
           <!-- Dropdown list -->
@@ -91,8 +51,42 @@
             <li><a class="dropdown-item @@blog" href="blog.html">Privacy Policies</a></li>
           </ul>
         </li>
-        <li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
-          <a class="nav-link" href="{{route('contact')}}">Contact</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Services
+            <span><i class="ti-angle-down"></i></span>
+          </a>
+          <!-- Dropdown list -->
+          <ul class="dropdown-menu">
+            <li class="dropdown dropdown-submenu dropright">
+              <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdown0301">
+                <li><a class="dropdown-item" href="index.html">Questions and answer</a></li>
+                <li><a class="dropdown-item" href="index.html">Online Courses</a></li>
+                <li><a class="dropdown-item" href="index.html">Digital Library</a></li>
+              </ul>
+            </li>
+            <li><a class="dropdown-item" href="homepage-2.html">General IT Support</a></li>
+            <li><a class="dropdown-item active3" href="homepage-3.html">Internship Placements</a></li>
+            <li><a class="dropdown-item active3" href="homepage-3.html">Online Application</a></li>
+            <li><a class="dropdown-item active3" href="homepage-3.html">Tutoring Jobs</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">About Us
+            <span><i class="ti-angle-down"></i></span>
+          </a>
+          <!-- Dropdown list -->
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item @@team" href="team.html">Our Team</a></li>
+            <li><a class="dropdown-item @@career" href="career.html">FAQs</a></li>
+            <li><a class="dropdown-item @@blog" href="blog.html">Our Mission</a></li>
+            <li><a class="dropdown-item @@blog" href="blog.html">Privacy Policies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item @@contact">
+          <a class="nav-link" href="contact.html">Contact</a>
         </li>
         <li class="nav-item {!! (Request::is('register') ? 'active' : '') !!}">
           <a class="nav-link" href="{{route('register')}}">Register</a>
@@ -100,13 +94,13 @@
         <li class="nav-item {!! (Request::is('login') ? 'active' : '') !!}">
           <a class="nav-link" href="{{route('login')}}">Login</a>
         </li>
-        <li class="nav-item mt-3">
-          <a class="btn-sell p-2 text-white" href="{{route('login')}}"><i class="ti-shopping-cart px-2"></i>Buy Textbooks</a>
+        <li class="nav-item">
+          <a class="nav-link btn-primary text-light" href="{{route('login')}}"><i class="ti-shopping-cart px-2"></i><b>Buy Textbooks</b></a>
         </li>
       </ul>
     </div>
   </div>
-</nav>                    
+</nav>                  
 @yield('top')
 @yield('content')
 <!--============================
