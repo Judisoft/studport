@@ -228,4 +228,8 @@ class QuestionsController extends JoshController
         $blogcooment->save();
         return redirect('admin/blog/' . $blog->id);
     }
+    public function questions()
+    {
+        return view('questions');
+    }
 }

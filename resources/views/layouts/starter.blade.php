@@ -28,8 +28,9 @@
 <body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
 
 <nav class="navbar main-nav fixed-top navbar-expand-lg border-bottom px-2 px-sm-0 py-2 py-lg-0">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">logo here</a>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/my-logo.png')}}" style="height: 35px; width: 35px;" alt="logo"><span class="h5  text-dark text-capitalize px-2"><b class="text-dark" style="padding-top: 5px;">StudPort</b></span></a>    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="ti-menu"></span>
@@ -62,7 +63,7 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
 
               <ul class="dropdown-menu" aria-labelledby="dropdown0301">
-                <li><a class="dropdown-item" href="index.html">Questions and answer</a></li>
+                <li><a class="dropdown-item" href="{{route('qAndA')}}">Questions and answer</a></li>
                 <li><a class="dropdown-item" href="index.html">Online Courses</a></li>
                 <li><a class="dropdown-item" href="index.html">Digital Library</a></li>
               </ul>
@@ -95,7 +96,7 @@
           <a class="nav-link" href="{{route('login')}}">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn-primary text-light" href="{{route('login')}}"><i class="ti-shopping-cart px-2"></i><b>Buy Textbooks</b></a>
+          <a class="nav-link btn-primary text-light border-bottom" href="{{route('login')}}"><i class="ti-shopping-cart px-2" style="font-weight: 700; font-size:18px;"></i><b>StudPort Market</b></a>
         </li>
       </ul>
     </div>

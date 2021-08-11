@@ -1,4 +1,4 @@
-@extends('layouts/default')
+@extends('layouts/starter')
 
 {{-- Page title --}}
 @section('title')
@@ -137,7 +137,7 @@
 {{-- Page content --}}
 @section('content')
         <!-- container section start-->
-    <section class="container blogpage">
+    <section class="container blogpage mt-5">
         <div class="row">
             <div class="col-md-3 col-lg-3 col-12" style="border-right: 1px solid #ddd;">
                         <div class="box1 text-dark mt-2 border-bottom"><h5 class="p-1"><b>Related Questions</b></h5></div>

@@ -441,7 +441,7 @@ Route::get('institutions', 'FrontEndController@institutions')->name('institution
 Route::get('application/institutions', 'InstitutionsController@index')->name('applications');
 //Statistika routes
 Route::get('statistika/index', 'StatistikaController@index')->name('statistika');
-
+Route::get('questions', 'QuestionsController@questions')->name('qAndA');
 
 
 
