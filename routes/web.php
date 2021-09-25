@@ -334,7 +334,7 @@ Route::group(
     ['middleware' => 'user'],
     function () {
         Route::get('questions/index', 'QuestionsController@index')->name('questions');
-        Route::post('questions/create', 'QuestionsController@create');
+        Route::get('questions/create', 'QuestionsController@create');
     }
 );
 // Subscription

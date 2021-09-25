@@ -1,292 +1,178 @@
-<!DOCTYPE html>
-
+<!doctype html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        @section('title')
-            Sign Up | Welcome To StudPort
-        @show
-    </title>
-    <!--global css starts-->
-    <link rel="stylesheet" href="{{asset('css/style-starter.css')}}">
-     <link rel="stylesheet" href="{{ asset('vendors/simple-line-icons/css/simple-line-icons.css') }}"/>
-         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/all.css') }}">
-    <!--end of global css-->
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
-    <!-- Google fonts -->
-    <link href="//fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
-    <!-- page level css-->
-    
-@yield('header_styles')
-<!--end of page level css-->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>StudPort - Sign In</title>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/login.css') }}">
+    <link rel="stylesheet" href="{{asset('plugins1/themify-icons/themify-icons.css')}}">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link href="{{asset('plugins1/css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('plugins1/bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins1/themify-icons/themify-icons.css')}}">
 </head>
 <style>
-
-    .btn-nav{
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border:none !important;
-    }
-     .btn-outline-primary-nav:hover {
+h5{
+    font-weight: 600;
+}
+p{
+    font-weight: 200 !important;
+    font-size: 14px;
+}
+.img-fluid{
+    width: 50px;
+    height: 50px;
+}
+.image1{
+    width: 300px;
+    height: 300px;
+}
+.form-wizard-next-btn{
+    background-color:#A3060F !important;
+    border-color: #A3060F !important;
     color: #fff;
-    background-color: #2C504F;
-    border-color: #28a745; }
-
-    [placeholder]:focus::-webkit-input-placeholder {
-    transition: text-indent 0.4s 0.4s ease; 
-    text-indent: -200%;
-    opacity: 1;
-    }
-  .card-1 {
-  box-shadow: 0 10px 20px #D5DDE6, 0 5px 5px #D5DDE6;
+	font-size: 14px;
+    display: inline-block;
+    width: 300px;
+    padding: 10px;
+	  text-transform: uppercase;
+    border-radius: 2px;
+    text-align: center;
+  }
+.form-wizard-next-btn:hover{
+	color: #fff;
+	background-color: #A3060F !important;
+	border: #A3060F !important;
+	animation:  .3s ease-in;
 }
-.theme-button {
-  transition: 0.3s ease-out;
-  display: inline-block;
-  line-height: 42px;
-  font-weight: 700;
-  font-size: 14px;
-  margin: 0px;
-  padding: 0px 30px;
-  background-color: #063755;
-  color: #fff;
-  text-transform: uppercase; }
-.theme-button a:hover{
-    color: #fff !important;
+label{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: #000 !important;
 }
-
-@media screen and (max-width: 384px) {
-  .theme-button {
-    line-height: 44px;
-    padding: 0px 20px; } }
-
-@media(min-width: 576px){
-.box {
-  min-width: 90%;
-  margin: auto;
-  align-items: left;
-  border-radius: 5px;
-    
+p{
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: #000;
+    font-weight: 400;
+ }
+ input{
+     height: 50px !important;
+     border: 1px solid var(--dark) !important;
+     border-radius: 10px !important;
+ }
+input[type=submit]{
+  background-color: var(--danger) !important;
+  border-radius: 3px !important;
+  font-weight: 700 !important;
 }
+input[type=submit]:hover{
+  background-color: var(--danger) !important;
 }
-@media(min-width: 768px){
-.box {
-  max-width: 50%;
-  margin: auto;
-  align-items: left;
-  border-radius: 5px;
-  
-    
+small{
+  color: var(--danger);
+  font-weight: 300;
 }
-}
-@media(min-width: 992px){
-.box {
-  max-width: 50%;
-  margin: auto;
-  align-items: left;
-  border-radius: 5px;
-    
-}
-}
-@media(min-width: 1200px){
-.box {
-  max-width: 50%;
-  margin: auto;
-  align-items: left;
-  border-radius: 5px;
-    
-}
-}
-
-.box1 {
-  padding: 20px 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid var(--gray);
-}
-
-.help-block {
-  color: #a94442 !important;
-  font-size: 12px;
-}
-
-.has-error .form-control {
-  border-color: #a94442;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-.has-error .form-control:focus {
-  border-color: #843534;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
-}
-
-.social {
-  position: relative;
-  padding-left: 44px;
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.social i {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 32px;
-  line-height: 34px;
-  text-align: center;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.social:hover {
-  color: white;
-}
-h4{
-  font-weight: 400 !important;
-}
-.full-width{
-  min-width: 100%;
-  max-width: 100%;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+.support p{
+  font-weight: 500;
 }
 </style>
-<body>
- <nav class="navbar navbar-expand-lg navbar-light">
-   
-<div class="d-flex flex-row">
-  <div class="p-2"> <a class="navbar-brand" href="{{route('home')}}">
-<img src="{{asset('images/studport.png')}}" title="StudPort"/>    </a>
+<body oncontextmenu='return false' class='snippet-body'>
+<nav class="navbar main-nav fixed-top navbar-expand-lg shadow p-3 bg-white" style="overflow-x: hidden;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/studport_logo.png')}}" style="height: 35px; width: 35px;" alt="logo"><span class="h5  text-dark text-capitalize px-2"><b class="text-dark" style="padding-top: 5px;">StudentPortal CM | </b> <b class="text-danger">Sign Up</b></span></a>    
   </div>
-</div>  
-</nav>
-<section class="w3l-intro" id="intro" style="margin-top: 0 !important">
-    <div class="new-block top-bottom">
-      <div class="container">
-        <div class="middle-section">
-         <!-- Notifications -->
-                    <div id="notific">
-                        @include('notifications')
+</nav> 
+    <div class="container bg-white">
+    <div class="row">
+        <div class="col-md-6 col-12 ">
+            <div class="d-flex flex-column mt-3">
+                <div class="d-flex flex-row mb-2">
+                    <div class="p-2">
+                        <img class="img-fluid" src="{{asset('images/feature/f1.svg')}}" />
                     </div>
-          <div class="section-width">
-            <div class="box">
-                <div class="box1 rounded-0">
-                    <div class="text-center mb-3">
-                         <span class="icon-user-follow fa-4x px-2 py-2 float-right" style="opacity: 0.1;"></span>
-                        <h4 class="pt-3 text-favorite float-left"><b>Sign Up - Create My StudPort Account</b></h4>
+                    <div class="p-2">
+                        <h5>Be Connected!</h5>
+                        <p>Connect with Teachers, students, and institutions across and beyond your local campus.</p>
                     </div>
-                   <form action="{{ route('register') }}" method="POST" id="reg_form">
-                    <!-- CSRF Token -->
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
-                    <div class="form-group {{ $errors->first('first_name', 'has-error') }}">
-                        <label class="sr-only"> First Name</label>
-                        <input type="text" class="form-control rounded-0" id="first_name" name="first_name"
-                            placeholder="First Name" value="{!! old('first_name') !!}">
-                        {!! $errors->first('first_name', '<span class="help-block">:message</span>') !!}
+                </div>
+                <div class="d-flex flex-row mb-2">
+                    <div class="p-2">
+                        <img class="img-fluid" src="{{asset('images/feature/f2.svg')}}" />
                     </div>
-                    <div class="form-group {{ $errors->first('last_name', 'has-error') }}">
-                        <label class="sr-only"> Last Name</label>
-                        <input type="text" class="form-control rounded-0" id="last_name" name="last_name" placeholder="Last Name"
-                            value="{!! old('last_name') !!}">
-                        {!! $errors->first('last_name', '<span class="help-block">:message</span>') !!}
+                    <div class="p-2">
+                        <h5>Insightful Discussions</h5>
+                        <p>Ask questions, share ideas, projects & engage in interesting conversations and open discourses.</p>
                     </div>
-                    <div class="form-group {{ $errors->first('email', 'has-error') }}">
-                        <label class="sr-only"> Email</label>
-                        <input type="email" class="form-control rounded-0" id="Email" name="email" placeholder="Email"
-                            value="{!! old('Email') !!}">
-                        {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
+                </div>
+                <div class="d-flex flex-row mb-2">
+                    <div class="p-2">
+                        <img class="img-fluid" src="{{asset('images/feature/f4.svg')}}" />
                     </div>
-                    <div class="form-group {{ $errors->first('password', 'has-error') }}">
-                        <label class="sr-only"> Password</label>
-                        <input type="password" class="form-control rounded-0" id="Password1" name="password"
-                            placeholder="Password">
-                        {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
+                    <div class="p-2">
+                        <h5>Explore Opportunities</h5>
+                        <p>Find one that is right for you.</p>
                     </div>
-                    <div class="form-group {{ $errors->first('password_confirm', 'has-error') }}">
-                        <label class="sr-only"> Confirm Password</label>
-                        <input type="password" class="form-control rounded-0" id="Password2" name="password_confirm"
-                            placeholder="Confirm Password">
-                        {!! $errors->first('password_confirm', '<span class="help-block">:message</span>') !!}
-                    </div>
-                     <div class="form-group {{ $errors->first('institution', 'has-error') }}">
-                        <label class="sr-only"> Institution</label>
-                        <select type="text" class="form-control rounded-0" id="institution" name="institution">
-                          <option value="">Select Institution</option>
-                          @foreach ($institutions as $institution)
-                              <option value="{{$institution->institution_name}}">{{$institution->institution_name}}</option>
-                          @endforeach
-                        </select>
-                        {!! $errors->first('institution', '<span class="help-block">:message</span>') !!}
-                    </div>
-                     <div class="form-group {{ $errors->first('department', 'has-error') }}">
-                        <label class="sr-only"> Department</label>
-                        <input type="text" class="form-control rounded-0" id="department" name="department" placeholder="Department"
-                            value="{!! old('department') !!}">
-                        {!! $errors->first('department', '<span class="help-block">:message</span>') !!}
-                    </div>
-                     <div class="form-group {{ $errors->first('level', 'has-error') }}">
-                        <label class="sr-only"> Level</label>
-                        <input type="text" class="form-control rounded-0" id="level" name="level" placeholder="Level"
-                            value="{!! old('level') !!}">
-                        {!! $errors->first('level', '<span class="help-block">:message</span>') !!}
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="form-group {{ $errors->first('gender', 'has-error') }}">
-                        <label class="sr-only">Gender</label>
-                        <label class="radio-inline">
-                            <input type="radio" name="gender" id="inlineRadio1" value="male"> Male
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="gender" id="inlineRadio2" value="female"> Female
-                        </label>
-                        {!! $errors->first('gender', '<span class="help-block">:message</span>') !!}
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="subscribed"> I accept <a href="#"> Terms and Conditions</a>
-                        </label>
-                    </div>
-                    <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
-                    <div class="d-flex flex-row">
-                      <div class="p-2"><button type="submit" class="btn btn-block btn-success theme-button rounded-0" style="border: none !important;">Sign Up</button></div>
-                    </div>
-                </form>
-                    <br />
-                  <div class="d-flex flex-row">
-                      <div class="p-2"><small>Already have an Account? </small></div>
-                      <div class="p-2"><a  href="{{route('login')}}" ><small>Sign In</small></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 pl-4">
+            <form action="{{ route('register') }}" method="POST" id="reg_form">
+              <!-- CSRF Token -->
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-row mt-3">
+                  <div class="col-lg-6 p-2">
+                      <label for="first_name">First Name <span class="text-danger">*</span></label> 
+                      <input type="text" class="form-control" name="first_name" placeholder="Enter your first name" value="{{ old('first_name') }}">
+                      <small>{{ $errors->first('first_name', 'Enter first name') }}</small>
+                  </div>
+                  <div class="col-lg-6 p-2">
+                      <label for="last_name">Last Name <span class="text-danger">*</span></label> 
+                      <input type="text" class="form-control" name="last_name" placeholder="Enter your last name" value="{{ old('last_name') }}">
+                      <small>{{ $errors->first('last_name', 'Enter last name') }}</small>
                   </div>
                 </div>
-              <div class="mt-5 text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
+                <div class="p-2">
+                    <label for="email">Email <span class="text-danger">*</span></label> 
+                    <input type="email" class="form-control" name="email" placeholder="Enter your email" value="{!! old('email') !!}">
+                    <small>{{ $errors->first('email', 'Enter email') }}</small>
+                </div>
+                <div class="p-2">
+                    <label for="password">Password <span class="text-danger">*</span></label> 
+                    <input type="password" class="form-control" name="password" placeholder="Enter password">
+                    <small>{{ $errors->first('password', 'Enter password') }}</small> 
+                </div>
+                <div class="p-2">
+                    <label for="password">Confirm Password <span class="text-danger">*</span></label> 
+                    <input type="password" class="form-control" name="password_confirm" placeholder="Confirm password">
+                    <small>{{ $errors->first('confirm_password', 'Confirm password') }}</small> 
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="p-2">
+                    <input type="checkbox" name="privacy" value="accepted" checked>
+                  </div>
+                  <div class="p-2 mt-2">
+                    <p><b>By clicking "CREATE MY ACCOUNT" you agree to our Consent Clause for <a href="#">Data Collection</a> and <a href="#">Privacy Policy.</a></b></p>
+                  </div>
+                </div>
+                <div class="d-flex flex-row">
+                    <div class="col-lg-6 p-2">
+                        <input type="submit" class="form-wizard-next-btn bg-primary rounded" value="CREATE MY ACCOUNT">
+                    </div>
+                </div>
+              <div class="support p-1 pl-2">
+                  <p>Already have a StudentPortal Account? <a href="{{route('login')}}" class="text-danger"><b>Sign In</b></a></p>
+              </div>
+            </div>
+        </form>
         </div>
-        </div>
-      </div>
     </div>
-  </section>
-  <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/607982e9f7ce1827093b17bf/1f3daepbo';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    <small class="text-dark"><b>Copyright &copy; <?php echo date('Y') ?> All rights reserved</b></small>
+</div>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+<script type='text/javascript'></script>
 </body>
 </html>

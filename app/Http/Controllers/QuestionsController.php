@@ -22,7 +22,8 @@ class QuestionsController extends JoshController
     public function index()
     {
         $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->latest()->simplePaginate(25);
-       return view('questions/index', compact('user_questions'));
+        $user = Sentinel::getUser();
+        return view('questions/index', compact('user_questions', 'user'));
     }
 
     /**

@@ -1,27 +1,12 @@
-/*
-THEME: Small Apps | Bootstrap App Landing Template
-VERSION: 1.0.0
-AUTHOR: Themefisher
 
-HOMEPAGE: https://themefisher.com/products/small-apps-free-app-landing-page-template/
-DEMO: https://demo.themefisher.com/small-apps/
-GITHUB: https://github.com/themefisher/Small-Apps-Bootstrap-App-Landing-Template
-
-Get HUGO Version : https://themefisher.com/products/small-apps-hugo-app-landing-theme/
-
-WEBSITE: https://themefisher.com
-TWITTER: https://twitter.com/themefisher
-FACEBOOK: https://www.facebook.com/themefisher
-*/
-/*=== MEDIA QUERY ===*/
-@import url("https://fonts.googleapis.com/css?family=Lora:400,400i|Open+Sans:300,400,600,700,800");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #000;
   font-weight: 300;
 }
@@ -125,7 +110,7 @@ body {
   overflow-x: hidden;
 }
 
-.shadow, .service .service-box, .founder img, .team-sm .image img, .job-list .block, .privacy .block, .user-login .block .image img, .coming-soon .block .count-down .syotimer-cell {
+.shadow, .service, .founder img, .team-sm .image img, .job-list .block, .privacy .block, .user-login .block .image img, .coming-soon .block .count-down .syotimer-cell {
   box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.08);
 }
 
@@ -151,9 +136,11 @@ a:hover {
 }
 
 .bg-gray {
-  background: #fafafa;
+  background: #ecf0f4;
 }
-
+.add-nav-class {
+  background: #fff !important; 
+}
 .bg-blue {
   background: #2e7eed;
 }
@@ -231,13 +218,13 @@ a:hover {
 }
 
 .video .video-box a i {
-  height: 125px;
+  height: 80px;
   width: 125px;
   font-size: 40px;
-  background: #2e7eed;
-  border-radius: 100%;
+  background: var(--danger);
+  border-radius: 10px 10px;
   color: #fff;
-  line-height: 125px;
+  line-height: 80px;
   text-align: center;
 }
 
@@ -411,16 +398,16 @@ button:focus,
 
 .main-nav .navbar-nav .nav-item {
   position: relative;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .main-nav .navbar-nav .nav-item .nav-link {
   position: relative;
-  text-align: center;
+  text-align: left;
   font-size: 14px;
   text-transform: capitalize;
-  font-weight: 700;
-  color: #0F2E75;
+  font-weight: 500;
+  color: var(--dark);
   padding-left: 20px;
   padding-right: 20px;
   line-height: 45px;
@@ -506,7 +493,7 @@ button:focus,
 }
 
 .main-nav .dropdown .dropdown-menu .dropdown-item {
-  font-size: 13px;
+  font-size: 14px;
   padding: 3px 22px;
   transition: .3s ease;
 }
@@ -516,7 +503,7 @@ button:focus,
   color: #2e7eed;
   border-left: 3px solid #2e7eed;
   font-weight: 800;
-  transition: .2s ease-in;
+  transition: none;
 }
 
 .main-nav .dropdown .dropdown-menu li:first-child {
@@ -1080,7 +1067,6 @@ button:focus,
 .video-promo {
   padding: 150px 0;
 }
-
 .video-promo .content-block {
   width: 60%;
   margin: 0 auto;
@@ -1097,14 +1083,14 @@ button:focus,
 }
 
 .video-promo .content-block a i.video {
-  height: 125px;
-  width: 125px;
+  height: 90px;
+  width: 90px;
   background: #2e7eed;
   display: inline-block;
   font-size: 40px;
   color: #fff;
   text-align: center;
-  line-height: 125px;
+  line-height: 90px;
   border-radius: 100%;
 }
 
@@ -1331,9 +1317,9 @@ button:focus,
 
 hr {
   display: block;
-  height: 2px;
+  height: 1px;
   border: 0;
-  border-top: 2px solid #2e7eed;
+  border-top: 1px solid #ddd;
   margin: 1em 0;
   padding: 0;
 }
@@ -2209,5 +2195,7 @@ hr {
     height: 350px;
   }
 }
-
+.text-home{
+	color: #054165 !important;
+}
 /*# sourceMappingURL=style.css.map */

@@ -27,6 +27,7 @@ Home
 			<div class="col-sm-8 m-auto">
 				<!-- Page Title -->
 				<h1>StudPort Jobs </h1>
+				<hr style="width: 15%; background-color: var(--primary); height; 5px; margin: auto;">
 				<!-- Page Description -->
 			</div>
 		</div>
@@ -172,7 +173,7 @@ Home
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">{{$job->title}}</h5>
+                                    <h3 class="modal-title text-primary">{{$job->title}}</h3>
                                     <button type="button" class="close" data-dismiss="modal">
                                     <span>&times;</span>
                                     </button>

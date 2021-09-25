@@ -5,66 +5,57 @@
 Home
 @parent
 @stop
-
+<style>
+p{
+	font-size: 12px;
+	font-weight: 500;
+}
+.features{
+	color:#17224f !important;
+	font-weight: 700 !important;
+}
+</style>
 {{-- Page content --}}
 @section('content')
-    <!--====================================
+<!--====================================
 =            Hero Section            =
 =====================================-->
-<section class="section gradient-banner">
-	<div class="shapes-container">
-		<div class="shape" data-aos="fade-down-left" data-aos-duration="1500" data-aos-delay="100"></div>
-		<div class="shape" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
-		<div class="shape" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
-		<div class="shape" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
-		<div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
-		<div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
-		<div class="shape" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
-		<div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="200"></div>
-		<div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="100"></div>
-		<div class="shape" data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="500"></div>
-		<div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="200"></div>
-		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="100"></div>
-		<div class="shape" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0"></div>
-		<div class="shape" data-aos="fade-down" data-aos-duration="500" data-aos-delay="0"></div>
-		<div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="100"></div>
-		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="0"></div>
-	</div>
+<section class="section" style="overflow-x: hidden;">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-md-6 order-2 order-md-1 text-center text-md-left">
-				<h1 class="text-white font-weight-bold mb-4">The number one portal for learners</h1>
-				<p class="text-white mb-5">We have all the resources you need. Get everything you need as a student in one place!</p>
-				<a href="{{route('register')}}" class="btn btn-main-md"><b>Get Started Now</b></a>
+				<h1 class="font-weight-bold mb-4" style="color: #17224f;">We use technology to simplify <b style="color: #EB740A">educational</b> processes</h1>
+				<p class="text-white mb-5"></p>
+				<a href="{{route('register')}}" class="btn btn-main-md rounded-0" style="background-color:#054165;">Get Started Now</a>
 			</div>
 			<div class="col-md-6 text-center order-1 order-md-2">
-				<img class="img-fluid" src="images/mobile.png" alt="screenshot">
+				<img class="img-fluid" src="{{asset('images/index5.svg')}}" alt="screenshot">
 			</div>
 		</div>
 	</div>
 </section>
 <!--====  End of Hero Section  ====-->
 
-<section class="section pt-0 position-relative pull-top">
+<section class="section pt-0 position-relative pull-top mt-3">
 	<div class="container">
-		<div class="rounded shadow p-5 bg-white">
+		<div class="rounded p-5 bg-white pt-5">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
-					<i class="ti-settings text-primary h1"></i>
-					<h3 class="mt-4 text-capitalize h5 ">Customizable</h3>
-					<p class="regular text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
+					<img class="img-fluid img-md" src="{{asset('images/customize.svg')}}" />
+					<h3 class="mt-4 text-capitalize h3 features">Customizable</h3>
+					<p class="regular text-home pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
 						tempore ipsam dignissimos molestias.</p>
 				</div>
 				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
-					<i class="ti-bar-chart text-primary h1"></i>
-					<h3 class="mt-4 text-capitalize h5 ">Efficient</h3>
-					<p class="regular text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
+					<img class="img-fluid img-md" src="{{asset('images/increase.svg')}}" />
+					<h3 class="mt-4 text-capitalize h3 features">Efficient</h3>
+					<p class="regular text-home pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
 						tempore ipsam dignissimos molestias.</p>
 				</div>
-				<div class="col-lg-4 col-md-12 mt-5 mt-lg-0 text-center">
-					<i class="ti-light-bulb text-primary h1"></i>
-					<h3 class="mt-4 text-capitalize h5 ">Easy to Use</h3>
-					<p class="regular text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
+				<div class="col-lg-4 col-md-12 mt-5 mt-lg-0  text-center">
+					<img class="img-fluid img-md" src="{{asset('images/community2.svg')}}" />
+					<h3 class="mt-4 text-capitalize h3 features">Community</h3>
+					<p class="regular text-home pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
 						tempore ipsam dignissimos molestias.</p>
 					</p>
 				</div>
@@ -82,16 +73,15 @@ Home
 			<div class="col-lg-6 ml-auto justify-content-center">
 				<!-- Feature Mockup -->
 				<div class="image-content" data-aos="fade-right">
-					<img class="img-fluid" src="images/feature/feature-new-01.jpg" alt="iphone">
+					<img src="{{asset('images/index6.svg')}}" style="height: 500px; width:500px;" alt="index">
 				</div>
 			</div>
 			<div class="col-lg-6 mr-auto align-self-center">
 				<div class="feature-content">
 					<!-- Feature Title -->
-					<h2><b>Improve your academic performance with <a
-							href="{{route('blog')}}">StudPort Q&A</a></b></h2>
+					<h2 style="font-weight: 700; color: #17224f;">Improve your Academic Performance</h2>
 					<!-- Feature Description -->
-					<p class="desc">Examinations, they say isn't the true test of knowledge but that's the best there is.
+					<p class="desc text-home">Examinations, they say isn't the true test of knowledge but that's the best there is.
                      Prior to any good career is a good acadmic background. Ask your questions here and have them answered. You 
                      can also explore our wide variety of study materials, books, course handouts, examination past questions, etc.
                     </p>
@@ -106,7 +96,7 @@ Home
 						<li class="list-inline-item">
 							<img src="{{asset('images/ceo.jpg')}}" alt="">
 						</li>
-						<li class="list-inline-item">Kum Jude, CEO & Founder - StudPort</li>
+						<li class="list-inline-item">Kum Jude, CEO & Founder - StudentPortal CM</li>
 					</ul>
 				</div>
 			</div>
@@ -120,10 +110,10 @@ Home
 			<div class="col-lg-6 ml-auto align-self-center">
 				<div class="feature-content">
 					<!-- Feature Title -->
-					<h2><b>Save Time and stress with our<a
-							href="#">Admission Portal</a></b></h2>
+					<h2 style="font-weight: 700; color: #17224f;">Save Time and stress with our <a
+							href="#">Admission Portal</a></h2>
 					<!-- Feature Description -->
-					<p>With StudPort Admit, Students can now register to any academic institution of their choice from the StudPort Admission Portal
+					<p class="text-home">With StudPort Admit, Students can now register to any academic institution of their choice from the StudPort Admission Portal
                     </p>
 				</div>
 				<!-- Testimonial Quote -->
@@ -142,7 +132,7 @@ Home
 			<div class="col-lg-6 mr-auto justify-content-center">
 				<!-- Feature mockup -->
 				<div class="image-content" data-aos="fade-left">
-					<img class="img-fluid" src="images/feature/feature-new-02.jpg" alt="ipad">
+					<img class="img-fluid" src="{{asset('images/index8.svg')}}" style="width: 500px; height: 500px;" alt="ipad">
 				</div>
 			</div>
 		</div>
@@ -158,8 +148,8 @@ Home
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="section-title">
-					<h2>For Students, by Teachers</h2>
-					<p><a href="{{route('home')}}">StudPort</a> makes
+					<h2 style="font-weight: 700; color: #17224f;">For Students, by Teachers</h2>
+					<p class="text-home"><a href="{{route('home')}}">StudPort</a> makes
 						it easy to stay on top of your education. No late task, no unanswered questions
                         StudPort is a digital platform developed to facilitate teacher-student interaction. 
                         It is a student-focused community with teacher-assistance.
@@ -171,11 +161,11 @@ Home
 			<div class="col-lg-6 align-self-center">
 				<!-- Feature Image -->
 				<div class="service-thumb left" data-aos="fade-right">
-					<img class="img-fluid" src="images/feature/iphone-ipad.jpg" alt="iphone-ipad">
+					<img class="img-fluid" src="{{asset('images/index7.svg')}}" alt="iphone-ipad">
 				</div>
 			</div>
 			<div class="col-lg-5 mr-auto align-self-center">
-				<div class="service-box">
+				<div class="service-box bg-gray">
 					<div class="row align-items-center">
 						<div class="col-md-6 col-xs-12">
 							<!-- Service 01 -->
@@ -183,9 +173,9 @@ Home
 								<!-- Icon -->
 								<i class="ti-help-alt"></i>
 								<!-- Heading -->
-								<h3><a href="#">Q&A Manager</a></h3>
+								<h3 style="font-weight: 700; color: #17224f;"><a href="#">Q&A Manager</a></h3>
 								<!-- Description -->
-								<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
+								<p class="text-home">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
 							</div>
 						</div>
 						<div class="col-md-6 col-xs-12">
@@ -194,9 +184,9 @@ Home
 								<!-- Icon -->
 								<i class="ti-layers-alt"></i>
 								<!-- Heading -->
-								<h3><a href="#">Digital Library</a></h3>
+								<h3 style="font-weight: 700; color: #17224f;"><a href="#">Digital Library</a></h3>
 								<!-- Description -->
-								<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
+								<p class="text-home">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
 							</div>
 						</div>
 						<div class="col-md-6 col-xs-12">
@@ -205,9 +195,9 @@ Home
 								<!-- Icon -->
 								<i class="ti-blackboard"></i>
 								<!-- Heading -->
-								<h3><a href="#">One-on-One Tutoring</a></h3>
+								<h3 style="font-weight: 700; color: #17224f;"><a href="#">One-on-One Tutoring</a></h3>
 								<!-- Description -->
-								<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
+								<p class="text-home">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
 							</div>
 						</div>
 						<div class="col-md-6 col-xs-12">
@@ -216,9 +206,9 @@ Home
 								<!-- Icon -->
 								<i class="ti-link"></i>
 								<!-- Heading -->
-								<h3><a href="#">Student Connect</a></h3>
+								<h3 style="font-weight: 700;color: #17224f;"><a href="#">Student Connect</a></h3>
 								<!-- Description -->
-								<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
+								<p class="text-home">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
 							</div>
 						</div>
 					</div>

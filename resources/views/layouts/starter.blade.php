@@ -13,6 +13,7 @@
     <!-- PLUGINS CSS STYLE -->
   <link rel="stylesheet" href="{{asset('plugins1/bootstrap/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{asset('plugins1/themify-icons/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{asset('plugins1/themify-icons/themify-icons.css')}}">
   <link rel="stylesheet" href="{{asset('plugins1/slick/slick.css')}}">
   <link rel="stylesheet" href="{{asset('plugins1/slick/slick-theme.css')}}">
   <link rel="stylesheet" href="{{asset('plugins1/fancybox/jquery.fancybox.min.css')}}">
@@ -25,11 +26,10 @@
 <!--end of page level css-->
 </head>
 
-<body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
-
-<nav class="navbar main-nav fixed-top navbar-expand-lg border-bottom px-2 px-sm-0 py-2 py-lg-0">
+<body class="snippet-body" style="overflow-x: hidden !important;">
+<nav class="navbar main-nav fixed-top navbar-expand-lg  px-2 px-sm-0 py-2 py-lg-0">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/my-logo.png')}}" style="height: 35px; width: 35px;" alt="logo"><span class="h5  text-dark text-capitalize px-2"><b class="text-dark" style="padding-top: 5px;">StudPort</b></span></a>    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/studport_logo.png')}}" style="height: 35px; width: 35px;" alt="logo"><span class="h5  text-dark text-capitalize px-2"><b class="text-dark" style="padding-top: 5px; font-weight: 500;"></b></span></a>    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,6 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">About Us
-            <span><i class="ti-angle-down"></i></span>
           </a>
           <!-- Dropdown list -->
           <ul class="dropdown-menu">
@@ -54,7 +53,6 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Services
-            <span><i class="ti-angle-down"></i></span>
           </a>
           <!-- Dropdown list -->
           <ul class="dropdown-menu">
@@ -76,7 +74,6 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">About Us
-            <span><i class="ti-angle-down"></i></span>
           </a>
           <!-- Dropdown list -->
           <ul class="dropdown-menu">
@@ -89,14 +86,11 @@
         <li class="nav-item @@contact">
           <a class="nav-link" href="contact.html">Contact</a>
         </li>
-        <li class="nav-item {!! (Request::is('register') ? 'active' : '') !!}">
-          <a class="nav-link" href="{{route('register')}}">Register</a>
-        </li>
         <li class="nav-item {!! (Request::is('login') ? 'active' : '') !!}">
           <a class="nav-link" href="{{route('login')}}">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn-primary text-light border-bottom" href="{{route('login')}}"><i class="ti-shopping-cart px-2" style="font-weight: 700; font-size:18px;"></i><b>StudPort Market</b></a>
+          <a class="nav-link" href="{{route('register')}}">Register</a>
         </li>
       </ul>
     </div>
@@ -117,13 +111,13 @@
             <!-- Social Site Icons -->
             <ul class="social-icon list-inline">
               <li class="list-inline-item">
-                <a href="https://www.facebook.com/themefisher"><i class="ti-facebook"></i></a>
+                <a href="#"><i class="ti-facebook"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="https://twitter.com/themefisher"><i class="ti-twitter"></i></a>
+                <a href="#"><i class="ti-twitter"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="https://www.instagram.com/themefisher/"><i class="ti-instagram"></i></a>
+                <a href="#"><i class="ti-instagram"></i></a>
               </li>
             </ul>
           </div>
@@ -203,7 +197,17 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgeuuDfRlweIs7D6uo4wdIHVvJ0LonQ6g"></script>
   <script src="{{asset('plugins1/google-map/gmap.js')}}"></script>
   <script src="{{asset('plugins1/js/script.js')}}"></script>
+  <script>
+    $(window).scroll(function() {    
+        var scroll = $(window).scrollTop();
 
+        if (scroll >= 10) {
+            $("nav").addClass("shadow");
+        } else {
+            $("nav").removeClass("shadow");
+        }
+    });
+</script>
 </body>
 
 </html>

@@ -37,7 +37,7 @@ p{
     display: inline-block;
     width: 300px;
     padding: 10px;
-	  text-transform: uppercase;
+	text-transform: uppercase;
     border-radius: 2px;
     text-align: center;
   }
@@ -63,14 +63,22 @@ p{
      border: 1px solid var(--dark) !important;
      border-radius: 10px !important;
  }
+ input[type=submit]{
+    background-color: var(--danger) !important;
+    border-radius: 3px !important;
+    font-weight: 700 !important;
+ }
+  input[type=submit]:hover{
+    background-color: var(--danger) !important;
+ }
 </style>
-<body oncontextmenu='return false' class='snippet-body bg-light'>
-<nav class="navbar main-nav fixed-top navbar-expand-lg p-3 bg-light" style="overflow-x: hidden;">
+<body oncontextmenu='return false' class='snippet-body'>
+<nav class="navbar main-nav fixed-top navbar-expand-lg shadow p-3 bg-white" style="overflow-x: hidden;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/my-logo.png')}}" style="height: 35px; width: 35px;" alt="logo"><span class="h5  text-dark text-capitalize px-2"><b class="text-dark" style="padding-top: 5px;">StudPort | </b> <b class="text-warning">Sign In</b></span></a>    
+    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/studport_logo.png')}}" style="height: 35px; width: 35px;" alt="logo"><span class="h5  text-dark text-capitalize px-2"><b class="text-dark" style="padding-top: 5px;">StudentPortal CM | </b> <b class="text-danger">Sign In</b></span></a>    
   </div>
 </nav> 
-    <div class="container bg-light">
+    <div class="container bg-white">
     <div class="row">
         <div class="col-md-6 col-12 ">
             <div class="d-flex flex-column mt-3">
@@ -101,12 +109,9 @@ p{
                         <p>Find one that is right for you.</p>
                     </div>
                 </div>
-                <div class="p-2">
-                    <img class="image1" src="{{asset('images/feature/home.svg')}}" alt="Registration image">
-                </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-12 pl-4">
+        <div class="col-lg-5 col-md-5 col-12 pl-5">
             <form action="{{ route('login') }}" class="omb_loginForm" autocomplete="off" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="d-flex flex-column">
@@ -121,8 +126,8 @@ p{
                     <small>{{ $errors->first('password', 'Enter password') }}</small> 
                 </div>
                 <div class="d-flex flex-row">
-                    <div class="col-lg-6 p-2">
-                        <input type="submit" class="form-wizard-next-btn rounded" value="Login to StudPort">
+                    <div class="col-lg-6 p-2 mt-3">
+                        <input type="submit" class="form-wizard-next-btn bg-primary rounded" value="Login to StudPort">
                     </div>
                 </div>
                 <div class="support p-1 pl-2">

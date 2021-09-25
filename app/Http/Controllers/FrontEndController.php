@@ -93,7 +93,7 @@ class FrontEndController extends JoshController
                     ->causedBy($user)
                     ->log('LoggedIn');
 
-                return Redirect::route("my-account");//->with('success', trans('auth/message.login.success'));
+                return Redirect::route("my-account")->with('success', trans('auth/message.login.success'));
             } else {
                 return redirect('login')->with('error', 'Email or password is incorrect.');
             }

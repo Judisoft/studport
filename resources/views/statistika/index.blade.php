@@ -28,14 +28,15 @@ h1{
     color: var(--dark);
 }
 p{
-    font-weight: 300;
+    font-weight: 400;
+	font-size: 18px;
 }
 </style>
 <body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
 
 
-<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0 fixed-top border-bottom">
-  <div class="container">
+<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0 fixed-top shadow">
+  <div class="container-fluid">
     <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,60 +44,11 @@ p{
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Home
-            <span><i class="ti-angle-down"></i></span>
-          </a>
-          <!-- Dropdown list -->
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item active1" href="index.html">Homepage</a></li>
-            <li><a class="dropdown-item" href="homepage-2.html">Homepage 2</a></li>
-            <li><a class="dropdown-item active" href="homepage-3.html">Homepage 3</a></li>
-
-            <li class="dropdown dropdown-submenu dropright">
-              <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdown0301">
-                <li><a class="dropdown-item" href="index.html">Submenu 11</a></li>
-                <li><a class="dropdown-item" href="index.html">Submenu 12</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown @@pages">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Pages
-            <span><i class="ti-angle-down"></i></span>
-          </a>
-          <!-- Dropdown list -->
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item @@team" href="team.html">Team</a></li>
-            <li><a class="dropdown-item @@career" href="career.html">Career</a></li>
-            <li><a class="dropdown-item @@blog" href="blog.html">Blog</a></li>
-            <li><a class="dropdown-item @@blogSingle" href="blog-single.html">Blog Single</a></li>
-            <li><a class="dropdown-item @@privacy" href="privacy-policy.html">Privacy</a></li>
-            <li><a class="dropdown-item @@faq" href="FAQ.html">FAQ</a></li>
-            <li><a class="dropdown-item" href="sign-in.html">Sign In</a></li>
-            <li><a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
-            <li><a class="dropdown-item" href="404.html">404</a></li>
-            <li><a class="dropdown-item" href="comming-soon.html">Coming Soon</a></li>
-
-            <li class="dropdown dropdown-submenu dropleft">
-              <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-              <ul class="dropdown-menu" aria-labelledby="dropdown0501">
-                <li><a class="dropdown-item" href="index.html">Submenu 21</a></li>
-                <li><a class="dropdown-item" href="index.html">Submenu 22</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
         <li class="nav-item @@about">
-          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="{{route('login')}}"><i class="ti-lock px-2"></i>Sign In</a>
         </li>
         <li class="nav-item @@contact">
-          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="nav-link" href="{{route('register')}}"><i class="ti-user px-2"></i>Register</a>
         </li>
       </ul>
     </div>
@@ -106,19 +58,16 @@ p{
 =            Hero Section            =
 ===================================-->
 
-<section class="banner">
-	<div class="container">
+<section class="section">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-12 m-auto">
+			<div class="col-lg-12 p-0">
 				<!-- Banner Contents -->
 				<div class="block text-center">
-					<h1>The new way to Manage Statistics</h1>
-					<p class="p-3">The simple, intuitive web app that makes it easy to automate pedagogic reports, <br>
-						manage your workload coverage, and saves you stress.
-					</p>
+					<h1>Digital Pedagogic Statistics <b class="text-danger">Management Portal</b></h1>
 					<!-- Promo Video -->
-					<div class="video">
-						<img class="img-fluid width100" src="{{asset('images/thumbs/promo-video-thumbnail.jpg')}}" alt="video-thumbnail">
+					<div class="video mt-5">
+						<img class="img-fluid" src="{{asset('images/thumbs/promo-video-thumbnail.jpg')}}" alt="video-thumbnail">
 						<div class="video-button video-box">
 							<!-- Video Play Button -->
 							<a href="javascript:void(0)">
@@ -143,9 +92,9 @@ p{
 			<div class="col-lg-12">
 				<!-- Section Title -->
 				<div class="section-title">
-					<h2>What is <a href="#">Statistika</a></h2>
-					<p><a href="#">Statistika</a> makes it easy to stay on top of your job as a teacher.
-						No late tasks. No stress, We've got you covered</p>
+					<h1>What is <a href="#">Statistika</a></h1>
+					<p><a href="#">Statistika</a> is an intuitive and easy-to-use web app <br>that tracks work coverage, assiduity and generates pedagogic reports and statistics.
+						No late tasks, No stress. We've got you covered!</p>
 				</div> 
 			</div>
 		</div>
@@ -155,15 +104,15 @@ p{
 				<div class="service-block shadow">
 	<!-- Icon -->
 	<i class="ti-dashboard"></i>
-	<h3>Lifestyle Development</h3>
-	<p>Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Vivamus</p>
+	<h3>Fast and Reliable</h3>
+	<p>Statistika gets rid of routine calculations which are often times boring and time consuming</p>
 </div>
 				<!-- Service 02 -->
 				<div class="service-block shadow">
 	<!-- Icon -->
 	<i class="ti-headphone-alt"></i>
-	<h3>Impressive Support</h3>
-	<p>Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Vivamus</p>
+	<h3>24/7 Support</h3>
+	<p>Our support team is present 24/7 to respond to you. <br> Call Us:<a href="tel: (+237)672076995">(+237)672076995</a> <br> Email Us: <a href="mailto:contact@studentportal-cm.com">contact@studentportal-cm.com</a></p>
 </div>
 			</div>
 			<div class="col-lg-4 m-auto">
@@ -175,16 +124,16 @@ p{
 				<!-- Service 03 -->
 				<div class="service-block shadow">
 	<!-- Icon -->
-	<i class="ti-ruler-pencil"></i>
-	<h3>UI/UX Design</h3>
-	<p>Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Vivamus</p>
+	<i class="ti-settings"></i>
+	<h3>Highly Customizable</h3>
+	<p>Customize Statistika can be customized for personal, departmental and institutional use</p>
 </div>
 				<!-- Service 04 -->
 				<div class="service-block shadow">
 	<!-- Icon -->
 	<i class="ti-stats-up"></i>
-	<h3>Performance Marketing</h3>
-	<p>Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Vivamus</p>
+	<h3>Scalability and Performance</h3>
+	<p>Get statistics for an entire department or institution in one click</p>
 </div>
 			</div>
 		</div>
@@ -196,18 +145,18 @@ p{
 =            Feature Grid            =
 ===================================-->
 <section class="feature section" id="features">
-	<div class="container-fluid p-0">
+	<div class="container p-0">
 		<div class="row no-gutters">
 			<div class="col-lg-6">
 				<!-- Feature Image -->
-				<div class="feature-image left"  data-aos="fade-right">
-					<img class="img-fluid" src="{{asset('images/feature/iphone-ipad.jpg')}}" alt="iphone-ipad">
+				<div class="feature-image"  data-aos="fade-right">
+					<img class="img-fluid" src="{{asset('images/feature/f4.svg')}}" alt="" style="height: 350px;">
 				</div>
 			</div>
-			<div class="col-lg-4 mr-auto align-self-center">
+			<div class="col-lg-6 mr-auto align-self-center">
 				<!-- Feature Content -->
 				<div class="feature-content">
-					<h2>The Complete Toolkit For Task Management</h2>
+					<h1>The Complete Toolkit For Statistics  Management</h1>
 					<p>Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit eget malesuada.</p>
 				</div>
 			</div>
@@ -221,107 +170,20 @@ p{
 			<div class="col-lg-4 ml-auto align-self-center">
 				<!-- Feature Content -->
 				<div class="feature-content">
-					<h2>The Complete Toolkit For Task Management</h2>
+					<h1>The Complete toolkit for Report Management</h1>
 					<p>Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit eget malesuada.</p>
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<!-- Feature Image -->
 				<div class="feature-image right" data-aos="fade-left">
-					<img class="img-fluid" src="{{asset('images/feature/ipad.jpg')}}" alt="ipad">
+					<img class="img-fluid" src="{{asset('images/feature/f2.svg')}}" alt="ipad" style="height: 350px;">
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 <!--====  End of Feature Grid  ====-->
-
-<!--==================================
-=            App Features            =
-===================================-->
-
-<section class="app-features section">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="section-title">
-					<h2>What is <a href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">Small Apps</a></h2>
-					<p><a href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">Small Apps</a> makes it easy to stay on top of your Life Style. <br>
-						No late tasks. No gimmicks.</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<!-- App Feature Image -->
-				<div class="app-explore" data-aos="fade-down">
-					<img class="img-fluid" src="{{asset('images/feature/ipad-lied.jpg')}}" alt="ipad-lied">
-				</div>
-			</div>
-			<!-- Feature 01-->
-			<div class="col-lg-4 col-md-4">
-				<div class="app-feature text-center">
-					<!-- Heading -->
-					<h3>Creative Designs</h3>
-					<!-- Description -->
-					<p>Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt.</p>
-				</div>
-			</div>
-			<!-- Feature 02-->
-			<div class="col-lg-4 col-md-4">
-				<div class="app-feature text-center">
-					<!-- Heading -->
-					<h3>Highly Customizable</h3>
-					<!-- Description -->
-					<p>Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt.</p>
-				</div>
-			</div>
-			<!-- Feature 02-->
-			<div class="col-lg-4 col-md-4">
-				<div class="app-feature text-center">
-					<!-- Heading -->
-					<h3>Built For Startups</h3>
-					<!-- Description -->
-					<p>Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!--====  End of App Features  ====-->
-
-<section class="call-to-action-app section bg-blue">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<h2>It's time to change your mind</h2>
-				<p>Download over 2 million humans .Get <a href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">Small Apps</a> free forever!
-					<br>We say you won’t look back.</p>
-				<ul class="list-inline">
-					<li class="list-inline-item">
-						<a href="" class="btn btn-rounded-icon">
-							<i class="ti-apple"></i>
-							Iphone
-						</a>
-					</li>
-					<li class="list-inline-item">
-						<a href="" class="btn btn-rounded-icon">
-							<i class="ti-android"></i>
-							Android
-						</a>
-					</li>
-					<li class="list-inline-item">
-						<a href="" class="btn btn-rounded-icon">
-							<i class="ti-microsoft-alt"></i>
-							Windows
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</section>
 
 <!--============================
 =            Footer            =
