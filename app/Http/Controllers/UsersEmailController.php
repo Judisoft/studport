@@ -39,14 +39,13 @@ class UsersEmailController extends Controller
      */
     public function store(Request $request)
     {
-        $user_id = Sentinel::getUser()->id;
         $request->merge(['user_id'=>$user_id]);
         $request->merge(['status'=>'1']);
         $email = trim($request->email_id, '"');
         $request->merge(['email_id'=>$email]);
         $existing_emails = User::get(['email']);
 
-            $email = Email::create($request->except('_token'));
+        $email = Email::create($request->except('_token'));
         $success ='Message Sent Successfully.';
         return view('user_emails/compose', compact('success', 'existing_emails'));
     }

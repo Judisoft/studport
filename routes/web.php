@@ -335,6 +335,7 @@ Route::group(
     function () {
         Route::get('questions/index', 'QuestionsController@index')->name('questions');
         Route::get('questions/create', 'QuestionsController@create');
+        Route::resource('exams', 'ExamsController');
     }
 );
 // Subscription
@@ -418,8 +419,7 @@ Route::post('user_dashboard', 'BooksController@store');
 // Newsletter Route
 Route::post('/', 'FrontEndController@newsletter');
 //Exams
-Route::resource('exams', 'ExamsController');
-//Route::get('exams/index', 'ExamsController@index');
+Route::get('exams', 'ExamsController@index')->name('exams');
 Route::get('exams/{uuid}/download', 'ExamsController@download')->name('exams.download');
 //Library
 Route::resource('library', 'LibraryController');

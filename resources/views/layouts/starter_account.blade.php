@@ -23,6 +23,11 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('template/images/favicon.png')}}" />
   </head>
+  <style>
+  .nav-link{
+      font-weight: 700 !important;
+  }
+  </style>
   <body>
     <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
@@ -65,11 +70,11 @@
             </li>
             <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                @if($user->pic)
+                @if(Sentinel::check() && Sentinel::getUser()->pic)
                 <img class="img-sm rounded-circle" src="{{$user->pic}}" alt="profile image"> 
-                @elseif($user->gender == 'm')
+                @elseif(Sentinel::getUser()->gender == 'm')
                 <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-1.png')}}" alt="profile image">
-                @elseif($user->gender == 'f')
+                @elseif(Sentinel::getUser()->gender == 'f')
                 <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-3.png')}}" alt="profile image">
                 @else
                 <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/no_avatar.png')}}" alt="profile image">
@@ -77,17 +82,17 @@
                 <span class="font-weight-normal"> {{Sentinel::getUser()->first_name. ' ' .Sentinel::getUser()->last_name}}</span></a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
-                  @if($user->pic)
+                  @if(Sentinel::getUser()->pic)
                   <img class="img-sm rounded-circle" src="{{$user->pic}}" alt="profile image"> 
-                  @elseif($user->gender == 'm')
+                  @elseif(Sentinel::getUser()->gender == 'm')
                   <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-1.png')}}" alt="profile image">
-                  @elseif($user->gender == 'f')
+                  @elseif(Sentinel::getUser()->gender == 'f')
                   <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-3.png')}}" alt="profile image">
                   @else
                   <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/no_avatar.png')}}" alt="profile image">
                   @endif 
                   <p class="mb-1 mt-3">{{Sentinel::getUser()->first_name. ' ' .Sentinel::getUser()->last_name}}</p>
-                  <p class="font-weight-light text-muted mb-0">{{$user->email}}</p>
+                  <p class="font-weight-light text-muted mb-0">{{Sentinel::getUser()->email}}</p>
                 </div>
                 <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
                 <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
@@ -105,16 +110,16 @@
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color: #17224f;">
           <ul class="nav">
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="profile-image">
-                   @if($user->pic)
-                  <img class="img-sm rounded-circle" src="{{$user->pic}}" alt="profile image"> 
-                  @elseif($user->gender == 'm')
+                   @if(Sentinel::check() && Sentinel::getUser()->pic)
+                  <img class="img-sm rounded-circle" src="{{Sentinel::getUser()->pic}}" alt="profile image"> 
+                  @elseif(Sentinel::getUser()->gender == 'm')
                   <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-1.png')}}" alt="profile image">
-                  @elseif($user->gender == 'f')
+                  @elseif(Sentinel::getUser()->gender == 'f')
                   <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-3.png')}}" alt="profile image">
                   @else
                   <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/no_avatar.png')}}" alt="profile image">
@@ -148,7 +153,7 @@
             </li>
             <li class="nav-item nav-category"><span class="nav-link">Emails</span></li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{URL::to('user_emails/compose')}}">
                 <span class="menu-title">Compose</span>
                 <i class="icon-arrow-right menu-icon"></i>
               </a>
@@ -160,18 +165,12 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{URL::to('user_emails/sent')}}">
                 <span class="menu-title">Sent</span>
                 <i class="icon-arrow-right menu-icon"></i>
               </a>
             </li>
               <li class="nav-item nav-category"><span class="nav-link">Study Resources</span></li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="menu-title">Courses</span>
-                <i class="icon-arrow-right menu-icon"></i>
-              </a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span class="menu-title">Past Questions</span>

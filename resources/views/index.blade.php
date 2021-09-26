@@ -14,6 +14,17 @@ p{
 	color:#17224f !important;
 	font-weight: 700 !important;
 }
+.box{
+	border: none;
+}
+.box:hover{
+	border: 1px solid #336BFF;
+	border-radius: 10px;
+	box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.btn-main-md:hover {
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
 </style>
 {{-- Page content --}}
 @section('content')
@@ -26,7 +37,7 @@ p{
 			<div class="col-md-6 order-2 order-md-1 text-center text-md-left">
 				<h1 class="font-weight-bold mb-4" style="color: #17224f;">We use technology to simplify <b style="color: #EB740A">educational</b> processes</h1>
 				<p class="text-white mb-5"></p>
-				<a href="{{route('register')}}" class="btn btn-main-md rounded-0" style="background-color:#054165;">Get Started Now</a>
+				<a href="{{route('register')}}" class="btn btn-main-md rounded-0" style="background-color:#17224f;">Get Started Now <i class="ti-arrow-right"></i></a>
 			</div>
 			<div class="col-md-6 text-center order-1 order-md-2">
 				<img class="img-fluid" src="{{asset('images/index5.svg')}}" alt="screenshot">
@@ -40,19 +51,19 @@ p{
 	<div class="container">
 		<div class="rounded p-5 bg-white pt-5">
 			<div class="row">
-				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
+				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center box">
 					<img class="img-fluid img-md" src="{{asset('images/customize.svg')}}" />
 					<h3 class="mt-4 text-capitalize h3 features">Customizable</h3>
 					<p class="regular text-home pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
 						tempore ipsam dignissimos molestias.</p>
 				</div>
-				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
+				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center box">
 					<img class="img-fluid img-md" src="{{asset('images/increase.svg')}}" />
 					<h3 class="mt-4 text-capitalize h3 features">Efficient</h3>
 					<p class="regular text-home pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
 						tempore ipsam dignissimos molestias.</p>
 				</div>
-				<div class="col-lg-4 col-md-12 mt-5 mt-lg-0  text-center">
+				<div class="col-lg-4 col-md-12 mt-5 mt-lg-0  text-center box">
 					<img class="img-fluid img-md" src="{{asset('images/community2.svg')}}" />
 					<h3 class="mt-4 text-capitalize h3 features">Community</h3>
 					<p class="regular text-home pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
@@ -165,11 +176,11 @@ p{
 				</div>
 			</div>
 			<div class="col-lg-5 mr-auto align-self-center">
-				<div class="service-box bg-gray">
+				<div class="service-box bg-transparent">
 					<div class="row align-items-center">
 						<div class="col-md-6 col-xs-12">
 							<!-- Service 01 -->
-							<div class="service-item">
+							<div class="service-item box">
 								<!-- Icon -->
 								<i class="ti-help-alt"></i>
 								<!-- Heading -->
@@ -180,7 +191,7 @@ p{
 						</div>
 						<div class="col-md-6 col-xs-12">
 							<!-- Service 01 -->
-							<div class="service-item">
+							<div class="service-item box">
 								<!-- Icon -->
 								<i class="ti-layers-alt"></i>
 								<!-- Heading -->
@@ -191,7 +202,7 @@ p{
 						</div>
 						<div class="col-md-6 col-xs-12">
 							<!-- Service 01 -->
-							<div class="service-item">
+							<div class="service-item box">
 								<!-- Icon -->
 								<i class="ti-blackboard"></i>
 								<!-- Heading -->
@@ -202,7 +213,7 @@ p{
 						</div>
 						<div class="col-md-6 col-xs-12">
 							<!-- Service 01 -->
-							<div class="service-item">
+							<div class="service-item box">
 								<!-- Icon -->
 								<i class="ti-link"></i>
 								<!-- Heading -->

@@ -25,7 +25,12 @@
     @yield('header_styles')
 <!--end of page level css-->
 </head>
-
+<style>
+.nav-link{
+    color: #17224f !important;
+    font-weight: 500 !important;
+}
+</style>
 <body class="snippet-body" style="overflow-x: hidden !important;">
 <nav class="navbar main-nav fixed-top navbar-expand-lg  px-2 px-sm-0 py-2 py-lg-0">
   <div class="container-fluid">
@@ -37,7 +42,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item @@contact active">
+        <li class="nav-item @@contact">
           <a class="nav-link" href="{{route('home')}}">Home</a>
         </li>
         <li class="nav-item dropdown">

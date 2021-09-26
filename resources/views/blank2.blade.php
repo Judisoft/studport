@@ -4,10 +4,7 @@
 
 {{-- Page content --}}
 @section('content')
-  <div class="content-wrapper">
-    
-  </div>
-  <!-- content-wrapper ends -->
+ 
 @stop
 {{-- page level scripts --}}
 @section('footer_scripts')

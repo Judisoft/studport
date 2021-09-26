@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Webpatser\Uuid\Uuid;
 use App\Models\Exam;
 use App\Models\User;
+use App\Models\Library;
 use \Illuminate\Support\Facades\Redirect;
+use Sentinel;
+use App\Models\Blog;
 
 class ExamsController extends Controller
 {
@@ -17,8 +20,32 @@ class ExamsController extends Controller
      */
     public function index()
     {
-       $exams = Exam::all();
-        return view('exams.index', compact('exams'));
+       //$exams = Exam::all();
+       if(Sentinel::check())
+       {
+        $search = request()->query('search');
+        if ($search) 
+        {
+           $exam_questions = Exam::where('title', 'LIKE', "%{$search}%")
+                                   ->simplePaginate(10);
+        }
+        else
+        {
+           $exam_questions = Exam::where('department', Sentinel::getuser()->department)
+                                   ->simplePaginate(10);
+        }
+
+        $course_title = Exam::select('title')->where('department', Sentinel::getUser()->department)->distinct()->orderBy('title')->get();
+        $course_titles = Blog::select('title')->where('user_id', Sentinel::getUser()->id)->distinct()->orderBy('title')->get();
+        
+        return view('exams', compact('course_title', 'exam_questions'));
+
+       }
+       else {
+
+        return view('login');
+       }
+        
     }
 
     /**
@@ -116,9 +143,9 @@ class ExamsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function download($uuid)
-{
+    {
     $exam = Exam::where('uuid', $uuid)->firstOrFail();
     $pathToFile = storage_path('app/exams/' . $exam->cover);
     return response()->download($pathToFile);
-}
+    }
 }
