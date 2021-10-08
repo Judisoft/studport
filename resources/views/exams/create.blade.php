@@ -9,6 +9,9 @@
 .bg-home{
     background-color: #17224f !important;
 }
+h1{
+    font-size: 50px !important;
+}
 </style>
 {{-- Page content --}}
 @section('content')
@@ -17,7 +20,7 @@
       <div class="col-lg-12 col-md-12 grid-margin">
         <div class="card bg-transparent">
           <div class="card-body bg-transparent">
-            <h1 class="text-home text-center">Add Past Examination Question</h1>
+            <h1 class="text-home text-center">Add Past Exam Question</h1>
             <hr style="width: 25%;">
                 <form action="{{ route('exams.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -90,7 +93,7 @@
                         <br>
                     </div>
                     <div class="text-right py-3">
-                        <button class="btn btn-lg bg-home text-light"><i class="ti-cloud-up px-2"></i>upload </button>
+                        <button class="btn btn-block btn-danger text-light text-uppercase"><i class="ti-upload px-2"></i>upload </button>
                     </div>
                 </form>
           </div>

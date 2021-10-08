@@ -27,7 +27,7 @@ Home
 		<div class="row">
 			<div class="col-sm-8 m-auto">
 				<!-- Page Title -->
-				<h1>About StudPort</h1>
+				<h1 class="text-home fw-700">About StudentPortal CM</h1>
 				<!-- Page Description -->
 				<p>StudPort is a digital platform developed to facilitate teacher-student-institution interactions. 
                     It is a student-focused community with teacher-assistance where students can ask questions in an open community and 
@@ -52,7 +52,7 @@ Home
 			<div class="col-lg-6 align-self-center">
 				<div class="content text-center text-lg-left">
 					<!-- Headline -->
-					<h2>This is our story.</h2>
+					<h1 class="text-home fw-700">This is our story.</h1>
 					<!-- Story -->
 					<p>We’re here for those who refuse to settle. Who never stop moving forwards. Who continue to search for new ideas and better experiences in everything they do.
 					Because today’s hyper-connected world deserves a financial partner just as progressive.One that adapts to your needs, gives you control and constantly pushes you into new exciting spaces.</p>
@@ -88,7 +88,7 @@ Home
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title mb-0">
-					<h2>Why we created <a href="{{route('home')}}">Small Apps</a></h2>
+					<h1 class="text-home fw-700">Why we created <a href="{{route('home')}}" ><b style="color: #EB740A">StudentPortal CM</b></a></h1>
 					<p>Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Proin eget tortor risus. Proin eget tortor risus. Proin eget tortor risus. Nulla quis lorem ut libero malesuada feugiat. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
 				</div>
 			</div>
@@ -108,7 +108,7 @@ Home
 					<!-- Image -->
 					<img class="img-fluid" src="images/blog/post-01.jpg" alt="Story-Image">
 					<!-- Heading -->
-					<h3>Our Story</h3>
+					<h3 class="text-home fw-700">Our Story</h3>
 					<!-- Story -->
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
 				</div>
@@ -118,7 +118,7 @@ Home
 					<!-- Image -->
 					<img class="img-fluid" src="images/blog/post-03.jpg" alt="Story-Image">
 					<!-- Heading -->
-					<h3>What we do</h3>
+					<h3 class="text-home fw-700">What we do</h3>
 					<!-- Story -->
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
 				</div>
@@ -139,13 +139,13 @@ Home
 				<div class="quote-slider">
 					<div class="item mb-4">
 						<!-- Quote -->
-						<h2>Behind every great product, there is a great mind.</h2>
+						<h2 class="text-home fw-400">Behind every great product, there is a great mind.</h2>
 						<!-- Company -->
 						<cite class="ml-0">-TechCrunch</cite>
 					</div>
 					<div class="item mb-4">
 						<!-- Quote -->
-						<h2>Behind every great product, there is a great mind.</h2>
+						<h2 class="text-home fw-700">Behind every great product, there is a great mind.</h2>
 						<!-- Company -->
 						<cite class="ml-0">-TechCrunch</cite>
 					</div>
@@ -198,7 +198,7 @@ Home
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2>Our Angel Investors</h2>
+					<h2 class="text-home fw-700">Our Angel Investors</h2>
 					<p>Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo, lacinia
 					eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. </p>
 				</div>
@@ -312,7 +312,7 @@ Home
 			<div class="col-lg-6 align-self-center">
 				<div class="content text-center text-lg-left">
 					<!-- Headline -->
-					<h2>This is our story.</h2>
+					<h2 class="text-home fw-700">This is our story.</h2>
 					<!-- Story -->
 					<p>We’re here for those who refuse to settle. Who never stop moving forwards. Who continue to search for new ideas and better experiences in everything they do.
 					Because today’s hyper-connected world deserves a financial partner just as progressive.One that adapts to your needs, gives you control and constantly pushes you into new exciting spaces.</p>
@@ -349,7 +349,7 @@ Home
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<!-- Hire Title -->
-				<h2>We are hunting Genius Developers</h2>
+				<h2 class="text-home fw-700">We are hunting Genius Instructors</h2>
 				<!-- Job Description -->
 				<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque
 					in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>

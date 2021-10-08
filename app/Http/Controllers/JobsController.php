@@ -7,11 +7,11 @@ use App\Models\News;
 
 class JobsController extends Controller
 {
-    public function jobs()
+    public function index()
     {
         
         $jobs = News::all();
-        //return view('jobs', compact('jobOpportunities'));
-        return dd($jobs);
+        return view('jobs', compact('jobOpportunities'));
+        //return dd($jobs);
     }
 }

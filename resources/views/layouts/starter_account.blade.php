@@ -22,31 +22,34 @@
     <link rel="stylesheet" href="{{asset('template/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('template/images/favicon.png')}}" />
-  </head>
-  <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+     <style>
   .nav-link{
       font-weight: 700 !important;
   }
   </style>
+  </head>
+ 
   <body>
     <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex align-items-center border-right">
-          <a class="navbar-brand " href="{{route('home')}}"><img src="{{asset('images/studport_logo.png')}}" style="height: 35px; width: 35px;" alt="logo"><span class="h4 text-dark text-capitalize px-2"><b  style="padding-top: 5px;">StudentPortal</b> <b class="text-danger">CM</b></span></a> 
+          <a class="navbar-brand " href="{{route('home')}}"><img src="{{asset('images/my_logo.png')}}" style="height: 60px; width: auto;" alt="logo"></a> 
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
           <h4 class="mb-0 font-weight-small d-none d-lg-flex">My Account</h4>
           <ul class="navbar-nav navbar-nav-right ml-auto">
             <form class="search-form d-none d-md-block" action="#">
-              <i class="icon-magnifier"></i>
+              <i class="icon-magnifier mt-1"></i>
               <input type="search" class="form-control" placeholder="Search studentportal CM" title="Search here">
             </form>
-            <li class="nav-item"><a href="#" class="nav-link"><i class="icon-chart"></i></a></li>
             <li class="nav-item dropdown">
               <a class="nav-link count-indicator message-dropdown" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <i class="icon-bell"></i>
-                <span class="count"><b>7</b></span>
+                <span class="count">7</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
                 <a class="dropdown-item py-3">
@@ -70,31 +73,14 @@
             </li>
             <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                @if(Sentinel::check() && Sentinel::getUser()->pic)
-                <img class="img-sm rounded-circle" src="{{$user->pic}}" alt="profile image"> 
-                @elseif(Sentinel::getUser()->gender == 'm')
-                <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-1.png')}}" alt="profile image">
-                @elseif(Sentinel::getUser()->gender == 'f')
-                <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-3.png')}}" alt="profile image">
-                @else
-                <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/no_avatar.png')}}" alt="profile image">
-                @endif 
-                <span class="font-weight-normal"> {{Sentinel::getUser()->first_name. ' ' .Sentinel::getUser()->last_name}}</span></a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                <div class="dropdown-header text-center">
-                  @if(Sentinel::getUser()->pic)
+                @if(Sentinel::getUser()->pic)
                   <img class="img-sm rounded-circle" src="{{$user->pic}}" alt="profile image"> 
-                  @elseif(Sentinel::getUser()->gender == 'm')
-                  <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-1.png')}}" alt="profile image">
-                  @elseif(Sentinel::getUser()->gender == 'f')
-                  <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-3.png')}}" alt="profile image">
-                  @else
+                @else
                   <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/no_avatar.png')}}" alt="profile image">
-                  @endif 
-                  <p class="mb-1 mt-3">{{Sentinel::getUser()->first_name. ' ' .Sentinel::getUser()->last_name}}</p>
-                  <p class="font-weight-light text-muted mb-0">{{Sentinel::getUser()->email}}</p>
-                </div>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              </a>
+              @endif 
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile</a>
                 <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
                 <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a>
                 <a class="dropdown-item"><i class="dropdown-item-icon icon-question text-primary"></i> FAQ</a>
@@ -110,34 +96,26 @@
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color: #17224f;">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
-            <li class="nav-item nav-profile">
+            <li class="nav-item nav-category nav-profile active">
               <a href="#" class="nav-link">
                 <div class="profile-image">
                    @if(Sentinel::check() && Sentinel::getUser()->pic)
                   <img class="img-sm rounded-circle" src="{{Sentinel::getUser()->pic}}" alt="profile image"> 
-                  @elseif(Sentinel::getUser()->gender == 'm')
-                  <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-1.png')}}" alt="profile image">
-                  @elseif(Sentinel::getUser()->gender == 'f')
-                  <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/pic-3.png')}}" alt="profile image">
                   @else
                   <img class="img-sm rounded-circle" src="{{asset('template/images/faces-clipart/no_avatar.png')}}" alt="profile image">
                   @endif 
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name px-1">Hello {{Sentinel::getUser()->first_name}}!</p>
-                  <p class="designation text-capitalize">{{Sentinel::getUser()->user_role}}</p>
-                </div>
-                <div class="icon-container">
-                  <i class="icon-bubbles"></i>
-                  <div class="dot-indicator bg-danger"></div>
+                  <p class="profile-name px-1 text-light" style="font-weight:700;">Hello {{Sentinel::getUser()->first_name}}!</p>
+                  <p class="designation text-lowercase">signed in as {{Sentinel::getUser()->user_role}}</p>
                 </div>
               </a>
             </li>
             <li class="nav-item nav-category">
-              <span class="nav-link">Q&A Manager</span>
+              <span class="nav-link">Q&A Manager <i class="ti-help-alt menu-icon"></i></span>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('questions') }}">
@@ -151,7 +129,7 @@
                 <i class="icon-arrow-right menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item nav-category"><span class="nav-link">Emails</span></li>
+            <li class="nav-item nav-category"><span class="nav-link">Emails <i class="ti-email menu-icon"></i></span></li>
             <li class="nav-item">
               <a class="nav-link" href="{{URL::to('user_emails/compose')}}">
                 <span class="menu-title">Compose</span>
@@ -170,22 +148,22 @@
                 <i class="icon-arrow-right menu-icon"></i>
               </a>
             </li>
-              <li class="nav-item nav-category"><span class="nav-link">Study Resources</span></li>
+              <li class="nav-item nav-category"><span class="nav-link">Study Resources <i class="ti-folder menu-icon"></i></span></li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{URL::to('exams')}}">
                 <span class="menu-title">Past Questions</span>
                 <i class="icon-arrow-right menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="https://bookshop.studentportal-cm.com/" target="_blank">
                 <span class="menu-title">Library and Bookstore</span>
                 <i class="icon-arrow-right menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item nav-category"><span class="nav-link">Tutoting Jobs</span></li>
+            <li class="nav-item nav-category"><span class="nav-link">Tutoting Jobs <i class="ti-blackboard menu-icon"></i></span></li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartist.html">
+              <a class="nav-link" href="{{URL::to('news')}}">
                 <span class="menu-title">View Jobs</span>
                 <i class="icon-arrow-right menu-icon"></i>
               </a>
@@ -198,7 +176,7 @@
             </li>
             <li class="nav-item pro-upgrade">
               <span class="nav-link">
-                <a class="btn btn-block px-0 btn-rounded btn-upgrade" href="https://tawk.to/chat/607982e9f7ce1827093b17bf/1f3daepbo" target="_blank"> <i class="ti-email mx-2"></i> Upgrade Account</a>
+                <a class="btn btn-block px-0 btn-rounded btn-primary" href="#" target="_blank"> <i class="ti-wallet mx-2"></i> Upgrade Account</a>
               </span>
             </li>
           </ul>

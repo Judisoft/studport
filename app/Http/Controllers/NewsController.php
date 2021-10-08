@@ -12,16 +12,10 @@ class NewsController extends Controller
     public function index()
     {
 
-        $business = News::where('category', 'business')->orderBy('id', 'desc')->take(4)->get();
-        $sports = News::where('category', 'sports')->orderBy('id', 'desc')->take(4)->get();
-        $popular = News::where('category', 'popular')->orderBy('id', 'desc')->take(3)->get();
-        $hotnews = News::where('category', 'hotnews')->orderBy('id', 'desc')->take(3)->get();
-        $lifestyle = News::where('category', 'lifestyle')->orderBy('id', 'desc')->take(4)->get();
-        $world = News::where('category', 'world')->orderBy('id', 'desc')->take(4)->get();
-        $jobs = News::latest()->simplePaginate(10);
+        $jobs = News::latest()->simplePaginate(50);
         return view(
             'news',
-            compact('business', 'popular', 'hotnews', 'lifestyle', 'world', 'sports', 'jobs')
+            compact('jobs')
         );
     }
 
@@ -50,8 +44,8 @@ class NewsController extends Controller
     public function show(News $news)
     {
 
-
+        $related_jobs = News::where('category', $news->category)->latest()->simplePaginate(20);
         $recentnews = News::orderBy('id', 'desc')->take(5)->get();
-        return view('news_item', compact('news', 'recentnews'));
+        return view('news_item', compact('news', 'related_jobs'));
     }
 }

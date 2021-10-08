@@ -5,27 +5,65 @@
 Ask Question
 @parent
 @stop
-
+<style>
+.bg-blue{
+  background-color: #335EFF;
+}
+.fw-700{
+  font-weight: 700;
+}
+.fw-500{
+  font-weight: 500;
+}
+.fw-400{
+  font-weight: 400;
+}
+p{
+  font-weight: 50px !important;
+}
+input::placeholder{
+  font-size: 20px !important;
+}
+</style>
 {{-- Page content --}}
 @section('content')
-<section class="section career-featured page-title">
+<section class="section pt-0 position-relative bg-blue">
+	<div class="container">
+		<div class="p-3 bg-home pt-5 mb-0 mr-auto">
+        <div class="content justify-content-center">
+						<h1 class="text-white fw-700 text-center">Questions</h1>
+            <h5 class="text-center text-white fw-400">Ask a  question or answer others’ in our diverse Q&A section.<br />
+              We help you get instant answers from qualified teachers and from other users.
+            </h5>
+            <div class="p-3 m-auto">
+              <form action="#">
+                    <input class="form-control main"  type="text" placeholder="Search Questions" style="height: 60px;font-size: 20px;">
+              </form>
+            </div>
+					</div>				
+		</div>
+	</div>
+</section>
+<section class="job-list section pt-0 mt-3">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="block">
-					<!-- written-content -->
-					<div class="content">
-						<!-- Career heading -->
-						<h2><b>Looking for an answer?</b></h2>
-						<!-- Career Description -->
-						<p>StudPort helps you get instant answers from qualified teachers and from other users. Find recommended resources from experts.
-                                You can also <a href="#" class="text-primary">browse frequently asked questions</a> by category</p>
-					</div>
-					<!-- Promo Video -->
-					<div class="video">
-						<img class="img-fluid rounded-0" src="images/thumbs/promo-video-thumbnail.jpg" alt="video-thumbnail">
-					</div>
-				</div>
+			<div class="col-12 col-lg-10 m-auto">
+          <form action="#">
+            <div class="row">
+              <div class="col-lg-3 col-md-12 mt-3">
+                <p>xxx Questions</p>
+              </div>
+              <div class="col-lg-3 col-md-12">
+                <button class="btn btn-main-md fw-700">Ask a Question</button>
+              </div>
+              <div class="col-lg-3 col-md-12 mt-3">
+                All
+              </div>
+              <div class="col-lg-3 col-md-12 mt-3">
+                Most Recent
+              </div>
+            </div>
+          </form>
 			</div>
 		</div>
 	</div>
@@ -34,7 +72,7 @@ Ask Question
 <!--===============================
 =            Quesions            =
 ================================-->
-<section class="job-list section pt-0">
+<section class="job-list section pt-0 mt-3">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-lg-10 m-auto">

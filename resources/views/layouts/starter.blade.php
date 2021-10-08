@@ -18,23 +18,41 @@
   <link rel="stylesheet" href="{{asset('plugins1/slick/slick-theme.css')}}">
   <link rel="stylesheet" href="{{asset('plugins1/fancybox/jquery.fancybox.min.css')}}">
   <link rel="stylesheet" href="{{asset('plugins1/aos/aos.css')}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
 
   <!-- CUSTOM CSS -->
   <link href="{{asset('plugins1/css/style.css')}}" rel="stylesheet">
     
     @yield('header_styles')
 <!--end of page level css-->
-</head>
 <style>
-.nav-link{
+.nav-link, .dropdown-item{
+    font-family: 'Roboto Mono', monospace !important;
     color: #17224f !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
+}
+
+.features{
+	color:#233477 !important;
+	font-weight: 500 !important;
+}
+.fw-700{
+  font-weight: 700;
+}
+.fw-500{
+  font-weight: 500;
+}
+.fw-400{
+  font-weight: 400;
 }
 </style>
-<body class="snippet-body" style="overflow-x: hidden !important;">
-<nav class="navbar main-nav fixed-top navbar-expand-lg  px-2 px-sm-0 py-2 py-lg-0">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/studport_logo.png')}}" style="height: 35px; width: 35px;" alt="logo"><span class="h5  text-dark text-capitalize px-2"><b class="text-dark" style="padding-top: 5px; font-weight: 500;"></b></span></a>    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+</head>
+<body class="snippet-body">
+<nav class="navbar main-nav border-bottom navbar-expand-lg fixed-top  px-2 px-sm-0 py-2 py-lg-0">
+  <div class="container">
+    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/my_logo.png')}}" style="height: 60px;" alt="logo"><span class="h5  text-dark text-capitalize px-2"><b class="text-dark" style="padding-top: 5px; font-weight: 500;"></b></span></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,16 +63,8 @@
         <li class="nav-item @@contact">
           <a class="nav-link" href="{{route('home')}}">Home</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">About Us
-          </a>
-          <!-- Dropdown list -->
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item @@team" href="team.html">Our Team</a></li>
-            <li><a class="dropdown-item @@career" href="career.html">FAQs</a></li>
-            <li><a class="dropdown-item @@blog" href="blog.html">Our Mission</a></li>
-            <li><a class="dropdown-item @@blog" href="blog.html">Privacy Policies</a></li>
-          </ul>
+        <li class="nav-item">
+          <a class="nav-link" href="{{URL::to('about_us')}}">About Us</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Services
@@ -66,7 +76,7 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
 
               <ul class="dropdown-menu" aria-labelledby="dropdown0301">
-                <li><a class="dropdown-item" href="{{route('qAndA')}}">Questions and answer</a></li>
+                <li><a class="dropdown-item" href="{{URL::to('questions')}}">Questions and answer</a></li>
                 <li><a class="dropdown-item" href="index.html">Online Courses</a></li>
                 <li><a class="dropdown-item" href="index.html">Digital Library</a></li>
               </ul>
@@ -74,28 +84,22 @@
             <li><a class="dropdown-item" href="homepage-2.html">General IT Support</a></li>
             <li><a class="dropdown-item active3" href="homepage-3.html">Internship Placements</a></li>
             <li><a class="dropdown-item active3" href="homepage-3.html">Online Application</a></li>
-            <li><a class="dropdown-item active3" href="homepage-3.html">Tutoring Jobs</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">About Us
-          </a>
-          <!-- Dropdown list -->
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item @@team" href="team.html">Our Team</a></li>
-            <li><a class="dropdown-item @@career" href="career.html">FAQs</a></li>
-            <li><a class="dropdown-item @@blog" href="blog.html">Our Mission</a></li>
-            <li><a class="dropdown-item @@blog" href="blog.html">Privacy Policies</a></li>
+            <li><a class="dropdown-item active3" href="{{URL::to('news')}}">Tutoring Jobs</a></li>
           </ul>
         </li>
         <li class="nav-item @@contact">
-          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="nav-link" href="{{route('contact')}}">Contact</a>
         </li>
+        @if(Sentinel::guest())
         <li class="nav-item {!! (Request::is('login') ? 'active' : '') !!}">
           <a class="nav-link" href="{{route('login')}}">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('register')}}">Register</a>
+        </li>
+        @endif
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('my-account')}}">My Account</a>
         </li>
       </ul>
     </div>
@@ -112,17 +116,20 @@
       <div class="row">
         <div class="col-lg-4 col-md-12 m-md-auto align-self-center">
           <div class="block">
-            <a href="index.html">logo here</a>
+            <h5 class="text-white" style="font-weight: 700;font-family: 'Roboto Mono', monospace !important;">Follow Us </h5>
             <!-- Social Site Icons -->
             <ul class="social-icon list-inline">
-              <li class="list-inline-item">
-                <a href="#"><i class="ti-facebook"></i></a>
+              <li class="list-inline-item mt-3">
+                <a href="#"style="padding-top: 10px !important;"><i class="ti-facebook text-primary"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="#"><i class="ti-twitter"></i></a>
+                <a href="#" style="padding-top: 10px !important;"><i class="ti-youtube text-primary"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="#"><i class="ti-instagram"></i></a>
+                <a href="#" style="padding-top: 10px !important;"><i class="ti-twitter text-primary"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" style="padding-top: 10px !important;"><i class="ti-instagram text-primary"></i></a>
               </li>
             </ul>
           </div>
@@ -167,7 +174,7 @@
         <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
           <div class="block-2">
             <!-- heading -->
-            <h6>Company</h6>
+            <h6>Links</h6>
             <!-- links -->
             <ul>
               <li><a href="about.html">About</a></li>
@@ -180,12 +187,10 @@
       </div>
     </div>
   </div>
-  <div class="text-center bg-dark py-4">
-    <small class="text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear())</script>. Designed &amp; Developed by <a href="{{ route('home') }}" class="text-light">FalconsTech</a></small class="text-secondary">
+  <div class="text-center py-4" style="background-color: #17224f !important;">
+    <b><small class="text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear())</script>. Designed &amp; Developed by <a href="{{ route('home') }}" class="text-light">FalconsTech</a></small></b>
   </div>
 </footer>
-
-
   <!-- To Top -->
   <div class="scroll-top-to">
     <i class="ti-angle-up"></i>
@@ -203,6 +208,7 @@
   <script src="{{asset('plugins1/google-map/gmap.js')}}"></script>
   <script src="{{asset('plugins1/js/script.js')}}"></script>
   <script>
+  /*
     $(window).scroll(function() {    
         var scroll = $(window).scrollTop();
 
@@ -212,7 +218,9 @@
             $("nav").removeClass("shadow");
         }
     });
+  */
 </script>
+@yield('footer_scripts')
 </body>
 
 </html>

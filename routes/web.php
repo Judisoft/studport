@@ -336,6 +336,7 @@ Route::group(
         Route::get('questions/index', 'QuestionsController@index')->name('questions');
         Route::get('questions/create', 'QuestionsController@create');
         Route::resource('exams', 'ExamsController');
+        Route::get('statistika/create', 'StatistikaController@create');
     }
 );
 // Subscription
@@ -441,7 +442,6 @@ Route::get('institutions', 'FrontEndController@institutions')->name('institution
 Route::get('application/institutions', 'InstitutionsController@index')->name('applications');
 //Statistika routes
 Route::get('statistika/index', 'StatistikaController@index')->name('statistika');
-Route::get('questions', 'QuestionsController@questions')->name('qAndA');
-
-
-
+Route::get('/questions', 'QuestionsController@questions')->name('qAndA');
+//Jobs
+//Route::get('jobs', 'JobsController@index');

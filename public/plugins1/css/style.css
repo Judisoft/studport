@@ -307,10 +307,6 @@ button:focus,
   outline: 0;
 }
 
-.btn {
-  text-transform: uppercase;
-}
-
 .btn-download {
   padding: 20px 35px;
   font-size: 14px;
@@ -486,23 +482,22 @@ button:focus,
 @media (max-width: 992px) {
   .main-nav .dropdown .dropdown-menu {
     text-align: center;
-    float: left !important;
+    float: justify !important;
     width: 100%;
-    margin: 0;
+    margin: auto;
   }
 }
 
 .main-nav .dropdown .dropdown-menu .dropdown-item {
+  width: 250px;
   font-size: 14px;
-  padding: 3px 22px;
+  padding: 5px 22px;
   transition: .3s ease;
 }
 
 .main-nav .dropdown .dropdown-menu .dropdown-item.active, .main-nav .dropdown .dropdown-menu .dropdown-item.focus, .main-nav .dropdown .dropdown-menu .dropdown-item:focus, .main-nav .dropdown .dropdown-menu .dropdown-item:hover {
-  background-color: ;
-  color: #2e7eed;
-  border-left: 3px solid #2e7eed;
-  font-weight: 800;
+  color: #17224f;
+  font-weight: 700;
   transition: none;
 }
 
@@ -575,7 +570,7 @@ button:focus,
 
 .footer-main {
   padding: 92px 0;
-  background: #1a1b1f;
+  background: #17224f !important;
 }
 
 @media (max-width: 768px) {
@@ -598,10 +593,10 @@ button:focus,
   width: 38px;
   height: 38px;
   border-radius: 100%;
-  background: #3f3f43;
+  background: #08142C;
   color: #fff;
   text-align: center;
-  line-height: 38px;
+  line-height: 0;
 }
 
 @media (max-width: 768px) {
@@ -678,6 +673,7 @@ button:focus,
   bottom: 50px;
   width: 40px;
   height: 40px;
+  border-radius: 5px;
   line-height: 40px;
   text-align: center;
   background: #2e7eed;
@@ -913,7 +909,7 @@ button:focus,
 }
 
 .services .service-block i {
-  font-size: 30px;
+  font-size: 50px;
   color: #2e7eed;
   margin-bottom: 15px;
   display: inline-block;
@@ -1083,15 +1079,16 @@ button:focus,
 }
 
 .video-promo .content-block a i.video {
-  height: 90px;
-  width: 90px;
-  background: #2e7eed;
+  height: 50px;
+  width: 95px;
+  background: #FF3336;
   display: inline-block;
-  font-size: 40px;
+  font-size: 25px;
   color: #fff;
   text-align: center;
-  line-height: 90px;
-  border-radius: 100%;
+  line-height: 50px;
+  border-radius: 13px;
+  font-weight: 800;
 }
 
 .video-promo .content-block a:focus {
@@ -2196,6 +2193,6 @@ hr {
   }
 }
 .text-home{
-	color: #054165 !important;
+	color: #1F2667 !important;
 }
 /*# sourceMappingURL=style.css.map */

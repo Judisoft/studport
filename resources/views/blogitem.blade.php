@@ -12,11 +12,8 @@
 <link href="{{ asset('vendors/summernote/css/summernote-bs4.css') }}" rel="stylesheet" media="screen" />
 <link rel="stylesheet" href="{{asset('vendors/ionicons/css/ionicons.min.css')}}"/>
     <!--end of page level css-->
-@stop
 <style>
-body{
-    background-color: #ecf0f4 !important;
-}
+
 .not-allowed{
  cursor: not-allowed! important;
     
@@ -133,285 +130,258 @@ body{
 .box1 a{
     color: #1A77D5;
 }
-
-
+.img_height{
+    border-radius: 5px;
+}
+h3{
+    font-size: 30px !important;
+}
+textarea::placeholder, textarea{
+    font-family: 'Roboto Mono', monospace !important;
+    color: var(--dark) !important;
+    font-weight: 100 !important;
+    font-size: 18px !important;
+}
+small{
+    font-size: 14px !important;
+}
 </style>
+@stop
 
 {{-- Page content --}}
 @section('content')
         <!-- container section start-->
     <section class="container blogpage mt-5">
         <div class="row">
-            <div class="col-md-3 col-lg-3 col-12" style="border-right: 1px solid #ddd;">
-                        <div class="box1 text-dark mt-5 border-bottom"><h3 class="p-1 text-primary" style="font-weight: 500;"><b>Related Questions</b></h3></div>
-                        @foreach ($related_questions as $related_question)
+            <div class="col-md-9 col-lg-9 col-12">
+                    <div class="pt-3 thumbnail">
+                        <div class="mt-3">
+                            <div class="d-flex justify-content-between">
+                            <div class="p-2">
+                                <h4 class="text-primary fw-500"><img src="{{asset('images/question1.png')}}"  width="35px"  height="35px" class="img-responsive img_height float-left"/>&nbsp;Question</h4>
+                                <h3 class="text-home fw-700 pt-3 ml-5">{!! $blog->content !!}</h3>
+                            </div>
+                        </div>
+                        <div class="thumbnail" style=" padding-bottom: 50px;">
+                            <hr>
+                            <p class="text-gray">
+                                <small>
+                                    <span class="additional-post px-2">
+                                        <a> <span class="icon-calendar px-2"></span>Asked &nbsp;{{$blog->created_at->diffForHumans()}}</a>
+                                    </span>
+                                    <span class="additional-post px-2">
+                                        <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} Answer(s) provided</a>
+                                    </span>
+                                    <span class="additional-post">
+                                        <a>Viewed&nbsp;{{$blog->views}}  times</a>
+                                    </span>
+                                </small>
+                            </p>
+                            <hr>
+                            @if($blog->author->pic)
+                                <img src="{{$blog->author->pic}}" alt="author" width="35px"  height="35px" class="img-responsive img_height float-left"/>
+                            @else<img src="{{asset('images/no_avatar.png')}}" alt="img" width="35px"  height="35px" class="img-responsive img_height float-left"/>
+                            @endif
+                            <p class="p-1 pt-2 text-home fw-400"><small>&nbsp;{{$blog->author->first_name}} asked this question on {!! date('M d, Y', strtotime($blog->created_at)) !!} at {!! date('G:i', strtotime($blog->created_at)) !!}</small></p>
+                            @if($blog->image)
+                                <div class="text-center thumbnail featured-post-wide img mt-5">
+                                <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image" style="max-width:80%;">
+                            @endif
+                        </div>
+                    </div>
+                    <div class="p-2 mb-3 blog-detail-content">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="p-2">
+                                    <button class="btn btn-block btn-outline-primary p-3" onclick="myFunction()" id="btnAnswer">Answer this question</button>
+                                </div>
+                                <div class="card-body pull-up" id="myDIV" style="display:none;">
+                                    <div class="alert alert-primary alert-dismissible fade show" role="alert" style="background-color: #0069ff0d;">      
+                                        <p class="text-home">
+                                            These answers are provided by our Community. 
+                                            If you find them useful, show some love by clicking the heart. 
+                                            If you have difficulties leave a comment, or add your own answer to help others.
+                                        </p>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="{{URL::to('blogitem/'.$blog->id.'/comment')}}" method="POST">
+                                    <h4 class="text-home fw-500">submit an answer</h4>
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <div class="row">
+                                            <!-- Name -->
+                                            <div class="col-md-6 mb-2">
+                                                <input class="form-control main" type="text" name="name" placeholder="Name" value="@if(Sentinel::check()){{Sentinel::getUser()->first_name. ' '.Sentinel::getUser()->last_name}}@endif" hidden>
+                                            </div>
+                                            <!-- Email -->
+                                            <div class="col-md-6 mb-2">
+                                                <input class="form-control main" type="email" name="email" placeholder="Email Address" value="@if(Sentinel::check()){{Sentinel::getUser()->email}}@endif" hidden>
+                                            </div>
+                                            <!-- Level -->
+                                            <div class="col-md-12 mb-2">
+                                                <input class="form-control main" type="text" name="website" placeholder="Level" value="@if(Sentinel::check()){{Sentinel::getUser()->level}}@endif" hidden>
+                                            </div>
+                                            <!-- Answer -->
+                                            <div class="col-md-12 mb-2">
+                                                <textarea class="form-control main tinymce-editor" name="comment" rows="5" placeholder="Type your answer here"></textarea>
+                                                <small class="text-danger">{{ $errors->first('comment', 'This field is required') }}</small>
+                                            </div>
+                                            <!-- Submit Button -->
+                                            <div class="col-12 text-right">
+                                                @if(Sentinel::check()) 
+                                                    <button type="submit" class="btn btn-block btn-primary p-3">Post Answer</button>
+                                                @else
+                                                    <button class="btn btn-block btn-primary p-3 not-allowed" href="{{route('register')}}" disabled>Sign In to Answer</button>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <table class="table table-borderless">
+                                    @foreach($blog->comments as $comment)
+                                        @if($comment->count() > 0)
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="card card-body border-0 bg-transparent navbar-shadow">
+                                                            <div class="d-flex flex-column">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <div class="p-2 mb-2 rounded" style="border-left: 5px solid #335eff; background-color: #0069ff0d;"><p>{!! $comment->comment !!} </p></div>
+                                                                    <div class="p-2">
+                                                                        @if($comment->review == '1') <i class="ti-check fa-2x text-success"></i> 
+                                                                        @elseif($comment->review == '0') <i class="ti-close fa-2x text-danger"></i>
+                                                                        @elseif(!$comment->review) <a href="#" class="text-white" data-toggle="tooltip" data-placement="top" title="No review for this question yet"><i class="fa fa-info-circle fa-2x text-dark"></i></a>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between border-bottom ">
+                                                                    <div class="p-2">
+                                                                        @if($comment->picture)
+                                                                            <img src="{{$comment->picture}}" alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
+                                                                            <small>{{$comment->name}} answered on {!! date('M d, Y', strtotime($comment->created_at)) !!} at {!! date('G:i', strtotime($comment->created_at)) !!}</small>
+                                                                        @else
+                                                                            <img src="{{asset('images/no_avatar.png')}}" alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
+                                                                            <small>{{$comment->name}} answered on {!! date('M d, Y', strtotime($comment->created_at)) !!} at {!! date('G:i', strtotime($comment->created_at)) !!}</small>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                                <div class="p-2">
+                                                                    <div class="d-flex flex-column ml-5">
+                                                                        @if($comment->review == '1') 
+                                                                            <div class="p-2"><h4 class="text-home fw-500">Review/Tutor's comment</h4></div>
+                                                                            <div class="p-3 alert rounded mt-2 ml-5" style="border-left: 5px solid #52B682; background-color: #0069ff0d;"><p class="text-dark fw-500">{{$comment->explanation}}</p></div>
+                                                                            <div class="p-1 alert  border-0 rounded-0 mt-2">
+                                                                                @if($comment->reviewer_pic)
+                                                                                    <img src="{{$comment->reviewer_pic}}" alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
+                                                                                    <small class="text-dark">{{$comment->reviewed_by}} reviewed on {!! date('M d, Y', strtotime($comment->updated_at)) !!} at {!! date('G:i', strtotime($comment->updated_at)) !!}</small>
+                                                                                @else
+                                                                                    <img src="{{asset('images/no_avatar.png')}}"  alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
+                                                                                    <small class="text-dark">{{$comment->reviewed_by}} reviewed on {!! date('M d, Y', strtotime($comment->updated_at)) !!} at {!! date('G:i', strtotime($comment->updated_at)) !!}</small>
+                                                                                @endif
+                                                                            </div>
+                                                                        @elseif($comment->review == '0')
+                                                                            <div class="p-2 text-danger"><h3 class="tex-home fw-500">Tutor's Review</h3></div>
+                                                                            <div class="p-2 mb-2 alert-primary" style="border-left: 5px solid #335EFF;"><p>{{$comment->explanation}}</p></div>
+                                                                            <div class="p-1 alert  border-0 rounded-0 mt-2">
+                                                                                @if($comment->reviewer_pic)
+                                                                                    <img src="{{$comment->reviewer_pic}}" alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
+                                                                                    <small class="text-dark">{{$comment->reviewed_by}} reviewed on {!! date('M d, Y', strtotime($comment->updated_at)) !!} at {!! date('G:i', strtotime($comment->updated_at)) !!}</small>
+                                                                                @else
+                                                                                    <img src="{{asset('images/no_avatar.png')}}"  alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
+                                                                                    <small class="text-dark">{{$comment->reviewed_by}} reviewed on {!! date('M d, Y', strtotime($comment->updated_at)) !!} at {!! date('G:i', strtotime($comment->updated_at)) !!}</small>
+                                                                                @endif
+                                                                            </div>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mt-auto">
+                                                                    @if((Sentinel::check() && Sentinel::getUser()->user_role === 'tutor') && !$comment->review)
+                                                                        <h4 class="text-primary fw-500">Review this answer</h4>
+                                                                        <hr>
+                                                                        <div class="d-flex flex-row mt-3 pl-5">
+                                                                            <div class="p-2">
+                                                                                @if(Sentinel::getUser()->pic)
+                                                                                    <img src="{{ Sentinel::getUser()->pic }}" alt="img"
+                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;" />
+                                                                                @elseif(Sentinel::getUser()->gender === "male")
+                                                                                    <img src="{{ asset('images/authors/avatar3.png') }}" alt="..."
+                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
+                                                                                @elseif(Sentinel::getUser()->gender === "female")
+                                                                                    <img src="{{ asset('images/authors/avatar5.png') }}" alt="..."
+                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
+                                                                                @else
+                                                                                    <img src="{{ asset('images/no_avatar.png') }}" alt="..."
+                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
+                                                                                @endif
+                                                                            </div>
+                                                                            <div class="p-2 mb-2" style=" width: 100% !important;">
+                                                                                <div  id="reviewForm">
+                                                                                    {!! Form::open(['url' => URL::to('blogitem/'.$comment->id.'/review'), 'method' => 'post', 'class' => 'bf',
+                                                                                        'files'=> true]) !!}
+                                                                                        <div class="form-group {{ $errors->has('review') ? 'has-error' : '' }}">
+                                                                                            {!! Form::select('review', ['1' => 'Answer is correct', '0' => 'Answer is NOT correct'], null, ['placeholder' => 'select remark', 'class' => 'form-control main' ]) !!}
+                                                                                            <span class="text-danger"><small>{{ $errors->first('review', ':message') }}</small></span>
+                                                                                        </div>
+                                                                                        <div class="form-group {{ $errors->has('explanation') ? 'has-error' : '' }}">
+                                                                                            {!! Form::textarea('explanation', null, ['class' => 'form-control main tinymce-editor',
+                                                                                            'style'=>'font-size: 14px; height:100px;']) !!}
+                                                                                            <span class="text-danger"><small>{{ $errors->first('explanation', ':message') }}</small></span>
+                                                                                        </div>
+                                                                                        <button type="submit" name="review_form" class="btn btn-main-md">
+                                                                                            Submit Review
+                                                                                        </button>
+                                                                                    {!! Form::close() !!}
+                                                                                </div>
+                                                                                <div  id='reviewForm'>
+                                                                            </div>
+                                                                        </div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        @else
+                                            <h5 class="px-5" style="opacity: 0.3;"><em>No Answers Yet</em></h5>
+                                        @endif
+                                    @endforeach      
+                                </table>
+                            </div>      
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 p-2" style="margin: auto; overflow-x: hidden;">
+                    <div class="card-body" style="border-left: 6px solid #0072b3; background-color: rgb(221, 234, 255);">
+                        <div class="mb-2">
+                            <h4 class="fw-700" style="color: #EB740A"> Can't answer this question? </h4> 
+                        </div>
+                        Copy this link:
+                        <a href="{{url()->current()}}" style="color: #19A0EE; text-decoration: underline;"> {{url()->current()}}</a> 
+                        to <a href="{{URL::to('user_emails/compose')}}" style="text-decoration: underline;"> share </a> 
+                        with a tutor or other users who can provide helpful answers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-12" style="border-left: 1px solid #ddd;">
+                <div class="box1 mt-5"><h3 class="text-home fw-700">&nbsp;Related Questions</h3></div>
+                    @foreach ($related_questions as $related_question)
                         <div class="d-flex justify-content-between">
-                            <div class="p-2 border-bottom">
-                                <a href="{{ URL::to('blogitem/'.$related_question->slug) }}">{!! $related_question->title !!}</a><br>
+                            <div class="p-2 border-bottom ml-3 mb-2">
+                                <a href="{{ URL::to('blogitem/'.$related_question->slug) }}">
+                                @if(strlen($related_question->content) < 100) {!! $related_question->content !!}
+                                @else {!! substr($related_question->content, 0, 100).' '. "...". "<small class='text-info' id='more'>more</small>" !!}
+                                @endif
+                                </a><br>
                             </div>
                              <div class="p-2 mt-3">
                             </div>
                         </div>
-                        @endforeach
-
-                <div class="mt-3">{!! $related_questions->links() !!}</div>
-            </div>
-            <div class="col-md-8 col-lg-8 col-12">
-                    <div class="pt-5 thumbnail">
-                <div>
-                        <div class="d-flex justify-content-between">
-                            <div class="p-2">
-                                <p class="text-dark"><b>{!! $blog->content !!}</b></p>
-                            </div>
-                            <div class="p-2">
-                                <button class="btn btn-primary float-right" onclick="myFunction()">Answer this question</button>
-                            </div>
-                        </div>
-                        <div class="thumbnail" style=" padding-bottom: 50px;">
-                        <hr>
-                    <p class="text-gray">
-                    <small>
-                        <span class="additional-post px-2">
-                            <a> <span class="icon-calendar px-2"></span>Asked &nbsp;{{$blog->created_at->diffForHumans()}}</a>
-                        </span>
-                        <span class="additional-post px-2">
-                            <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} Answer(s) provided</a>
-                        </span>
-                        <span class="additional-post">
-                            <a>Viewed&nbsp;{{$blog->views}}  times</a>
-                        </span>
-                    </small>
-                </p>
-                <hr>
-                  <span class="additional-post">
-                          @if($blog->author->pic)
-                            <img src="{{$blog->author->pic}}" alt="author" width="35px"  height="35px" class="img-responsive img_height float-left br-5"/>
-                            @else<img src="{{asset('images/no_avatar.png')}}" alt="img" width="35px"  height="35px" class="rounded-circle img-responsive img_height float-left"/>
-                        @endif
-                        <small class="px-2 pt-5 text-black">{{$blog->author->first_name}} asked this question on {!! date('M d, Y', strtotime($blog->created_at)) !!} at {!! date('G:i', strtotime($blog->created_at)) !!}</small>
-                    </span>
-                        @if($blog->image)
-                            <div class="text-center thumbnail featured-post-wide img mt-5">
-                                    <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image" style="max-width:80%;">
-                        @endif
-                                <!-- /.blog-detail-image -->
-                            </div>
-                        </div>
-                        <div class="p-2 mb-3 blog-detail-content">
-                        <div class="p-0">
-                            <table class="table table-borderless">
-                            @foreach($blog->comments as $comment)
-                            @if($comment->count() > 0)
-                            <tbody>
-                                        <tr>
-                                        <td>
-                                            <div class="card card-body bg-transparent navbar-shadow">
-                                                <div class="d-flex flex-column">
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="p-2 mb-2" style="border-left: 5px solid #eee;"><p>{!! $comment->comment !!} </p></div>
-                                                        <div class="p-2">
-                                                            @if($comment->review == '1') <i class="fa fa-check fa-2x text-success"></i> 
-                                                                @elseif($comment->review == '0') <i class="fa fa-times-circle fa-2x text-danger"></i>
-                                                                @elseif(!$comment->review) <a href="#" class="text-white" data-toggle="tooltip" data-placement="top" title="No review for this question yet"><i class="fa fa-info-circle fa-2x text-info"></i></a>
-                                                                
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                     <div class="d-flex justify-content-between border-bottom ">
-                                                            <div class="p-2">
-                                                                @if($comment->picture)
-                                                                        <img src="{{$comment->picture}}" alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
-                                                                        <small>{{$comment->name}} answered on {!! date('M d, Y', strtotime($comment->created_at)) !!} at {!! date('G:i', strtotime($comment->created_at)) !!}</small>
-                                                                    @else
-                                                                    <img src="{{asset('images/no_avatar.png')}}" alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
-                                                                    <small>{{$comment->name}} answered on {!! date('M d, Y', strtotime($comment->created_at)) !!} at {!! date('G:i', strtotime($comment->created_at)) !!}</small>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    <div class="p-2">
-                                                    <div class="d-flex flex-column ml-5">
-                                                        @if($comment->review == '1') 
-                                                                <div class="p-2 text-danger"><u>Review/Tutor's comment</u></div>
-                                                                <div class="p-2 alert  border-0 rounded-0 mt-2 ml-5"><small>{{$comment->explanation}}</small></div>
-                                                                <div class="p-1 alert  border-0 rounded-0 mt-2">
-                                                                    @if($comment->reviewer_pic)
-                                                                        <img src="{{$comment->reviewer_pic}}" alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
-                                                                        <small class="text-info">{{$comment->reviewed_by}} reviewed on {!! date('M d, Y', strtotime($comment->updated_at)) !!} at {!! date('G:i', strtotime($comment->updated_at)) !!}</small>
-                                                                    @else
-                                                                        <img src="{{asset('images/no_avatar.png')}}"  alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
-                                                                        <small class="text-info">{{$comment->reviewed_by}} reviewed on {!! date('M d, Y', strtotime($comment->updated_at)) !!} at {!! date('G:i', strtotime($comment->updated_at)) !!}</small>
-                                                                    @endif
-                                                                </div>
-                                                            @elseif($comment->review == '0')
-                                                                <div class="p-2 text-danger"><u>Review/Tutor's comment</u></div>
-                                                                <div class="p-2 mb-2" style="border-left: 5px solid #eee;"><small>{{$comment->explanation}}</small></div>
-                                                                 <div class="p-1 alert  border-0 rounded-0 mt-2">
-                                                                    @if($comment->reviewer_pic)
-                                                                        <img src="{{$comment->reviewer_pic}}" alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
-                                                                        <small class="text-info">{{$comment->reviewed_by}} reviewed on {!! date('M d, Y', strtotime($comment->updated_at)) !!} at {!! date('G:i', strtotime($comment->updated_at)) !!}</small>
-                                                                    @else
-                                                                        <img src="{{asset('images/no_avatar.jpg')}}"  alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
-                                                                        <small class="text-info">{{$comment->reviewed_by}} reviewed on {!! date('M d, Y', strtotime($comment->updated_at)) !!} at {!! date('G:i', strtotime($comment->updated_at)) !!}</small>
-                                                                    @endif
-                                                                </div>
-                                                            @endif
-                                                    </div>
-                                                </div>
-                                                    <div class="mt-auto">
-                                                        @if((Sentinel::check() && Sentinel::getUser()->user_role === 'tutor') && !$comment->review)
-                                                        <hr>
-                                                        <i>Review this answer</i>
-                                                        <div class="d-flex flex-row mt-3 pl-5">
-                                                            <div class="p-2">
-                                                                @if(Sentinel::getUser()->pic)
-                                                                        <img src="{{ Sentinel::getUser()->pic }}" alt="img"
-                                                                            class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;" />
-                                                                @elseif(Sentinel::getUser()->gender === "male")
-                                                                        <img src="{{ asset('images/authors/avatar3.png') }}" alt="..."
-                                                                            class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
-                                                                @elseif(Sentinel::getUser()->gender === "female")
-                                                                        <img src="{{ asset('images/authors/avatar5.png') }}" alt="..."
-                                                                            class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
-                                                                @else
-                                                                        <img src="{{ asset('images/no_avatar.png') }}" alt="..."
-                                                                            class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
-                                                                @endif
-                                                            </div>
-                                                            <div class="p-2 mb-2" style=" width: 100% !important;">
-                                                            
-                                                            <div  id="reviewForm">
-                                                                                            <!--review -->
-                                                            {!! Form::open(['url' => URL::to('blogitem/'.$comment->id.'/review'), 'method' => 'post', 'class' => 'bf',
-                                                            'files'=> true]) !!}
-                                                                <div class="form-group {{ $errors->has('review') ? 'has-error' : '' }}">
-                                                                {!! Form::select('review', ['1' => 'Answer is correct', '0' => 'Answer is NOT correct'], null, ['placeholder' => 'select remark', 'class' => 'form-control input-lg' ]) !!}
-                                                                <span class="text-danger"><small>{{ $errors->first('review', ':message') }}</small></span>
-                                                            </div>
-                                                            <div class="form-group {{ $errors->has('explanation') ? 'has-error' : '' }}">
-                                                                {!! Form::textarea('explanation', null, ['class' => 'form-control input-lg',
-                                                                'style'=>'font-size: 14px; height:100px;']) !!}
-                                                                <span class="text-danger"><small>{{ $errors->first('explanation', ':message') }}</small></span>
-                                                            </div>
-                                                                <button type="submit" name="review_form" class="btn btn-sm btn-index">
-                                                                    Submit Review
-                                                                </button>
-                                                            {!! Form::close() !!}
-                                                            </div>
-                                                            <div  id='reviewForm'>
-                                                            <!--    <i id="toggle-review">Review this answer</i>   -->  
-                                                            </div>
-                                                                  <!--end review -->
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                            @else
-                             <h5 class="px-5" style="opacity: 0.3;"><em>No Answers Yet</em></h5>
-                            @endif
-                            @endforeach
-                            </tbody>
-                    </table>
-                    </div>
-                        <!-- /the.box .no-border -->
-                        <!-- Comment Section Start -->
-                        <div>
-                            <div>
-                            <div class="card-body mt-5" id="myDIV" style="display:none;">
-                                {!! Form::open(['url' => URL::to('blogitem/'.$blog->id.'/comment'), 'method' => 'post', 'class' => 'bf',
-                                'files'=> true]) !!}
-                                @if(Sentinel::check())
-                                    <div class="row" style="display: none;">
-                                @else
-                                <div class="row ml-2">
-                                @endif
-                                <div class="col-md-4 col-lg-4 col-12 m-3">
-                                <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                                    @if(Sentinel::check())
-                                    <label>Name</label>
-                                    {!! Form::text('name', Sentinel::getUser()->first_name  . '&nbsp;' . Sentinel::getUser()->last_name, ['class' => 'form-control input-lg br-5 bg-light','required' => 'required',
-                                     'style'=>'font-size: 14px;']) !!}
-                                    @else
-                                    <label>Name</label>
-                                    {!! Form::text('name', null, ['class' => 'form-control input-lg br-5 bg-light',
-                                     'style'=>'font-size: 14px;']) !!}
-                                    @endif
-                                    <span class="text-danger"><small>{{ $errors->first('name', ':message') }}</small></span>
-                                </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-12 m-3">
-                                <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                                    @if(Sentinel::check())
-                                    <label>Email</label>
-                                    {!! Form::text('email', Sentinel::getUser()->email, ['class' => 'form-control input-lg br-5 bg-light','required' => 'required',
-                                    'style'=>'font-size: 14px;']) !!}
-                                    @else
-                                    <label>Email</label>
-                                    {!! Form::text('email', null, ['class' => 'form-control input-lg br-5 bg-light',
-                                    'style'=>'font-size: 14px;']) !!}
-                                    @endif
-                                    <span class="text-danger"><small>{{ $errors->first('email', ':message') }}</small></span>
-                                </div>
-                                </div>
-                                </div>
-                                
-                                <div class="d-flex justify-content-between">
-                                    <div class="p-2">
-                                        @if(Sentinel::check() && Sentinel::getUser()->pic)
-                                                <img src="{{ Sentinel::getUser()->pic }}" alt="img"
-                                                    class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;" />
-                                        @elseif(Sentinel::check() && Sentinel::getUser()->gender === "male")
-                                                <img src="{{ asset('images/authors/avatar3.png') }}" alt="..."
-                                                    class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
-                                        @elseif(Sentinel::check() && Sentinel::getUser()->gender === "female")
-                                                <img src="{{ asset('images/authors/avatar5.png') }}" alt="..."
-                                                    class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
-                                        @else
-                                                <img src="{{ asset('images/no_avatar.png') }}" alt="..."
-                                                    class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
-                                        @endif
-                                    </div>
-                                    <div class="m-3">
-                                        <div class="box-body pad form-group {{ $errors->has('comment') ? 'has-error' : '' }}">
-                                            {!! Form::textarea('comment', null, ['class' => 'text-area form-control br-5', 'id'=>'textarea',  'style'=>'height: 100px !important; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;']) !!}
-                                            <span class="text-danger"><small>{{ $errors->first('comment', 'This field is required') }}</small></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group text-right">
-                                @if(Sentinel::check())
-                                    <button type="submit" name="comment_form" class="btn btn-sm btn-index">
-                                        Submit  Answer
-                                    </button>
-                                @endif
-                                  @if(Sentinel::guest())
-                                    <div class="form-group">
-                                    <button type="submit" class="btn btn-sm btn-index rounded-5 disabled not-allowed" onclick="return false;" data-toggle="tooltip" data-placement="top" title="You have to be logged in to Post and answer" >
-                                        Submit  Answer
-                                    </button><br>
-                                @endif
-                                {!! Form::close() !!}
-                        </div>
-                        </div>
-                        <!-- //Media left section End -->
-                                <div class="mt-3 p-2" style="margin: auto; overflow-x: hidden;">
-                                    <div class="mb-2">
-                                        <h1 class="text-dark"> Can't answer this question? </h1> 
-                                    </div>
-                                    <div class="card-body" style="border-left: 5px solid var(--danger);">
-                                        Copy this link:
-                                        <a href="{{url()->current()}}" style="color: #19A0EE; text-decoration: underline;"> {{url()->current()}}</a> 
-                                        to <a href="{{URL::to('user_emails/compose')}}" style="text-decoration: underline;"> share </a> 
-                                        with a tutor or other users who can provide helpful answers</p>
-                                    </div>
-                                </div>
-                            </div>
-                </div>
+                    @endforeach
+                    <div class="mt-3">{!! $related_questions->links() !!}</div>
                 </div>
             </div>
-        </div>
     </section>
 @stop
 
@@ -419,7 +389,25 @@ body{
 {{-- page level scripts --}}
 
 {{-- page level scripts --}}
-@section('footer_scripts')
+<script src="https://cdn.tiny.cloud/1/kfzr8x5y033e1vg60kwlxgvmbugqaju26meujj8jysw1rlwq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>  
+    <script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea.tinymce-editor',
+            height: 100,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+            content_css: '//www.tiny.cloud/css/codepen.min.css'
+        });
+    </script>
+
     <script src="print.js"></script>
     <script src="{{ asset('vendors/summernote/js/summernote-bs4.min.js') }}" type="text/javascript"></script>
 
@@ -436,14 +424,16 @@ $('#toggle-review').on('click', function() {
 <script>
     function myFunction() {
     var x = document.getElementById("myDIV");
+    var btnAnswer = document.getElementById("btnAnswer");
     if (x.style.display === "none") {
+        btnAnswer.style.display = "none";
         x.style.display = "block";
     } else {
         x.style.display = "none";
     }
 }
 </script>
-@stop
+
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-607ca9281aff28eb"></script>
 

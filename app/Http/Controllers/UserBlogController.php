@@ -134,11 +134,14 @@ class UserBlogController extends JoshController
      * Display the specified resource.
      *
      * @param  Blog $blog
+     * @param $tag
      * @return view
      */
-    public function show(Blog $blog)
+    public function show(Blog $blog, $tag)
     {
-        $comments = Blog::find($blog->id)->comments;
+        $comments = Blog::find($blog->id);//->comments;
+        $blogs = Blog::withAnyTags($tag);//->simplePaginate(5);
+        $tags = $this->tags;
 
         return view('user_dashboard', compact('blog', 'comments', 'tags'));
     }

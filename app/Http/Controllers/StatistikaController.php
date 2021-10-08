@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Institution;
 
 class StatistikaController extends Controller
 {
@@ -23,7 +24,8 @@ class StatistikaController extends Controller
      */
     public function create()
     {
-        //
+        $institutions = Institution::where('institution_type', 'secondary')->get();
+        return view('statistika.create', compact('institutions'));
     }
 
     /**

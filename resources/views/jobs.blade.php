@@ -156,7 +156,7 @@ Home
 						<h2>Job Opening</h2>
 					</div>
 					<!-- Job List -->
-                    @foreach($jobs as $job)
+                    @foreach($jobOpportunities as $job)
                         <div class="job">
                             <div class="content">
                                 <!-- Job Title -->

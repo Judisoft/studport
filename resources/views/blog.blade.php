@@ -16,7 +16,6 @@ Academia
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nixie+One&family=Playfair+Display+SC:wght@700&family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
 <!--end of page level css-->
-@stop
 
 <style>
 body{
@@ -71,20 +70,27 @@ p{
 input[type="text"]{
     border: 5px solid #000 !important;
 }
+.thumbnail a:hover{
+    color: var(--primary) !important;
+}
 </style>
+@stop
+
 {{-- Page content --}}
 @section('content')
 <!-- Container Section Strat -->
-<div class="container-fluid mt-5" style="overflow-x: hidden;">
+<div class="container-fluid" style="overflow-x: hidden;">
     <div class="row">
-        <div class="col-md-3 col-lg-3 col-14 p-3 mt-5">
-            <form class="input-group" action="{{route('blog')}}" method="GET">
+        <div class="col-md-2 col-lg-2 col-12 ml-50">
+            
+        </div>
+        <div class="col-md-6 col-lg-6 col-12 mt-5">
+            <button class="btn btn-main-md fw-700">Ask a Question</button>
+            <form class="input-group mt-3" action="{{route('blog')}}" method="GET">
                 <input type="text" class="form-control select2 text-dark rounded-0 border-primary" name="search" placeholder="Search questions" value="{{request()->query('search')}}"  
                 style="font-size: 14px !important; height: 50px; font-weight: 400; background-color:#fff;" />
                 <button type="submit" class="btn btn-primary rounded-0"><span class="fa fa-search"></span></button>
             </form>
-        </div>
-        <div class="col-md-6 col-lg-6 col-12 p-4">
             <!-- BEGIN FEATURED POST SEARCH -->
         @if(request()->search)
             <div class="thumbnail" style=" padding-bottom: 20px;"> 
@@ -96,7 +102,7 @@ input[type="text"]{
             @forelse ($blogs as $blog)
             <!-- BEGIN FEATURED POST -->
             <div class="thumbnail">
-            <div class="p-1 relative-left">
+            <div class="p-1">
                     <div class="card card-body p-2" style="border: 1px solid #EAECEE;">
                     <div class="d-flex justify-content-between">
                         <div class="p-2">
@@ -246,7 +252,7 @@ input[type="text"]{
                             <p class="text-danger">No Teacher</p>
                         @endforelse
                     @if($teachers->count() > 10)
-                        <div class="text-right"> 
+                        <div class="text-right pb-3"> 
                             {!! $blogs->appends(['searchTeacher' => request()->query('searchTeacher')])->links() !!} 
                         </div>
                     @endif
