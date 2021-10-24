@@ -11,6 +11,9 @@
     <!--page level css starts-->
 <link href="{{ asset('vendors/summernote/css/summernote-bs4.css') }}" rel="stylesheet" media="screen" />
 <link rel="stylesheet" href="{{asset('vendors/ionicons/css/ionicons.min.css')}}"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
     <!--end of page level css-->
 <style>
 
@@ -145,6 +148,17 @@ textarea::placeholder, textarea{
 small{
     font-size: 14px !important;
 }
+#like:hover{
+    color: var(--primary);
+}
+.thumbnail h6{
+    font-family: 'Roboto Mono', monospace !important;
+    font-size: 14px;
+}
+.thumbnail p{
+    color: rgb(40,40,41);
+    font-weight: 400 !important;
+}
 </style>
 @stop
 
@@ -158,46 +172,54 @@ small{
                         <div class="mt-3">
                             <div class="d-flex justify-content-between">
                             <div class="p-2">
-                                <h4 class="text-primary fw-500"><img src="{{asset('images/question1.png')}}"  width="35px"  height="35px" class="img-responsive img_height float-left"/>&nbsp;Question</h4>
-                                <h3 class="text-home fw-700 pt-3 ml-5">{!! $blog->content !!}</h3>
+                                <h5 class="text-primary fw-500"><img src="{{asset('images/question1.png')}}"  width="35px"  height="35px" class="img-responsive img_height float-left"/>&nbsp;QUESTION</h5>
+                                <h4 class="text-home fw-500  pt-3 ml-5">{!! $blog->content !!}</h4>
+                            </div>
+                            <div class="p-2">
+                                <i class="ti-angle-up pr-5"></i><br />
+                                <i class="ti-heart pr-5" id="like"></i> <br />
+                                <span class="pl-1">0</span><br />
                             </div>
                         </div>
                         <div class="thumbnail" style=" padding-bottom: 50px;">
                             <hr>
-                            <p class="text-gray">
-                                <small>
-                                    <span class="additional-post px-2">
-                                        <a> <span class="icon-calendar px-2"></span>Asked &nbsp;{{$blog->created_at->diffForHumans()}}</a>
-                                    </span>
-                                    <span class="additional-post px-2">
-                                        <a> <span class="icon-speech"></span>&nbsp;{{$blog->comments->count()}} Answer(s) provided</a>
-                                    </span>
-                                    <span class="additional-post">
-                                        <a>Viewed&nbsp;{{$blog->views}}  times</a>
-                                    </span>
-                                </small>
+                            <p class="fw-400">
+                                <span class="additional-post px-2">
+                                    <a> <span class="ti-calendar px-2"></span>&nbsp;{{$blog->created_at->diffForHumans()}}</a>
+                                </span>
+                                <span class="additional-post px-2">
+                                    <a> <span class="ti-comments"></span>&nbsp;{{$blog->comments->count()}}</a>
+                                </span>
+                                <span class="additional-post">
+                                    <a>&nbsp;<span class="ti-eye"></span>&nbsp;{{$blog->views}}  </a>
+                                </span>
+                                <span class="additional-post px-2">
+                                    <a> <span class="ti-heart"></span>&nbsp;0</a>
+                                </span>
+                                <span class="additional-post px-2">
+                                    @if($blog->author->pic)
+                                        <img src="{{$blog->author->pic}}" alt="author" width="50px"  height="50px" class="img-responsive img_height float-left"/>
+                                    @else<img src="{{asset('images/no_avatar.png')}}" alt="img" width="50px"  height="50px" class="img-responsive img_height float-left"/>
+                                    @endif
+                                    <h6 class="p-1 pt-2 fw-400">&nbsp;{{$blog->author->first_name}} asked this question on {!! date('M d, Y', strtotime($blog->created_at)) !!} at {!! date('G:i', strtotime($blog->created_at)) !!}</h6>
+                                    @if($blog->image)
+                                        <div class="text-center thumbnail featured-post-wide img mt-5">
+                                        <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image" style="max-width:80%;">
+                                    @endif
+                                </span>
                             </p>
                             <hr>
-                            @if($blog->author->pic)
-                                <img src="{{$blog->author->pic}}" alt="author" width="35px"  height="35px" class="img-responsive img_height float-left"/>
-                            @else<img src="{{asset('images/no_avatar.png')}}" alt="img" width="35px"  height="35px" class="img-responsive img_height float-left"/>
-                            @endif
-                            <p class="p-1 pt-2 text-home fw-400"><small>&nbsp;{{$blog->author->first_name}} asked this question on {!! date('M d, Y', strtotime($blog->created_at)) !!} at {!! date('G:i', strtotime($blog->created_at)) !!}</small></p>
-                            @if($blog->image)
-                                <div class="text-center thumbnail featured-post-wide img mt-5">
-                                <img src="{{ URL::to('/uploads/blog/'.$blog->image)  }}" class="img-fluid" alt="Image" style="max-width:80%;">
-                            @endif
                         </div>
                     </div>
                     <div class="p-2 mb-3 blog-detail-content">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-12">
                                 <div class="p-2">
-                                    <button class="btn btn-block btn-outline-primary p-3" onclick="myFunction()" id="btnAnswer">Answer this question</button>
+                                    <button class="btn btn-block btn-outline-primary p-3 fw-700" onclick="myFunction()" id="btnAnswer">Answer this question</button>
                                 </div>
                                 <div class="card-body pull-up" id="myDIV" style="display:none;">
                                     <div class="alert alert-primary alert-dismissible fade show" role="alert" style="background-color: #0069ff0d;">      
-                                        <p class="text-home">
+                                        <p class="text-info">
                                             These answers are provided by our Community. 
                                             If you find them useful, show some love by clicking the heart. 
                                             If you have difficulties leave a comment, or add your own answer to help others.
@@ -207,7 +229,7 @@ small{
                                         </button>
                                     </div>
                                     <form action="{{URL::to('blogitem/'.$blog->id.'/comment')}}" method="POST">
-                                    <h4 class="text-home fw-500">submit an answer</h4>
+                                    <h4 class="text-home fw-500 pt-5">submit an answer</h4>
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <div class="row">
                                             <!-- Name -->
@@ -224,7 +246,7 @@ small{
                                             </div>
                                             <!-- Answer -->
                                             <div class="col-md-12 mb-2">
-                                                <textarea class="form-control main tinymce-editor" name="comment" rows="5" placeholder="Type your answer here"></textarea>
+                                                <textarea class="form-control main" name="comment" id="ckeditor_full" rows="5" @if(Sentinel::guest())  disabled @endif></textarea>
                                                 <small class="text-danger">{{ $errors->first('comment', 'This field is required') }}</small>
                                             </div>
                                             <!-- Submit Button -->
@@ -269,8 +291,8 @@ small{
                                                                 <div class="p-2">
                                                                     <div class="d-flex flex-column ml-5">
                                                                         @if($comment->review == '1') 
-                                                                            <div class="p-2"><h4 class="text-home fw-500">Review/Tutor's comment</h4></div>
-                                                                            <div class="p-3 alert rounded mt-2 ml-5" style="border-left: 5px solid #52B682; background-color: #0069ff0d;"><p class="text-dark fw-500">{{$comment->explanation}}</p></div>
+                                                                            <div class="p-2"><h4 class="text-primary fw-500">Review/Tutor's comment</h4></div>
+                                                                            <div class="p-3 alert rounded mt-2 ml-5" style="border-left: 5px solid #52B682; background-color: #d4edda;"><p class="text-dark">{{$comment->explanation}}</p></div>
                                                                             <div class="p-1 alert  border-0 rounded-0 mt-2">
                                                                                 @if($comment->reviewer_pic)
                                                                                     <img src="{{$comment->reviewer_pic}}" alt="img" style="height: 35px; width: 35px; border-radius: 5px;"/>
@@ -303,16 +325,16 @@ small{
                                                                             <div class="p-2">
                                                                                 @if(Sentinel::getUser()->pic)
                                                                                     <img src="{{ Sentinel::getUser()->pic }}" alt="img"
-                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;" />
+                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 5px;" />
                                                                                 @elseif(Sentinel::getUser()->gender === "male")
                                                                                     <img src="{{ asset('images/authors/avatar3.png') }}" alt="..."
-                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
+                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 5px;"/>
                                                                                 @elseif(Sentinel::getUser()->gender === "female")
                                                                                     <img src="{{ asset('images/authors/avatar5.png') }}" alt="..."
-                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
+                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 5px;"/>
                                                                                 @else
                                                                                     <img src="{{ asset('images/no_avatar.png') }}" alt="..."
-                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 50%;"/>
+                                                                                        class="img-responsive img_height" style="width: 35px; height: 35px; border-radius: 5px;"/>
                                                                                 @endif
                                                                             </div>
                                                                             <div class="p-2 mb-2" style=" width: 100% !important;">
@@ -324,11 +346,11 @@ small{
                                                                                             <span class="text-danger"><small>{{ $errors->first('review', ':message') }}</small></span>
                                                                                         </div>
                                                                                         <div class="form-group {{ $errors->has('explanation') ? 'has-error' : '' }}">
-                                                                                            {!! Form::textarea('explanation', null, ['class' => 'form-control main tinymce-editor',
+                                                                                            {!! Form::textarea('explanation', null, ['class' => 'form-control main', 'id'=>"ckeditor_standard",
                                                                                             'style'=>'font-size: 14px; height:100px;']) !!}
                                                                                             <span class="text-danger"><small>{{ $errors->first('explanation', ':message') }}</small></span>
                                                                                         </div>
-                                                                                        <button type="submit" name="review_form" class="btn btn-main-md">
+                                                                                        <button type="submit" name="review_form" class="btn btn-main-md btn-block">
                                                                                             Submit Review
                                                                                         </button>
                                                                                     {!! Form::close() !!}
@@ -352,20 +374,20 @@ small{
                         </div>
                     </div>
                 </div>
-                <div class="mt-3 p-2" style="margin: auto; overflow-x: hidden;">
-                    <div class="card-body" style="border-left: 6px solid #0072b3; background-color: rgb(221, 234, 255);">
-                        <div class="mb-2">
-                            <h4 class="fw-700" style="color: #EB740A"> Can't answer this question? </h4> 
-                        </div>
-                        Copy this link:
+                <div class="mt-3 p-2" style="overflow-x: hidden;">
+                    <div class="mb-4">
+                        <h1 class="text-home fw-700"> Can't answer this question? </h1> 
+                    </div>
+                    <div class="card-body shadow" style="background-color: rgb(221, 234, 255);">
+                        <h5 class="text-home fw-500" style="line-height: 30px;">Copy this link:
                         <a href="{{url()->current()}}" style="color: #19A0EE; text-decoration: underline;"> {{url()->current()}}</a> 
-                        to <a href="{{URL::to('user_emails/compose')}}" style="text-decoration: underline;"> share </a> 
-                        with a tutor or other users who can provide helpful answers</p>
+                        to <a href="{{URL::to('user_emails/compose')}}" style="color: #19A0EE; text-decoration: underline;"> share </a> 
+                        with a tutor or other users who can provide helpful answers</h5>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-lg-3 col-12" style="border-left: 1px solid #ddd;">
-                <div class="box1 mt-5"><h3 class="text-home fw-700">&nbsp;Related Questions</h3></div>
+                <div class="box1 mt-5"><h4 class="text-primary fw-700">&nbsp;Related Questions</h4></div>
                     @foreach ($related_questions as $related_question)
                         <div class="d-flex justify-content-between">
                             <div class="p-2 border-bottom ml-3 mb-2">
@@ -387,36 +409,18 @@ small{
 
 <!-- //contact form -->
 {{-- page level scripts --}}
+@section('footer_scripts')
+<script src="{{asset('vendors/ckeditor/js/ckeditor.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/pages/editor.js') }}" type="text/javascript"></script>
 
-{{-- page level scripts --}}
-<script src="https://cdn.tiny.cloud/1/kfzr8x5y033e1vg60kwlxgvmbugqaju26meujj8jysw1rlwq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>  
-    <script type="text/javascript">
-        tinymce.init({
-            selector: 'textarea.tinymce-editor',
-            height: 100,
-            menubar: false,
-            plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table paste code help wordcount'
-            ],
-            toolbar: 'undo redo | formatselect | ' +
-                'bold italic backcolor | alignleft aligncenter ' +
-                'alignright alignjustify | bullist numlist outdent indent | ' +
-                'removeformat | help',
-            content_css: '//www.tiny.cloud/css/codepen.min.css'
-        });
-    </script>
-
-    <script src="print.js"></script>
-    <script src="{{ asset('vendors/summernote/js/summernote-bs4.min.js') }}" type="text/javascript"></script>
-
-    <script>
-        $(document).ready(function() {
-        $('#textarea').summernote();
-        });
-    </script>
- <script>
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace( 'ckeditor_full' );
+    CKEDITOR.replace( 'ckeditor_standard' );
+</script>
+ 
+<script>
 $('#toggle-review').on('click', function() {
   $('#reviewForm').toggle('display: inline-block');
 });
@@ -434,7 +438,4 @@ $('#toggle-review').on('click', function() {
 }
 </script>
 
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-607ca9281aff28eb"></script>
-
-
+@stop

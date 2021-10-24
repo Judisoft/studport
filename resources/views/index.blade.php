@@ -7,31 +7,69 @@ Home
 @stop
 <style>
 p{
-	font-size: 12px;
+	color: var(--dark);
+	font-size: 15px;
 	font-weight: 500;
-}
-.box p{
-	font-family: 'Roboto Mono', monospace !important;
 }
 .call-to-action-app h2{
 	font-family: 'Roboto Mono', monospace !important;
 }
+.box h3{
+	font-weight: 700; 
+	color: #17224f;
+
+}
 .box{
 	border: none;
+	border-radius: 10px;
+	background-color: rgb(248, 250, 251);
+	min-height: 200px;
 }
 .box:hover{
-	border: 1px solid #336BFF;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.box2{
+	border: none;
 	border-radius: 10px;
-	box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	background-color: rgb(248, 250, 251);
+	min-height: 200px;
+	padding-top: 20px !important;
+}
+.box3{
+	border: none;
+	border-radius: 10px;
+	background-color: rgb(14, 42, 71);
+	padding: 20px !important;
+}
+.box3 h2{
+	color: #fff;
+	font-size: 24px !important;
+	line-height: 42px;
+	font-weight: 600 !important;
+}
+.btn-main-md{
+	border-radius: 10px !important;
 }
 .btn-main-md:hover {
 	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 .bg-home{
+	background-image: linear-gradient(135deg, rgb(0, 37, 93), rgb(0, 37, 93));
+}
+.bg-home2{
 	background-color: #17224f;
+
+}
+.bg-blue{
+	background-color: var(--blue);
 }
 .scroll-top-to{
 	padding-top: 10px;
+}
+
+
+.text-lightblue{
+	color: #4486EB;
 }
 </style>
 {{-- Page content --}}
@@ -39,66 +77,107 @@ p{
 <!--====================================
 =            Hero Section            =
 =====================================-->
-<section class="section">
+<section class="section bg-gray">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-md-6 order-2 order-md-1 text-center text-md-left">
-				<h1 class="font-weight-bold mb-4" style="color: #17224f;">We use technology to simplify <b style="color: #EB740A">educational</b> processes</h1>
+				<h2 class="fw-600 mb-4" style="color: #17224f; font-size: 35px;line-height: 50px;">Transforming educational processes with <br>Technology</h1>
 				<p class="text-white mb-5"></p>
-				<a href="{{route('register')}}" class="btn btn-main-md rounded-0" style="background-color:#17224f;font-family: 'Roboto Mono', monospace !important;">Get Started Now <i class="ti-arrow-right"></i></a>
+				<a href="{{route('register')}}" class="btn btn-main-md fw-500" style="background-color:#22d172;font-family: 'Roboto Mono', monospace !important;">Join us for free! <i class="ti-arrow-right"></i></a>
 			</div>
 			<div class="col-md-6 text-center order-1 order-md-2">
-				<img class="img-fluid" src="{{asset('images/index10.svg')}}" alt="screenshot">
+				<img class="img-fluid" src="{{asset('images/students.svg')}}" alt="screenshot">
 			</div>
 		</div>
 	</div>
 </section>
 <!--====  End of Hero Section  ====-->
-
-<section class="section pt-0 position-relative pull-top mt-3 bg-home">
-	<div class="container">
-		<div class="p-5 bg-home pt-5">
-			<div class="row">
-				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center box">
-					<img class="img-fluid img-md" src="{{asset('images/customize.svg')}}" />
-					<h3 class="mt-4 text-primary text-capitalize h3">Customizable</h3>
-					<p class="regular text-white pb-3">Our solutions are customizable to meet <br>specific needs</p>
+<!--==============================
+=            Services            =
+===============================-->
+<section class="service section shadow-none">
+	<div class="container p-3">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="section-title">
+					<h2 style="font-weight: 500; color: #17224f;">For Students, <span style="color: #f9c273">by Teachers</span></h2>
+					<p class="text-home">
+                        We offer student-focused services with teacher-assistance.
+                    </p>
 				</div>
-				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center box">
-					<img class="img-fluid img-md" src="{{asset('images/increase.svg')}}" />
-					<h3 class="mt-4 text-primary text-capitalize h3">Efficient</h3>
-					<p class="regular text-white pb-3">Providing efficient solutions is at the very core of our <br>workflow.</p>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			<div class="col-lg-7 mr-auto align-self-center">
+				<div class="service-box bg-transparent">
+					<div class="row align-items-center">
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item box">
+								<!-- Icon -->
+								<img class="img-fluid img-sm" src="{{asset('images/icon_work.svg')}}" /><br>
+								<!-- Heading -->
+								<h3>Q&A Manager</h3>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item box">
+								<!-- Icon -->
+								<img class="img-fluid img-sm" src="{{asset('images/icon2.svg')}}" /><br>
+								<!-- Heading -->
+								<h3>Digital Library</h3>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item box">
+								<!-- Icon -->
+								<img class="img-fluid img-sm" src="{{asset('images/icon_men.svg')}}" /><br>
+								<!-- Heading -->
+								<h3>One-on-One Tutoring</h3>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item box">
+								<!-- Icon -->
+								<img class="img-fluid img-sm" src="{{asset('images/icon4.svg')}}" /><br>
+								<!-- Heading -->
+								<h3> Student Connect</h3>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-lg-4 col-md-12 mt-5 mt-lg-0  text-center box">
-					<img class="img-fluid img-md" src="{{asset('images/community2.svg')}}" />
-					<h3 class="mt-4 text-primary text-capitalize h3">Community</h3>
-					<p class="regular text-white pb-3">We build a community of students, teachers and academic institutions.</p>
-					</p>
+			</div>
+			<div class="col-lg-4 align-self-center">
+				<!-- Feature Image -->
+				<div class="service-thumb">
+					<img class="img-fluid" src="{{asset('images/pic1.jpg')}}" alt="iphone-ipad">
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
+<!--====  End of Services  ====-->
 <!--==================================
 =            Feature Grid            =
 ===================================-->
-<section class="feature section pt-0">
+<section class="section">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6 ml-auto justify-content-center">
+			<div class="col-lg-5 ml-auto justify-content-center">
 				<!-- Feature Mockup -->
 				<div class="image-content" data-aos="fade-right">
-					<img src="{{asset('images/blog.svg')}}" style="height: 500px; width:500px;" alt="index">
+					<img src="{{asset('images/banner1.jpg')}}" style="height: 400px; width:400px;" alt="index">
 				</div>
 			</div>
 			<div class="col-lg-6 mr-auto align-self-center">
-				<div class="feature-content">
+				<div class="feature-content box2 p-3">
 					<!-- Feature Title -->
-					<h2 style="font-weight: 700; color: #17224f;">Improve your Academic <b style="color: #EB740A">Performance</b></h2>
+					<h2 style="font-weight: 700; color: #17224f;">Improve your Academic <span style="color: #f9c273">Performance</span></h2>
 					<!-- Feature Description -->
-					<p class="desc text-home">Examinations, they say isn't the true test of knowledge but that's the best there is.
-                     Prior to any good career is a good acadmic background. Ask your questions here and have them answered. You 
+					<p class="desc text-home pt-3">Ask your questions here and have them answered by teachers. You 
                      can also explore our wide variety of study materials, books, course handouts, examination past questions, etc.
                     </p>
 				</div>
@@ -111,94 +190,48 @@ p{
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 ml-auto align-self-center">
-				<div class="feature-content">
+				<div class="feature-content box2 p-3 mt-3">
 					<!-- Feature Title -->
-					<h2 style="font-weight: 700; color: #17224f;">Save Time with our <a
-							href="#"><b style="color: #EB740A">Admission Portal</b></a></h2>
+					<h2 style="font-weight: 700; color: #17224f;"><a>Admission <span style="color: #f9c273">Portal</span></a></h2>
 					<!-- Feature Description -->
-					<p class="text-home">With StudPort Admit, Students can now register to any academic institution of their choice from the StudPort Admission Portal
-						Apply to several schools with just a single application.
+					<p class="text-home">Students can now register to any academic institution of their choice from the StudPort Admission Portal
+						The Admission portal allows you to find information about any school and apply to several schools with just a single application.
+						<a class="text-lightblue" href="#">Browse colleges and universisities</a>
                     </p>
 				</div>
 			</div>
 			<div class="col-lg-6 mr-auto justify-content-center">
 				<!-- Feature mockup -->
 				<div class="image-content" data-aos="fade-left">
-					<img class="img-fluid" src="{{asset('images/index6.svg')}}" style="width: 500px; height: 500px;" alt="ipad">
+					<img class="img-fluid" src="{{asset('images/icon5.svg')}}" style="width: 400px; height: 400px;" alt="ipad">
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-<!--====  End of Feature Grid  ====-->
-
-<!--==============================
-=            Services            =
-===============================-->
-<section class="service section bg-gray">
-	<div class="container p-3">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="section-title">
-					<h1 style="font-weight: 700; color: #17224f;">For Students, <b style="color: #EB740A">by Teachers</b></h1>
-					<p class="text-home">
-                        We offer student-focused services with teacher-assistance.
-                    </p>
-				</div>
-			</div>
-		</div>
-		<div class="row no-gutters">
-			<div class="col-lg-6 align-self-center">
-				<!-- Feature Image -->
-				<div class="service-thumb left">
-					<img class="img-fluid" src="{{asset('images/index8.svg')}}" alt="iphone-ipad">
-				</div>
-			</div>
-			<div class="col-lg-5 mr-auto align-self-center">
-				<div class="service-box bg-transparent">
-					<div class="row align-items-center">
-						<div class="col-md-6 col-xs-12">
-							<!-- Service 01 -->
-							<div class="service-item box">
-								<!-- Icon -->
-								<i class="ti-help-alt"></i>
-								<!-- Heading -->
-								<h3 style="font-weight: 700; color: #17224f;"><a href="#">Q&A Manager</a></h3>
-								<!-- Description -->
-								<p class="text-home">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
-							</div>
+<!--=================================
+=           Become a contributor         =
+==================================-->
+<section class="section">
+	<div class="container-fluid">
+		<div class="row p-1">
+			<div class="col-lg-12 col-12">
+				<div class="box3">
+					<div class="d-flex flex-row">
+						<div class="justify-content-start p-2">
+							<h2>Become a tutor and earn money by providing answers to questions</h2>
+							<p class="text-light">Over xx teachers work with us</p>
+							<br>
+							<a href="{{route('register')}}" class="btn btn-main-md fw-500" style="background-color:#22d172;">Register and activate your account <i class="ti-arrow-right"></i></a>
 						</div>
-						<div class="col-md-6 col-xs-12">
-							<!-- Service 01 -->
-							<div class="service-item box">
-								<!-- Icon -->
-								<i class="ti-layers-alt"></i>
-								<!-- Heading -->
-								<h3 style="font-weight: 700; color: #17224f;"><a href="#">Digital Library</a></h3>
-								<!-- Description -->
-								<p class="text-home">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
-							</div>
-						</div>
-						<div class="col-md-6 col-xs-12">
-							<!-- Service 01 -->
-							<div class="service-item box">
-								<!-- Icon -->
-								<i class="ti-blackboard"></i>
-								<!-- Heading -->
-								<h3 style="font-weight: 700; color: #17224f;"><a href="#">One-on-One Tutoring</a></h3>
-								<!-- Description -->
-								<p class="text-home">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
-							</div>
-						</div>
-						<div class="col-md-6 col-xs-12">
-							<!-- Service 01 -->
-							<div class="service-item box">
-								<!-- Icon -->
-								<i class="ti-link"></i>
-								<!-- Heading -->
-								<h3 style="font-weight: 700;color: #17224f;"><a href="#">Student Connect</a></h3>
-								<!-- Description -->
-								<p class="text-home">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur aliquet quam id dui</p>
+						<div class="justify-content-end">
+							<div class="d-flex flex-column">
+								<div class="p-2">
+									<img class="img-fluid" src="{{asset('images/international-traffic-cta-bcr.png')}}" />
+								</div>
+								<div class="card-body bg-warning  p-2">
+									<pclass="text-light">{{$questions->count()}} questions</h5>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -207,8 +240,8 @@ p{
 		</div>
 	</div>
 </section>
-<!--====  End of Services  ====-->
-
+<!--====  End of become a contributor  ====-->
+<!--====  End of Feature Grid  ====-->
 
 <!--=================================
 =            Video Promo            =
@@ -246,10 +279,8 @@ p{
 						<div class="block shadow">
 							<!-- Speech -->
 							<p>
-								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
-								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
-								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
-								pretium ut lacinia in, elementum id enim.
+								Examinations, they say isn't the true test of knowledge but that's the best there is.
+                     			Prior to any good career is a good acadmic background. 
 							</p>
 							<!-- Person Thumb -->
 							<div class="image">
@@ -319,33 +350,6 @@ p{
 	</div>
 </section>
 <!--====  End of Testimonial  ====-->
-
-<section class="call-to-action-app section bg-home">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12">
-				<h2 class="text-white" style="font-weight: 700;" id="animationApp">Our Mobile App is coming soon ...</h2>
-				<div class="d-flex justify-content-center pt-3">
-					<div class="p-2">
-						<a href="" class="btn btn-rounded-icon">
-							<i class="ti-apple text-light"></i>
-						</a>
-					</div>
-					<div class="p-2">
-						<a href="" class="btn btn-rounded-icon">
-							<i class="ti-android text-success"></i>
-						</a>
-					</div>
-					<div class="p-2">
-						<a href="" class="btn btn-rounded-icon">
-							<i class="ti-microsoft text-info"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
     
 @stop
 {{-- page level scripts --}}

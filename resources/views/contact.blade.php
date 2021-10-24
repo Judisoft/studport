@@ -11,49 +11,51 @@ Home
 @stop
 {{-- breadcrumb --}}
 @section('top')
-
-@stop
 <style>
 h5{
 	font-family: 'Roboto Mono', monospace !important;
 }
+.text-contact{
+	color: #6495ed;
+}
 </style>
+@stop
 
 {{-- Page content --}}
 @section('content')
 <!--=====================================
 =            Address and Map            =
 ======================================-->
-<section class="address">
+<section class="section address">
 	<div class="container m-auto">
 		<div class="row">
 			<div class="col-lg-4 align-self-center">
 				<div class="block">
 					<div class="address-block text-center mb-5">
-						<h2 class="p-3" style="font-weight: 700; color: #17224f;">Contact Us</h2>
-						<p class="text-home">Our team is happy to answer your questions. <br />Please fill out the form below and we'll be in touch as soon as possible.</p>
+						<h2 class="p-3 text-contact" style="font-weight: 700;">Contact Us</h2>
+						<h6>Our team is happy to answer your questions. <br />Please fill out the form below and we'll be in touch as soon as possible.</h6>
 						<div class="icon mt-3">
-							<i class="ti-mobile"></i>
+							<i class="ti-mobile text-primary"></i>
 						</div>
 						<div class="details">
-							<h5 class="text-blue" style="font-weight: 700; color: #17224f;">(+237) 652-459-059</h5>
-							<h5 style="font-weight: 700; color: #17224f;">(+237) 652-459-059</h5>
+							<h6>(+237) 652-459-059</h6>
+							<h6>(+237) 652-459-059</h6>
 						</div>
 					</div>
 					<div class="address-block text-center">
 						<div class="icon">
-							<i class="ti-location-pin"></i>
+							<i class="ti-location-pin text-primary"></i>
 						</div>
 						<div class="details">
-							<h5 style="font-weight: 700; color: #17224f;">Elig-Effa, Yaoundé</h5>
-							<h5 style="font-weight: 700; color: #17224f;">Cameroon</h5>
+							<h6>Elig-Effa, Yaoundé</h6>
+							<h6>Cameroon</h6>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-8 mt-5 mt-lg-0">
-				<div class="card card-body shadow mt-3" style="width: 80%;">
-					<h4 class="p-3" style="font-weight: 700; color: #17224f;">Tell us how we can help you</h4>
+				<div class="card card-body mt-3 bg-home">
+					<h4 class="p-3 text-light" style="font-weight: 700;">Tell us how we can help you</h4>
 					<form action="">
 						<div class="row">
 							<!-- Name -->
@@ -74,7 +76,7 @@ h5{
 							</div>
 							<!-- Submit Button -->
 							<div class="col-12 text-right">
-								<button class="btn btn-main-md">Submit</button>
+								<button type="submit" class="btn btn-main-md btn-block">Submit</button>
 							</div>
 						</div>
 					</form>

@@ -21,6 +21,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- CUSTOM CSS -->
   <link href="{{asset('plugins1/css/style.css')}}" rel="stylesheet">
@@ -28,12 +35,23 @@
     @yield('header_styles')
 <!--end of page level css-->
 <style>
-.nav-link, .dropdown-item{
-    font-family: 'Roboto Mono', monospace !important;
-    color: #17224f !important;
-    font-weight: 600 !important;
+h1, h2, h3 ,h4, h5, h6, p, a, span, small{
+  font-family: 'Poppins', sans-serif !important;
 }
-
+.nav-link, .dropdown-item{
+    font-family: 'Inter', sans-serif !important;
+    color: #17224f !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+}
+.nav-item a:hover{
+  color: #22d172 !important;
+  background-color: transparent !important;
+}
+.nav-shadow{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #fff !important;
+}
 .features{
 	color:#233477 !important;
 	font-weight: 500 !important;
@@ -41,22 +59,37 @@
 .fw-700{
   font-weight: 700;
 }
+.fw-600{
+  font-weight: 600;
+}
 .fw-500{
   font-weight: 500;
 }
 .fw-400{
   font-weight: 400;
 }
+.fw-300{
+  font-weight: 300;
+}
+.fw-200{
+  font-weight: 200;
+}
+.bg-home{
+	background-image: linear-gradient(180deg, #0d87ca 0%, #003766 100%);
+}
+.ti-align-right{
+  font-weight: 700;
+}
 </style>
 </head>
 <body class="snippet-body">
-<nav class="navbar main-nav border-bottom navbar-expand-lg fixed-top  px-2 px-sm-0 py-2 py-lg-0">
+<nav class="navbar main-nav bg-gray navbar-expand-lg fixed-top  px-2 px-sm-0 py-2 py-lg-0">
   <div class="container">
     <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/my_logo.png')}}" style="height: 60px;" alt="logo"><span class="h5  text-dark text-capitalize px-2"><b class="text-dark" style="padding-top: 5px; font-weight: 500;"></b></span></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="ti-menu"></span>
+      <span class="ti-align-right"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
@@ -67,7 +100,7 @@
           <a class="nav-link" href="{{URL::to('about_us')}}">About Us</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Services
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Services <i class="ti-angle-down"></i>
           </a>
           <!-- Dropdown list -->
           <ul class="dropdown-menu">
@@ -76,13 +109,13 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academics</a>
 
               <ul class="dropdown-menu" aria-labelledby="dropdown0301">
-                <li><a class="dropdown-item" href="{{URL::to('questions')}}">Questions and answer</a></li>
+                <li><a class="dropdown-item" href="{{URL::to('questions/create')}}">Questions and answer</a></li>
                 <li><a class="dropdown-item" href="index.html">Online Courses</a></li>
                 <li><a class="dropdown-item" href="index.html">Digital Library</a></li>
               </ul>
             </li>
-            <li><a class="dropdown-item" href="homepage-2.html">General IT Support</a></li>
-            <li><a class="dropdown-item active3" href="homepage-3.html">Internship Placements</a></li>
+            <li><a class="dropdown-item" href="#url">General IT Support</a></li>
+            <li><a class="dropdown-item active3" href="#url">Internship Placements</a></li>
             <li><a class="dropdown-item active3" href="homepage-3.html">Online Application</a></li>
             <li><a class="dropdown-item active3" href="{{URL::to('news')}}">Tutoring Jobs</a></li>
           </ul>
@@ -95,12 +128,14 @@
           <a class="nav-link" href="{{route('login')}}">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('register')}}">Register</a>
+          <a class="nav-link text-light bg-favorite" href="{{route('register')}}">Register</a>
         </li>
         @endif
+        @if(Sentinel::check())
         <li class="nav-item">
           <a class="nav-link" href="{{route('my-account')}}">My Account</a>
         </li>
+        @endif
       </ul>
     </div>
   </div>
@@ -193,7 +228,7 @@
 </footer>
   <!-- To Top -->
   <div class="scroll-top-to">
-    <i class="ti-angle-up"></i>
+    <i class="ti-angle-up fw-500"></i>
   </div>
   
   <!-- JAVASCRIPTS -->
@@ -208,17 +243,15 @@
   <script src="{{asset('plugins1/google-map/gmap.js')}}"></script>
   <script src="{{asset('plugins1/js/script.js')}}"></script>
   <script>
-  /*
     $(window).scroll(function() {    
         var scroll = $(window).scrollTop();
 
         if (scroll >= 10) {
-            $("nav").addClass("shadow");
+            $("nav").addClass("nav-shadow");
         } else {
-            $("nav").removeClass("shadow");
+            $("nav").removeClass("bg-gray");
         }
     });
-  */
 </script>
 @yield('footer_scripts')
 </body>

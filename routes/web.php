@@ -334,9 +334,9 @@ Route::group(
     ['middleware' => 'user'],
     function () {
         Route::get('questions/index', 'QuestionsController@index')->name('questions');
-        Route::get('questions/create', 'QuestionsController@create');
         Route::resource('exams', 'ExamsController');
         Route::get('statistika/create', 'StatistikaController@create');
+        
     }
 );
 // Subscription
@@ -443,5 +443,6 @@ Route::get('application/institutions', 'InstitutionsController@index')->name('ap
 //Statistika routes
 Route::get('statistika/index', 'StatistikaController@index')->name('statistika');
 Route::get('/questions', 'QuestionsController@questions')->name('qAndA');
+Route::get('questions/create', 'QuestionsController@create')->name('ask-question');
 //Jobs
 //Route::get('jobs', 'JobsController@index');

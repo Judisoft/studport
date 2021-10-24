@@ -84,8 +84,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'jkbama92@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'StudPort'),
+        'address' => env('MAIL_FROM_ADDRESS', 'kumjude09@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'StudPortal CM'),
     ],
 
     /*

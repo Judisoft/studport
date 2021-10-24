@@ -21,7 +21,7 @@ class QuestionsController extends JoshController
      */
     public function index()
     {
-        $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->latest()->simplePaginate(25);
+        $user_questions = Blog::where('user_id', Sentinel::getUser()->id)->latest()->paginate(25);
         $user = Sentinel::getUser();
         return view('questions/index', compact('user_questions', 'user'));
     }
@@ -33,8 +33,11 @@ class QuestionsController extends JoshController
      */
     public function create()
     {
+        $questions = Blog::all();
+        $answers = BlogComment::all();
+        $categories = BlogCategory::all();
         $blogcategory = BlogCategory::pluck('title', 'id');
-        return view('questions.create', compact('blogcategory'));
+        return view('questions.create', compact('blogcategory','questions', 'answers', 'categories'));
     }
 
     /**

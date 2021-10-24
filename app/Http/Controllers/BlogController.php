@@ -57,7 +57,7 @@ class BlogController extends JoshController
       
         }
         else {
-            $blogs = Blog::latest()->simplePaginate(5);
+            $blogs = Blog::latest()->paginate(25);
             $numberOfItems = count($blogs);
 
         }
@@ -108,9 +108,11 @@ class BlogController extends JoshController
         $questions = Blog::get('id');
         $totalQuestions = count($questions);
         //$jobs = NewsAlias::orderBy('id', 'DESC')->get();
+        $questions = Blog::all();
+        $answers1 = BlogComment::all();
         // Show the page
         
-        return view('blog', compact('blogs', 'numberOfItems', 'tags', 'blogscategories', 'user', 'popular_questions', 'recent_questions', 'teachers', 'jobs', 'job_postings', 'user_institutions', 'reviews', 'numberOfReviews', 'totalQuestions'));
+        return view('blog', compact('blogs', 'numberOfItems', 'tags', 'blogscategories', 'user', 'popular_questions', 'recent_questions', 'teachers', 'jobs', 'job_postings', 'user_institutions', 'reviews', 'numberOfReviews', 'totalQuestions', 'questions', 'answers1'));
     }
 
     /**
@@ -126,7 +128,7 @@ class BlogController extends JoshController
         $tutors = User::where('user_role', 'tutor')->get();
         $institutions = User::get('institution');
         $blogscategories = BlogCategory::all();
-        $related_questions = Blog::where('blog_category_id', $blog->blog_category_id)->latest()->simplePaginate(20);
+        $related_questions = Blog::where('blog_category_id', $blog->blog_category_id)->latest()->paginate(25);
         $answers = BlogComment::where('blog_id', $blog->id)->get();
         //$related_questions = Blog::select('title')->where('', $slug)
         if ($blog) {

@@ -85,7 +85,7 @@
                   <h4 class="animated-bg animated-bg-text" id="numberOfQuestions"></h4>
                   <span class="report-count animated-bg animated-bg-text"><a href="#" id="detailsQuestions"></a></span>
                 </div>
-                <div class="inner-card-icon bg-success animated-bg animated-bg-img">
+                <div class="inner-card-icon bg-danger animated-bg animated-bg-img">
                   <i id="iconQuestions"></i>
                 </div>
               </div>
@@ -95,7 +95,7 @@
                   <h4 class="animated-bg animated-bg-text" id="numberOfDownloads"></h4>
                   <span class="report-count animated-bg animated-bg-text"><a href="#" id="detailsDownloads"></a></span>
                 </div>
-                <div class="inner-card-icon bg-danger animated-bg animated-bg-img">
+                <div class="inner-card-icon bg-warning animated-bg animated-bg-img">
                   <i id="iconDownloads"></i>
                 </div>
               </div>
@@ -105,7 +105,7 @@
                   <h4 class="animated-bg animated-bg-text" id="numberOfAnswers"></h4>
                   <span class="report-count animated-bg animated-bg-text"><a href="#" id="detailsAnswers"></a></span>
                 </div>
-                <div class="inner-card-icon bg-warning animated-bg animated-bg-img">
+                <div class="inner-card-icon bg-success animated-bg animated-bg-img">
                   <i id="iconAnswers"></i>
                 </div>
               </div>

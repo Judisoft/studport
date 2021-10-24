@@ -1,232 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        @section('title')
-            Forgot Password - StudPort
-        @show
-    </title>
-    <!--global css starts-->
-    <link rel="stylesheet" href="{{asset('css/style-starter.css')}}">
-     <link rel="stylesheet" href="{{ asset('vendors/simple-line-icons/css/simple-line-icons.css') }}"/>
-         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/all.css') }}">
-    <!--end of global css-->
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
-    <!-- Google fonts -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
-    <!-- page level css-->
-    
-@yield('header_styles')
-<!--end of page level css-->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>StudPort - Sign In</title>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/login.css') }}">
+    <link rel="stylesheet" href="{{asset('plugins1/themify-icons/themify-icons.css')}}">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link href="{{asset('plugins1/css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('plugins1/bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins1/themify-icons/themify-icons.css')}}">
 </head>
 <style>
-  .full-width {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
+h5{
+    font-weight: 600;
 }
-    .btn-nav{
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border:none !important;
-    }
-     .btn-outline-primary-nav:hover {
+p{
+    font-weight: 400 !important;
+    font-size: 14px;
+}
+.img-fluid{
+    width: 50px;
+    height: 50px;
+}
+.image1{
+    width: 300px;
+    height: 300px;
+}
+.form-wizard-next-btn{
+    background-color:#A3060F !important;
+    border-color: #A3060F !important;
     color: #fff;
-    background-color: #2C504F;
-    border-color: #28a745; }
+	font-size: 14px;
+    display: inline-block;
+    padding: 10px;
+	text-transform: uppercase;
+    border-radius: 2px;
+    text-align: center;
+  }
 
-    [placeholder]:focus::-webkit-input-placeholder {
-    transition: text-indent 0.4s 0.4s ease; 
-    text-indent: -200%;
-    opacity: 1;
+label{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: #000 !important;
+}
+p{
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: #000;
+    font-weight: 400;
+ }
+ input{
+     height: 50px !important;
+     border: 1px solid var(--dark) !important;
+     border-radius: 10px !important;
+ }
+ input[type=submit]{
+    background-color: var(--primary) !important;
+    border-radius: 3px !important;
+    font-weight: 700 !important;
+ }
+  input[type=submit]:hover{
+    background-color: var(--primary) !important;
+ }
+ footer{
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 10px;
+    left: 0;
+    height: 20px;
+ }
+ .mt-100{
+     margin-top: 100px;
+ }
+ .text-gray{
+     color: #7B7E7C;
+ }
+ .support p{
+     font-weight: 500 !important;
+ }
+ .pass{
+     font-weight: 400;
+     font-size: 14px;
+ }
+ h1{
+     font-weight: 900 !important;
+     font-size: 28px;
+ }
+@media(max-width: 768px){
+    #leftItems {
+        display: none;
     }
-  .card-1 {
-  box-shadow: 0 10px 20px #D5DDE6, 0 5px 5px #D5DDE6;
-} 
-@media(min-width: 576px){
-.box {
-  max-width: 90%;
-  margin: auto;
-  align-items: left;
-  border-radius: 5px;
-  
-    
-}
-}
-@media(min-width: 768px){
-.box {
-  max-width: 50%;
-  margin: auto;
-  align-items: left;
-  border-radius: 5px;
-    
-}
-}
-@media(min-width: 992px){
-.box {
-  max-width: 50%;
-  margin: auto;
-  align-items: left;
-  border-radius: 5px;
-    
-}
-}
-@media(min-width: 1200px){
-.box {
-  max-width: 50%;
-  margin: auto;
-  align-items: left;
-  border-radius: 5px;
-    
-}
-}
-.theme-button {
-  transition: 0.3s ease-out;
-  display: inline-block;
-  line-height: 42px;
-  font-weight: 700;
-  font-size: 14px;
-  margin: 0px;
-  padding: 0px 30px;
-  background-color: #063755;
-  color: #fff;
-  text-transform: uppercase; }
-.theme-button a:hover{
-    color: #fff !important;
-}
-@media screen and (max-width: 384px) {
-  .theme-button {
-    line-height: 44px;
-    padding: 0px 20px; } }
-
-.box1 {
-  padding: 20px 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid var(--gray);
-}
-
-.help-block {
-  color: #a94442 !important;
-  font-size: 12px;
-}
-
-.has-error .form-control {
-  border-color: #a94442;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-.has-error .form-control:focus {
-  border-color: #843534;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
-}
-
-.social {
-  position: relative;
-  padding-left: 44px;
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.social i {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 32px;
-  line-height: 34px;
-  text-align: center;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.social:hover {
-  color: white;
-}
-h4{
-  font-weight: 400 !important;
-}
-.full-width{
-  min-width: 100%;
-  max-width: 100%;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
+ }
+ @media(max-width: 768px){
+    #rightItems-100 {
+        margin-top: 100px;
+    }
+ }
 
 </style>
 <body>
-<div class="container full-width">
- <nav class="navbar navbar-expand-lg navbar-light">
-   
-<div class="d-flex flex-row">
-  <div class="p-2"> <a class="navbar-brand" href="{{route('home')}}">
-<img src="{{asset('images/studport.png')}}" title="StudPort"/> 
-</a>
+<nav class="navbar main-nav fixed-top navbar-expand-lg p-3 bg-white" style="overflow-x: hidden;">
+  <div class="container">
+    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/my_logo.png')}}" style="height: 60px;" alt="logo"></a>
   </div>
-</div>    
-</nav>
-</div>
-  <section class="w3l-intro" id="intro">
-    <div class="new-block top-bottom">
-      <div class="container">
-        <div class="middle-section">
-         <!-- Notifications -->
-                    <div id="notific">
-                        @include('notifications')
+</nav> 
+    <div class="container bg-white">
+        <div class="row">
+            <div class="col-md-6 col-12" id="leftItems">
+                <div class="d-flex flex-column mt-3">
+                    <div class="p-2"><img src ="{{asset('images/login.svg')}}" /></div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="p-2">
+                            <img class="img-fluid" src="{{asset('images/help1.png')}}" />
+                        </div>
+                        <div class="p-2 mt-2">
+                            <h5 class="text-primary">Need Help?</h5>
+                            <h6>Call Us: (+237) 652-459-059</h6>
+                        </div>
                     </div>
-          <div class="section-width">
-            <div class="box">
-                <div class="box1 rounded-0">
-                     <div class="d-flex">
-                  <div class="mr-auto p-2"><h4 class="pt-3 text-favorite float-left"><b>Reset Password</b></h4></div>
-                  <div class="p-2"><span class="icon-lock fa-3x px-2" style="opacity: 0.1;"></span></div>
                 </div>
-                    <form action="{{ route('forgot-password') }}" class="omb_loginForm" autocomplete="off" method="POST">
-                                {!! Form::token() !!}
-                              <div class="form-group {{ $errors->first('email', 'has-error') }}">
-                                    <label class="sr-only">Email</label>
-                                    <input type="email" class="form-control rounded-0 mt-3" name="email" placeholder="Email"
-                                           value="{!! old('email') !!}">
-                                    <span class="help-block"> {{ $errors->first('email', ':message') }} </span>
+            </div>
+            <div class="col-lg-5 col-md-5 col-12 pl-5" id="rightItems-100">
+            <h1 class="p-2"> Forgot your Password?</h1>
+                <div id="notific" class="mb-3">
+                    @include('notifications')
+                </div>
+                <form action="{{ route('forgot-password') }}" class="omb_loginForm" autocomplete="off" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="card card-body rounded">
+                        <div class="d-flex flex-column">
+                            <div class="p-2">
+                                <label for="email">Email</label> 
+                                <input type="email" class="form-control" name="email" placeholder="Enter email" value="{!! old('email') !!}">
+                                <small>{{ $errors->first('email', 'Enter email') }}</small>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <div class="col-lg-8 p-2 mt-3">
+                                    <input type="submit" class="form-wizard-next-btn btn-block rounded" value="SEND INSTRUCTIONS">
                                 </div>
-
-                                <input type="submit" class="btn btn-block theme-button btn-success rounded-0" value="Reset Password">
-                            </form>
-                    <br />
-                    <div class="d-flex flex-row">
-                      <div class="p-2"><a href="{{ route('forgot-password') }}"><small>Forgot Password?</small></a></div>
-                      <div class="p-2"><small>Don't have an Account? </small></div>
-                      <div class="p-2"><a  href="{{route('register')}}" ><small>Sign Up</small></a></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-              <div class="mt-5 text-center text-dark"><small> &copy;<?php echo date('Y'); ?> StudPort. All Rights Reserved</small></div>
+                </form>
             </div>
         </div>
-        </div>
-      </div>
     </div>
-  </section>
-  <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/607982e9f7ce1827093b17bf/1f3daepbo';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    <footer>
+        <small class="text-gray">Copyright &copy; <?php echo date('Y') ?> All rights reserved</small>
+    </footer>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+<script type='text/javascript'></script>
 </body>
 </html>

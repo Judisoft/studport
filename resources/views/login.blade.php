@@ -18,7 +18,7 @@ h5{
     font-weight: 600;
 }
 p{
-    font-weight: 200 !important;
+    font-weight: 300 !important;
     font-size: 14px;
 }
 .img-fluid{
@@ -35,18 +35,12 @@ p{
     color: #fff;
 	font-size: 14px;
     display: inline-block;
-    width: 300px;
     padding: 10px;
 	text-transform: uppercase;
     border-radius: 2px;
     text-align: center;
   }
-.form-wizard-next-btn:hover{
-	color: #fff;
-	background-color: #A3060F !important;
-	border: #A3060F !important;
-	animation:  .3s ease-in;
-}
+
 label{
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
@@ -64,82 +58,110 @@ p{
      border-radius: 10px !important;
  }
  input[type=submit]{
-    background-color: var(--danger) !important;
+    background-color: var(--primary) !important;
     border-radius: 3px !important;
     font-weight: 700 !important;
  }
   input[type=submit]:hover{
-    background-color: var(--danger) !important;
+    background-color: var(--primary) !important;
  }
+ footer{
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 10px;
+    left: 0;
+    height: 20px;
+ }
+ .mt-100{
+     margin-top: 100px;
+ }
+ .text-gray{
+     color: #7B7E7C;
+ }
+ .support p{
+     font-weight: 500 !important;
+ }
+ .pass{
+     font-weight: 400;
+     font-size: 14px;
+ }
+ h1{
+     font-weight: 900 !important;
+     font-size: 28px;
+ }
+@media(max-width: 768px){
+    #leftItems {
+        display: none;
+    }
+ }
+ @media(max-width: 768px){
+    #rightItems-100 {
+        margin-top: 100px;
+    }
+ }
+
 </style>
-<body oncontextmenu='return false' class='snippet-body'>
-<nav class="navbar main-nav fixed-top navbar-expand-lg shadow p-3 bg-white" style="overflow-x: hidden;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/studport_logo.png')}}" style="height: 35px; width: 35px;" alt="logo"><span class="h5  text-dark text-capitalize px-2"><b class="text-dark" style="padding-top: 5px;">StudentPortal CM | </b> <b class="text-danger">Sign In</b></span></a>    
+<body>
+<nav class="navbar main-nav fixed-top navbar-expand-lg p-3 bg-white" style="overflow-x: hidden;">
+  <div class="container">
+    <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/my_logo.png')}}" style="height: 60px;" alt="logo"></a>
   </div>
 </nav> 
     <div class="container bg-white">
-    <div class="row">
-        <div class="col-md-6 col-12 ">
-            <div class="d-flex flex-column mt-3">
-                <div class="d-flex flex-row mb-2">
-                    <div class="p-2">
-                        <img class="img-fluid" src="{{asset('images/feature/f1.svg')}}" />
-                    </div>
-                    <div class="p-2">
-                        <h5>Be Connected!</h5>
-                        <p>Connect with Teachers, students, and institutions across and beyond your local campus.</p>
-                    </div>
-                </div>
-                <div class="d-flex flex-row mb-2">
-                    <div class="p-2">
-                        <img class="img-fluid" src="{{asset('images/feature/f2.svg')}}" />
-                    </div>
-                    <div class="p-2">
-                        <h5>Insightful Discussions</h5>
-                        <p>Ask questions, share ideas, projects & engage in interesting conversations and open discourses.</p>
-                    </div>
-                </div>
-                <div class="d-flex flex-row mb-2">
-                    <div class="p-2">
-                        <img class="img-fluid" src="{{asset('images/feature/f4.svg')}}" />
-                    </div>
-                    <div class="p-2">
-                        <h5>Explore Opportunities</h5>
-                        <p>Find one that is right for you.</p>
+        <div class="row">
+            <div class="col-md-6 col-12" id="leftItems">
+                <div class="d-flex flex-column mt-3">
+                    <div class="p-2"><img src ="{{asset('images/login.svg')}}" /></div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="p-2">
+                            <img class="img-fluid" src="{{asset('images/question1.png')}}" />
+                        </div>
+                        <div class="p-2 mt-2">
+                            <h5 class="text-primary">Need Help?</h5>
+                            <h6>Call Us: (+237) 652-459-059</h6>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-5 col-md-5 col-12 pl-5">
-            <form action="{{ route('login') }}" class="omb_loginForm" autocomplete="off" method="POST">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <div class="d-flex flex-column">
-                <div class="p-2">
-                    <label for="email">Email</label> 
-                    <input type="email" class="form-control" name="email" placeholder="Enter your email" value="{!! old('email') !!}">
-                    <small>{{ $errors->first('email', 'Enter email') }}</small>
+            <div class="col-lg-5 col-md-5 col-12 pl-5" id="rightItems-100">
+            <h1 class="p-2"> Sign In</h1>
+                <div id="notific" class="mb-3">
+                    @include('notifications')
                 </div>
-                <div class="p-2">
-                    <label for="password">Password </label> 
-                    <input type="password" class="form-control" name="password" placeholder="Enter password">
-                    <small>{{ $errors->first('password', 'Enter password') }}</small> 
-                </div>
-                <div class="d-flex flex-row">
-                    <div class="col-lg-6 p-2 mt-3">
-                        <input type="submit" class="form-wizard-next-btn bg-primary rounded" value="Login to StudPort">
+                <form action="{{ route('login') }}" class="omb_loginForm" autocomplete="off" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="card card-body rounded">
+                        <div class="d-flex flex-column">
+                            <div class="p-2">
+                                <label for="email">Email</label> 
+                                <input type="email" class="form-control" name="email" placeholder="Enter email" value="{!! old('email') !!}">
+                                <small>{{ $errors->first('email', 'Enter email') }}</small>
+                            </div>
+                            <div class="p-2">
+                                <label for="password">Password </label>
+                                <label class="float-right"><a href="{{route('forgot-password')}}" class="text-danger pass">Forgot password?</a></label>
+                                <input type="password" class="form-control" name="password" placeholder="Enter password">
+                                <small>{{ $errors->first('password', 'Enter password') }}</small> 
+                            </div>
+                            <div class="d-flex flex-row">
+                                <div class="col-lg-8 p-2 mt-3">
+                                    <input type="submit" class="form-wizard-next-btn btn-block rounded" value="LOG ME IN">
+                                </div>
+                            </div>
+                            <div class="support p-1 pl-2">
+                                <p>Don't have a StudPort Account? <a href="{{route('register')}}" class="text-primary"><b>Sign Up</b></a></p>
+
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="support p-1 pl-2">
-                    <p>Don't have a StudPort Account? <a href="{{route('register')}}" class="text-danger"><b>Sign Up</b></a></p>
-                </div>
-                  <p class="p-2"><a href="{{route('forgot-password')}}" class="text-danger">Forgot password?</a></p>
+                </form>
             </div>
-        </form>
         </div>
     </div>
-    <small class="text-dark"><b>Copyright &copy; <?php echo date('Y') ?> All rights reserved</b></small>
-</div>
+    <footer>
+        <small class="text-gray">Copyright &copy; <?php echo date('Y') ?> All rights reserved</small>
+    </footer>
 <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
 <script type='text/javascript'></script>
 </body>
